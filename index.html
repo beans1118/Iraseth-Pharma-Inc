@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iraseth Pharma — Instant Ordering for Medical & Diagnostic Supply</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="#top" class="logo">
+      <img src="assets/logo-mark.png" alt="Iraseth Pharma Incorporated" class="logo-img">
+    </a>
+    <nav id="siteNav">
+      <a href="#top">Home</a>
+      <a href="#catalog">Catalog</a>
+      <a href="#about">About</a>
+      <a href="#mission">Mission &amp; Vision</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#locations">Locations</a>
+      <a href="#contact">Contact</a>
+      <button id="cartToggle" class="nav-cta" style="border:none;">Order slip <span class="cart-count">0</span></button>
+    </nav>
+    <button id="navToggle" class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-bg-carousel" id="heroCarousel">
+    <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?fm=jpg&q=80&w=1600&auto=format&fit=crop');"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1504813184591-01572f98c85f?fm=jpg&q=80&w=1600&auto=format&fit=crop');"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1516841273335-e39b37888115?fm=jpg&q=80&w=1600&auto=format&fit=crop');"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="wrap" style="position:relative; z-index:2;">
+    <div>
+      <div class="eyebrow" style="color:var(--orange);">Since 2013 · ISO-aligned distributor</div>
+      <h1>Reorder your <em>medical supply</em>, instantly.</h1>
+      <p class="lede">Iraseth Pharma supplies hospitals, clinics, and laboratories across the Philippines with diagnostic devices, PPE, and lab consumables — now orderable online in minutes, not days.</p>
+      <div class="cta-row">
+        <a href="#catalog" class="btn btn-primary">Browse the catalog</a>
+        <a href="#how" class="btn btn-ghost-light">How ordering works</a>
+      </div>
+      <div class="trust-row">
+        <div><b>2013</b> Founded</div>
+        <div><b>16+</b> Principal suppliers</div>
+        <div><b>Nationwide</b> Delivery, PH</div>
+        <div><b>Hospitals & labs</b> Core clients</div>
+      </div>
+    </div>
+
+    <div class="slip">
+      <div class="perf"></div>
+      <div class="slip-head">
+        <span class="id">PO-20260034</span>
+        <span class="status">Ready to submit</span>
+      </div>
+      <div class="slip-body">
+        <div class="slip-row"><span class="name">Disposable Syringe 3 mL 26G</span><span class="meta">50 × per unit</span></div>
+        <div class="slip-row"><span class="name">IV Cannula with Safety Features G22</span><span class="meta">10 × per box</span></div>
+        <div class="slip-row"><span class="name">Adult Diaper M</span><span class="meta">30 × per unit</span></div>
+      </div>
+      <div class="slip-foot">
+        <span>Est. delivery: 2-4 business days</span>
+        <span class="total">₱44,000.00</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <div class="stat"><b>4</b><span>Product categories</span></div>
+    <div class="stat"><b>16+</b><span>Principal suppliers</span></div>
+    <div class="stat"><b>2–4 days</b><span>Typical delivery</span></div>
+    <div class="stat"><b>24/7</b><span>Online ordering</span></div>
+  </div>
+</div>
+
+<section id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">How it works</div>
+      <h2>From catalog to delivery, in three steps</h2>
+      <p>No more back-and-forth over email or phone for repeat orders. Build your requisition online, and our team takes it from there.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">01</div>
+        <h3>Build your order</h3>
+        <p>Search or filter our catalog of diagnostic devices, PPE, and lab consumables, and add items straight to your order slip.</p>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <h3>Submit the requisition</h3>
+        <p>Confirm your facility details and submit. You'll get a reference number for tracking, same as a paper PO — just faster.</p>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <h3>We confirm & deliver</h3>
+        <p>Our team verifies stock and pricing, confirms by email, and coordinates delivery to your facility nationwide.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CATALOG ================= -->
+<div class="products-header" id="catalog">
+  <div class="wrap">
+    <div class="eyebrow">Catalog</div>
+    <h1>Order medical & diagnostic supplies</h1>
+    <p style="font-family:var(--mono); font-size:12px; color:rgba(255,255,255,0.6); margin-top:8px;">Prices shown are SRP (Suggested Retail Price), inclusive of 12% VAT.</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="products-layout">
+    <aside class="filter-box">
+      <h5>Search</h5>
+      <input type="text" id="searchInput" class="search-input" placeholder="Search products or SKU...">
+      <h5>Category</h5>
+      <div class="filter-list" id="filterList"></div>
+    </aside>
+
+    <div>
+      <div class="product-grid" id="productGrid"></div>
+    </div>
+  </div>
+</div>
+
+<section id="about" style="background:var(--white); border-top:1px solid var(--line);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">About Iraseth Pharma</div>
+      <h2>Who we are</h2>
+      <p>Iraseth Pharma Incorporated is a Philippine-based company providing integrated medical and diagnostics solutions for the country's foremost hospitals and clinical laboratories. Ever since its establishment in July 2013, we've been one of the country's rapidly growing trading companies in healthcare solutions — importing, indenting, and distributing medical and diagnostic devices, laboratory supplies, and consumables at cost, for local government units and private facilities alike.</p>
+      <p style="margin-top:14px;">We take pride in contributing to society by creating a safe working environment for every patient and the entire healthcare team, backed by ISO 9001-aligned quality standards.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MISSION / VISION / COMMITMENT ================= -->
+<section id="mission" style="background:var(--paper-dim); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What drives us</div>
+      <h2>Mission, vision & commitment</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">Mission</div>
+        <p style="margin-top:10px; font-size:14.5px;">To provide access to quality pharmaceutical and medical device products with innovative and safety features that adhere to high standards of quality and service — creating a safe working environment in hospital settings and communities.</p>
+      </div>
+      <div class="step">
+        <div class="num">Vision</div>
+        <p style="margin-top:10px; font-size:14.5px;">We envision ourselves as a prime provider of high-quality medical devices and pharmaceutical products that substantially upgrade the quality of health services for the Filipino people — and to eradicate needle stick injuries in hospital settings while promoting early screening for diabetes and communicable diseases.</p>
+      </div>
+      <div class="step">
+        <div class="num">Commitment</div>
+        <p style="margin-top:10px; font-size:14.5px;">To make a difference by being a responsible organization that builds and supports a safe working environment for every healthcare provider, patient, and community.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LEADERSHIP ================= -->
+<section id="leadership" style="background:var(--white);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Leadership</div>
+      <h2>A message from our President & CEO</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:120px 1fr; gap:28px; align-items:flex-start; max-width:760px;">
+      <img src="assets/ceo.png" alt="Eduardo G. Tolosa Jr., President & CEO" style="width:100px; height:100px; border-radius:50%; object-fit:cover; box-shadow:var(--shadow);">
+      <div>
+        <p style="font-size:15px; color:var(--ink-soft);">"The Company strives to uphold its steadfast commitment to deliver quality and safe healthcare products and services through the use of the latest state-of-the-art medical supplies and equipment. By efficient use of research, we aim to introduce unparalleled technology development to enable us to be at par with the standards of the global market. We look forward to your continued support and patronage."</p>
+        <p style="margin-top:16px; font-family:var(--display); font-weight:700; color:var(--navy-deep);">Eduardo G. Tolosa Jr.</p>
+        <p class="eyebrow" style="margin-top:2px;">President & CEO</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PARTNERS ================= -->
+<section id="partners" style="background:var(--paper-dim); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Trusted by 16+ suppliers worldwide</div>
+      <h2>Our principal suppliers</h2>
+      <p>We source from established global manufacturers of diagnostic and medical equipment. Logos aren't reproduced here out of respect for their trademarks — brand names only.</p>
+    </div>
+    <div class="cat-grid" style="grid-template-columns:repeat(4,1fr);">
+      <div class="cat-card" style="text-align:center;"><h4>Alltest</h4></div>
+      <div class="cat-card" style="text-align:center;"><h4>Bestran</h4></div>
+      <div class="cat-card" style="text-align:center;"><h4>Biobase</h4></div>
+      <div class="cat-card" style="text-align:center;"><h4>Polymed</h4></div>
+      <div class="cat-card" style="text-align:center;"><h4>Rayto</h4></div>
+      <div class="cat-card" style="text-align:center;"><h4>Chison</h4></div>
+      <div class="cat-card" style="text-align:center;"><h4>Edan Instruments</h4></div>
+      <div class="cat-card" style="text-align:center;"><h4>MedCaptain</h4></div>
+    </div>
+    <p style="margin-top:18px; font-family:var(--mono); font-size:12px; color:var(--ink-soft);">+ 8 additional principal suppliers across diagnostics, imaging, and lab equipment.</p>
+  </div>
+</section>
+
+<!-- ================= LOCATIONS ================= -->
+<section id="locations" style="background:var(--white);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Where we operate</div>
+      <h2>Our locations</h2>
+    </div>
+    <div class="steps" style="grid-template-columns:repeat(2,1fr);">
+      <div class="step">
+        <h3>Marikina City — Main Office</h3>
+        <p>77 EGT Bldg., JM Basa St., Calumpang, Marikina City, Philippines</p>
+        <p style="margin-top:10px; font-family:var(--mono); font-size:13px; color:var(--navy-deep);">(02) 8942-6365 · +63 917 704 8256</p>
+      </div>
+      <div class="step">
+        <h3>Cagayan de Oro City</h3>
+        <p>Blk. 1, Lot 23, Golden Village Subd., Carmen, Cagayan de Oro City, Philippines</p>
+        <p style="margin-top:10px; font-family:var(--mono); font-size:13px; color:var(--navy-deep);">+63 917 632 7297</p>
+      </div>
+    </div>
+    <div class="cta-band" style="margin-top:32px;">
+      <div>
+        <h3>Ready to place a standing order?</h3>
+        <p>Add items to your order slip above and submit — our team confirms availability and delivery timing.</p>
+      </div>
+      <a href="#catalog" class="btn" style="background:var(--white); color:var(--navy); font-weight:700;">Go to catalog →</a>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div>
+      <div class="logo" style="margin-bottom:14px; align-items:center; gap:12px; background:var(--white); display:inline-flex; padding:8px 14px; border-radius:6px;">
+        <img src="assets/logo-mark.png" alt="Iraseth Pharma Incorporated" style="height:34px; width:auto;">
+      </div>
+      <p style="font-size:13px; max-width:280px;">Philippine-based importer, indentor, and distributor of medical and diagnostic devices, laboratory supplies, and consumables.</p>
+      <img src="assets/iso_logo.png" alt="ISO 9001 Certified — TÜV NORD CERT GmbH" style="height:56px; width:auto; margin-top:16px; background:#fff; border-radius:50%; padding:2px;">
+    </div>
+    <div>
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#top">Home</a></li>
+        <li><a href="#catalog">Catalog</a></li>
+        <li><a href="#mission">Mission & Vision</a></li>
+        <li><a href="#leadership">Leadership</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Marikina City (Main)</h5>
+      <ul>
+        <li>77 EGT Bldg., JM Basa St.,<br>Calumpang, Marikina City</li>
+        <li>(02) 8942-6365</li>
+      </ul>
+    </div>
+    <div>
+      <h5>Cagayan de Oro</h5>
+      <ul>
+        <li>Blk. 1, Lot 23, Golden Village<br>Subd., Carmen, CDO</li>
+        <li>0917-632-7297</li>
+      </ul>
+    </div>
+  </div>
+  <div class="bottom">
+    <span>© 2026 Iraseth Pharma Inc. All rights reserved.</span>
+    <span>Sample content for site rebuild — replace with verified copy before launch.</span>
+  </div>
+</footer>
+
+<!-- Cart Drawer -->
+<div class="overlay" id="overlay"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-head">
+    <strong>Your order slip</strong>
+    <button id="cartClose" aria-label="Close cart">×</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-drawer-foot">
+    <div style="display:flex; justify-content:space-between; margin-bottom:14px; font-family:var(--display); font-weight:700; color:var(--navy-deep); font-size:16px;">
+      <span>Total</span>
+      <span id="cartTotal">₱0.00</span>
+    </div>
+
+    <div id="orderConfirm"></div>
+
+    <form id="checkoutForm">
+      <p style="font-family:var(--mono); font-size:11px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:14px;">No account needed — just fill in your details to order</p>
+      <div class="field"><label for="cf-name">Contact name</label><input id="cf-name" required placeholder="e.g. Dr. J. Reyes"></div>
+      <div class="field"><label for="cf-facility">Facility / hospital</label><input id="cf-facility" required placeholder="e.g. Marikina General Hospital"></div>
+      <div class="field"><label for="cf-email">Email</label><input id="cf-email" type="email" required placeholder="you@facility.ph"></div>
+      <button type="submit" id="checkoutBtn" class="btn btn-primary btn-block" disabled>Submit order</button>
+    </form>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

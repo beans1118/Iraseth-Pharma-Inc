@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Iraseth Pharma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ================= LOGIN SCREEN ================= -->
+<div class="login-shell" id="loginScreen">
+  <div class="  login-card">
+    <div class="top">
+      <img src="assets/logo-mark.png" alt="Iraseth Pharma" style="height:48px; width:auto; margin:0 auto 14px; display:block;">
+      <h1>Admin access</h1>
+      <p>Sign in to view order logs and client activity.</p>
+    </div>
+    <div class="login-form">
+      <div class="login-error" id="loginError">Incorrect email or password. Try again.</div>
+      <form id="loginForm">
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" required placeholder="admin@irasethpharma.com" autocomplete="username">
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" type="password" required placeholder="••••••••" autocomplete="current-password">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+      </form>
+      <p class="login-hint">DEMO CREDENTIALS · admin@irasethpharma.com / iraseth2026</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= DASHBOARD ================= -->
+<div class="admin-shell" id="dashboardScreen" style="display:none;">
+  <aside class="admin-side">
+    <div class="logo" style="background:var(--white); display:inline-flex; padding:8px 12px; border-radius:6px;">
+      <img src="assets/logo-mark.png" alt="Iraseth Pharma" style="height:30px; width:auto;">
+    </div>
+    <nav>
+      <a href="#" class="active" data-view="orders">Order logs</a>
+      <a href="#" data-view="clients">Client history</a>
+      <a href="index.html" target="_blank">View storefront ↗</a>
+    </nav>
+    <a href="#" class="sign-out" id="signOut">Sign out</a>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-top">
+      <div>
+        <h1 id="viewTitle">Order logs</h1>
+        <p id="viewSub">Every order submitted through the storefront, most recent first.</p>
+      </div>
+    </div>
+
+    <div class="kpi-row">
+      <div class="kpi">
+        <div class="eyebrow">Total orders</div>
+        <b id="kpiOrders">0</b>
+      </div>
+      <div class="kpi">
+        <div class="eyebrow">Pending</div>
+        <b id="kpiPending">0</b>
+      </div>
+      <div class="kpi">
+        <div class="eyebrow">Revenue logged</div>
+        <b id="kpiRevenue">₱0</b>
+      </div>
+      <div class="kpi">
+        <div class="eyebrow">Unique clients</div>
+        <b id="kpiClients">0</b>
+      </div>
+    </div>
+
+    <div id="ordersView">
+      <div class="panel">
+        <div class="panel-head">
+          <h3>Order log</h3>
+          <div class="controls">
+            <input type="text" id="orderSearch" placeholder="Search order, client, facility...">
+            <select id="statusFilter">
+              <option value="all">All statuses</option>
+              <option value="Pending">Pending</option>
+              <option value="Processing">Processing</option>
+              <option value="Fulfilled">Fulfilled</option>
+            </select>
+          </div>
+        </div>
+        <div style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>Order</th>
+                <th>Client / Facility</th>
+                <th>Items</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody id="ordersTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="clientsView" style="display:none;">
+      <div class="panel">
+        <div class="panel-head"><h3>Client purchase history</h3></div>
+        <div style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>Client</th>
+                <th>Facility</th>
+                <th>Orders</th>
+                <th>Total spend</th>
+                <th>Last order</th>
+              </tr>
+            </thead>
+            <tbody id="clientsTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/data.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
