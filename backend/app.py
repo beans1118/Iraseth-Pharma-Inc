@@ -2,7 +2,7 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 
 from config import Config
-from extensions import ensure_indexes
+from backend.extensions import ensure_indexes
 from routes.auth import bp as auth_bp
 from routes.products import bp as products_bp
 from routes.orders import bp as orders_bp

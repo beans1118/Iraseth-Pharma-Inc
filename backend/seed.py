@@ -16,7 +16,7 @@ import json
 from pathlib import Path
 
 from config import Config
-from extensions import db, ensure_indexes
+from backend.extensions import db, ensure_indexes
 from utils.security import hash_password
 
 
