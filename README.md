@@ -1,67 +1,117 @@
-# Iraseth Pharma — Storefront + Admin
+# Iraseth Pharma — Backend (Flask + MongoDB)
 
-## What changed in this pass
+A small REST API that replaces the storefront's localStorage-only data with
+real persistence: products, orders, and an admin account with login.
 
-**Header/logo fix** — the header is now white instead of navy. Your logo's
-navy-blue lettering ("RASETH", "PHARMA", "Incorporated") was nearly the same
-color as the old navy header background, so half the logo was effectively
-unreadable there; only the red parts stood out. On white, the full logo
-reads clearly.
+## What it does
 
-**UI/UX polish** (same layout/sections as before, per your call — nothing
-was restructured):
-- Fixed a real bug, not just a style nit: on any screen under 980px wide,
-  the entire nav — including the "Order slip" button — disappeared with no
-  way to bring it back. Added a working hamburger menu.
-- Same bug existed in the admin sidebar on mobile; now becomes a horizontal
-  bar instead of vanishing.
-- More consistent hover states, shadows, and transitions on buttons and
-  cards throughout.
+- **Products** — public catalog reads; create/update/delete require admin login.
+- **Orders** — anyone can submit an order (no account needed, same as the
+  original storefront). Prices are recalculated server-side from the product
+  catalog, never trusted from the browser. Viewing/managing orders requires
+  admin login.
+- **Auth** — one admin account, email + password, hashed with bcrypt. Login
+  returns a JWT that the admin dashboard sends back on every request.
+- **Order status + notes** — when an admin changes an order's status or adds
+  a note, it's saved to the order and (if SMTP is configured) an email goes
+  out to the customer. If SMTP isn't configured, the email is just logged —
+  the rest of the app keeps working.
 
-**Backend** — a real Python (Flask) + MongoDB API now backs the site:
-products, orders, admin login, and order status/notes with email
-notifications. See `backend/README.md` for full setup.
+## 1. Prerequisites
 
-## Running it
+- Python 3.10+
+- A MongoDB database. Either:
+  - **Local**: install MongoDB Community Server and run `mongod`, or
+  - **Free hosted option**: create a free cluster at
+    [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register) and copy
+    its connection string.
 
-### Frontend only (no backend)
-Just open `index.html` / `admin.html` through any static file server (not
-`file://`, since fetch calls need an http origin). It'll automatically fall
-back to the built-in offline demo data — same behavior as before this pass.
+## 2. Setup
 
-Quick option:
 ```bash
-python -m http.server 8000
-# then visit http://localhost:8000
+cd backend
+python -m venv venv
+source venv/bin/activate        # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+
+cp .env.example .env
+# now edit .env:
+#   - set MONGO_URI to your local or Atlas connection string
+#   - set JWT_SECRET to a long random string
+#     (generate one with: python -c "import secrets; print(secrets.token_hex(32))")
+#   - set SEED_ADMIN_EMAIL / SEED_ADMIN_PASSWORD to whatever you want your
+#     real admin login to be
+#   - CORS_ORIGINS: the address your frontend is served from, e.g.
+#     http://127.0.0.1:5500 if you're using VS Code's Live Server
 ```
 
-### Frontend + real backend
-1. Set up and run the backend — see `backend/README.md` (roughly:
-   `pip install -r requirements.txt`, fill in `.env`, `python seed.py`,
-   `python app.py`).
-2. Confirm `js/config.js` points at it (`http://localhost:5000/api` by
-   default — matches the backend's default port).
-3. Serve the frontend as above and open it in a browser.
+## 3. Load starting data
 
-Once both are running: products load from MongoDB, checkout creates a real
-order in the database, and the admin dashboard (login with whatever you set
-`SEED_ADMIN_EMAIL` / `SEED_ADMIN_PASSWORD` to) shows real orders, lets you
-change status, and add notes — both of which are stored on the order and
-trigger a customer email if `SMTP_HOST` is configured.
+This inserts the existing 41-product catalog and creates the admin account:
 
-Admin demo login (used only when the backend isn't reachable):
-`admin@irasethpharma.com` / `iraseth2026`
-
-## File map
-
+```bash
+python seed.py
 ```
-index.html, admin.html       storefront + admin pages
-css/styles.css                all styling
-js/config.js                  API_BASE — point this at your backend
-js/api.js                     fetch wrapper for the backend API
-js/data.js                    demo product catalog (offline fallback) + Cart/Orders helpers
-js/main.js                    storefront logic (catalog, cart, checkout)
-js/admin.js                   admin login + dashboard logic
-assets/                       logo, CEO photo, ISO badge
-backend/                      Flask + MongoDB API — see backend/README.md
+
+Re-running it refreshes the product catalog but never touches existing
+orders.
+
+## 4. Run it
+
+```bash
+python app.py
 ```
+
+The API is now at `http://localhost:5000/api`. Check it's alive:
+
+```bash
+curl http://localhost:5000/api/health
+```
+
+## 5. Point the frontend at it
+
+In `js/config.js` (in the site root, one level up from `backend/`), set:
+
+```js
+const API_BASE = "http://localhost:5000/api";
+```
+
+Then open `index.html` (via a local server, not `file://`) and `admin.html`
+as usual. If the API is unreachable, the storefront automatically falls back
+to its original offline demo data, so it still works standalone.
+
+## API reference
+
+| Method | Route                          | Auth  | Purpose |
+|--------|---------------------------------|-------|---------|
+| GET    | `/api/health`                   | none  | Liveness check |
+| POST   | `/api/auth/login`                | none  | `{email, password}` → `{token, admin}` |
+| GET    | `/api/auth/me`                   | admin | Current admin profile |
+| GET    | `/api/products?cat=&q=`          | none  | List/search/filter products |
+| GET    | `/api/products/<id>`             | none  | One product |
+| POST   | `/api/products`                  | admin | Create product |
+| PUT    | `/api/products/<id>`             | admin | Update product |
+| DELETE | `/api/products/<id>`             | admin | Delete product |
+| POST   | `/api/orders`                    | none  | Submit an order (checkout) |
+| GET    | `/api/orders?status=&q=`         | admin | List/search/filter orders |
+| GET    | `/api/orders/clients-summary`    | admin | Purchase totals grouped by facility |
+| GET    | `/api/orders/<id>`                | admin | One order |
+| PATCH  | `/api/orders/<id>`                 | admin | `{status?, note?}` — updates status and/or appends a note; emails the customer on status change |
+
+Admin routes expect `Authorization: Bearer <token>` from `/api/auth/login`.
+
+## Notes on email
+
+`utils/email.py` uses plain `smtplib`. It works with Gmail (with an
+[app password](https://support.google.com/accounts/answer/185833)), any
+transactional email provider's SMTP credentials (SendGrid, Mailgun, etc.),
+or your institution's SMTP server. Leave `SMTP_HOST` blank in `.env` to skip
+sending email entirely during development — order creation and status
+updates still work, they just log instead of sending.
+
+## Deploying
+
+This is a plain Flask app (`app.py` exposes `app`), so it runs behind any
+WSGI server (gunicorn, uWSGI) the same way any Flask app does. Set real
+environment variables (not `.env`) in production, and restrict
+`CORS_ORIGINS` to your real frontend domain.
