@@ -6,6 +6,14 @@
 let activeCat = new URLSearchParams(location.search).get("cat") || "all";
 let query = "";
 
+function showDemoBanner(){
+  if(!Api.mock) return;
+  const bar = document.createElement("div");
+  bar.style.cssText = "background:var(--red); color:#fff; text-align:center; font-size:12.5px; font-weight:600; padding:8px 16px; position:relative; z-index:60;";
+  bar.textContent = "Demo Mode — no backend detected. Data shown here is sample data stored only in this browser (see backend/README.md to run the real API).";
+  document.body.prepend(bar);
+}
+
 async function loadProducts(){
   const live = await Api.getProducts();
   if(live){
@@ -128,6 +136,8 @@ function closeCart(){
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
+  await Api.detect();
+  showDemoBanner();
   await loadProducts();
   renderFilters();
   renderGrid();

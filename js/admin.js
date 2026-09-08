@@ -111,6 +111,16 @@ function signOutForced(){
 
 /* ---------- Real-time (Socket.IO) ---------- */
 function connectSocket(){
+  if(Api.mock){
+    // Demo Mode has no server to push events from — every mutation already
+    // re-renders locally, so mark the status dot accordingly instead of
+    // trying (and failing) to open a real WebSocket.
+    const dot = document.getElementById("liveDot");
+    const label = document.getElementById("liveLabel");
+    dot?.classList.remove("offline");
+    if(label) label.textContent = "Demo mode";
+    return;
+  }
   if(typeof io === "undefined") return; // CDN unreachable — dashboard still works, just not live
   socket = io(SOCKET_BASE, { transports: ["websocket", "polling"] });
   const dot = document.getElementById("liveDot");
@@ -510,6 +520,19 @@ document.querySelectorAll(".admin-side a[data-view]").forEach(link => {
 
 /* ---------- Entry point ---------- */
 (async () => {
+  await Api.detect();
+  if(Api.mock){
+    const bar = document.createElement("div");
+    bar.style.cssText = "background:var(--red); color:#fff; text-align:center; font-size:12.5px; font-weight:600; padding:8px 16px;";
+    bar.textContent = "Demo Mode — no backend detected. All data below is sample data stored only in this browser.";
+    document.body.prepend(bar);
+
+    const hint = document.createElement("p");
+    hint.className = "login-hint";
+    hint.innerHTML = "Demo logins:<br>superadmin@irasethpharma.com / demo-superadmin<br>admin@irasethpharma.com / demo-admin<br>subadmin@irasethpharma.com / demo-subadmin";
+    document.querySelector(".login-form")?.appendChild(hint);
+  }
+
   const saved = sessionStorage.getItem(SESSION_KEY);
   if(saved && Api.getToken()){
     currentUser = JSON.parse(saved);
