@@ -3,8 +3,9 @@ from datetime import datetime, timezone
 from flask import Blueprint, request, jsonify, g
 
 from extensions import db
-from utils.security import require_admin
+from utils.security import require_role
 from utils.email import order_confirmation_email, order_status_email
+from realtime import emit_stock_update, emit_inventory_log
 
 bp = Blueprint("orders", __name__, url_prefix="/api/orders")
 
@@ -29,6 +30,40 @@ def _next_order_id() -> str:
     else:
         seq = 1
     return f"{prefix}{seq:04d}"
+
+
+def _release_stock_for_order(order: dict) -> None:
+    """Fulfilling an order releases stock for every line item — logged the
+    same way a manual release is, so the audit trail shows the real reason
+    (order id) rather than a bare stock adjustment."""
+    for line in order["lines"]:
+        product = db.products.find_one({"id": line["id"]})
+        if not product:
+            continue
+        before = product.get("quantity", 0)
+        after = max(0, before - line["qty"])
+        db.products.update_one({"id": line["id"]}, {"$set": {"quantity": after}})
+        updated = db.products.find_one({"id": line["id"]})
+
+        log_entry = {
+            "product_id": line["id"],
+            "product_name": product.get("name", ""),
+            "action": "release",
+            "qty": line["qty"],
+            "before": before,
+            "after": after,
+            "note": f"Order {order['id']} fulfilled",
+            "actor_email": g.user["email"],
+            "actor_name": g.user.get("name", ""),
+            "role": g.user["role"],
+            "at": datetime.now(timezone.utc).isoformat(),
+        }
+        db.inventory_logs.insert_one(log_entry)
+        log_entry.pop("_id", None)
+
+        updated.pop("_id", None)
+        emit_stock_update(updated)
+        emit_inventory_log(log_entry)
 
 
 @bp.post("")
@@ -58,13 +93,13 @@ def create_order():
         except (TypeError, ValueError):
             return jsonify({"error": f"Invalid quantity for {raw.get('id')}"}), 400
 
-        line_total = round(product["price"] * qty, 2)
+        line_total = round(product.get("price", 0) * qty, 2)
         total += line_total
         lines.append({
             "id": product["id"],
             "name": product["name"],
             "unit": product["unit"],
-            "price": product["price"],
+            "price": product.get("price", 0),
             "qty": qty,
             "lineTotal": line_total,
         })
@@ -87,9 +122,10 @@ def create_order():
 
 
 @bp.get("")
-@require_admin
+@require_role()
 def list_orders():
-    """Admin only. Supports ?status=&q=."""
+    """Any authenticated staff role (admin is view-only, but viewing is fine).
+    Supports ?status=&q=."""
     query = {}
     status = request.args.get("status")
     if status and status != "all":
@@ -108,9 +144,9 @@ def list_orders():
 
 
 @bp.get("/clients-summary")
-@require_admin
+@require_role()
 def clients_summary():
-    """Admin only. Purchase totals grouped by facility, for the Clients view."""
+    """Purchase totals grouped by facility, for the Clients view."""
     pipeline = [
         {"$group": {
             "_id": "$facility",
@@ -128,7 +164,7 @@ def clients_summary():
 
 
 @bp.get("/<order_id>")
-@require_admin
+@require_role()
 def get_order(order_id):
     o = db.orders.find_one({"id": order_id})
     if not o:
@@ -137,9 +173,11 @@ def get_order(order_id):
 
 
 @bp.patch("/<order_id>")
-@require_admin
+@require_role("superadmin", "subadmin")
 def update_order(order_id):
-    """Admin only. Body may include 'status' and/or 'note'. Emails the client on status change."""
+    """Superadmin/subadmin only — admin is view-only for orders too. Body may
+    include 'status' and/or 'note'. Setting status to Fulfilled deducts stock
+    for every line item and logs it. Emails the client on status change."""
     data = request.get_json(silent=True) or {}
     status = data.get("status")
     note_text = (data.get("note") or "").strip()
@@ -150,17 +188,19 @@ def update_order(order_id):
 
     updates = {}
     status_changed = False
+    becoming_fulfilled = False
     if status is not None:
         if status not in VALID_STATUSES:
             return jsonify({"error": f"status must be one of {VALID_STATUSES}"}), 400
         status_changed = status != order["status"]
+        becoming_fulfilled = status_changed and status == "Fulfilled" and order["status"] != "Fulfilled"
         updates["status"] = status
 
     push = None
     if note_text:
         push = {"notes": {
             "text": note_text,
-            "author": g.admin.get("email", "admin"),
+            "author": g.user.get("email", "staff"),
             "at": datetime.now(timezone.utc).isoformat(),
         }}
 
@@ -175,6 +215,8 @@ def update_order(order_id):
     db.orders.update_one({"id": order_id}, op)
 
     updated = db.orders.find_one({"id": order_id})
+    if becoming_fulfilled:
+        _release_stock_for_order(updated)
     if status_changed:
         order_status_email(updated, note=note_text)
 
