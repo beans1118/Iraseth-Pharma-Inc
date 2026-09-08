@@ -1,3 +1,8 @@
+/* =========================================================
+   IRASETH PHARMA — Public site logic
+   Catalog rendering, cart drawer, and checkout submission.
+   ========================================================= */
+
 let activeCat = new URLSearchParams(location.search).get("cat") || "all";
 let query = "";
 

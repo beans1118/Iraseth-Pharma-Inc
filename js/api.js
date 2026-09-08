@@ -1,4 +1,10 @@
-
+/* =========================================================
+   IRASETH PHARMA — API client
+   Every method returns { ok, status, data, error }. There is no
+   offline/demo fallback — if the backend is unreachable, ok is
+   false and status is 0, and callers should show that clearly
+   instead of silently substituting fake data.
+   ========================================================= */
 const Api = {
   TOKEN_KEY: "iraseth_admin_token",
 

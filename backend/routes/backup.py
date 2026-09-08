@@ -2,8 +2,12 @@
 Backups. Superadmin-only. Snapshots every collection that matters
 (products, orders, users minus password hashes, sessions, inventory_logs)
 into one timestamped JSON file under backend/<Config.BACKUP_DIR>/, so the
-whole system state can be restored if something goes wrong. """
+whole system state can be restored if something goes wrong.
 
+This is triggered manually here (POST /run). To run it automatically, add a
+cron job / scheduled task that calls this endpoint on a schedule (e.g. daily
+at 2am) — see PROPOSAL.md for the recommended schedule.
+"""
 import json
 from pathlib import Path
 from datetime import datetime, timezone

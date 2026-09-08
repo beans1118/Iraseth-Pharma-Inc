@@ -1,3 +1,10 @@
+/* =========================================================
+   IRASETH PHARMA — Backend console logic
+   Requires a reachable backend — there is no offline/demo login
+   fallback anymore, since this screen now controls real inventory
+   and real user accounts. Every action here is logged server-side.
+   ========================================================= */
+
 const SESSION_KEY = "iraseth_admin_session";
 let currentUser = null;   // { email, name, role }
 let currentOrders = [];

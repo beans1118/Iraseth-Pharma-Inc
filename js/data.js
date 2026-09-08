@@ -1,3 +1,14 @@
+/* =========================================================
+   IRASETH PHARMA — Product catalog + cart
+   No hardcoded/demo product data lives here anymore. PRODUCTS is
+   populated ONLY from the live backend (see main.js -> Api.getProducts()).
+   Categories are also derived from whatever the backend returns, instead
+   of a fixed hardcoded list, so adding a new category server-side just
+   works on the storefront with no frontend change needed.
+   ========================================================= */
+
+// The live catalog the rest of the app reads from. Empty until main.js
+// loads it from the API on page load.
 let PRODUCTS = [];
 
 function getCategories(){
