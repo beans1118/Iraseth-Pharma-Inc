@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
 </head>
 <body>
 
@@ -15,15 +16,15 @@
   <div class="  login-card">
     <div class="top">
       <img src="assets/logo-mark.png" alt="Iraseth Pharma" style="height:48px; width:auto; margin:0 auto 14px; display:block;">
-      <h1>Admin access</h1>
-      <p>Sign in to view order logs and client activity.</p>
+      <h1>Backend access</h1>
+      <p>Sign in with your Superadmin, Admin, or Sub-admin account.</p>
     </div>
     <div class="login-form">
       <div class="login-error" id="loginError">Incorrect email or password. Try again.</div>
       <form id="loginForm">
         <div class="field">
           <label for="email">Email</label>
-          <input id="email" type="email" required placeholder="admin@irasethpharma.com" autocomplete="username">
+          <input id="email" type="email" required placeholder="you@irasethpharma.com" autocomplete="username">
         </div>
         <div class="field">
           <label for="password">Password</label>
@@ -31,7 +32,6 @@
         </div>
         <button type="submit" class="btn btn-primary btn-block">Sign in</button>
       </form>
-      <p class="login-hint">DEMO CREDENTIALS · admin@irasethpharma.com / iraseth2026</p>
     </div>
   </div>
 </div>
@@ -42,23 +42,32 @@
     <div class="logo" style="background:var(--white); display:inline-flex; padding:8px 12px; border-radius:6px;">
       <img src="assets/logo-mark.png" alt="Iraseth Pharma" style="height:30px; width:auto;">
     </div>
+    <div>
+      <span class="role-badge" id="roleBadge">—</span>
+      <div style="font-size:12px; color:rgba(255,255,255,0.55); margin-top:6px;" id="userNameLabel"></div>
+    </div>
     <nav>
-      <a href="#" class="active" data-view="orders">Order logs</a>
+      <a href="#" class="active" data-view="inventory">Inventory</a>
+      <a href="#" data-view="orders">Purchase orders</a>
       <a href="#" data-view="clients">Client history</a>
+      <a href="#" data-view="logs" data-role-gate="superadmin,admin">Activity logs</a>
+      <a href="#" data-view="users" data-role-gate="superadmin">Users & roles</a>
+      <a href="#" data-view="backup" data-role-gate="superadmin">Backups</a>
       <a href="index.html" target="_blank">View storefront ↗</a>
     </nav>
+    <div style="font-size:11px; color:rgba(255,255,255,0.4);"><span class="live-dot" id="liveDot"></span><span id="liveLabel">Connecting…</span></div>
     <a href="#" class="sign-out" id="signOut">Sign out</a>
   </aside>
 
   <main class="admin-main">
     <div class="admin-top">
       <div>
-        <h1 id="viewTitle">Order logs</h1>
-        <p id="viewSub">Every order submitted through the storefront, most recent first.</p>
+        <h1 id="viewTitle">Inventory</h1>
+        <p id="viewSub">Live stock levels — release and supply update every connected dashboard instantly.</p>
       </div>
     </div>
 
-    <div class="kpi-row">
+    <div class="kpi-row" id="orderKpiRow" style="display:none;">
       <div class="kpi">
         <div class="eyebrow">Total orders</div>
         <b id="kpiOrders">0</b>
@@ -77,7 +86,41 @@
       </div>
     </div>
 
-    <div id="ordersView">
+    <!-- ================= INVENTORY (Real-Time Tracking System) ================= -->
+    <div id="inventoryView">
+      <div class="kpi-row">
+        <div class="kpi"><div class="eyebrow">Total products</div><b id="invKpiTotal">0</b></div>
+        <div class="kpi"><div class="eyebrow">In stock</div><b id="invKpiIn">0</b></div>
+        <div class="kpi"><div class="eyebrow">Low stock</div><b id="invKpiLow">0</b></div>
+        <div class="kpi"><div class="eyebrow">Out of stock</div><b id="invKpiOut">0</b></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head">
+          <h3>Current stock</h3>
+          <div class="controls">
+            <input type="text" id="inventorySearch" placeholder="Search product name or ID...">
+          </div>
+        </div>
+        <div style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Status</th>
+                <th id="inventoryActionsHeader">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="inventoryTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= ORDERS ================= -->
+    <div id="ordersView" style="display:none;">
       <div class="panel">
         <div class="panel-head">
           <h3>Order log</h3>
@@ -128,8 +171,138 @@
         </div>
       </div>
     </div>
+
+    <!-- ================= ACTIVITY LOGS (superadmin + admin) ================= -->
+    <div id="logsView" style="display:none;">
+      <div class="panel">
+        <div class="panel-head">
+          <h3>Login / logout sessions</h3>
+          <div class="controls">
+            <input type="text" id="sessionLogSearch" placeholder="Search by email...">
+            <select id="sessionRoleFilter">
+              <option value="all">All roles</option>
+              <option value="superadmin">Superadmin</option>
+              <option value="admin">Admin</option>
+              <option value="subadmin">Sub-admin</option>
+            </select>
+          </div>
+        </div>
+        <div style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Role</th>
+                <th>Logged in</th>
+                <th>Logged out</th>
+                <th>Duration</th>
+              </tr>
+            </thead>
+            <tbody id="sessionLogsTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h3>Inventory activity (add / deduct)</h3>
+          <div class="controls">
+            <select id="invLogActionFilter">
+              <option value="all">All actions</option>
+              <option value="release">Release (deduct)</option>
+              <option value="supply">Supply (add)</option>
+            </select>
+          </div>
+        </div>
+        <div style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Action</th>
+                <th>Qty</th>
+                <th>Before → After</th>
+                <th>By</th>
+                <th>Role</th>
+                <th>Note</th>
+                <th>When</th>
+              </tr>
+            </thead>
+            <tbody id="invLogsTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= USERS & ROLES (superadmin only) ================= -->
+    <div id="usersView" style="display:none;">
+      <div class="panel">
+        <div class="panel-head">
+          <h3>Staff accounts</h3>
+          <button class="btn btn-primary" id="newUserBtn" style="padding:8px 16px; font-size:13px;">+ New account</button>
+        </div>
+        <div style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="usersTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= BACKUPS (superadmin only) ================= -->
+    <div id="backupView" style="display:none;">
+      <div class="panel">
+        <div class="panel-head">
+          <h3>System backups</h3>
+          <button class="btn btn-primary" id="runBackupBtn" style="padding:8px 16px; font-size:13px;">Run backup now</button>
+        </div>
+        <div style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>File</th>
+                <th>Created</th>
+                <th>Contents</th>
+              </tr>
+            </thead>
+            <tbody id="backupsTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </main>
 </div>
+
+<!-- New / edit user modal -->
+<div class="modal-backdrop" id="userModal">
+  <div class="modal">
+    <h3 id="userModalTitle">New account</h3>
+    <div class="field"><label>Name</label><input id="um-name"></div>
+    <div class="field"><label>Email</label><input id="um-email" type="email"></div>
+    <div class="field"><label>Role</label>
+      <select id="um-role">
+        <option value="superadmin">Superadmin</option>
+        <option value="admin">Admin</option>
+        <option value="subadmin">Sub-admin</option>
+      </select>
+    </div>
+    <div class="field"><label>Password <span id="um-password-hint" style="font-weight:400;"></span></label><input id="um-password" type="password"></div>
+    <div style="display:flex; gap:10px; margin-top:6px;">
+      <button class="btn" id="userModalCancel" style="border:1px solid var(--line);">Cancel</button>
+      <button class="btn btn-primary" id="userModalSave" style="flex:1;">Save</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
 
 <script src="js/config.js"></script>
 <script src="js/api.js"></script>

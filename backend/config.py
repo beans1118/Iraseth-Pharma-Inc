@@ -32,10 +32,38 @@ class Config:
     # CORS
     CORS_ORIGINS = _list(os.getenv("CORS_ORIGINS", "*"))
 
-    # Seed admin (only used by seed.py)
-    SEED_ADMIN_EMAIL = os.getenv("SEED_ADMIN_EMAIL", "admin@irasethpharma.com")
-    SEED_ADMIN_PASSWORD = os.getenv("SEED_ADMIN_PASSWORD", "iraseth2026")
-    SEED_ADMIN_NAME = os.getenv("SEED_ADMIN_NAME", "Iraseth Admin")
+    # Roles (do not hardcode these anywhere else — import from here)
+    ROLE_SUPERADMIN = "superadmin"
+    ROLE_ADMIN = "admin"
+    ROLE_SUBADMIN = "subadmin"
+    ROLES = [ROLE_SUPERADMIN, ROLE_ADMIN, ROLE_SUBADMIN]
+
+    # Seed users (only used by seed.py). No real data — placeholders to log
+    # in with on day one; change every password before going live.
+    SEED_USERS = [
+        {
+            "email": os.getenv("SEED_SUPERADMIN_EMAIL", "superadmin@irasethpharma.com"),
+            "password": os.getenv("SEED_SUPERADMIN_PASSWORD", "change-me-superadmin"),
+            "name": os.getenv("SEED_SUPERADMIN_NAME", "Super Admin"),
+            "role": ROLE_SUPERADMIN,
+        },
+        {
+            "email": os.getenv("SEED_ADMIN_EMAIL", "admin@irasethpharma.com"),
+            "password": os.getenv("SEED_ADMIN_PASSWORD", "change-me-admin"),
+            "name": os.getenv("SEED_ADMIN_NAME", "Admin"),
+            "role": ROLE_ADMIN,
+        },
+        {
+            "email": os.getenv("SEED_SUBADMIN_EMAIL", "subadmin@irasethpharma.com"),
+            "password": os.getenv("SEED_SUBADMIN_PASSWORD", "change-me-subadmin"),
+            "name": os.getenv("SEED_SUBADMIN_NAME", "Sub Admin"),
+            "role": ROLE_SUBADMIN,
+        },
+    ]
+
+    # Backups
+    BACKUP_DIR = os.getenv("BACKUP_DIR", "backups")
+    BACKUP_RETENTION = int(os.getenv("BACKUP_RETENTION", "30"))
 
     # Email
     SMTP_HOST = os.getenv("SMTP_HOST", "").strip()

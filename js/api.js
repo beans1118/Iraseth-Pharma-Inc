@@ -1,10 +1,4 @@
-/* =========================================================
-   IRASETH PHARMA — API client
-   Every method returns null (instead of throwing) on network
-   failure or non-2xx response, so callers can fall back to the
-   offline demo data in data.js. Errors are still logged for
-   debugging.
-   ========================================================= */
+
 const Api = {
   TOKEN_KEY: "iraseth_admin_token",
 
@@ -46,6 +40,12 @@ const Api = {
   async login(email, password){
     return this._request("/auth/login", { method:"POST", body: JSON.stringify({ email, password }) });
   },
+  async logout(){
+    return this._request("/auth/logout", { method:"POST", headers:this._authHeaders() });
+  },
+  async me(){
+    return this._request("/auth/me", { headers:this._authHeaders() });
+  },
 
   // ---- Products ----
   async getProducts(){
@@ -76,5 +76,48 @@ const Api = {
   },
   async updateOrder(id, payload){
     return this._request(`/orders/${encodeURIComponent(id)}`, { method:"PATCH", headers:this._authHeaders(), body:JSON.stringify(payload) });
+  },
+
+  // ---- Inventory (real-time stock) ----
+  async getStock(){
+    return this._request("/inventory", { headers:this._authHeaders() });
+  },
+  async releaseStock(id, qty, note){
+    return this._request(`/inventory/${encodeURIComponent(id)}/release`, { method:"POST", headers:this._authHeaders(), body:JSON.stringify({ qty, note }) });
+  },
+  async supplyStock(id, qty, note){
+    return this._request(`/inventory/${encodeURIComponent(id)}/supply`, { method:"POST", headers:this._authHeaders(), body:JSON.stringify({ qty, note }) });
+  },
+
+  // ---- Logs (superadmin + admin) ----
+  async getSessionLogs(params = {}){
+    const qs = new URLSearchParams(params).toString();
+    return this._request(`/logs/sessions${qs ? "?" + qs : ""}`, { headers:this._authHeaders() });
+  },
+  async getInventoryLogs(params = {}){
+    const qs = new URLSearchParams(params).toString();
+    return this._request(`/logs/inventory${qs ? "?" + qs : ""}`, { headers:this._authHeaders() });
+  },
+
+  // ---- Users & roles (superadmin only) ----
+  async getUsers(){
+    return this._request("/users", { headers:this._authHeaders() });
+  },
+  async createUser(payload){
+    return this._request("/users", { method:"POST", headers:this._authHeaders(), body:JSON.stringify(payload) });
+  },
+  async updateUser(email, payload){
+    return this._request(`/users/${encodeURIComponent(email)}`, { method:"PATCH", headers:this._authHeaders(), body:JSON.stringify(payload) });
+  },
+  async deleteUser(email){
+    return this._request(`/users/${encodeURIComponent(email)}`, { method:"DELETE", headers:this._authHeaders() });
+  },
+
+  // ---- Backup (superadmin only) ----
+  async runBackup(){
+    return this._request("/backup/run", { method:"POST", headers:this._authHeaders() });
+  },
+  async listBackups(){
+    return this._request("/backup", { headers:this._authHeaders() });
   },
 };

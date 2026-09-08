@@ -1,23 +1,20 @@
-/* =========================================================
-   IRASETH PHARMA — Public site logic
-   Catalog rendering, cart drawer, and checkout submission.
-   ========================================================= */
-
 let activeCat = new URLSearchParams(location.search).get("cat") || "all";
 let query = "";
 
 async function loadProducts(){
   const live = await Api.getProducts();
-  if(live && live.length){
+  if(live){
     PRODUCTS = live;
+  } else {
+    console.warn("Could not reach the product catalog API — is the backend running?");
   }
-  // else: keep DEMO_PRODUCTS (already assigned as PRODUCTS in data.js)
 }
 
 function renderFilters(){
   const el = document.getElementById("filterList");
   if(!el) return;
-  el.innerHTML = CATEGORIES.map(c => `
+  const categories = getCategories();
+  el.innerHTML = categories.map(c => `
     <button data-cat="${c.id}" class="${c.id === activeCat ? "active" : ""}">${c.label}</button>
   `).join("");
   el.querySelectorAll("button").forEach(btn => {
@@ -29,35 +26,35 @@ function renderFilters(){
   });
 }
 
+const STOCK_LABEL = { "in-stock":"● In stock", "low-stock":"● Low stock", "out-of-stock":"● Out of stock" };
+
 function renderGrid(){
   const grid = document.getElementById("productGrid");
   if(!grid) return;
   const items = PRODUCTS.filter(p => {
-    const matchCat = activeCat === "all" || p.cat === activeCat;
-    const matchQuery = !query || p.name.toLowerCase().includes(query) || p.id.toLowerCase().includes(query);
+    const matchCat = activeCat === "all" || p.category === activeCat;
+    const matchQuery = !query || (p.name || "").toLowerCase().includes(query) || p.id.toLowerCase().includes(query);
     return matchCat && matchQuery;
   });
 
   if(items.length === 0){
-    grid.innerHTML = `<p class="empty-note">No products match your search.</p>`;
+    grid.innerHTML = `<p class="empty-state">No products match your search yet.</p>`;
     return;
   }
 
   grid.innerHTML = items.map(p => `
     <div class="product-card">
-      <div class="product-img">${p.id}</div>
-      <div class="product-body">
-        <span class="product-tag">${p.tag}</span>
-        <h4>${p.name}</h4>
-        <span class="sku">${p.unit}</span>
-        <div class="product-foot">
-          <span class="product-price"><span class="srp-label">SRP</span> ${fmtPHP(p.price)}</span>
-          <span class="${p.stock === 'in' ? 'stock-ok' : 'stock-low'}">${p.stock === 'in' ? '● In stock' : '● Low stock'}</span>
-        </div>
-        <div class="qty-add">
-          <input type="number" min="1" value="1" id="qty-${p.id}">
-          <button class="add-btn" data-add="${p.id}">Add to order</button>
-        </div>
+      <span class="brand">${p.id}</span>
+      <h4>${p.name || "Untitled product"}</h4>
+      ${p.description ? `<p style="font-size:12.5px; margin:0;">${p.description}</p>` : ""}
+      ${p.category ? `<span class="tag">${p.category}</span>` : ""}
+      <div class="price-row">
+        <span class="price">${fmtPHP(p.price)}</span>
+        <span class="stock-badge ${p.status || "out-of-stock"}">${STOCK_LABEL[p.status] || "● Out of stock"}</span>
+      </div>
+      <div style="display:flex; gap:8px; align-items:center; margin-top:6px;">
+        <input type="number" min="1" value="1" id="qty-${p.id}" style="width:60px; padding:8px; border:1px solid var(--line); border-radius:6px;">
+        <button class="btn btn-primary add-btn" data-add="${p.id}" ${p.status === "out-of-stock" ? "disabled" : ""}>Add to order</button>
       </div>
     </div>
   `).join("");
@@ -70,8 +67,7 @@ function renderGrid(){
       Cart.add(id, qty);
       renderCartCount();
       btn.textContent = "Added ✓";
-      btn.classList.add("added");
-      setTimeout(() => { btn.textContent = "Add to order"; btn.classList.remove("added"); }, 1200);
+      setTimeout(() => { btn.textContent = "Add to order"; }, 1200);
     });
   });
 }
@@ -87,7 +83,7 @@ function renderCartDrawer(){
   if(!wrap) return;
   const lines = Cart.lines();
   if(lines.length === 0){
-    wrap.innerHTML = `<p class="empty-note">Your order slip is empty.<br>Add products from the catalog to get started.</p>`;
+    wrap.innerHTML = `<p class="empty-state">Your order slip is empty.<br>Add products from the catalog to get started.</p>`;
   } else {
     wrap.innerHTML = lines.map(l => `
       <div class="cart-line">
@@ -178,7 +174,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     const checkoutBtn = document.getElementById("checkoutBtn");
     if(checkoutBtn){ checkoutBtn.disabled = true; checkoutBtn.textContent = "Submitting…"; }
 
-    const order = await Orders.create({ client, email, facility });
+    const result = await Orders.create({ client, email, facility });
+
+    if(!result.ok){
+      if(checkoutBtn){ checkoutBtn.disabled = false; checkoutBtn.textContent = "Submit order"; }
+      const conf = document.getElementById("orderConfirm");
+      if(conf) conf.innerHTML = `<p style="color:var(--danger); font-size:13.5px; text-align:center;">${result.error}</p>`;
+      return;
+    }
+    const order = result.order;
 
     const conf = document.getElementById("orderConfirm");
     if(conf){

@@ -5,18 +5,22 @@ Run this once (and again any time you want to reset demo data):
 
 It will:
   1. Load the product catalog from products_seed.json into MongoDB
-     (replacing whatever is currently in the `products` collection).
-  2. Create the admin account from SEED_ADMIN_EMAIL / SEED_ADMIN_PASSWORD
-     in .env, if one with that email doesn't already exist.
+     (replacing whatever is currently in the `products` collection). Every
+     product starts with an empty name/description and quantity 0 — fill in
+     the real catalog through the Superadmin "Add product" screen (or a
+     follow-up seed file) once it's ready.
+  2. Create the three seed staff accounts (superadmin / admin / subadmin)
+     from Config.SEED_USERS, if accounts with those emails don't already
+     exist.
 
-It does NOT touch the `orders` collection, so real orders are never wiped
-by re-running this.
+It does NOT touch `orders`, `sessions`, or `inventory_logs`, so real
+activity is never wiped by re-running this.
 """
 import json
 from pathlib import Path
 
 from config import Config
-from backend.extensions import db, ensure_indexes
+from extensions import db, ensure_indexes
 from utils.security import hash_password
 
 
@@ -26,25 +30,25 @@ def seed_products():
 
     db.products.delete_many({})
     db.products.insert_many(products)
-    print(f"Seeded {len(products)} products.")
+    print(f"Seeded {len(products)} products (all empty — fill in real data via the admin UI).")
 
 
-def seed_admin():
-    existing = db.admins.find_one({"email": Config.SEED_ADMIN_EMAIL})
-    if existing:
-        print(f"Admin already exists: {Config.SEED_ADMIN_EMAIL} (skipped).")
-        return
-
-    db.admins.insert_one({
-        "email": Config.SEED_ADMIN_EMAIL,
-        "password_hash": hash_password(Config.SEED_ADMIN_PASSWORD),
-        "name": Config.SEED_ADMIN_NAME,
-    })
-    print(f"Created admin: {Config.SEED_ADMIN_EMAIL}")
+def seed_users():
+    for user in Config.SEED_USERS:
+        if db.users.find_one({"email": user["email"]}):
+            print(f"User already exists: {user['email']} (skipped).")
+            continue
+        db.users.insert_one({
+            "email": user["email"],
+            "password_hash": hash_password(user["password"]),
+            "name": user["name"],
+            "role": user["role"],
+        })
+        print(f"Created {user['role']}: {user['email']} — change this password immediately.")
 
 
 if __name__ == "__main__":
     ensure_indexes()
     seed_products()
-    seed_admin()
+    seed_users()
     print("Done.")
