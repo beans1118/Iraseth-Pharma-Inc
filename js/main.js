@@ -65,7 +65,7 @@ function renderGrid(){
         <span class="price">${fmtPHP(p.price)}</span>
         <span class="stock-badge ${p.status || "out-of-stock"}">${STOCK_LABEL[p.status] || "● Out of stock"}</span>
       </div>
-      <div style="display:flex; gap:8px; align-items:center; margin-top:6px;">
+      <div class="qty-row" style="display:flex; gap:8px; align-items:center; margin-top:6px;">
         <input type="number" min="1" value="1" id="qty-${p.id}" style="width:60px; padding:8px; border:1px solid var(--line); border-radius:6px;">
         <button class="btn btn-primary add-btn" data-add="${p.id}" ${p.status === "out-of-stock" ? "disabled" : ""}>Add to order</button>
       </div>

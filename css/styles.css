@@ -251,6 +251,33 @@ tbody tr:hover{background:var(--paper-dim);}
 
 .empty-state{padding:40px 20px; text-align:center; color:var(--ink-soft); font-size:13.5px;}
 .row-detail{color:var(--ink-soft); font-size:12.5px;}
+.panel-note{padding:0 20px 14px; color:var(--ink-soft); font-size:12.5px; line-height:1.6;}
+
+/* --------- Chip row (quick-jump filters, e.g. Stock Movements) --------- */
+.chip-row{display:flex; gap:8px; flex-wrap:wrap; padding:0 20px 16px; overflow-x:auto;}
+.chip{flex:0 0 auto; background:var(--paper-dim); border:1px solid var(--line); color:var(--ink-soft); font-size:12px; font-weight:600; padding:6px 12px; border-radius:999px; white-space:nowrap;}
+.chip:hover{background:var(--blue-light); color:var(--blue);}
+.chip.active{background:var(--blue); color:var(--white); border-color:var(--blue);}
+
+/* --------- Timeline (Stock Movements) --------- */
+.timeline{padding:4px 20px 20px; position:relative;}
+.timeline-item{position:relative; display:flex; gap:16px; padding:0 0 22px 0;}
+.timeline-item::before{
+  content:""; position:absolute; left:5px; top:16px; bottom:-6px; width:2px; background:var(--line);
+}
+.timeline-item:last-child::before{display:none;}
+.timeline-dot{flex:0 0 auto; width:12px; height:12px; border-radius:50%; margin-top:4px; box-shadow:0 0 0 3px var(--white);}
+.dot-opening{background:var(--blue);}
+.dot-monthly{background:var(--warn);}
+.dot-release{background:var(--red);}
+.dot-supply{background:var(--success);}
+.timeline-content{flex:1; min-width:0;}
+.timeline-top{display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-bottom:4px;}
+.timeline-date{font-family:var(--mono); font-size:11.5px; color:var(--ink-soft);}
+.timeline-product{font-size:14px; margin-bottom:2px;}
+.timeline-product .row-detail{margin-left:4px;}
+.timeline-qty{font-size:13px; color:var(--ink-soft); font-family:var(--mono);}
+.timeline-note{font-size:12.5px; color:var(--ink-soft); margin-top:4px; font-style:italic;}
 .live-dot{display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--success); margin-right:6px; box-shadow:0 0 0 0 rgba(46,139,87,0.5); animation:pulse 2s infinite;}
 .live-dot.offline{background:var(--red); animation:none;}
 @keyframes pulse{
@@ -265,3 +292,52 @@ tbody tr:hover{background:var(--paper-dim);}
 .modal-backdrop{position:fixed; inset:0; background:rgba(16,26,50,0.45); z-index:150; display:none; align-items:center; justify-content:center; padding:20px;}
 .modal-backdrop.open{display:flex;}
 .modal{background:var(--white); border-radius:var(--radius); padding:24px; width:400px; max-width:100%;}
+
+/* =========================================================
+   RESPONSIVE — phones & small tablets
+   Storefront breakpoints already exist above (900/1000/600px);
+   this section covers the admin console plus a few storefront
+   refinements for very small screens.
+   ========================================================= */
+@media (max-width:860px){
+  .admin-shell{grid-template-columns:1fr;}
+  .admin-side{
+    flex-direction:row; align-items:center; flex-wrap:wrap; gap:12px 18px;
+    padding:14px 16px; position:sticky; top:0; z-index:40;
+  }
+  .admin-side .logo{order:1;}
+  .admin-side > div:nth-child(2){order:2; margin-right:auto;}
+  .admin-side nav{
+    order:4; flex-direction:row; flex:0 0 100%; overflow-x:auto; gap:6px;
+    padding-top:6px; border-top:1px solid rgba(255,255,255,0.12);
+  }
+  .admin-side nav a{white-space:nowrap; padding:8px 12px; font-size:13px;}
+  .admin-side .live-status{order:3;}
+  .sign-out{order:3;}
+  .admin-main{padding:20px 16px;}
+  .kpi-row{grid-template-columns:1fr 1fr;}
+  .panel-head{padding:14px 16px;}
+  .controls{width:100%;}
+  .controls input, .controls select{flex:1; min-width:0;}
+  thead th, tbody td{padding:10px 12px;}
+}
+
+@media (max-width:480px){
+  .kpi-row{grid-template-columns:1fr;}
+  .admin-top{flex-direction:column;}
+  .qty-actions{flex-wrap:wrap;}
+  .qty-actions input{width:52px;}
+  .chip-row{padding:0 16px 14px;}
+  .timeline{padding:4px 16px 16px;}
+}
+
+@media (max-width:640px){
+  .hero{padding:76px 0 48px;}
+  .cta-row .btn{flex:1 1 auto; text-align:center;}
+  .product-card .price-row{flex-wrap:wrap;}
+  .product-card .qty-row{flex-wrap:wrap;}
+  .product-card .qty-row input{flex:0 0 70px;}
+  .product-card .qty-row .add-btn{flex:1 1 auto;}
+  footer .wrap{grid-template-columns:1fr;}
+  .cart-drawer{width:100%; max-width:100%;}
+}

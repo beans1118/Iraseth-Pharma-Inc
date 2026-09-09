@@ -358,6 +358,28 @@ document.getElementById("orderSearch").addEventListener("input", renderOrders);
 document.getElementById("statusFilter").addEventListener("change", renderOrders);
 
 /* ---------- Stock movements (released & supplied — ALL roles) ---------- */
+function timelineDotClass(action){
+  return { opening:"dot-opening", monthly_opening:"dot-monthly", release:"dot-release", supply:"dot-supply" }[action] || "dot-supply";
+}
+
+async function renderMovementChips(){
+  // A quick-jump row of product IDs that actually have activity, so on a
+  // phone you can tap instead of typing an exact ID into the filter box.
+  const res = await Api.getStockMovements({});
+  const chipsEl = document.getElementById("movementProductChips");
+  if(!res.ok){ chipsEl.innerHTML = ""; return; }
+  const ids = [...new Set(res.data.map(l => l.product_id))].sort().slice(0, 24);
+  const current = document.getElementById("movementProductFilter").value.trim();
+  chipsEl.innerHTML = `<button class="chip ${!current ? "active" : ""}" data-chip="">All products</button>` +
+    ids.map(id => `<button class="chip ${id === current ? "active" : ""}" data-chip="${id}">${id}</button>`).join("");
+  chipsEl.querySelectorAll("[data-chip]").forEach(chip => {
+    chip.addEventListener("click", () => {
+      document.getElementById("movementProductFilter").value = chip.dataset.chip;
+      loadMovements();
+    });
+  });
+}
+
 async function loadMovements(){
   const product = document.getElementById("movementProductFilter").value.trim();
   const action = document.getElementById("movementActionFilter").value;
@@ -366,21 +388,27 @@ async function loadMovements(){
   if(action !== "all") params.action = action;
 
   const res = await Api.getStockMovements(params);
-  const body = document.getElementById("movementsTableBody");
-  if(!res.ok){ body.innerHTML = `<tr><td colspan="6" class="empty-state">${res.error || "Could not load stock movements."}</td></tr>`; return; }
+  const el = document.getElementById("movementsTimeline");
+  if(!res.ok){ el.innerHTML = `<div class="empty-state">${res.error || "Could not load stock movements."}</div>`; return; }
   const rows = res.data;
-  if(rows.length === 0){ body.innerHTML = `<tr><td colspan="6" class="empty-state">No stock movements match your filter yet.</td></tr>`; return; }
+  if(rows.length === 0){ el.innerHTML = `<div class="empty-state">No stock movements match your filter yet.</div>`; return; }
 
-  body.innerHTML = rows.map(l => `
-    <tr>
-      <td class="row-detail">${fmtDate(l.at)}</td>
-      <td><b>${l.product_name || l.product_id}</b><div class="row-detail">${l.product_id}</div></td>
-      <td><span class="badge badge-${l.action}">${actionLabel(l.action)}</span></td>
-      <td>${l.qty}</td>
-      <td class="row-detail">${l.before} → ${l.after}</td>
-      <td class="row-detail">${l.note || "—"}</td>
-    </tr>
+  el.innerHTML = rows.map(l => `
+    <div class="timeline-item">
+      <div class="timeline-dot ${timelineDotClass(l.action)}"></div>
+      <div class="timeline-content">
+        <div class="timeline-top">
+          <span class="badge badge-${l.action}">${actionLabel(l.action)}</span>
+          <span class="timeline-date">${fmtDate(l.at)}</span>
+        </div>
+        <div class="timeline-product"><b>${l.product_name || l.product_id}</b> <span class="row-detail">${l.product_id}</span></div>
+        <div class="timeline-qty">${l.qty} unit${l.qty === 1 ? "" : "s"} &nbsp;·&nbsp; ${l.before} &rarr; ${l.after}</div>
+        ${l.note ? `<div class="timeline-note">${l.note}</div>` : ""}
+      </div>
+    </div>
   `).join("");
+
+  renderMovementChips();
 }
 
 document.getElementById("movementProductFilter").addEventListener("input", loadMovements);
