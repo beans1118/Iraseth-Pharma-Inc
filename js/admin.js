@@ -28,6 +28,9 @@ function fmtDuration(seconds){
 function roleLabel(role){
   return { superadmin:"Superadmin", admin:"Admin", subadmin:"Sub-admin" }[role] || role;
 }
+function actionLabel(action){
+  return { opening:"Opening stock", monthly_opening:"Monthly opening", release:"Released", supply:"Supplied" }[action] || action;
+}
 function toast(msg){
   const el = document.getElementById("toast");
   if(!el) return;
@@ -372,7 +375,7 @@ async function loadMovements(){
     <tr>
       <td class="row-detail">${fmtDate(l.at)}</td>
       <td><b>${l.product_name || l.product_id}</b><div class="row-detail">${l.product_id}</div></td>
-      <td><span class="badge badge-${l.action}">${l.action === "release" ? "Released" : "Supplied"}</span></td>
+      <td><span class="badge badge-${l.action}">${actionLabel(l.action)}</span></td>
       <td>${l.qty}</td>
       <td class="row-detail">${l.before} → ${l.after}</td>
       <td class="row-detail">${l.note || "—"}</td>
@@ -422,7 +425,7 @@ async function loadInventoryLogs(){
   body.innerHTML = rows.map(l => `
     <tr>
       <td><b>${l.product_name || l.product_id}</b><div class="row-detail">${l.product_id}</div></td>
-      <td><span class="badge badge-${l.action}">${l.action === "release" ? "Released" : "Supplied"}</span></td>
+      <td><span class="badge badge-${l.action}">${actionLabel(l.action)}</span></td>
       <td>${l.qty}</td>
       <td class="row-detail">${l.before} → ${l.after}</td>
       <td>${l.actor_name || l.actor_email}</td>

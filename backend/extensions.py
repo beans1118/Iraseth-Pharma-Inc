@@ -35,5 +35,6 @@ def ensure_indexes():
     db.inventory_logs.create_index("product_id")
     db.inventory_logs.create_index("at")
     db.inventory_logs.create_index("actor_email")
+    db.inventory_logs.create_index("month")
 
     db.backups.create_index("created_at")

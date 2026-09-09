@@ -236,6 +236,8 @@ tbody tr:hover{background:var(--paper-dim);}
 .badge-processing{background:var(--blue-light); color:var(--blue);}
 .badge-fulfilled, .badge-supply{background:#e5f4ea; color:var(--success);}
 .badge-release{background:var(--red-light); color:var(--red-deep);}
+.badge-opening{background:var(--blue-light); color:var(--blue);}
+.badge-monthly_opening{background:#fdf1de; color:var(--warn);}
 .badge-superadmin{background:#f2e6fb; color:#7c3aed;}
 .badge-admin{background:var(--blue-light); color:var(--blue);}
 .badge-subadmin{background:var(--red-light); color:var(--red-deep);}

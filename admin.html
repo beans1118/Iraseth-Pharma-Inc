@@ -129,6 +129,8 @@
             <input type="text" id="movementProductFilter" placeholder="Filter by product ID (e.g. IRP-1002)...">
             <select id="movementActionFilter">
               <option value="all">All activity</option>
+              <option value="opening">Opening stock only</option>
+              <option value="monthly_opening">Monthly opening only</option>
               <option value="release">Released only</option>
               <option value="supply">Supplied (restocked) only</option>
             </select>
@@ -136,7 +138,9 @@
         </div>
         <p style="padding:0 20px 12px; color:var(--ink-soft); font-size:12.5px;">
           Every time stock changed — filter by a product ID above to see its full quantity trail over time
-          (e.g. 500 on Sept 1 &rarr; 10 on Sept 10 &rarr; resupplied Sept 12).
+          (e.g. 500 on Sept 1 &rarr; 10 on Sept 10 &rarr; resupplied Sept 12). Each product also gets an
+          automatic "Monthly opening" snapshot as soon as the calendar month rolls over and anyone next
+          checks inventory — a running beginning-of-month balance, separate from day-to-day releases/supplies.
         </p>
         <div style="overflow-x:auto;">
           <table>
@@ -246,6 +250,8 @@
           <div class="controls">
             <select id="invLogActionFilter">
               <option value="all">All actions</option>
+              <option value="opening">Opening stock</option>
+              <option value="monthly_opening">Monthly opening</option>
               <option value="release">Release (deduct)</option>
               <option value="supply">Supply (add)</option>
             </select>

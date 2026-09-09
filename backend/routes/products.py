@@ -4,10 +4,13 @@ all (per the role rules — see PROPOSAL.md) — everyone else only changes an
 existing product's quantity, and only through /api/inventory (release/supply),
 never here.
 """
-from flask import Blueprint, request, jsonify
+from datetime import datetime, timezone
+
+from flask import Blueprint, request, jsonify, g
 
 from extensions import db
 from utils.security import require_role
+from realtime import emit_inventory_log
 
 bp = Blueprint("products", __name__, url_prefix="/api/products")
 
@@ -84,6 +87,28 @@ def create_product():
         return jsonify({"error": "quantity, reorder_level, and price must be numbers."}), 400
 
     db.products.insert_one(doc)
+
+    # Log the beginning stock the moment this product enters the system —
+    # otherwise a product's quantity history has no starting point, just
+    # release/supply deltas with nothing to measure them against.
+    if doc["quantity"] > 0:
+        opening_log = {
+            "product_id": doc["id"],
+            "product_name": doc["name"],
+            "action": "opening",
+            "qty": doc["quantity"],
+            "before": 0,
+            "after": doc["quantity"],
+            "note": "Opening stock",
+            "actor_email": g.user["email"],
+            "actor_name": g.user.get("name", ""),
+            "role": g.user["role"],
+            "at": datetime.now(timezone.utc).isoformat(),
+        }
+        db.inventory_logs.insert_one(opening_log)
+        opening_log.pop("_id", None)
+        emit_inventory_log(opening_log)
+
     return jsonify(_serialize(doc)), 201
 
 

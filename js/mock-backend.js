@@ -477,9 +477,31 @@ function seedMockData(){
     { email:"subadmin@irasethpharma.com", password:"demo-subadmin", name:"Sub Admin", role:"subadmin" },
   ]);
 
+  // Beginning stock for every product, anchored to a fixed date so the demo
+  // tells the same story every time: e.g. filter Stock Movements to one
+  // product and you'll see "Opening stock — Sept 1, 2026" first, then
+  // whatever releases/supplies you perform afterward with today's real
+  // timestamp, so the trail always reads beginning-to-current in order.
+  const OPENING_STOCK_DATE = "2026-09-01T08:00:00.000Z";
+  const openingLogs = products
+    .filter(p => p.quantity > 0)
+    .map(p => ({
+      product_id: p.id,
+      product_name: p.name,
+      action: "opening",
+      qty: p.quantity,
+      before: 0,
+      after: p.quantity,
+      note: "Opening stock",
+      actor_email: "system@irasethpharma.com",
+      actor_name: "System (seed)",
+      role: "superadmin",
+      at: OPENING_STOCK_DATE,
+    }));
+
   MockDB.saveOrders([]);
   MockDB.saveSessions([]);
-  MockDB.saveInvLogs([]);
+  MockDB.saveInvLogs(openingLogs);
   MockDB.saveBackups([]);
   MockDB.saveTokens({});
 
@@ -493,6 +515,28 @@ function mockStatus(p){
   return "in-stock";
 }
 function serializeProduct(p){ return { ...p, status: mockStatus(p) }; }
+
+function currentMonthKey(){
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+}
+
+function ensureMonthlyOpenings(){
+  const monthKey = currentMonthKey();
+  const invLogs = MockDB.invLogs();
+  if(invLogs.some(l => l.action === "monthly_opening" && l.month === monthKey)) return; // already snapshotted this month
+
+  const products = MockDB.products();
+  const now = mockNow();
+  const newLogs = products.map(p => ({
+    product_id: p.id, product_name: p.name, action:"monthly_opening",
+    qty: p.quantity, before: p.quantity, after: p.quantity,
+    note: `Beginning stock for ${monthKey}`, month: monthKey,
+    actor_email:"system@irasethpharma.com", actor_name:"System (monthly snapshot)", role:"superadmin",
+    at: now,
+  }));
+  MockDB.saveInvLogs(invLogs.concat(newLogs));
+}
 
 function currentMockUser(){
   const token = Api.getToken();
@@ -558,6 +602,17 @@ const MockApi = {
     const doc = { id:payload.id, name:payload.name, description:payload.description, category:payload.category, unit:payload.unit, quantity:Number(payload.quantity)||0, reorder_level:Number(payload.reorder_level)||5, price:Number(payload.price)||0 };
     products.push(doc);
     MockDB.saveProducts(products);
+
+    if(doc.quantity > 0){
+      const invLogs = MockDB.invLogs();
+      invLogs.push({
+        product_id:doc.id, product_name:doc.name, action:"opening", qty:doc.quantity,
+        before:0, after:doc.quantity, note:"Opening stock",
+        actor_email:u.email, actor_name:u.name, role:u.role, at:mockNow(),
+      });
+      MockDB.saveInvLogs(invLogs);
+    }
+
     return { ok:true, status:201, error:null, data:serializeProduct(doc) };
   },
 
@@ -653,7 +708,7 @@ const MockApi = {
   },
 
   // ---- Inventory ----
-  getStock(){ return { ok:true, status:200, error:null, data:MockDB.products().map(serializeProduct) }; },
+  getStock(){ ensureMonthlyOpenings(); return { ok:true, status:200, error:null, data:MockDB.products().map(serializeProduct) }; },
 
   _stockAction(id, qty, note, action){
     const u = currentMockUser();
@@ -689,15 +744,20 @@ const MockApi = {
   getInventoryLogs(params = {}){
     let rows = MockDB.invLogs();
     if(params.action && params.action !== "all") rows = rows.filter(l => l.action === params.action);
+    rows = rows.slice().sort((a,b) => new Date(b.at) - new Date(a.at));
     return { ok:true, status:200, error:null, data:rows };
   },
   // Open to all roles (unlike getInventoryLogs, which the real backend
   // restricts to superadmin/admin) — the "released/supplied products" feed
   // and per-product quantity history, e.g. ?product=IRP-1002.
   getStockMovements(params = {}){
+    ensureMonthlyOpenings();
     let rows = MockDB.invLogs();
     if(params.action && params.action !== "all") rows = rows.filter(l => l.action === params.action);
     if(params.product) rows = rows.filter(l => l.product_id === params.product);
+    // One product's history reads beginning-to-current (oldest first);
+    // the general feed reads newest-first.
+    rows = rows.slice().sort((a,b) => params.product ? new Date(a.at) - new Date(b.at) : new Date(b.at) - new Date(a.at));
     return { ok:true, status:200, error:null, data:rows };
   },
 

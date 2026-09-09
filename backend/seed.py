@@ -18,6 +18,7 @@ activity is never wiped by re-running this.
 """
 import json
 from pathlib import Path
+from datetime import datetime, timezone
 
 from config import Config
 from extensions import db, ensure_indexes
@@ -30,6 +31,30 @@ def seed_products():
 
     db.products.delete_many({})
     db.products.insert_many(products)
+
+    # Log an opening-stock entry for anything seeded with a starting
+    # quantity, so its quantity history has a real beginning to measure
+    # future releases/supplies against.
+    opening_logs = []
+    now = datetime.now(timezone.utc).isoformat()
+    for p in products:
+        if p.get("quantity", 0) > 0 and not db.inventory_logs.find_one({"product_id": p["id"], "action": "opening"}):
+            opening_logs.append({
+                "product_id": p["id"],
+                "product_name": p.get("name", ""),
+                "action": "opening",
+                "qty": p["quantity"],
+                "before": 0,
+                "after": p["quantity"],
+                "note": "Opening stock (seed)",
+                "actor_email": "system@irasethpharma.com",
+                "actor_name": "System (seed)",
+                "role": "superadmin",
+                "at": now,
+            })
+    if opening_logs:
+        db.inventory_logs.insert_many(opening_logs)
+
     print(f"Seeded {len(products)} products (all empty — fill in real data via the admin UI).")
 
 
