@@ -48,6 +48,7 @@
     </div>
     <nav>
       <a href="#" class="active" data-view="inventory">Inventory</a>
+      <a href="#" data-view="movements">Stock movements</a>
       <a href="#" data-view="orders">Purchase orders</a>
       <a href="#" data-view="clients">Client history</a>
       <a href="#" data-view="logs" data-role-gate="superadmin,admin">Activity logs</a>
@@ -114,6 +115,42 @@
               </tr>
             </thead>
             <tbody id="inventoryTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= STOCK MOVEMENTS (released & supplied — all roles) ================= -->
+    <div id="movementsView" style="display:none;">
+      <div class="panel">
+        <div class="panel-head">
+          <h3>Released &amp; supplied history</h3>
+          <div class="controls">
+            <input type="text" id="movementProductFilter" placeholder="Filter by product ID (e.g. IRP-1002)...">
+            <select id="movementActionFilter">
+              <option value="all">All activity</option>
+              <option value="release">Released only</option>
+              <option value="supply">Supplied (restocked) only</option>
+            </select>
+          </div>
+        </div>
+        <p style="padding:0 20px 12px; color:var(--ink-soft); font-size:12.5px;">
+          Every time stock changed — filter by a product ID above to see its full quantity trail over time
+          (e.g. 500 on Sept 1 &rarr; 10 on Sept 10 &rarr; resupplied Sept 12).
+        </p>
+        <div style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Product</th>
+                <th>Action</th>
+                <th>Qty</th>
+                <th>Before &rarr; After</th>
+                <th>Note</th>
+              </tr>
+            </thead>
+            <tbody id="movementsTableBody"></tbody>
           </table>
         </div>
       </div>

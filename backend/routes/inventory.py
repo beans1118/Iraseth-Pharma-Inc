@@ -101,3 +101,31 @@ def add_supply(product_id):
         return jsonify({"error": err[0]}), err[1]
     product, log_entry = result
     return jsonify({"product": product, "log": log_entry}), 200
+
+
+@bp.get("/activity")
+@require_role()
+def stock_activity():
+    """
+    Every release/supply, open to ALL roles (unlike /api/logs/inventory,
+    which is superadmin/admin only for the full accountability audit).
+    This is the operational "what happened to stock, and when" feed —
+    e.g. Sub-admin monitoring releases, or anyone pulling up one product's
+    full quantity history (500 on Sept 1 -> 10 on Sept 10 -> resupplied
+    Sept 12) via ?product=<id>.
+    """
+    query = {}
+    action = request.args.get("action")
+    if action and action != "all":
+        query["action"] = action
+    product = request.args.get("product")
+    if product:
+        query["product_id"] = product
+
+    limit = min(int(request.args.get("limit", 200)), 1000)
+    rows = []
+    for l in db.inventory_logs.find(query).sort("at", -1).limit(limit):
+        l = dict(l)
+        l.pop("_id", None)
+        rows.append(l)
+    return jsonify(rows)

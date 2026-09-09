@@ -108,6 +108,7 @@ and `admin.html` through a local server (not `file://`).
 | GET | `/api/products?category=&q=` | none | List/search catalog |
 | POST / PUT / DELETE | `/api/products[/<id>]` | superadmin | Manage the catalog (not quantity) |
 | GET | `/api/inventory` | any | Live stock levels |
+| GET | `/api/inventory/activity?product=&action=` | any | Released/supplied feed — open to all roles, unlike `/api/logs/inventory` |
 | POST | `/api/inventory/<id>/release` | superadmin, subadmin | Deduct stock (logged) |
 | POST | `/api/inventory/<id>/supply` | superadmin, subadmin | Add stock (logged) |
 | POST | `/api/orders` | none | Submit an order (checkout) |

@@ -61,8 +61,9 @@ async function showDashboard(){
     a.style.display = allowed.includes(currentUser.role) ? "" : "none";
   });
 
-  // Hide the "Actions" column in Inventory for view-only Admins.
-  document.getElementById("inventoryActionsHeader").style.display = canWriteStock() ? "" : "none";
+  // Every role gets a History button in this column now; only the Supply/
+  // Release controls inside it are conditional on write permission, so the
+  // column itself always stays visible.
 
   connectSocket();
   await switchView("inventory");
@@ -146,6 +147,7 @@ function connectSocket(){
   socket.on("log:inventory", (entry) => {
     toast(`${entry.actor_name || entry.actor_email} ${entry.action === "release" ? "released" : "added"} ${entry.qty} × ${entry.product_id}`);
     if(document.getElementById("logsView").style.display !== "none") loadInventoryLogs();
+    if(document.getElementById("movementsView").style.display !== "none") loadMovements();
   });
 
   socket.on("log:session", (entry) => {
@@ -193,16 +195,25 @@ function renderInventory(){
       <td><b>${p.quantity ?? 0}</b></td>
       <td><span class="${stockBadgeClass(p.status)}">${(p.status || "").replace("-", " ")}</span></td>
       <td>
-        ${writable ? `
-          <div class="qty-actions">
+        <div class="qty-actions">
+          ${writable ? `
             <input type="number" min="1" value="1" id="qty-${p.id}">
             <button class="mini-btn supply" data-supply="${p.id}">+ Supply</button>
             <button class="mini-btn release" data-release="${p.id}">− Release</button>
-          </div>
-        ` : `<span class="row-detail">View only</span>`}
+          ` : ""}
+          <button class="mini-btn" data-history="${p.id}">History</button>
+        </div>
       </td>
     </tr>
   `).join("");
+
+  body.querySelectorAll("[data-history]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      switchView("movements");
+      document.getElementById("movementProductFilter").value = btn.dataset.history;
+      loadMovements();
+    });
+  });
 
   if(writable){
     body.querySelectorAll("[data-supply]").forEach(btn => {
@@ -342,6 +353,35 @@ async function renderClients(){
 
 document.getElementById("orderSearch").addEventListener("input", renderOrders);
 document.getElementById("statusFilter").addEventListener("change", renderOrders);
+
+/* ---------- Stock movements (released & supplied — ALL roles) ---------- */
+async function loadMovements(){
+  const product = document.getElementById("movementProductFilter").value.trim();
+  const action = document.getElementById("movementActionFilter").value;
+  const params = {};
+  if(product) params.product = product;
+  if(action !== "all") params.action = action;
+
+  const res = await Api.getStockMovements(params);
+  const body = document.getElementById("movementsTableBody");
+  if(!res.ok){ body.innerHTML = `<tr><td colspan="6" class="empty-state">${res.error || "Could not load stock movements."}</td></tr>`; return; }
+  const rows = res.data;
+  if(rows.length === 0){ body.innerHTML = `<tr><td colspan="6" class="empty-state">No stock movements match your filter yet.</td></tr>`; return; }
+
+  body.innerHTML = rows.map(l => `
+    <tr>
+      <td class="row-detail">${fmtDate(l.at)}</td>
+      <td><b>${l.product_name || l.product_id}</b><div class="row-detail">${l.product_id}</div></td>
+      <td><span class="badge badge-${l.action}">${l.action === "release" ? "Released" : "Supplied"}</span></td>
+      <td>${l.qty}</td>
+      <td class="row-detail">${l.before} → ${l.after}</td>
+      <td class="row-detail">${l.note || "—"}</td>
+    </tr>
+  `).join("");
+}
+
+document.getElementById("movementProductFilter").addEventListener("input", loadMovements);
+document.getElementById("movementActionFilter").addEventListener("change", loadMovements);
 
 /* ---------- Logs (superadmin + admin) ---------- */
 async function loadSessionLogs(){
@@ -486,6 +526,7 @@ document.getElementById("runBackupBtn").addEventListener("click", async () => {
 /* ---------- View switching ---------- */
 const VIEW_META = {
   inventory: { title:"Inventory", sub:"Live stock levels — release and supply update every connected dashboard instantly." },
+  movements: { title:"Stock movements", sub:"Every release and supply, for any role — filter by product to see its full quantity history over time." },
   orders:    { title:"Purchase orders", sub:"Every order submitted through the storefront, most recent first." },
   clients:   { title:"Client history", sub:"Purchase totals grouped by client facility." },
   logs:      { title:"Activity logs", sub:"Who logged in/out, when, for how long — and every stock add/deduct." },
@@ -495,7 +536,7 @@ const VIEW_META = {
 
 async function switchView(view){
   document.querySelectorAll(".admin-side a[data-view]").forEach(a => a.classList.toggle("active", a.dataset.view === view));
-  ["inventory","orders","clients","logs","users","backup"].forEach(v => {
+  ["inventory","movements","orders","clients","logs","users","backup"].forEach(v => {
     document.getElementById(v + "View").style.display = v === view ? "block" : "none";
   });
   document.getElementById("orderKpiRow").style.display = (view === "orders") ? "grid" : "none";
@@ -504,6 +545,7 @@ async function switchView(view){
   document.getElementById("viewSub").textContent = VIEW_META[view].sub;
 
   if(view === "inventory"){ await loadStock(); renderInventory(); }
+  else if(view === "movements"){ await loadMovements(); }
   else if(view === "orders"){ await renderKPIs(); await renderOrders(); }
   else if(view === "clients"){ await renderClients(); }
   else if(view === "logs"){ await loadSessionLogs(); await loadInventoryLogs(); }
