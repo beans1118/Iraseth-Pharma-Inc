@@ -6,8 +6,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1002",
@@ -16,8 +16,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1003",
@@ -26,8 +26,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1004",
@@ -36,8 +36,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1005",
@@ -46,8 +46,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1006",
@@ -56,8 +56,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1007",
@@ -66,8 +66,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1008",
@@ -76,8 +76,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1009",
@@ -86,8 +86,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1010",
@@ -96,8 +96,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1011",
@@ -106,8 +106,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1012",
@@ -116,8 +116,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1013",
@@ -126,8 +126,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1014",
@@ -136,8 +136,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1015",
@@ -146,8 +146,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1016",
@@ -156,8 +156,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1017",
@@ -166,8 +166,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1018",
@@ -176,8 +176,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1019",
@@ -186,8 +186,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1020",
@@ -196,8 +196,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1021",
@@ -206,8 +206,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1022",
@@ -216,8 +216,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1023",
@@ -226,8 +226,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1024",
@@ -236,8 +236,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1025",
@@ -246,8 +246,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1026",
@@ -256,8 +256,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1027",
@@ -266,8 +266,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1028",
@@ -276,8 +276,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1029",
@@ -286,8 +286,8 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   },
   {
     "id": "IRP-1030",
@@ -296,7 +296,7 @@
     "category": "",
     "unit": "",
     "quantity": 0,
-    "reorder_level": 5,
-    "price": 0
+    "price": 0,
+    "baseline_qty": 0
   }
 ]

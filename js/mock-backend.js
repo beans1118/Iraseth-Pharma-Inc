@@ -57,418 +57,418 @@ function seedMockData(){
   // real backend is running, its own catalog (backend/products_seed.json)
   // takes over automatically — this array only feeds the local demo.
   const products =
-  [
-    {
-      "id": "IRP-1001",
-      "name": "Disposable Syringe 1 mL 26G",
-      "description": "ALPHASHOT \u2014 Syringes, sold per unit.",
-      "category": "syringes-needles",
-      "unit": "per unit",
-      "quantity": 0,
-      "reorder_level": 10,
-      "price": 1220
-    },
-    {
-      "id": "IRP-1002",
-      "name": "Disposable Syringe 3 mL 26G",
-      "description": "ALPHASHOT \u2014 Syringes, sold per unit.",
-      "category": "syringes-needles",
-      "unit": "per unit",
-      "quantity": 96,
-      "reorder_level": 10,
-      "price": 608
-    },
-    {
-      "id": "IRP-1003",
-      "name": "Disposable Syringe 5 mL 22G",
-      "description": "ALPHASHOT \u2014 Syringes, sold per unit.",
-      "category": "syringes-needles",
-      "unit": "per unit",
-      "quantity": 29,
-      "reorder_level": 10,
-      "price": 640
-    },
-    {
-      "id": "IRP-1004",
-      "name": "Disposable Syringe 10 mL 21G",
-      "description": "ALPHASHOT \u2014 Syringes, sold per unit.",
-      "category": "syringes-needles",
-      "unit": "per unit",
-      "quantity": 18,
-      "reorder_level": 10,
-      "price": 850
-    },
-    {
-      "id": "IRP-1005",
-      "name": "Adult Diaper S",
-      "description": "ALPHACARE \u2014 Patient Care, sold per unit.",
-      "category": "patient-care",
-      "unit": "per unit",
-      "quantity": 109,
-      "reorder_level": 10,
-      "price": 250
-    },
-    {
-      "id": "IRP-1006",
-      "name": "Adult Diaper M",
-      "description": "ALPHACARE \u2014 Patient Care, sold per unit.",
-      "category": "patient-care",
-      "unit": "per unit",
-      "quantity": 6,
-      "reorder_level": 10,
-      "price": 260
-    },
-    {
-      "id": "IRP-1007",
-      "name": "Adult Diaper L",
-      "description": "ALPHACARE \u2014 Patient Care, sold per unit.",
-      "category": "patient-care",
-      "unit": "per unit",
-      "quantity": 46,
-      "reorder_level": 10,
-      "price": 280
-    },
-    {
-      "id": "IRP-1008",
-      "name": "Adult Diaper XL",
-      "description": "ALPHACARE \u2014 Patient Care, sold per unit.",
-      "category": "patient-care",
-      "unit": "per unit",
-      "quantity": 43,
-      "reorder_level": 10,
-      "price": 330
-    },
-    {
-      "id": "IRP-1009",
-      "name": "Underpads",
-      "description": "ALPHACARE \u2014 Patient Care, sold per unit.",
-      "category": "patient-care",
-      "unit": "per unit",
-      "quantity": 32,
-      "reorder_level": 10,
-      "price": 280
-    },
-    {
-      "id": "IRP-1010",
-      "name": "Needle Retractable Safety Syringe 1mL with needle 27G x 3/8\"",
-      "description": "IRASAFETY \u2014 Safety Syringes, sold per unit.",
-      "category": "syringes-needles",
-      "unit": "per unit",
-      "quantity": 0,
-      "reorder_level": 10,
-      "price": 2800
-    },
-    {
-      "id": "IRP-1011",
-      "name": "Needle Retractable Safety Syringe 5mL with needle",
-      "description": "IRASAFETY \u2014 Safety Syringes, sold per unit.",
-      "category": "syringes-needles",
-      "unit": "per unit",
-      "quantity": 3,
-      "reorder_level": 10,
-      "price": 1400
-    },
-    {
-      "id": "IRP-1012",
-      "name": "Needle Retractable Safety Syringe 10mL with needle",
-      "description": "IRASAFETY \u2014 Safety Syringes, sold per unit.",
-      "category": "syringes-needles",
-      "unit": "per unit",
-      "quantity": 101,
-      "reorder_level": 10,
-      "price": 1465
-    },
-    {
-      "id": "IRP-1013",
-      "name": "Needle Retractable Safety Syringe 3mL with needle 27G x 3/8\"",
-      "description": "IRASAFETY \u2014 Safety Syringes, sold per unit.",
-      "category": "syringes-needles",
-      "unit": "per unit",
-      "quantity": 109,
-      "reorder_level": 10,
-      "price": 1410
-    },
-    {
-      "id": "IRP-1014",
-      "name": "IV Administration Set with Burette (Soluset) 150 mL",
-      "description": "POLYVOL \u2014 IV Administration, sold per unit.",
-      "category": "iv-therapy",
-      "unit": "per unit",
-      "quantity": 129,
-      "reorder_level": 10,
-      "price": 850
-    },
-    {
-      "id": "IRP-1015",
-      "name": "IV Administration Set with Burette (Soluset) 110 mL",
-      "description": "POLYVOL \u2014 IV Administration, sold per unit.",
-      "category": "iv-therapy",
-      "unit": "per unit",
-      "quantity": 84,
-      "reorder_level": 10,
-      "price": 670
-    },
-    {
-      "id": "IRP-1016",
-      "name": "IV Infusion Set (Macroset)",
-      "description": "AUTOFUSION \u2014 IV Infusion, sold per box.",
-      "category": "iv-therapy",
-      "unit": "per box",
-      "quantity": 3,
-      "reorder_level": 10,
-      "price": 1740
-    },
-    {
-      "id": "IRP-1017",
-      "name": "IV Infusion Set (Macroset)",
-      "description": "AUTOFUSION \u2014 IV Infusion, sold per piece.",
-      "category": "iv-therapy",
-      "unit": "per piece",
-      "quantity": 90,
-      "reorder_level": 10,
-      "price": 58
-    },
-    {
-      "id": "IRP-1018",
-      "name": "Blood Administration Set",
-      "description": "HAEMOFUSOR \u2014 Blood Administration, sold per box.",
-      "category": "iv-therapy",
-      "unit": "per box",
-      "quantity": 69,
-      "reorder_level": 10,
-      "price": 2450
-    },
-    {
-      "id": "IRP-1019",
-      "name": "Blood Administration Set",
-      "description": "HAEMOFUSOR \u2014 Blood Administration, sold per piece.",
-      "category": "iv-therapy",
-      "unit": "per piece",
-      "quantity": 0,
-      "reorder_level": 10,
-      "price": 98
-    },
-    {
-      "id": "IRP-1020",
-      "name": "IV Infusion Set (Microset)",
-      "description": "MICROFUSION \u2014 IV Infusion, sold per box.",
-      "category": "iv-therapy",
-      "unit": "per box",
-      "quantity": 19,
-      "reorder_level": 10,
-      "price": 700
-    },
-    {
-      "id": "IRP-1021",
-      "name": "IV Infusion Set (Microset)",
-      "description": "MICROFUSION \u2014 IV Infusion, sold per piece.",
-      "category": "iv-therapy",
-      "unit": "per piece",
-      "quantity": 2,
-      "reorder_level": 10,
-      "price": 28
-    },
-    {
-      "id": "IRP-1022",
-      "name": "IV Administration Set with Burette (Soluset) 150mL",
-      "description": "POLYVOL \u2014 IV Administration, sold per unit.",
-      "category": "iv-therapy",
-      "unit": "per unit",
-      "quantity": 26,
-      "reorder_level": 10,
-      "price": 85
-    },
-    {
-      "id": "IRP-1023",
-      "name": "IV Administration Set with Burette (Soluset) 110mL",
-      "description": "POLYVOL \u2014 IV Administration, sold per unit.",
-      "category": "iv-therapy",
-      "unit": "per unit",
-      "quantity": 42,
-      "reorder_level": 10,
-      "price": 68
-    },
-    {
-      "id": "IRP-1024",
-      "name": "IV Cannula with Safety Features G16",
-      "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per box.",
-      "category": "iv-therapy",
-      "unit": "per box",
-      "quantity": 44,
-      "reorder_level": 10,
-      "price": 2662
-    },
-    {
-      "id": "IRP-1025",
-      "name": "IV Cannula with Safety Features G16",
-      "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per piece.",
-      "category": "iv-therapy",
-      "unit": "per piece",
-      "quantity": 79,
-      "reorder_level": 10,
-      "price": 54
-    },
-    {
-      "id": "IRP-1026",
-      "name": "IV Cannula with Safety Features G18",
-      "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per box.",
-      "category": "iv-therapy",
-      "unit": "per box",
-      "quantity": 2,
-      "reorder_level": 10,
-      "price": 2662
-    },
-    {
-      "id": "IRP-1027",
-      "name": "IV Cannula with Safety Features G18",
-      "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per piece.",
-      "category": "iv-therapy",
-      "unit": "per piece",
-      "quantity": 86,
-      "reorder_level": 10,
-      "price": 54
-    },
-    {
-      "id": "IRP-1028",
-      "name": "IV Cannula with Safety Features G20",
-      "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per box.",
-      "category": "iv-therapy",
-      "unit": "per box",
-      "quantity": 0,
-      "reorder_level": 10,
-      "price": 2662
-    },
-    {
-      "id": "IRP-1029",
-      "name": "IV Cannula with Safety Features G20",
-      "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per piece.",
-      "category": "iv-therapy",
-      "unit": "per piece",
-      "quantity": 40,
-      "reorder_level": 10,
-      "price": 54
-    },
-    {
-      "id": "IRP-1030",
-      "name": "IV Cannula with Safety Features G22",
-      "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per box.",
-      "category": "iv-therapy",
-      "unit": "per box",
-      "quantity": 106,
-      "reorder_level": 10,
-      "price": 2662
-    },
-    {
-      "id": "IRP-1031",
-      "name": "IV Cannula with Safety Features G22",
-      "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per piece.",
-      "category": "iv-therapy",
-      "unit": "per piece",
-      "quantity": 8,
-      "reorder_level": 10,
-      "price": 54
-    },
-    {
-      "id": "IRP-1032",
-      "name": "IV Cannula with Safety Features G24",
-      "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per box.",
-      "category": "iv-therapy",
-      "unit": "per box",
-      "quantity": 43,
-      "reorder_level": 10,
-      "price": 2783
-    },
-    {
-      "id": "IRP-1033",
-      "name": "IV Cannula with Safety Features G24",
-      "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per piece.",
-      "category": "iv-therapy",
-      "unit": "per piece",
-      "quantity": 72,
-      "reorder_level": 10,
-      "price": 56
-    },
-    {
-      "id": "IRP-1034",
-      "name": "IV Cannula with Safety Features G26",
-      "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per box.",
-      "category": "iv-therapy",
-      "unit": "per box",
-      "quantity": 90,
-      "reorder_level": 10,
-      "price": 3025
-    },
-    {
-      "id": "IRP-1035",
-      "name": "IV Cannula with Safety Features G26",
-      "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per piece.",
-      "category": "iv-therapy",
-      "unit": "per piece",
-      "quantity": 50,
-      "reorder_level": 10,
-      "price": 61
-    },
-    {
-      "id": "IRP-1036",
-      "name": "IV Cannula G16",
-      "description": "POLYFLON \u2014 IV Cannula, sold per unit.",
-      "category": "iv-therapy",
-      "unit": "per unit",
-      "quantity": 2,
-      "reorder_level": 10,
-      "price": 1330
-    },
-    {
-      "id": "IRP-1037",
-      "name": "IV Cannula G18",
-      "description": "POLYFLON \u2014 IV Cannula, sold per unit.",
-      "category": "iv-therapy",
-      "unit": "per unit",
-      "quantity": 0,
-      "reorder_level": 10,
-      "price": 1180
-    },
-    {
-      "id": "IRP-1038",
-      "name": "IV Cannula G20",
-      "description": "POLYFLON \u2014 IV Cannula, sold per unit.",
-      "category": "iv-therapy",
-      "unit": "per unit",
-      "quantity": 112,
-      "reorder_level": 10,
-      "price": 1180
-    },
-    {
-      "id": "IRP-1039",
-      "name": "IV Cannula G22",
-      "description": "POLYFLON \u2014 IV Cannula, sold per unit.",
-      "category": "iv-therapy",
-      "unit": "per unit",
-      "quantity": 118,
-      "reorder_level": 10,
-      "price": 1180
-    },
-    {
-      "id": "IRP-1040",
-      "name": "IV Cannula G24",
-      "description": "POLYFLON \u2014 IV Cannula, sold per unit.",
-      "category": "iv-therapy",
-      "unit": "per unit",
-      "quantity": 35,
-      "reorder_level": 10,
-      "price": 1420
-    },
-    {
-      "id": "IRP-1041",
-      "name": "IV Cannula G26",
-      "description": "POLYFLON \u2014 IV Cannula, sold per unit.",
-      "category": "iv-therapy",
-      "unit": "per unit",
-      "quantity": 8,
-      "reorder_level": 10,
-      "price": 1635
-    }
-  ];
+[
+  {
+    "id": "IRP-1001",
+    "name": "Disposable Syringe 1 mL 26G",
+    "description": "ALPHASHOT \u2014 Syringes, sold per unit.",
+    "category": "syringes-needles",
+    "unit": "per unit",
+    "quantity": 200,
+    "price": 1220,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1002",
+    "name": "Disposable Syringe 3 mL 26G",
+    "description": "ALPHASHOT \u2014 Syringes, sold per unit.",
+    "category": "syringes-needles",
+    "unit": "per unit",
+    "quantity": 200,
+    "price": 608,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1003",
+    "name": "Disposable Syringe 5 mL 22G",
+    "description": "ALPHASHOT \u2014 Syringes, sold per unit.",
+    "category": "syringes-needles",
+    "unit": "per unit",
+    "quantity": 200,
+    "price": 640,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1004",
+    "name": "Disposable Syringe 10 mL 21G",
+    "description": "ALPHASHOT \u2014 Syringes, sold per unit.",
+    "category": "syringes-needles",
+    "unit": "per unit",
+    "quantity": 200,
+    "price": 850,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1005",
+    "name": "Adult Diaper S",
+    "description": "ALPHACARE \u2014 Patient Care, sold per unit.",
+    "category": "patient-care",
+    "unit": "per unit",
+    "quantity": 200,
+    "price": 250,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1006",
+    "name": "Adult Diaper M",
+    "description": "ALPHACARE \u2014 Patient Care, sold per unit.",
+    "category": "patient-care",
+    "unit": "per unit",
+    "quantity": 200,
+    "price": 260,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1007",
+    "name": "Adult Diaper L",
+    "description": "ALPHACARE \u2014 Patient Care, sold per unit.",
+    "category": "patient-care",
+    "unit": "per unit",
+    "quantity": 200,
+    "price": 280,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1008",
+    "name": "Adult Diaper XL",
+    "description": "ALPHACARE \u2014 Patient Care, sold per unit.",
+    "category": "patient-care",
+    "unit": "per unit",
+    "quantity": 200,
+    "price": 330,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1009",
+    "name": "Underpads",
+    "description": "ALPHACARE \u2014 Patient Care, sold per unit.",
+    "category": "patient-care",
+    "unit": "per unit",
+    "quantity": 200,
+    "price": 280,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1010",
+    "name": "Needle Retractable Safety Syringe 1mL with needle 27G x 3/8\"",
+    "description": "IRASAFETY \u2014 Safety Syringes, sold per unit.",
+    "category": "syringes-needles",
+    "unit": "per unit",
+    "quantity": 200,
+    "price": 2800,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1011",
+    "name": "Needle Retractable Safety Syringe 5mL with needle",
+    "description": "IRASAFETY \u2014 Safety Syringes, sold per unit.",
+    "category": "syringes-needles",
+    "unit": "per unit",
+    "quantity": 200,
+    "price": 1400,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1012",
+    "name": "Needle Retractable Safety Syringe 10mL with needle",
+    "description": "IRASAFETY \u2014 Safety Syringes, sold per unit.",
+    "category": "syringes-needles",
+    "unit": "per unit",
+    "quantity": 200,
+    "price": 1465,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1013",
+    "name": "Needle Retractable Safety Syringe 3mL with needle 27G x 3/8\"",
+    "description": "IRASAFETY \u2014 Safety Syringes, sold per unit.",
+    "category": "syringes-needles",
+    "unit": "per unit",
+    "quantity": 200,
+    "price": 1410,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1014",
+    "name": "IV Administration Set with Burette (Soluset) 150 mL",
+    "description": "POLYVOL \u2014 IV Administration, sold per unit.",
+    "category": "iv-therapy",
+    "unit": "per unit",
+    "quantity": 200,
+    "price": 850,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1015",
+    "name": "IV Administration Set with Burette (Soluset) 110 mL",
+    "description": "POLYVOL \u2014 IV Administration, sold per unit.",
+    "category": "iv-therapy",
+    "unit": "per unit",
+    "quantity": 200,
+    "price": 670,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1016",
+    "name": "IV Infusion Set (Macroset)",
+    "description": "AUTOFUSION \u2014 IV Infusion, sold per box.",
+    "category": "iv-therapy",
+    "unit": "per box",
+    "quantity": 200,
+    "price": 1740,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1017",
+    "name": "IV Infusion Set (Macroset)",
+    "description": "AUTOFUSION \u2014 IV Infusion, sold per piece.",
+    "category": "iv-therapy",
+    "unit": "per piece",
+    "quantity": 200,
+    "price": 58,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1018",
+    "name": "Blood Administration Set",
+    "description": "HAEMOFUSOR \u2014 Blood Administration, sold per box.",
+    "category": "iv-therapy",
+    "unit": "per box",
+    "quantity": 200,
+    "price": 2450,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1019",
+    "name": "Blood Administration Set",
+    "description": "HAEMOFUSOR \u2014 Blood Administration, sold per piece.",
+    "category": "iv-therapy",
+    "unit": "per piece",
+    "quantity": 200,
+    "price": 98,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1020",
+    "name": "IV Infusion Set (Microset)",
+    "description": "MICROFUSION \u2014 IV Infusion, sold per box.",
+    "category": "iv-therapy",
+    "unit": "per box",
+    "quantity": 200,
+    "price": 700,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1021",
+    "name": "IV Infusion Set (Microset)",
+    "description": "MICROFUSION \u2014 IV Infusion, sold per piece.",
+    "category": "iv-therapy",
+    "unit": "per piece",
+    "quantity": 200,
+    "price": 28,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1022",
+    "name": "IV Administration Set with Burette (Soluset) 150mL",
+    "description": "POLYVOL \u2014 IV Administration, sold per unit.",
+    "category": "iv-therapy",
+    "unit": "per unit",
+    "quantity": 200,
+    "price": 85,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1023",
+    "name": "IV Administration Set with Burette (Soluset) 110mL",
+    "description": "POLYVOL \u2014 IV Administration, sold per unit.",
+    "category": "iv-therapy",
+    "unit": "per unit",
+    "quantity": 200,
+    "price": 68,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1024",
+    "name": "IV Cannula with Safety Features G16",
+    "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per box.",
+    "category": "iv-therapy",
+    "unit": "per box",
+    "quantity": 200,
+    "price": 2662,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1025",
+    "name": "IV Cannula with Safety Features G16",
+    "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per piece.",
+    "category": "iv-therapy",
+    "unit": "per piece",
+    "quantity": 200,
+    "price": 54,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1026",
+    "name": "IV Cannula with Safety Features G18",
+    "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per box.",
+    "category": "iv-therapy",
+    "unit": "per box",
+    "quantity": 200,
+    "price": 2662,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1027",
+    "name": "IV Cannula with Safety Features G18",
+    "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per piece.",
+    "category": "iv-therapy",
+    "unit": "per piece",
+    "quantity": 200,
+    "price": 54,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1028",
+    "name": "IV Cannula with Safety Features G20",
+    "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per box.",
+    "category": "iv-therapy",
+    "unit": "per box",
+    "quantity": 200,
+    "price": 2662,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1029",
+    "name": "IV Cannula with Safety Features G20",
+    "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per piece.",
+    "category": "iv-therapy",
+    "unit": "per piece",
+    "quantity": 200,
+    "price": 54,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1030",
+    "name": "IV Cannula with Safety Features G22",
+    "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per box.",
+    "category": "iv-therapy",
+    "unit": "per box",
+    "quantity": 200,
+    "price": 2662,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1031",
+    "name": "IV Cannula with Safety Features G22",
+    "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per piece.",
+    "category": "iv-therapy",
+    "unit": "per piece",
+    "quantity": 200,
+    "price": 54,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1032",
+    "name": "IV Cannula with Safety Features G24",
+    "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per box.",
+    "category": "iv-therapy",
+    "unit": "per box",
+    "quantity": 200,
+    "price": 2783,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1033",
+    "name": "IV Cannula with Safety Features G24",
+    "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per piece.",
+    "category": "iv-therapy",
+    "unit": "per piece",
+    "quantity": 200,
+    "price": 56,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1034",
+    "name": "IV Cannula with Safety Features G26",
+    "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per box.",
+    "category": "iv-therapy",
+    "unit": "per box",
+    "quantity": 200,
+    "price": 3025,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1035",
+    "name": "IV Cannula with Safety Features G26",
+    "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per piece.",
+    "category": "iv-therapy",
+    "unit": "per piece",
+    "quantity": 200,
+    "price": 61,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1036",
+    "name": "IV Cannula G16",
+    "description": "POLYFLON \u2014 IV Cannula, sold per unit.",
+    "category": "iv-therapy",
+    "unit": "per unit",
+    "quantity": 200,
+    "price": 1330,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1037",
+    "name": "IV Cannula G18",
+    "description": "POLYFLON \u2014 IV Cannula, sold per unit.",
+    "category": "iv-therapy",
+    "unit": "per unit",
+    "quantity": 200,
+    "price": 1180,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1038",
+    "name": "IV Cannula G20",
+    "description": "POLYFLON \u2014 IV Cannula, sold per unit.",
+    "category": "iv-therapy",
+    "unit": "per unit",
+    "quantity": 200,
+    "price": 1180,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1039",
+    "name": "IV Cannula G22",
+    "description": "POLYFLON \u2014 IV Cannula, sold per unit.",
+    "category": "iv-therapy",
+    "unit": "per unit",
+    "quantity": 200,
+    "price": 1180,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1040",
+    "name": "IV Cannula G24",
+    "description": "POLYFLON \u2014 IV Cannula, sold per unit.",
+    "category": "iv-therapy",
+    "unit": "per unit",
+    "quantity": 200,
+    "price": 1420,
+    "baseline_qty": 200
+  },
+  {
+    "id": "IRP-1041",
+    "name": "IV Cannula G26",
+    "description": "POLYFLON \u2014 IV Cannula, sold per unit.",
+    "category": "iv-therapy",
+    "unit": "per unit",
+    "quantity": 200,
+    "price": 1635,
+    "baseline_qty": 200
+  }
+];
   MockDB.saveProducts(products);
 
   MockDB.saveUsers([
@@ -511,7 +511,11 @@ function seedMockData(){
 function mockStatus(p){
   const qty = p.quantity || 0;
   if(qty <= 0) return "out-of-stock";
-  if(qty <= (p.reorder_level || 0)) return "low-stock";
+  // Low stock is dynamic: 30% of whatever the last restock ("Add") brought
+  // it up to — not a fixed number per product. baseline_qty is set on
+  // creation and refreshed every time stock is Added; Releases never touch it.
+  const baseline = p.baseline_qty || 0;
+  if(baseline > 0 && qty <= baseline * 0.3) return "low-stock";
   return "in-stock";
 }
 function serializeProduct(p){ return { ...p, status: mockStatus(p) }; }
@@ -599,7 +603,8 @@ const MockApi = {
     if(!u || u.role !== "superadmin") return { ok:false, status:403, error:"Only Superadmin can add products.", data:null };
     const products = MockDB.products();
     if(products.find(p => p.id === payload.id)) return { ok:false, status:409, error:`Product ${payload.id} already exists.`, data:null };
-    const doc = { id:payload.id, name:payload.name, description:payload.description, category:payload.category, unit:payload.unit, quantity:Number(payload.quantity)||0, reorder_level:Number(payload.reorder_level)||5, price:Number(payload.price)||0 };
+    const doc = { id:payload.id, name:payload.name, description:payload.description, category:payload.category, unit:payload.unit, quantity:Number(payload.quantity)||0, price:Number(payload.price)||0 };
+    doc.baseline_qty = doc.quantity; // the starting stock is also the first "full" baseline for the 30% low-stock check
     products.push(doc);
     MockDB.saveProducts(products);
 
@@ -722,6 +727,10 @@ const MockApi = {
     const after = before + delta;
     if(after < 0) return { ok:false, status:400, error:`Cannot release ${qty} — only ${before} in stock.`, data:null };
     product.quantity = after;
+    // Adding stock resets the "full" baseline used for the 30% low-stock
+    // check. Releasing never touches it — releases measure against
+    // whatever the last restock brought the shelf up to.
+    if(action === "supply") product.baseline_qty = after;
     MockDB.saveProducts(products);
 
     const invLogs = MockDB.invLogs();
@@ -745,19 +754,6 @@ const MockApi = {
     let rows = MockDB.invLogs();
     if(params.action && params.action !== "all") rows = rows.filter(l => l.action === params.action);
     rows = rows.slice().sort((a,b) => new Date(b.at) - new Date(a.at));
-    return { ok:true, status:200, error:null, data:rows };
-  },
-  // Open to all roles (unlike getInventoryLogs, which the real backend
-  // restricts to superadmin/admin) — the "released/supplied products" feed
-  // and per-product quantity history, e.g. ?product=IRP-1002.
-  getStockMovements(params = {}){
-    ensureMonthlyOpenings();
-    let rows = MockDB.invLogs();
-    if(params.action && params.action !== "all") rows = rows.filter(l => l.action === params.action);
-    if(params.product) rows = rows.filter(l => l.product_id === params.product);
-    // One product's history reads beginning-to-current (oldest first);
-    // the general feed reads newest-first.
-    rows = rows.slice().sort((a,b) => params.product ? new Date(a.at) - new Date(b.at) : new Date(b.at) - new Date(a.at));
     return { ok:true, status:200, error:null, data:rows };
   },
 

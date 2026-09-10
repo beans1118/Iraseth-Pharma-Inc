@@ -14,16 +14,19 @@ from realtime import emit_inventory_log
 
 bp = Blueprint("products", __name__, url_prefix="/api/products")
 
-REQUIRED_FIELDS = ["id", "name", "description", "category", "unit", "quantity", "reorder_level"]
+REQUIRED_FIELDS = ["id", "name", "description", "category", "unit", "quantity"]
 OPTIONAL_FIELDS = ["price"]
 
 
 def _status(p: dict) -> str:
     qty = p.get("quantity", 0)
-    reorder = p.get("reorder_level", 0)
     if qty <= 0:
         return "out-of-stock"
-    if qty <= reorder:
+    # Low stock is dynamic: 30% of whatever the last restock ("Add") brought
+    # it up to, not a fixed number set per product. baseline_qty is set on
+    # creation and refreshed every time stock is Added; Releases never touch it.
+    baseline = p.get("baseline_qty", 0)
+    if baseline > 0 and qty <= baseline * 0.3:
         return "low-stock"
     return "in-stock"
 
@@ -81,10 +84,10 @@ def create_product():
 
     try:
         doc["quantity"] = int(doc["quantity"])
-        doc["reorder_level"] = int(doc["reorder_level"])
         doc["price"] = float(doc["price"])
     except (TypeError, ValueError):
-        return jsonify({"error": "quantity, reorder_level, and price must be numbers."}), 400
+        return jsonify({"error": "quantity and price must be numbers."}), 400
+    doc["baseline_qty"] = doc["quantity"]  # the starting stock is also the first "full" baseline
 
     db.products.insert_one(doc)
 
@@ -115,17 +118,12 @@ def create_product():
 @bp.put("/<product_id>")
 @require_role("superadmin")
 def update_product(product_id):
-    """Edits name/description/category/unit/reorder_level/price. NOT quantity —
+    """Edits name/description/category/unit/price. NOT quantity —
     quantity only ever changes through /api/inventory, so every stock change
     is logged."""
     data = request.get_json(silent=True) or {}
     editable = [f for f in REQUIRED_FIELDS + OPTIONAL_FIELDS if f != "quantity"]
     updates = {f: data[f] for f in editable if f in data}
-    if "reorder_level" in updates:
-        try:
-            updates["reorder_level"] = int(updates["reorder_level"])
-        except (TypeError, ValueError):
-            return jsonify({"error": "reorder_level must be a number."}), 400
     if "price" in updates:
         try:
             updates["price"] = float(updates["price"])

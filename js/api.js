@@ -124,11 +124,6 @@ const Api = {
     if(this.mock) return MockApi.supplyStock(id, qty, note);
     return this._request(`/inventory/${encodeURIComponent(id)}/supply`, { method:"POST", headers:this._authHeaders(), body:JSON.stringify({ qty, note }) });
   },
-  async getStockMovements(params = {}){
-    if(this.mock) return MockApi.getStockMovements(params);
-    const qs = new URLSearchParams(params).toString();
-    return this._request(`/inventory/activity${qs ? "?" + qs : ""}`, { headers:this._authHeaders() });
-  },
 
   // ---- Logs (superadmin + admin) ----
   async getSessionLogs(params = {}){

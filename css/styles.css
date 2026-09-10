@@ -49,7 +49,7 @@ img{max-width:100%; display:block;}
 button{font-family:inherit; cursor:pointer;}
 input,select{font-family:inherit; font-size:14px;}
 
-.wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+.wrap{max-width:min(94vw, 1360px); margin:0 auto; padding:0 24px;}
 .eyebrow{font-family:var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color:var(--red); font-weight:600;}
 
 /* --------- Buttons --------- */
@@ -138,7 +138,7 @@ section{padding:72px 0;}
 /* --------- Catalog / products --------- */
 .products-header{background:var(--blue-deep); padding:56px 0 40px; color:var(--white);}
 .products-header h1{color:var(--white);}
-.products-layout{display:grid; grid-template-columns:240px 1fr; gap:28px; padding:36px 0 72px;}
+.products-layout{display:grid; grid-template-columns:240px minmax(0,1fr); gap:28px; padding:36px 0 72px;}
 .filter-box{background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:18px; align-self:start; position:sticky; top:88px;}
 .filter-box h5{margin-top:16px;}
 .filter-box h5:first-child{margin-top:0;}
@@ -202,7 +202,7 @@ footer a:hover{color:var(--white);}
 .login-hint{margin-top:14px; font-family:var(--mono); font-size:11px; color:var(--ink-soft); text-align:center;}
 .role-badge{display:inline-block; font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.05em; padding:3px 10px; border-radius:999px; background:var(--blue-light); color:var(--blue); font-weight:600;}
 
-.admin-shell{display:grid; grid-template-columns:230px 1fr; min-height:100vh;}
+.admin-shell{display:grid; grid-template-columns:230px minmax(0,1fr); min-height:100vh;}
 .admin-side{background:var(--blue-deep); color:rgba(255,255,255,0.82); padding:22px 18px; display:flex; flex-direction:column; gap:22px;}
 .admin-side nav{display:flex; flex-direction:column; gap:4px; flex:1;}
 .admin-side nav a{padding:10px 12px; border-radius:8px; font-size:14px;}
@@ -211,7 +211,7 @@ footer a:hover{color:var(--white);}
 .sign-out{padding:10px 12px; font-size:13px; color:rgba(255,255,255,0.55);}
 .sign-out:hover{color:var(--white);}
 
-.admin-main{padding:32px 36px; overflow-x:hidden;}
+.admin-main{padding:32px 36px; overflow-x:hidden; min-width:0;}
 .admin-top{display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:22px; gap:16px; flex-wrap:wrap;}
 .admin-top p{margin:2px 0 0;}
 
@@ -300,7 +300,7 @@ tbody tr:hover{background:var(--paper-dim);}
    refinements for very small screens.
    ========================================================= */
 @media (max-width:860px){
-  .admin-shell{grid-template-columns:1fr;}
+  .admin-shell{grid-template-columns:minmax(0,1fr);}
   .admin-side{
     flex-direction:row; align-items:center; flex-wrap:wrap; gap:12px 18px;
     padding:14px 16px; position:sticky; top:0; z-index:40;
@@ -309,7 +309,7 @@ tbody tr:hover{background:var(--paper-dim);}
   .admin-side > div:nth-child(2){order:2; margin-right:auto;}
   .admin-side nav{
     order:4; flex-direction:row; flex:0 0 100%; overflow-x:auto; gap:6px;
-    padding-top:6px; border-top:1px solid rgba(255,255,255,0.12);
+    padding-top:6px; border-top:1px solid rgba(255,255,255,0.12); min-width:0;
   }
   .admin-side nav a{white-space:nowrap; padding:8px 12px; font-size:13px;}
   .admin-side .live-status{order:3;}

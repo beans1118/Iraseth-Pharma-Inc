@@ -67,7 +67,13 @@ def _log_and_apply(product_id: str, delta: int, action: str, note: str):
     if after < 0:
         return None, (f"Cannot release {abs(delta)} — only {before} in stock.", 400)
 
-    db.products.update_one({"id": product_id}, {"$set": {"quantity": after}})
+    updates = {"quantity": after}
+    # Adding stock resets the "full" baseline used for the 30% low-stock
+    # check. Releasing never touches it — releases measure against
+    # whatever the last restock brought the shelf up to.
+    if action == "supply":
+        updates["baseline_qty"] = after
+    db.products.update_one({"id": product_id}, {"$set": updates})
     updated = db.products.find_one({"id": product_id})
 
     log_entry = {
@@ -137,36 +143,3 @@ def add_supply(product_id):
         return jsonify({"error": err[0]}), err[1]
     product, log_entry = result
     return jsonify({"product": product, "log": log_entry}), 200
-
-
-@bp.get("/activity")
-@require_role()
-def stock_activity():
-    """
-    Every release/supply, open to ALL roles (unlike /api/logs/inventory,
-    which is superadmin/admin only for the full accountability audit).
-    This is the operational "what happened to stock, and when" feed —
-    e.g. Sub-admin monitoring releases, or anyone pulling up one product's
-    full quantity history (500 on Sept 1 -> 10 on Sept 10 -> resupplied
-    Sept 12) via ?product=<id>.
-    """
-    _ensure_monthly_openings()
-    query = {}
-    action = request.args.get("action")
-    if action and action != "all":
-        query["action"] = action
-    product = request.args.get("product")
-    if product:
-        query["product_id"] = product
-
-    limit = min(int(request.args.get("limit", 200)), 1000)
-    # When looking at one product's full trail, read it chronologically
-    # (beginning stock first, most recent last). Otherwise show the
-    # general activity feed newest-first.
-    sort_dir = 1 if product else -1
-    rows = []
-    for l in db.inventory_logs.find(query).sort("at", sort_dir).limit(limit):
-        l = dict(l)
-        l.pop("_id", None)
-        rows.append(l)
-    return jsonify(rows)

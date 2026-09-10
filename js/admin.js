@@ -29,7 +29,7 @@ function roleLabel(role){
   return { superadmin:"Superadmin", admin:"Admin", subadmin:"Sub-admin" }[role] || role;
 }
 function actionLabel(action){
-  return { opening:"Opening stock", monthly_opening:"Monthly opening", release:"Released", supply:"Supplied" }[action] || action;
+  return { opening:"Opening stock", monthly_opening:"Monthly opening", release:"Released", supply:"Added" }[action] || action;
 }
 function toast(msg){
   const el = document.getElementById("toast");
@@ -46,14 +46,19 @@ function isSuperadmin(){ return currentUser && currentUser.role === "superadmin"
 
 /* ---------- Auth screens ---------- */
 function showLogin(){
-  document.getElementById("loginScreen").style.display = "flex";
+  // Clearing (not hardcoding) display lets each screen's own CSS class
+  // decide its display type — .login-shell is flex, .admin-shell is grid.
+  // Hardcoding "flex" here previously fought .admin-shell's grid layout
+  // via inline-style specificity, which silently turned the whole admin
+  // console into an unintended flex layout (the sidebar-shrinks-per-view bug).
+  document.getElementById("loginScreen").style.display = "";
   document.getElementById("dashboardScreen").style.display = "none";
   if(socket){ socket.disconnect(); socket = null; }
 }
 
 async function showDashboard(){
   document.getElementById("loginScreen").style.display = "none";
-  document.getElementById("dashboardScreen").style.display = "flex";
+  document.getElementById("dashboardScreen").style.display = "";
 
   document.getElementById("roleBadge").textContent = roleLabel(currentUser.role);
   document.getElementById("userNameLabel").textContent = currentUser.name || currentUser.email;
@@ -150,7 +155,6 @@ function connectSocket(){
   socket.on("log:inventory", (entry) => {
     toast(`${entry.actor_name || entry.actor_email} ${entry.action === "release" ? "released" : "added"} ${entry.qty} × ${entry.product_id}`);
     if(document.getElementById("logsView").style.display !== "none") loadInventoryLogs();
-    if(document.getElementById("movementsView").style.display !== "none") loadMovements();
   });
 
   socket.on("log:session", (entry) => {
@@ -198,29 +202,20 @@ function renderInventory(){
       <td><b>${p.quantity ?? 0}</b></td>
       <td><span class="${stockBadgeClass(p.status)}">${(p.status || "").replace("-", " ")}</span></td>
       <td>
-        <div class="qty-actions">
-          ${writable ? `
+        ${writable ? `
+          <div class="qty-actions">
             <input type="number" min="1" value="1" id="qty-${p.id}">
-            <button class="mini-btn supply" data-supply="${p.id}">+ Supply</button>
+            <button class="mini-btn supply" data-add="${p.id}">+ Add</button>
             <button class="mini-btn release" data-release="${p.id}">− Release</button>
-          ` : ""}
-          <button class="mini-btn" data-history="${p.id}">History</button>
-        </div>
+          </div>
+        ` : `<span class="row-detail">View only</span>`}
       </td>
     </tr>
   `).join("");
 
-  body.querySelectorAll("[data-history]").forEach(btn => {
-    btn.addEventListener("click", () => {
-      switchView("movements");
-      document.getElementById("movementProductFilter").value = btn.dataset.history;
-      loadMovements();
-    });
-  });
-
   if(writable){
-    body.querySelectorAll("[data-supply]").forEach(btn => {
-      btn.addEventListener("click", () => doStockAction(btn.dataset.supply, "supply"));
+    body.querySelectorAll("[data-add]").forEach(btn => {
+      btn.addEventListener("click", () => doStockAction(btn.dataset.add, "supply"));
     });
     body.querySelectorAll("[data-release]").forEach(btn => {
       btn.addEventListener("click", () => doStockAction(btn.dataset.release, "release"));
@@ -231,13 +226,21 @@ function renderInventory(){
 async function doStockAction(id, action){
   const qtyInput = document.getElementById(`qty-${id}`);
   const qty = Math.max(1, parseInt(qtyInput.value) || 1);
-  const note = action === "release"
-    ? (window.prompt("Note for this release (optional) — e.g. order #, reason:") || "")
-    : (window.prompt("Note for this supply (optional) — e.g. supplier, PO #:") || "");
+
+  let note = "";
+  if(action === "release"){
+    // Release = fulfilling a manual/phone order, so capture what a PO would:
+    // the order reference and who it's for.
+    const po = (window.prompt("PO number for this order (optional):") || "").trim();
+    const customer = (window.prompt("Customer / caller name (optional):") || "").trim();
+    note = [po && `PO: ${po}`, customer && `Ordered by: ${customer}`].filter(Boolean).join(" — ");
+  } else {
+    note = (window.prompt("Reason for this restock (optional) — e.g. new delivery arrived:") || "").trim();
+  }
 
   const res = action === "release" ? await Api.releaseStock(id, qty, note) : await Api.supplyStock(id, qty, note);
   if(res.ok){
-    toast(`${action === "release" ? "Released" : "Supplied"} ${qty} × ${id}`);
+    toast(`${action === "release" ? "Released" : "Added"} ${qty} × ${id}`);
     await loadStock();
     renderInventory();
   } else {
@@ -356,63 +359,6 @@ async function renderClients(){
 
 document.getElementById("orderSearch").addEventListener("input", renderOrders);
 document.getElementById("statusFilter").addEventListener("change", renderOrders);
-
-/* ---------- Stock movements (released & supplied — ALL roles) ---------- */
-function timelineDotClass(action){
-  return { opening:"dot-opening", monthly_opening:"dot-monthly", release:"dot-release", supply:"dot-supply" }[action] || "dot-supply";
-}
-
-async function renderMovementChips(){
-  // A quick-jump row of product IDs that actually have activity, so on a
-  // phone you can tap instead of typing an exact ID into the filter box.
-  const res = await Api.getStockMovements({});
-  const chipsEl = document.getElementById("movementProductChips");
-  if(!res.ok){ chipsEl.innerHTML = ""; return; }
-  const ids = [...new Set(res.data.map(l => l.product_id))].sort().slice(0, 24);
-  const current = document.getElementById("movementProductFilter").value.trim();
-  chipsEl.innerHTML = `<button class="chip ${!current ? "active" : ""}" data-chip="">All products</button>` +
-    ids.map(id => `<button class="chip ${id === current ? "active" : ""}" data-chip="${id}">${id}</button>`).join("");
-  chipsEl.querySelectorAll("[data-chip]").forEach(chip => {
-    chip.addEventListener("click", () => {
-      document.getElementById("movementProductFilter").value = chip.dataset.chip;
-      loadMovements();
-    });
-  });
-}
-
-async function loadMovements(){
-  const product = document.getElementById("movementProductFilter").value.trim();
-  const action = document.getElementById("movementActionFilter").value;
-  const params = {};
-  if(product) params.product = product;
-  if(action !== "all") params.action = action;
-
-  const res = await Api.getStockMovements(params);
-  const el = document.getElementById("movementsTimeline");
-  if(!res.ok){ el.innerHTML = `<div class="empty-state">${res.error || "Could not load stock movements."}</div>`; return; }
-  const rows = res.data;
-  if(rows.length === 0){ el.innerHTML = `<div class="empty-state">No stock movements match your filter yet.</div>`; return; }
-
-  el.innerHTML = rows.map(l => `
-    <div class="timeline-item">
-      <div class="timeline-dot ${timelineDotClass(l.action)}"></div>
-      <div class="timeline-content">
-        <div class="timeline-top">
-          <span class="badge badge-${l.action}">${actionLabel(l.action)}</span>
-          <span class="timeline-date">${fmtDate(l.at)}</span>
-        </div>
-        <div class="timeline-product"><b>${l.product_name || l.product_id}</b> <span class="row-detail">${l.product_id}</span></div>
-        <div class="timeline-qty">${l.qty} unit${l.qty === 1 ? "" : "s"} &nbsp;·&nbsp; ${l.before} &rarr; ${l.after}</div>
-        ${l.note ? `<div class="timeline-note">${l.note}</div>` : ""}
-      </div>
-    </div>
-  `).join("");
-
-  renderMovementChips();
-}
-
-document.getElementById("movementProductFilter").addEventListener("input", loadMovements);
-document.getElementById("movementActionFilter").addEventListener("change", loadMovements);
 
 /* ---------- Logs (superadmin + admin) ---------- */
 async function loadSessionLogs(){
@@ -557,7 +503,6 @@ document.getElementById("runBackupBtn").addEventListener("click", async () => {
 /* ---------- View switching ---------- */
 const VIEW_META = {
   inventory: { title:"Inventory", sub:"Live stock levels — release and supply update every connected dashboard instantly." },
-  movements: { title:"Stock movements", sub:"Every release and supply, for any role — filter by product to see its full quantity history over time." },
   orders:    { title:"Purchase orders", sub:"Every order submitted through the storefront, most recent first." },
   clients:   { title:"Client history", sub:"Purchase totals grouped by client facility." },
   logs:      { title:"Activity logs", sub:"Who logged in/out, when, for how long — and every stock add/deduct." },
@@ -567,7 +512,7 @@ const VIEW_META = {
 
 async function switchView(view){
   document.querySelectorAll(".admin-side a[data-view]").forEach(a => a.classList.toggle("active", a.dataset.view === view));
-  ["inventory","movements","orders","clients","logs","users","backup"].forEach(v => {
+  ["inventory","orders","clients","logs","users","backup"].forEach(v => {
     document.getElementById(v + "View").style.display = v === view ? "block" : "none";
   });
   document.getElementById("orderKpiRow").style.display = (view === "orders") ? "grid" : "none";
@@ -576,7 +521,6 @@ async function switchView(view){
   document.getElementById("viewSub").textContent = VIEW_META[view].sub;
 
   if(view === "inventory"){ await loadStock(); renderInventory(); }
-  else if(view === "movements"){ await loadMovements(); }
   else if(view === "orders"){ await renderKPIs(); await renderOrders(); }
   else if(view === "clients"){ await renderClients(); }
   else if(view === "logs"){ await loadSessionLogs(); await loadInventoryLogs(); }

@@ -48,7 +48,6 @@
     </div>
     <nav>
       <a href="#" class="active" data-view="inventory">Inventory</a>
-      <a href="#" data-view="movements">Stock movements</a>
       <a href="#" data-view="orders">Purchase orders</a>
       <a href="#" data-view="clients">Client history</a>
       <a href="#" data-view="logs" data-role-gate="superadmin,admin">Activity logs</a>
@@ -117,33 +116,6 @@
             <tbody id="inventoryTableBody"></tbody>
           </table>
         </div>
-      </div>
-    </div>
-
-    <!-- ================= STOCK MOVEMENTS (released & supplied — all roles) ================= -->
-    <div id="movementsView" style="display:none;">
-      <div class="panel">
-        <div class="panel-head">
-          <h3>Released &amp; supplied history</h3>
-          <div class="controls">
-            <input type="text" id="movementProductFilter" placeholder="Filter by product ID (e.g. IRP-1002)...">
-            <select id="movementActionFilter">
-              <option value="all">All activity</option>
-              <option value="opening">Opening stock only</option>
-              <option value="monthly_opening">Monthly opening only</option>
-              <option value="release">Released only</option>
-              <option value="supply">Supplied (restocked) only</option>
-            </select>
-          </div>
-        </div>
-        <p class="panel-note">
-          Every time stock changed — filter by a product ID above to see its full quantity trail over time
-          (e.g. 500 on Sept 1 &rarr; 10 on Sept 10 &rarr; resupplied Sept 12). Each product also gets an
-          automatic "Monthly opening" snapshot as soon as the calendar month rolls over and anyone next
-          checks inventory — a running beginning-of-month balance, separate from day-to-day releases/supplies.
-        </p>
-        <div class="chip-row" id="movementProductChips"></div>
-        <div class="timeline" id="movementsTimeline"></div>
       </div>
     </div>
 
@@ -240,7 +212,7 @@
               <option value="opening">Opening stock</option>
               <option value="monthly_opening">Monthly opening</option>
               <option value="release">Release (deduct)</option>
-              <option value="supply">Supply (add)</option>
+              <option value="supply">Add (restock)</option>
             </select>
           </div>
         </div>
