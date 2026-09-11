@@ -215,11 +215,15 @@ async function doStockAction(id, action){
 
   let note = "";
   if(action === "release"){
-    const po = (window.prompt("PO number for this order (optional):") || "").trim();
-    const customer = (window.prompt("Customer / caller name (optional):") || "").trim();
-    note = [po && `PO: ${po}`, customer && `Ordered by: ${customer}`].filter(Boolean).join(" — ");
+    const po = window.prompt("PO number for this order (optional):");
+    if(po === null) return;
+    const customer = window.prompt("Customer / caller name (optional):");
+    if(customer === null) return;
+    note = [po.trim() && `PO: ${po.trim()}`, customer.trim() && `Ordered by: ${customer.trim()}`].filter(Boolean).join(" — ");
   } else {
-    note = (window.prompt("Reason for this restock (optional) — e.g. new delivery arrived:") || "").trim();
+    const reason = window.prompt("Reason for this restock (optional) — e.g. new delivery arrived:");
+    if(reason === null) return;
+    note = reason.trim();
   }
 
   const res = action === "release" ? await Api.releaseStock(id, qty, note) : await Api.supplyStock(id, qty, note);

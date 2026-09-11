@@ -1,3 +1,15 @@
+"""
+This is the Inventory Tracking System itself: current stock levels, "release"
+(a product went out — deducts quantity) and "supply" (restock — adds
+quantity). Every change writes one row to inventory_logs (who, role, product,
+before/after quantity, note, timestamp) and pushes a live update over
+Socket.IO so every open dashboard reflects it immediately — no refresh.
+
+Role rules:
+  - superadmin & subadmin can release/supply.
+  - admin is view-only (enforced below — it can list products, but the
+    write endpoints reject it with a 403).
+"""
 from datetime import datetime, timezone
 
 from flask import Blueprint, request, jsonify, g
@@ -11,6 +23,14 @@ bp = Blueprint("inventory", __name__, url_prefix="/api/inventory")
 
 
 def _ensure_monthly_openings():
+    """
+    Snapshots every product's current quantity as that calendar month's
+    "beginning stock" the first time inventory is checked in a new month.
+    There's no scheduler in this app, so this runs lazily instead: cheap to
+    check (one count query), and guarantees every month gets exactly one
+    opening snapshot per product as soon as anyone loads the Inventory tab
+    or Stock Movements after the month rolls over.
+    """
     month_key = datetime.now(timezone.utc).strftime("%Y-%m")
     if db.inventory_logs.count_documents({"action": "monthly_opening", "month": month_key}) > 0:
         return  # already snapshotted this month

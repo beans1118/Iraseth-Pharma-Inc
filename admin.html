@@ -13,22 +13,28 @@
 
 <!-- LOGIN SCREEN -->
 <div class="login-shell" id="loginScreen">
-  <div class="  login-card">
+  <div class="login-card">
     <div class="top">
-      <img src="assets/logo-mark.png" alt="Iraseth Pharma" style="height:48px; width:auto; margin:0 auto 14px; display:block;">
-      <h1>Backend access</h1>
-      <p>Sign in with your Superadmin, Admin, or Sub-admin account.</p>
+      <img src="assets/logo-mark.png" alt="Iraseth Pharma" class="login-logo">
+      <h1>Log into Your Account</h1>
+      <p>Enter your credentials to access the dashboard.</p>
     </div>
     <div class="login-form">
       <div class="login-error" id="loginError">Incorrect email or password. Try again.</div>
       <form id="loginForm">
-        <div class="field">
+        <div class="field field-icon">
           <label for="email">Email</label>
-          <input id="email" type="email" required placeholder="you@irasethpharma.com" autocomplete="username">
+          <div class="input-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5v-11Z"/><path d="m4 6 8 6.5L20 6"/></svg>
+            <input id="email" type="email" required placeholder="you@irasethpharma.com" autocomplete="username">
+          </div>
         </div>
-        <div class="field">
+        <div class="field field-icon">
           <label for="password">Password</label>
-          <input id="password" type="password" required placeholder="••••••••" autocomplete="current-password">
+          <div class="input-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4.5" y="10.5" width="15" height="9.5" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>
+            <input id="password" type="password" required placeholder="••••••••" autocomplete="current-password">
+          </div>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Sign in</button>
       </form>
