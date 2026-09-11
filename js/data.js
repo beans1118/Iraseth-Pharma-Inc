@@ -1,14 +1,5 @@
-/* =========================================================
-   IRASETH PHARMA — Product catalog + cart
-   No hardcoded/demo product data lives here anymore. PRODUCTS is
-   populated ONLY from the live backend (see main.js -> Api.getProducts()).
-   Categories are also derived from whatever the backend returns, instead
-   of a fixed hardcoded list, so adding a new category server-side just
-   works on the storefront with no frontend change needed.
-   ========================================================= */
+// Product catalog + cart — PRODUCTS is populated from the backend at runtime.
 
-// The live catalog the rest of the app reads from. Empty until main.js
-// loads it from the API on page load.
 let PRODUCTS = [];
 
 function getCategories(){
@@ -26,7 +17,7 @@ function fmtPHP(n){
   return "₱" + Number(n || 0).toLocaleString("en-PH", { minimumFractionDigits:2, maximumFractionDigits:2 });
 }
 
-/* ---------- Cart (client-side, backed by localStorage) ---------- */
+// Cart
 const Cart = {
   KEY: "iraseth_cart",
   get(){
@@ -59,7 +50,7 @@ const Cart = {
   }
 };
 
-/* ---------- Orders (submitted through checkout -> backend) ---------- */
+// Orders
 const Orders = {
   async create({ client, email, facility }){
     const lines = Cart.lines();

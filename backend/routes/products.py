@@ -26,7 +26,12 @@ def _status(p: dict) -> str:
     # it up to, not a fixed number set per product. baseline_qty is set on
     # creation and refreshed every time stock is Added; Releases never touch it.
     baseline = p.get("baseline_qty", 0)
-    if baseline > 0 and qty <= baseline * 0.3:
+    # "qty <= baseline * 0.3" the naive way risks floating-point rounding
+    # (binary floats can't represent 0.3 exactly) which can flip the
+    # comparison right at the boundary for odd baseline numbers. Multiplying
+    # both sides by 10 first (qty*10 <= baseline*3) keeps everything as
+    # exact integers — mathematically identical, zero rounding risk.
+    if baseline > 0 and qty * 10 <= baseline * 3:
         return "low-stock"
     return "in-stock"
 

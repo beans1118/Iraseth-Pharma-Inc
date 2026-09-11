@@ -1,11 +1,4 @@
-/* =========================================================
-   IRASETH PHARMA — API client
-   Tries the real backend first. If it can't be reached (no server
-   running), Api.mock flips on and every method below is served by
-   MockApi (js/mock-backend.js) instead — same shape, same UI, just
-   backed by this browser's localStorage. See mock-backend.js for
-   details. Nothing needs to be configured for this to happen.
-   ========================================================= */
+// API client — falls back to MockApi (js/mock-backend.js) when the real backend is unreachable.
 const Api = {
   TOKEN_KEY: "iraseth_admin_token",
   mock: false,
@@ -43,8 +36,6 @@ const Api = {
     return token ? { Authorization: `Bearer ${token}` } : {};
   },
 
-  /** Call once on page load. Detects whether the real backend is up;
-   *  if not, switches to Demo Mode (MockApi) for the rest of the session. */
   async detect(){
     const r = await this._request("/health");
     this.mock = !r.ok;

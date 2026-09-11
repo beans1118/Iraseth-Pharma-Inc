@@ -1,9 +1,4 @@
-/* =========================================================
-   IRASETH PHARMA — Backend console logic
-   Requires a reachable backend — there is no offline/demo login
-   fallback anymore, since this screen now controls real inventory
-   and real user accounts. Every action here is logged server-side.
-   ========================================================= */
+// Backend console logic
 
 const SESSION_KEY = "iraseth_admin_session";
 let currentUser = null;   // { email, name, role }
@@ -11,7 +6,7 @@ let currentOrders = [];
 let currentStock = [];
 let socket = null;
 
-/* ---------- Small helpers ---------- */
+// Small helpers
 function fmtDate(iso){
   if(!iso) return "—";
   return new Date(iso).toLocaleString("en-PH", { year:"numeric", month:"short", day:"numeric", hour:"2-digit", minute:"2-digit" });
@@ -44,13 +39,8 @@ function canWriteOrders(){ return currentUser && (currentUser.role === "superadm
 function isLogViewer(){ return currentUser && (currentUser.role === "superadmin" || currentUser.role === "admin"); }
 function isSuperadmin(){ return currentUser && currentUser.role === "superadmin"; }
 
-/* ---------- Auth screens ---------- */
+// Auth screens
 function showLogin(){
-  // Clearing (not hardcoding) display lets each screen's own CSS class
-  // decide its display type — .login-shell is flex, .admin-shell is grid.
-  // Hardcoding "flex" here previously fought .admin-shell's grid layout
-  // via inline-style specificity, which silently turned the whole admin
-  // console into an unintended flex layout (the sidebar-shrinks-per-view bug).
   document.getElementById("loginScreen").style.display = "";
   document.getElementById("dashboardScreen").style.display = "none";
   if(socket){ socket.disconnect(); socket = null; }
@@ -63,15 +53,10 @@ async function showDashboard(){
   document.getElementById("roleBadge").textContent = roleLabel(currentUser.role);
   document.getElementById("userNameLabel").textContent = currentUser.name || currentUser.email;
 
-  // Hide nav links the current role isn't allowed to see.
-  document.querySelectorAll(".admin-side a[data-role-gate]").forEach(a => {
+  document.querySelectorAll(".admin-side [data-role-gate]").forEach(a => {
     const allowed = a.dataset.roleGate.split(",");
     a.style.display = allowed.includes(currentUser.role) ? "" : "none";
   });
-
-  // Every role gets a History button in this column now; only the Supply/
-  // Release controls inside it are conditional on write permission, so the
-  // column itself always stays visible.
 
   connectSocket();
   await switchView("inventory");
@@ -102,9 +87,8 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
   submitBtn.disabled = false;
 });
 
-document.getElementById("signOut").addEventListener("click", async (e) => {
-  e.preventDefault();
-  await Api.logout(); // stamps logout_at + duration on the session log
+document.getElementById("signOut").addEventListener("click", async () => {
+  await Api.logout();
   sessionStorage.removeItem(SESSION_KEY);
   Api.clearToken();
   currentUser = null;
@@ -118,19 +102,16 @@ function signOutForced(){
   showLogin();
 }
 
-/* ---------- Real-time (Socket.IO) ---------- */
+// Real-time (Socket.IO)
 function connectSocket(){
   if(Api.mock){
-    // Demo Mode has no server to push events from — every mutation already
-    // re-renders locally, so mark the status dot accordingly instead of
-    // trying (and failing) to open a real WebSocket.
     const dot = document.getElementById("liveDot");
     const label = document.getElementById("liveLabel");
     dot?.classList.remove("offline");
-    if(label) label.textContent = "Demo mode";
+    if(label) label.textContent = "Live";
     return;
   }
-  if(typeof io === "undefined") return; // CDN unreachable — dashboard still works, just not live
+  if(typeof io === "undefined") return;
   socket = io(SOCKET_BASE, { transports: ["websocket", "polling"] });
   const dot = document.getElementById("liveDot");
   const label = document.getElementById("liveLabel");
@@ -162,7 +143,7 @@ function connectSocket(){
   });
 }
 
-/* ---------- Inventory (Real-Time Tracking System) ---------- */
+// Inventory (Real-Time Tracking System)
 async function loadStock(){
   const res = await Api.getStock();
   if(res.ok){ currentStock = res.data; }
@@ -190,17 +171,21 @@ function renderInventory(){
   const writable = canWriteStock();
 
   if(items.length === 0){
-    body.innerHTML = `<tr><td colspan="6" class="empty-state">No products match your search.</td></tr>`;
+    body.innerHTML = `<tr><td colspan="7" class="empty-state">No products match your search.</td></tr>`;
     return;
   }
 
-  body.innerHTML = items.map(p => `
-    <tr>
+  body.innerHTML = items.map(p => {
+    const rowClass = p.status === "out-of-stock" ? "row-out-of-stock" : p.status === "low-stock" ? "row-low-stock" : "";
+    const warnIcon = p.status === "out-of-stock" ? "⛔" : p.status === "low-stock" ? "⚠️" : "";
+    return `
+    <tr class="${rowClass}">
       <td class="row-detail">${p.id}</td>
       <td><b>${p.name || "<span style=color:var(--ink-soft)>Untitled — pending catalog entry</span>"}</b></td>
       <td class="row-detail">${p.description || "—"}</td>
+      <td class="row-detail">${p.baseline_qty ?? p.quantity ?? 0}</td>
       <td><b>${p.quantity ?? 0}</b></td>
-      <td><span class="${stockBadgeClass(p.status)}">${(p.status || "").replace("-", " ")}</span></td>
+      <td><span class="${stockBadgeClass(p.status)}">${warnIcon ? `<span class="stock-warn-icon">${warnIcon}</span>` : ""}${(p.status || "").replace("-", " ")}</span></td>
       <td>
         ${writable ? `
           <div class="qty-actions">
@@ -211,7 +196,8 @@ function renderInventory(){
         ` : `<span class="row-detail">View only</span>`}
       </td>
     </tr>
-  `).join("");
+  `;
+  }).join("");
 
   if(writable){
     body.querySelectorAll("[data-add]").forEach(btn => {
@@ -229,8 +215,6 @@ async function doStockAction(id, action){
 
   let note = "";
   if(action === "release"){
-    // Release = fulfilling a manual/phone order, so capture what a PO would:
-    // the order reference and who it's for.
     const po = (window.prompt("PO number for this order (optional):") || "").trim();
     const customer = (window.prompt("Customer / caller name (optional):") || "").trim();
     note = [po && `PO: ${po}`, customer && `Ordered by: ${customer}`].filter(Boolean).join(" — ");
@@ -251,7 +235,7 @@ async function doStockAction(id, action){
 
 document.getElementById("inventorySearch").addEventListener("input", renderInventory);
 
-/* ---------- Orders ---------- */
+// Orders
 function badgeClass(status){
   return { Pending:"badge badge-pending", Processing:"badge badge-processing", Fulfilled:"badge badge-fulfilled" }[status] || "badge badge-pending";
 }
@@ -360,7 +344,7 @@ async function renderClients(){
 document.getElementById("orderSearch").addEventListener("input", renderOrders);
 document.getElementById("statusFilter").addEventListener("change", renderOrders);
 
-/* ---------- Logs (superadmin + admin) ---------- */
+// Logs (superadmin + admin)
 async function loadSessionLogs(){
   const role = document.getElementById("sessionRoleFilter").value;
   const user = document.getElementById("sessionLogSearch").value.trim();
@@ -414,7 +398,7 @@ document.getElementById("sessionLogSearch").addEventListener("input", loadSessio
 document.getElementById("sessionRoleFilter").addEventListener("change", loadSessionLogs);
 document.getElementById("invLogActionFilter").addEventListener("change", loadInventoryLogs);
 
-/* ---------- Users & roles (superadmin only) ---------- */
+// Users & roles (superadmin only)
 async function loadUsers(){
   const res = await Api.getUsers();
   const body = document.getElementById("usersTableBody");
@@ -476,7 +460,7 @@ document.getElementById("userModalSave").addEventListener("click", async () => {
   else{ toast(res.error || "Could not save account."); }
 });
 
-/* ---------- Backups (superadmin only) ---------- */
+// Backups (superadmin only)
 async function loadBackups(){
   const res = await Api.listBackups();
   const body = document.getElementById("backupsTableBody");
@@ -500,7 +484,7 @@ document.getElementById("runBackupBtn").addEventListener("click", async () => {
   if(res.ok){ toast("Backup complete."); await loadBackups(); } else { toast(res.error || "Backup failed."); }
 });
 
-/* ---------- View switching ---------- */
+// View switching
 const VIEW_META = {
   inventory: { title:"Inventory", sub:"Live stock levels — release and supply update every connected dashboard instantly." },
   orders:    { title:"Purchase orders", sub:"Every order submitted through the storefront, most recent first." },
@@ -511,7 +495,7 @@ const VIEW_META = {
 };
 
 async function switchView(view){
-  document.querySelectorAll(".admin-side a[data-view]").forEach(a => a.classList.toggle("active", a.dataset.view === view));
+  document.querySelectorAll(".admin-side [data-view]").forEach(a => a.classList.toggle("active", a.dataset.view === view));
   ["inventory","orders","clients","logs","users","backup"].forEach(v => {
     document.getElementById(v + "View").style.display = v === view ? "block" : "none";
   });
@@ -528,32 +512,17 @@ async function switchView(view){
   else if(view === "backup"){ await loadBackups(); }
 }
 
-document.querySelectorAll(".admin-side a[data-view]").forEach(link => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault();
-    switchView(link.dataset.view);
-  });
+document.querySelectorAll(".admin-side [data-view]").forEach(link => {
+  link.addEventListener("click", () => switchView(link.dataset.view));
 });
 
-/* ---------- Entry point ---------- */
+// Entry point
 (async () => {
   await Api.detect();
-  if(Api.mock){
-    const bar = document.createElement("div");
-    bar.style.cssText = "background:var(--red); color:#fff; text-align:center; font-size:12.5px; font-weight:600; padding:8px 16px;";
-    bar.textContent = "Demo Mode — no backend detected. All data below is sample data stored only in this browser.";
-    document.body.prepend(bar);
-
-    const hint = document.createElement("p");
-    hint.className = "login-hint";
-    hint.innerHTML = "Demo logins:<br>superadmin@irasethpharma.com / demo-superadmin<br>admin@irasethpharma.com / demo-admin<br>subadmin@irasethpharma.com / demo-subadmin";
-    document.querySelector(".login-form")?.appendChild(hint);
-  }
 
   const saved = sessionStorage.getItem(SESSION_KEY);
   if(saved && Api.getToken()){
     currentUser = JSON.parse(saved);
-    // Verify the token is still valid (and re-sync role) before trusting it.
     const res = await Api.me();
     if(res.ok){
       currentUser = res.data;

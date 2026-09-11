@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<!-- ================= LOGIN SCREEN ================= -->
+<!-- LOGIN SCREEN -->
 <div class="login-shell" id="loginScreen">
   <div class="  login-card">
     <div class="top">
@@ -36,7 +36,7 @@
   </div>
 </div>
 
-<!-- ================= DASHBOARD ================= -->
+<!-- DASHBOARD -->
 <div class="admin-shell" id="dashboardScreen" style="display:none;">
   <aside class="admin-side">
     <div class="logo" style="background:var(--white); display:inline-flex; padding:8px 12px; border-radius:6px;">
@@ -47,16 +47,16 @@
       <div style="font-size:12px; color:rgba(255,255,255,0.55); margin-top:6px;" id="userNameLabel"></div>
     </div>
     <nav>
-      <a href="#" class="active" data-view="inventory">Inventory</a>
-      <a href="#" data-view="orders">Purchase orders</a>
-      <a href="#" data-view="clients">Client history</a>
-      <a href="#" data-view="logs" data-role-gate="superadmin,admin">Activity logs</a>
-      <a href="#" data-view="users" data-role-gate="superadmin">Users & roles</a>
-      <a href="#" data-view="backup" data-role-gate="superadmin">Backups</a>
+      <button type="button" class="active" data-view="inventory">Inventory</button>
+      <button type="button" data-view="orders">Purchase orders</button>
+      <button type="button" data-view="clients">Client history</button>
+      <button type="button" data-view="logs" data-role-gate="superadmin,admin">Activity logs</button>
+      <button type="button" data-view="users" data-role-gate="superadmin">Users & roles</button>
+      <button type="button" data-view="backup" data-role-gate="superadmin">Backups</button>
       <a href="index.html" target="_blank">View storefront ↗</a>
     </nav>
     <div class="live-status" style="font-size:11px; color:rgba(255,255,255,0.4);"><span class="live-dot" id="liveDot"></span><span id="liveLabel">Connecting…</span></div>
-    <a href="#" class="sign-out" id="signOut">Sign out</a>
+    <button type="button" class="sign-out" id="signOut">Sign out</button>
   </aside>
 
   <main class="admin-main">
@@ -86,7 +86,7 @@
       </div>
     </div>
 
-    <!-- ================= INVENTORY (Real-Time Tracking System) ================= -->
+    <!-- INVENTORY (Real-Time Tracking System) -->
     <div id="inventoryView">
       <div class="kpi-row">
         <div class="kpi"><div class="eyebrow">Total products</div><b id="invKpiTotal">0</b></div>
@@ -108,6 +108,7 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Description</th>
+                <th title="Last restocked total — only updates when supply is Added, never on Release">From</th>
                 <th>Quantity</th>
                 <th>Status</th>
                 <th id="inventoryActionsHeader">Actions</th>
@@ -119,7 +120,7 @@
       </div>
     </div>
 
-    <!-- ================= ORDERS ================= -->
+    <!-- ORDERS -->
     <div id="ordersView" style="display:none;">
       <div class="panel">
         <div class="panel-head">
@@ -172,7 +173,7 @@
       </div>
     </div>
 
-    <!-- ================= ACTIVITY LOGS (superadmin + admin) ================= -->
+    <!-- ACTIVITY LOGS (superadmin + admin) -->
     <div id="logsView" style="display:none;">
       <div class="panel">
         <div class="panel-head">
@@ -236,7 +237,7 @@
       </div>
     </div>
 
-    <!-- ================= USERS & ROLES (superadmin only) ================= -->
+    <!-- USERS & ROLES (superadmin only) -->
     <div id="usersView" style="display:none;">
       <div class="panel">
         <div class="panel-head">
@@ -259,7 +260,7 @@
       </div>
     </div>
 
-    <!-- ================= BACKUPS (superadmin only) ================= -->
+    <!-- BACKUPS (superadmin only) -->
     <div id="backupView" style="display:none;">
       <div class="panel">
         <div class="panel-head">

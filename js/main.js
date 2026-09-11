@@ -1,17 +1,10 @@
-/* =========================================================
-   IRASETH PHARMA — Public site logic
-   Catalog rendering, cart drawer, and checkout submission.
-   ========================================================= */
+// Public site logic — catalog rendering, cart drawer, checkout.
 
 let activeCat = new URLSearchParams(location.search).get("cat") || "all";
 let query = "";
 
 function showDemoBanner(){
-  if(!Api.mock) return;
-  const bar = document.createElement("div");
-  bar.style.cssText = "background:var(--red); color:#fff; text-align:center; font-size:12.5px; font-weight:600; padding:8px 16px; position:relative; z-index:60;";
-  bar.textContent = "Demo Mode — no backend detected. Data shown here is sample data stored only in this browser (see backend/README.md to run the real API).";
-  document.body.prepend(bar);
+  // intentionally no visible banner — demo/mock mode still runs silently underneath
 }
 
 async function loadProducts(){
@@ -85,7 +78,7 @@ function renderGrid(){
   });
 }
 
-/* ---------- Cart drawer ---------- */
+// Cart drawer
 function renderCartCount(){
   document.querySelectorAll(".cart-count").forEach(el => el.textContent = Cart.count());
 }

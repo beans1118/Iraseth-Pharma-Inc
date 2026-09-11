@@ -1,16 +1,4 @@
-/* =========================================================
-   IRASETH PHARMA — Demo Mode (no backend required)
-   Mirrors every Api.* method with the same {ok, status, data, error}
-   shape, but reads/writes localStorage instead of calling a server.
-   Api.js switches to this automatically when it can't reach the real
-   backend at API_BASE — nothing to configure.
-
-   This is clearly a DEMO: data lives only in this browser tab's
-   storage, resets if you clear it, and isn't shared between devices.
-   Swap in the real Flask + MongoDB backend (see backend/README.md)
-   for actual production use — every screen in index.html/admin.html
-   works identically against either one.
-   ========================================================= */
+// Local demo backend — mirrors the real Api.* methods but reads/writes localStorage.
 
 const MockDB = {
   KEYS: {
@@ -21,7 +9,7 @@ const MockDB = {
     invLogs: "iraseth_mock_inventory_logs",
     backups: "iraseth_mock_backups",
     tokens: "iraseth_mock_tokens",
-    seeded: "iraseth_mock_seeded_v1",
+    seeded: "iraseth_mock_seeded_v2",
   },
 
   get(key, fallback){
@@ -52,10 +40,6 @@ function mockNow(){ return new Date().toISOString(); }
 function seedMockData(){
   if(localStorage.getItem(MockDB.KEYS.seeded)) return;
 
-  // The real Iraseth Pharma catalog (medical/diagnostic supply), used here
-  // for Demo Mode so the site is fully explorable with zero setup. Once the
-  // real backend is running, its own catalog (backend/products_seed.json)
-  // takes over automatically — this array only feeds the local demo.
   const products =
 [
   {
@@ -64,7 +48,7 @@ function seedMockData(){
     "description": "ALPHASHOT \u2014 Syringes, sold per unit.",
     "category": "syringes-needles",
     "unit": "per unit",
-    "quantity": 200,
+    "quantity": 60,
     "price": 1220,
     "baseline_qty": 200
   },
@@ -124,7 +108,7 @@ function seedMockData(){
     "description": "ALPHACARE \u2014 Patient Care, sold per unit.",
     "category": "patient-care",
     "unit": "per unit",
-    "quantity": 200,
+    "quantity": 60,
     "price": 280,
     "baseline_qty": 200
   },
@@ -184,7 +168,7 @@ function seedMockData(){
     "description": "IRASAFETY \u2014 Safety Syringes, sold per unit.",
     "category": "syringes-needles",
     "unit": "per unit",
-    "quantity": 200,
+    "quantity": 60,
     "price": 1410,
     "baseline_qty": 200
   },
@@ -244,7 +228,7 @@ function seedMockData(){
     "description": "HAEMOFUSOR \u2014 Blood Administration, sold per piece.",
     "category": "iv-therapy",
     "unit": "per piece",
-    "quantity": 200,
+    "quantity": 60,
     "price": 98,
     "baseline_qty": 200
   },
@@ -304,7 +288,7 @@ function seedMockData(){
     "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per piece.",
     "category": "iv-therapy",
     "unit": "per piece",
-    "quantity": 200,
+    "quantity": 60,
     "price": 54,
     "baseline_qty": 200
   },
@@ -364,7 +348,7 @@ function seedMockData(){
     "description": "POLYSAFETY \u2014 Safety IV Cannula, sold per piece.",
     "category": "iv-therapy",
     "unit": "per piece",
-    "quantity": 200,
+    "quantity": 60,
     "price": 54,
     "baseline_qty": 200
   },
@@ -424,7 +408,7 @@ function seedMockData(){
     "description": "POLYFLON \u2014 IV Cannula, sold per unit.",
     "category": "iv-therapy",
     "unit": "per unit",
-    "quantity": 200,
+    "quantity": 60,
     "price": 1180,
     "baseline_qty": 200
   },
@@ -477,21 +461,15 @@ function seedMockData(){
     { email:"subadmin@irasethpharma.com", password:"demo-subadmin", name:"Sub Admin", role:"subadmin" },
   ]);
 
-  // Beginning stock for every product, anchored to a fixed date so the demo
-  // tells the same story every time: e.g. filter Stock Movements to one
-  // product and you'll see "Opening stock — Sept 1, 2026" first, then
-  // whatever releases/supplies you perform afterward with today's real
-  // timestamp, so the trail always reads beginning-to-current in order.
   const OPENING_STOCK_DATE = "2026-09-01T08:00:00.000Z";
   const openingLogs = products
-    .filter(p => p.quantity > 0)
     .map(p => ({
       product_id: p.id,
       product_name: p.name,
       action: "opening",
-      qty: p.quantity,
+      qty: 200,
       before: 0,
-      after: p.quantity,
+      after: 200,
       note: "Opening stock",
       actor_email: "system@irasethpharma.com",
       actor_name: "System (seed)",
@@ -499,9 +477,26 @@ function seedMockData(){
       at: OPENING_STOCK_DATE,
     }));
 
+  const DEMO_RELEASE_DATE = "2026-09-05T14:30:00.000Z";
+  const demoReleaseLogs = products
+    .filter(p => p.quantity === 60)
+    .map(p => ({
+      product_id: p.id,
+      product_name: p.name,
+      action: "release",
+      qty: 140,
+      before: 200,
+      after: 60,
+      note: "PO: PO-2026-0118 — Ordered by: Metro Manila Diagnostic Center",
+      actor_email: "subadmin@irasethpharma.com",
+      actor_name: "Sub Admin",
+      role: "subadmin",
+      at: DEMO_RELEASE_DATE,
+    }));
+
   MockDB.saveOrders([]);
   MockDB.saveSessions([]);
-  MockDB.saveInvLogs(openingLogs);
+  MockDB.saveInvLogs(openingLogs.concat(demoReleaseLogs));
   MockDB.saveBackups([]);
   MockDB.saveTokens({});
 
@@ -511,11 +506,8 @@ function seedMockData(){
 function mockStatus(p){
   const qty = p.quantity || 0;
   if(qty <= 0) return "out-of-stock";
-  // Low stock is dynamic: 30% of whatever the last restock ("Add") brought
-  // it up to — not a fixed number per product. baseline_qty is set on
-  // creation and refreshed every time stock is Added; Releases never touch it.
   const baseline = p.baseline_qty || 0;
-  if(baseline > 0 && qty <= baseline * 0.3) return "low-stock";
+  if(baseline > 0 && qty * 10 <= baseline * 3) return "low-stock";
   return "in-stock";
 }
 function serializeProduct(p){ return { ...p, status: mockStatus(p) }; }
@@ -727,9 +719,6 @@ const MockApi = {
     const after = before + delta;
     if(after < 0) return { ok:false, status:400, error:`Cannot release ${qty} — only ${before} in stock.`, data:null };
     product.quantity = after;
-    // Adding stock resets the "full" baseline used for the 30% low-stock
-    // check. Releasing never touches it — releases measure against
-    // whatever the last restock brought the shelf up to.
     if(action === "supply") product.baseline_qty = after;
     MockDB.saveProducts(products);
 
@@ -801,8 +790,6 @@ const MockApi = {
     backups.unshift(record);
     MockDB.saveBackups(backups);
 
-    // Demo mode has no server disk to write to — trigger a real browser
-    // download instead, so "backup" still produces an actual file.
     try{
       const blob = new Blob([JSON.stringify(snapshot, null, 2)], { type:"application/json" });
       const url = URL.createObjectURL(blob);
