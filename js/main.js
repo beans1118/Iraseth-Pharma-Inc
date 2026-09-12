@@ -51,7 +51,7 @@ function renderGrid(){
   grid.innerHTML = items.map(p => `
     <div class="product-card">
       <span class="brand">${p.id}</span>
-      <h4>${p.name || "Untitled product"}</h4>
+      <h4 data-view-product="${p.id}">${p.name || "Untitled product"}</h4>
       ${p.description ? `<p style="font-size:12.5px; margin:0;">${p.description}</p>` : ""}
       ${p.category ? `<span class="tag">${p.category}</span>` : ""}
       <div class="price-row">
@@ -65,6 +65,10 @@ function renderGrid(){
     </div>
   `).join("");
 
+  grid.querySelectorAll("[data-view-product]").forEach(name => {
+    name.addEventListener("click", () => openProductModal(name.dataset.viewProduct));
+  });
+
   grid.querySelectorAll("[data-add]").forEach(btn => {
     btn.addEventListener("click", () => {
       const id = btn.dataset.add;
@@ -77,6 +81,61 @@ function renderGrid(){
     });
   });
 }
+
+// Product quick view
+function openProductModal(id){
+  const p = PRODUCTS.find(p => p.id === id);
+  if(!p) return;
+
+  document.getElementById("pm-id").textContent = p.id;
+  document.getElementById("pm-name").textContent = p.name || "Untitled product";
+  document.getElementById("pm-category").textContent = p.category || "Uncategorized";
+  document.getElementById("pm-category").style.display = p.category ? "" : "none";
+  document.getElementById("pm-description").textContent = p.description || "No description available yet.";
+  document.getElementById("pm-price").textContent = fmtPHP(p.price);
+  document.getElementById("pm-unit").textContent = p.unit || "";
+  document.getElementById("pm-qty").value = 1;
+
+  const stockEl = document.getElementById("pm-stock");
+  stockEl.className = "stock-badge " + (p.status || "out-of-stock");
+  stockEl.textContent = (STOCK_LABEL[p.status] || "● Out of stock").replace("● ", "");
+
+  const specsList = document.getElementById("pm-specs-list");
+  if(p.specs && p.specs.length){
+    specsList.innerHTML = p.specs.map(s => `
+      <div class="pm-specs-row"><span>${s.label}</span><span>${s.value}</span></div>
+    `).join("");
+  } else {
+    specsList.innerHTML = `<div class="pm-specs-empty">Full specifications for this product haven't been added to the catalog yet — check back soon, or contact us for a spec sheet.</div>`;
+  }
+
+  const addBtn = document.getElementById("pm-add");
+  addBtn.disabled = p.status === "out-of-stock";
+  addBtn.textContent = p.status === "out-of-stock" ? "Out of stock" : "Add to order";
+  addBtn.onclick = () => {
+    const qty = Math.max(1, parseInt(document.getElementById("pm-qty").value) || 1);
+    Cart.add(id, qty);
+    renderCartCount();
+    addBtn.textContent = "Added ✓";
+    setTimeout(() => { addBtn.textContent = "Add to order"; }, 1200);
+  };
+
+  document.getElementById("productModalBackdrop").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeProductModal(){
+  document.getElementById("productModalBackdrop").classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+document.getElementById("productModalClose")?.addEventListener("click", closeProductModal);
+document.getElementById("productModalBackdrop")?.addEventListener("click", (e) => {
+  if(e.target.id === "productModalBackdrop") closeProductModal();
+});
+document.addEventListener("keydown", (e) => {
+  if(e.key === "Escape") closeProductModal();
+});
 
 // Cart drawer
 function renderCartCount(){

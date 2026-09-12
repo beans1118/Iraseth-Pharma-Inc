@@ -293,6 +293,36 @@
   </div>
 </div>
 
+<!-- Product quick view -->
+<div class="product-modal-backdrop" id="productModalBackdrop">
+  <div class="product-modal" id="productModal">
+    <button class="product-modal-close" id="productModalClose" aria-label="Close">×</button>
+    <div class="product-modal-body">
+      <span class="brand" id="pm-id"></span>
+      <h3 id="pm-name"></h3>
+      <span class="tag" id="pm-category"></span>
+      <p id="pm-description" style="margin-top:14px;"></p>
+
+      <div class="pm-specs">
+        <h5>Specifications</h5>
+        <div id="pm-specs-list"></div>
+      </div>
+
+      <div class="pm-footer">
+        <div>
+          <span class="price" id="pm-price"></span>
+          <span class="unit" id="pm-unit"></span>
+        </div>
+        <span class="stock-badge" id="pm-stock"></span>
+      </div>
+      <div style="display:flex; gap:8px; align-items:center; margin-top:14px;">
+        <input type="number" min="1" value="1" id="pm-qty" style="width:70px; padding:11px; border:1px solid var(--line); border-radius:var(--radius-sm);">
+        <button class="btn btn-primary" id="pm-add" style="flex:1;">Add to order</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="js/config.js"></script>
 <script src="js/mock-backend.js"></script>
 <script src="js/api.js"></script>
