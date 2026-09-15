@@ -49,9 +49,9 @@ function renderGrid(){
   }
 
   grid.innerHTML = items.map(p => `
-    <div class="product-card">
+    <div class="product-card" data-view-product="${p.id}">
       <span class="brand">${p.id}</span>
-      <h4 data-view-product="${p.id}">${p.name || "Untitled product"}</h4>
+      <h4>${p.name || "Untitled product"}</h4>
       ${p.description ? `<p style="font-size:12.5px; margin:0;">${p.description}</p>` : ""}
       ${p.category ? `<span class="tag">${p.category}</span>` : ""}
       <div class="price-row">
@@ -65,8 +65,12 @@ function renderGrid(){
     </div>
   `).join("");
 
-  grid.querySelectorAll("[data-view-product]").forEach(name => {
-    name.addEventListener("click", () => openProductModal(name.dataset.viewProduct));
+  grid.querySelectorAll("[data-view-product]").forEach(card => {
+    card.addEventListener("click", () => openProductModal(card.dataset.viewProduct));
+  });
+
+  grid.querySelectorAll(".qty-row").forEach(row => {
+    row.addEventListener("click", (e) => e.stopPropagation());
   });
 
   grid.querySelectorAll("[data-add]").forEach(btn => {
