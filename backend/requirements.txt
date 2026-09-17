@@ -6,4 +6,6 @@ pymongo==4.8.0
 PyJWT==2.9.0
 bcrypt==4.2.0
 python-dotenv==1.0.1
-eventlet==0.36.1  # optional: only needed for `gunicorn --worker-class eventlet` in production
+eventlet==0.36.1
+gunicorn==23.0.0
+Flask-Compress

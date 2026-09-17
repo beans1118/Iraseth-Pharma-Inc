@@ -1,18 +1,16 @@
 """
-This is the Inventory Tracking System itself: current stock levels, "release"
-(a product went out — deducts quantity) and "supply" (restock — adds
-quantity). Every change writes one row to inventory_logs (who, role, product,
-before/after quantity, note, timestamp) and pushes a live update over
-Socket.IO so every open dashboard reflects it immediately — no refresh.
+Inventory tracking: current stock, release, supply and monthly opening snapshots.
 
-Role rules:
-  - superadmin & subadmin can release/supply.
-  - admin is view-only (enforced below — it can list products, but the
-    write endpoints reject it with a 403).
+Phase 1 hardening:
+- stock changes are atomic
+- a release can never make quantity negative
+- monthly opening snapshots are race-safe and unique per product/month
 """
 from datetime import datetime, timezone
 
 from flask import Blueprint, request, jsonify, g
+from pymongo import ReturnDocument, UpdateOne
+from pymongo.errors import BulkWriteError
 
 from extensions import db
 from utils.security import require_role
@@ -23,23 +21,22 @@ bp = Blueprint("inventory", __name__, url_prefix="/api/inventory")
 
 
 def _ensure_monthly_openings():
-    """
-    Snapshots every product's current quantity as that calendar month's
-    "beginning stock" the first time inventory is checked in a new month.
-    There's no scheduler in this app, so this runs lazily instead: cheap to
-    check (one count query), and guarantees every month gets exactly one
-    opening snapshot per product as soon as anyone loads the Inventory tab
-    or Stock Movements after the month rolls over.
-    """
+    """Create one beginning-stock snapshot per product for the current month."""
     month_key = datetime.now(timezone.utc).strftime("%Y-%m")
-    if db.inventory_logs.count_documents({"action": "monthly_opening", "month": month_key}) > 0:
-        return  # already snapshotted this month
+
+    product_count = db.products.count_documents({})
+    existing_count = db.inventory_logs.count_documents(
+        {"action": "monthly_opening", "month": month_key}
+    )
+    if existing_count >= product_count:
+        return
 
     now = datetime.now(timezone.utc).isoformat()
-    logs = []
-    for p in db.products.find():
+    operations = []
+
+    for p in db.products.find({}, {"id": 1, "name": 1, "quantity": 1}):
         qty = p.get("quantity", 0)
-        logs.append({
+        doc = {
             "product_id": p["id"],
             "product_name": p.get("name", ""),
             "action": "monthly_opening",
@@ -52,35 +49,89 @@ def _ensure_monthly_openings():
             "actor_name": "System (monthly snapshot)",
             "role": "superadmin",
             "at": now,
-        })
-    if logs:
-        db.inventory_logs.insert_many(logs)
+        }
+        operations.append(
+            UpdateOne(
+                {
+                    "action": "monthly_opening",
+                    "month": month_key,
+                    "product_id": p["id"],
+                },
+                {"$setOnInsert": doc},
+                upsert=True,
+            )
+        )
+
+    if operations:
+        try:
+            db.inventory_logs.bulk_write(operations, ordered=False)
+        except BulkWriteError as exc:
+            non_duplicate_errors = [
+                e for e in exc.details.get("writeErrors", [])
+                if e.get("code") != 11000
+            ]
+            if non_duplicate_errors:
+                raise
 
 
 def _log_and_apply(product_id: str, delta: int, action: str, note: str):
-    product = db.products.find_one({"id": product_id})
-    if not product:
-        return None, ("Product not found.", 404)
+    """Atomically change stock and then write the audit entry."""
+    if action == "release":
+        requested = abs(delta)
+        updated = db.products.find_one_and_update(
+            {"id": product_id, "quantity": {"$gte": requested}},
+            {"$inc": {"quantity": -requested}},
+            return_document=ReturnDocument.AFTER,
+        )
 
-    before = product.get("quantity", 0)
-    after = before + delta
-    if after < 0:
-        return None, (f"Cannot release {abs(delta)} — only {before} in stock.", 400)
+        if not updated:
+            existing = db.products.find_one({"id": product_id}, {"quantity": 1})
+            if not existing:
+                return None, ("Product not found.", 404)
+            available = existing.get("quantity", 0)
+            return None, (
+                f"Cannot release {requested} — only {available} in stock.",
+                400,
+            )
 
-    updates = {"quantity": after}
-    # Adding stock resets the "full" baseline used for the 30% low-stock
-    # check. Releasing never touches it — releases measure against
-    # whatever the last restock brought the shelf up to.
-    if action == "supply":
-        updates["baseline_qty"] = after
-    db.products.update_one({"id": product_id}, {"$set": updates})
-    updated = db.products.find_one({"id": product_id})
+        after = updated.get("quantity", 0)
+        before = after + requested
+        amount = requested
+
+    elif action == "supply":
+        amount = abs(delta)
+        updated = db.products.find_one_and_update(
+            {"id": product_id},
+            [
+                {
+                    "$set": {
+                        "quantity": {
+                            "$add": [
+                                {"$ifNull": ["$quantity", 0]},
+                                amount,
+                            ]
+                        }
+                    }
+                },
+                {"$set": {"baseline_qty": "$quantity"}},
+            ],
+            return_document=ReturnDocument.AFTER,
+        )
+
+        if not updated:
+            return None, ("Product not found.", 404)
+
+        after = updated.get("quantity", 0)
+        before = after - amount
+
+    else:
+        return None, ("Invalid inventory action.", 400)
 
     log_entry = {
         "product_id": product_id,
         "product_name": updated.get("name", ""),
-        "action": action,          # "release" | "supply"
-        "qty": abs(delta),
+        "action": action,
+        "qty": amount,
         "before": before,
         "after": after,
         "note": note,
@@ -110,18 +161,24 @@ def list_stock():
 @bp.post("/<product_id>/release")
 @require_role("superadmin", "subadmin")
 def release_stock(product_id):
-    """A product went out (fulfilled to a customer, damaged, etc). Deducts stock."""
     data = request.get_json(silent=True) or {}
     try:
         qty = int(data.get("qty", 1))
     except (TypeError, ValueError):
         return jsonify({"error": "qty must be a whole number."}), 400
+
     if qty <= 0:
         return jsonify({"error": "qty must be greater than zero."}), 400
 
-    result, err = _log_and_apply(product_id, -qty, "release", (data.get("note") or "").strip())
+    result, err = _log_and_apply(
+        product_id,
+        -qty,
+        "release",
+        (data.get("note") or "").strip(),
+    )
     if err:
         return jsonify({"error": err[0]}), err[1]
+
     product, log_entry = result
     return jsonify({"product": product, "log": log_entry}), 200
 
@@ -129,17 +186,23 @@ def release_stock(product_id):
 @bp.post("/<product_id>/supply")
 @require_role("superadmin", "subadmin")
 def add_supply(product_id):
-    """Restock — use when a product is low/out of stock and new supply arrives."""
     data = request.get_json(silent=True) or {}
     try:
         qty = int(data.get("qty", 1))
     except (TypeError, ValueError):
         return jsonify({"error": "qty must be a whole number."}), 400
+
     if qty <= 0:
         return jsonify({"error": "qty must be greater than zero."}), 400
 
-    result, err = _log_and_apply(product_id, qty, "supply", (data.get("note") or "").strip())
+    result, err = _log_and_apply(
+        product_id,
+        qty,
+        "supply",
+        (data.get("note") or "").strip(),
+    )
     if err:
         return jsonify({"error": err[0]}), err[1]
+
     product, log_entry = result
     return jsonify({"product": product, "log": log_entry}), 200

@@ -1,10 +1,14 @@
 """
-Audit trail. Superadmin sees every log; Admin is view-only for these same
-logs (that's their entire job per the role rules); Sub-admin has no access
-to this blueprint at all.
-"""
-from flask import Blueprint, request, jsonify
+Audit trail. Superadmin and Admin can view logs; Sub-admin has no access.
 
+Phase 3 keeps the existing array response but adds safe pagination through
+?page=&limit= so the UI can load logs in smaller chunks when needed.
+"""
+import re
+
+from flask import Blueprint, request, jsonify, make_response
+
+from config import Config
 from extensions import db
 from utils.security import require_role
 
@@ -17,37 +21,72 @@ def _serialize(doc: dict) -> dict:
     return doc
 
 
+def _page_limit(default_limit=200):
+    try:
+        page = max(1, int(request.args.get("page", 1)))
+        limit = min(
+            max(1, int(request.args.get("limit", default_limit))),
+            min(1000, Config.API_MAX_PAGE_SIZE),
+        )
+        return page, limit, None
+    except (TypeError, ValueError):
+        return None, None, (
+            jsonify({"error": "page and limit must be whole numbers."}),
+            400,
+        )
+
+
+def _paged_response(collection, query, sort_field, page, limit):
+    total = collection.count_documents(query)
+    rows = [
+        _serialize(row)
+        for row in collection.find(query)
+        .sort(sort_field, -1)
+        .skip((page - 1) * limit)
+        .limit(limit)
+    ]
+    response = make_response(jsonify(rows))
+    response.headers["X-Total-Count"] = str(total)
+    response.headers["X-Page"] = str(page)
+    response.headers["X-Page-Size"] = str(limit)
+    return response
+
+
 @bp.get("/sessions")
 @require_role("superadmin", "admin")
 def session_logs():
-    """Who logged in/out, when, how long, and as which role.
-    Supports ?role=&user=&limit=."""
+    """Supports ?role=&user=&page=&limit=."""
     query = {}
     role = request.args.get("role")
     if role and role != "all":
         query["role"] = role
-    user = request.args.get("user")
-    if user:
-        query["user_email"] = {"$regex": user, "$options": "i"}
 
-    limit = min(int(request.args.get("limit", 200)), 1000)
-    rows = [_serialize(s) for s in db.sessions.find(query).sort("login_at", -1).limit(limit)]
-    return jsonify(rows)
+    user = (request.args.get("user") or "").strip()
+    if user:
+        query["user_email"] = {"$regex": re.escape(user), "$options": "i"}
+
+    page, limit, error = _page_limit()
+    if error:
+        return error
+
+    return _paged_response(db.sessions, query, "login_at", page, limit)
 
 
 @bp.get("/inventory")
 @require_role("superadmin", "admin")
 def inventory_logs():
-    """Every stock add/release: who, role, product, qty, before/after, when.
-    Supports ?action=release|supply&product=&limit=."""
+    """Supports ?action=release|supply&product=&page=&limit=."""
     query = {}
     action = request.args.get("action")
     if action and action != "all":
         query["action"] = action
+
     product = request.args.get("product")
     if product:
         query["product_id"] = product
 
-    limit = min(int(request.args.get("limit", 200)), 1000)
-    rows = [_serialize(l) for l in db.inventory_logs.find(query).sort("at", -1).limit(limit)]
-    return jsonify(rows)
+    page, limit, error = _page_limit()
+    if error:
+        return error
+
+    return _paged_response(db.inventory_logs, query, "at", page, limit)

@@ -1,38 +1,58 @@
 """
-Real-time layer. One shared SocketIO instance, initialized against the Flask
-app in app.py. Routes call the emit_* helpers here after writing to Mongo, so
-every connected dashboard (Superadmin / Admin / Sub-admin) sees stock levels
-and logs update live, without polling.
+Authenticated Socket.IO real-time layer.
 
 Rooms:
-  "inventory" — anyone viewing the stock/inventory screen
-  "logs"      — superadmin/admin viewing the audit log screen (session or
-                inventory logs)
+  inventory - any authenticated staff role
+  logs      - superadmin/admin only
 """
-from flask_socketio import SocketIO
+from flask_socketio import SocketIO, emit, join_room
 
-socketio = SocketIO(cors_allowed_origins="*", async_mode="threading")
+from config import Config
+
+socketio = SocketIO(async_mode="threading")
 
 
 def emit_stock_update(product: dict) -> None:
-    """Push the new quantity/status for one product to everyone watching inventory."""
     socketio.emit("stock:update", product, room="inventory")
 
 
 def emit_inventory_log(entry: dict) -> None:
-    """Push a new add/release log entry to superadmin + admin log viewers."""
     socketio.emit("log:inventory", entry, room="logs")
 
 
 def emit_session_log(entry: dict) -> None:
-    """Push a new login/logout log entry to superadmin + admin log viewers."""
     socketio.emit("log:session", entry, room="logs")
 
 
 def register_socket_handlers() -> None:
     @socketio.on("join")
     def _on_join(data):
-        from flask_socketio import join_room
-        room = (data or {}).get("room")
-        if room in ("inventory", "logs"):
+        data = data or {}
+        room = data.get("room")
+        if room not in ("inventory", "logs"):
+            return {"ok": False, "error": "Unknown room."}
+
+        if not Config.SOCKET_AUTH_REQUIRED:
             join_room(room)
+            return {"ok": True, "room": room, "auth": "development-bypass"}
+
+        # Import here to avoid a module-level circular dependency:
+        # security.py emits session events through realtime.py.
+        from utils.security import authenticate_token
+
+        token = (data.get("token") or "").strip()
+        allowed_roles = tuple(Config.ROLES)
+        if room == "logs":
+            allowed_roles = (Config.ROLE_SUPERADMIN, Config.ROLE_ADMIN)
+
+        payload, error = authenticate_token(token, allowed_roles=allowed_roles)
+        if error:
+            emit("auth:error", {"error": error[0], "status": error[1]})
+            return {"ok": False, "error": error[0], "status": error[1]}
+
+        join_room(room)
+        return {
+            "ok": True,
+            "room": room,
+            "role": payload.get("role"),
+        }
