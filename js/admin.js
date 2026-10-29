@@ -34,6 +34,39 @@ function toast(msg){
   clearTimeout(el._t);
   el._t = setTimeout(() => el.classList.remove("show"), 3200);
 }
+const PAGE_SIZE = 12;
+const pageState = {};
+
+function pageOf(key, rows){
+  const pages = Math.max(1, Math.ceil(rows.length / PAGE_SIZE));
+  const page = Math.min(pageState[key] || 1, pages);
+  pageState[key] = page;
+  return { slice: rows.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE), page, pages };
+}
+
+function renderPager(id, key, page, pages, onChange){
+  const el = document.getElementById(id);
+  if(!el) return;
+  if(pages <= 1){ el.innerHTML = ""; return; }
+  const parts = [];
+  for(let i = 1; i <= pages; i++){
+    if(i === 1 || i === pages || Math.abs(i - page) <= 1) parts.push(i);
+    else if(parts[parts.length - 1] !== "…") parts.push("…");
+  }
+  el.innerHTML =
+    `<button class="page-btn" data-p="${page - 1}" ${page === 1 ? "disabled" : ""}>‹ Prev</button>` +
+    parts.map(p => p === "…" ? `<span class="page-gap">…</span>` : `<button class="page-btn ${p === page ? "active" : ""}" data-p="${p}">${p}</button>`).join("") +
+    `<button class="page-btn" data-p="${page + 1}" ${page === pages ? "disabled" : ""}>Next ›</button>`;
+  el.querySelectorAll("[data-p]").forEach(b => b.addEventListener("click", () => {
+    pageState[key] = parseInt(b.dataset.p);
+    onChange();
+  }));
+}
+
+function resetPage(key, fn){
+  return () => { pageState[key] = 1; fn(); };
+}
+
 function canWriteStock(){ return currentUser && (currentUser.role === "superadmin" || currentUser.role === "subadmin"); }
 function canWriteOrders(){ return currentUser && (currentUser.role === "superadmin" || currentUser.role === "subadmin"); }
 function isLogViewer(){ return currentUser && (currentUser.role === "superadmin" || currentUser.role === "admin"); }
@@ -172,8 +205,13 @@ function renderInventory(){
 
   if(items.length === 0){
     body.innerHTML = `<tr><td colspan="7" class="empty-state">No products match your search.</td></tr>`;
+    renderPager("invPager", "inv", 1, 1, renderInventory);
     return;
   }
+
+  const pg = pageOf("inv", items);
+  items = pg.slice;
+  renderPager("invPager", "inv", pg.page, pg.pages, renderInventory);
 
   body.innerHTML = items.map(p => {
     const rowClass = p.status === "out-of-stock" ? "row-out-of-stock" : p.status === "low-stock" ? "row-low-stock" : "";
@@ -237,7 +275,7 @@ async function doStockAction(id, action){
   }
 }
 
-document.getElementById("inventorySearch").addEventListener("input", renderInventory);
+document.getElementById("inventorySearch").addEventListener("input", resetPage("inv", renderInventory));
 
 // Orders
 function badgeClass(status){
@@ -277,8 +315,13 @@ async function renderOrders(){
 
   if(orders.length === 0){
     body.innerHTML = `<tr><td colspan="6" class="empty-state">No orders match your filters.</td></tr>`;
+    renderPager("ordersPager", "ord", 1, 1, renderOrders);
     return;
   }
+
+  const pg = pageOf("ord", orders);
+  orders = pg.slice;
+  renderPager("ordersPager", "ord", pg.page, pg.pages, renderOrders);
 
   const writable = canWriteOrders();
 
@@ -345,8 +388,8 @@ async function renderClients(){
   `).join("");
 }
 
-document.getElementById("orderSearch").addEventListener("input", renderOrders);
-document.getElementById("statusFilter").addEventListener("change", renderOrders);
+document.getElementById("orderSearch").addEventListener("input", resetPage("ord", renderOrders));
+document.getElementById("statusFilter").addEventListener("change", resetPage("ord", renderOrders));
 
 // Logs (superadmin + admin)
 async function loadSessionLogs(){
@@ -355,11 +398,15 @@ async function loadSessionLogs(){
   const params = {};
   if(role !== "all") params.role = role;
   if(user) params.user = user;
+  params.page = pageState.sess || 1;
+  params.limit = PAGE_SIZE;
 
   const res = await Api.getSessionLogs(params);
   const body = document.getElementById("sessionLogsTableBody");
   if(!res.ok){ body.innerHTML = `<tr><td colspan="5" class="empty-state">${res.error || "Could not load session logs."}</td></tr>`; return; }
   const rows = res.data;
+  if(rows.length === 0 && params.page > 1){ pageState.sess = params.page - 1; return loadSessionLogs(); }
+  renderPager("sessPager", "sess", res.page || 1, Math.ceil((res.total || rows.length) / PAGE_SIZE), loadSessionLogs);
   if(rows.length === 0){ body.innerHTML = `<tr><td colspan="5" class="empty-state">No sessions logged yet.</td></tr>`; return; }
 
   body.innerHTML = rows.map(s => `
@@ -377,11 +424,15 @@ async function loadInventoryLogs(){
   const action = document.getElementById("invLogActionFilter").value;
   const params = {};
   if(action !== "all") params.action = action;
+  params.page = pageState.ilog || 1;
+  params.limit = PAGE_SIZE;
 
   const res = await Api.getInventoryLogs(params);
   const body = document.getElementById("invLogsTableBody");
   if(!res.ok){ body.innerHTML = `<tr><td colspan="8" class="empty-state">${res.error || "Could not load inventory logs."}</td></tr>`; return; }
   const rows = res.data;
+  if(rows.length === 0 && params.page > 1){ pageState.ilog = params.page - 1; return loadInventoryLogs(); }
+  renderPager("ilogPager", "ilog", res.page || 1, Math.ceil((res.total || rows.length) / PAGE_SIZE), loadInventoryLogs);
   if(rows.length === 0){ body.innerHTML = `<tr><td colspan="8" class="empty-state">No stock changes logged yet.</td></tr>`; return; }
 
   body.innerHTML = rows.map(l => `
@@ -398,16 +449,19 @@ async function loadInventoryLogs(){
   `).join("");
 }
 
-document.getElementById("sessionLogSearch").addEventListener("input", loadSessionLogs);
-document.getElementById("sessionRoleFilter").addEventListener("change", loadSessionLogs);
-document.getElementById("invLogActionFilter").addEventListener("change", loadInventoryLogs);
+document.getElementById("sessionLogSearch").addEventListener("input", resetPage("sess", loadSessionLogs));
+document.getElementById("sessionRoleFilter").addEventListener("change", resetPage("sess", loadSessionLogs));
+document.getElementById("invLogActionFilter").addEventListener("change", resetPage("ilog", loadInventoryLogs));
 
 // Users & roles (superadmin only)
 async function loadUsers(){
-  const res = await Api.getUsers();
+  const page = pageState.users || 1;
+  const res = await Api.getUsers({ page, limit: PAGE_SIZE });
   const body = document.getElementById("usersTableBody");
   if(!res.ok){ body.innerHTML = `<tr><td colspan="4" class="empty-state">${res.error || "Could not load users."}</td></tr>`; return; }
   const rows = res.data;
+  if(rows.length === 0 && page > 1){ pageState.users = page - 1; return loadUsers(); }
+  renderPager("usersPager", "users", res.page || 1, Math.ceil((res.total || rows.length) / PAGE_SIZE), loadUsers);
   body.innerHTML = rows.map(u => `
     <tr>
       <td><b>${u.name}</b></td>
@@ -466,10 +520,13 @@ document.getElementById("userModalSave").addEventListener("click", async () => {
 
 // Backups (superadmin only)
 async function loadBackups(){
-  const res = await Api.listBackups();
+  const page = pageState.backups || 1;
+  const res = await Api.listBackups({ page, limit: PAGE_SIZE });
   const body = document.getElementById("backupsTableBody");
   if(!res.ok){ body.innerHTML = `<tr><td colspan="3" class="empty-state">${res.error || "Could not load backups."}</td></tr>`; return; }
   const rows = res.data;
+  if(rows.length === 0 && page > 1){ pageState.backups = page - 1; return loadBackups(); }
+  renderPager("backupsPager", "backups", res.page || 1, Math.ceil((res.total || rows.length) / PAGE_SIZE), loadBackups);
   if(rows.length === 0){ body.innerHTML = `<tr><td colspan="3" class="empty-state">No backups yet — run one above.</td></tr>`; return; }
   body.innerHTML = rows.map(b => `
     <tr>

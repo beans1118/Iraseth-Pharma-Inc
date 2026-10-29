@@ -2,7 +2,7 @@
 Superadmin-only: create staff accounts, change roles, remove accounts.
 This is the only place roles get assigned — nobody can promote themselves.
 """
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, make_response
 
 from config import Config
 from extensions import db
@@ -21,7 +21,22 @@ def _serialize(u: dict) -> dict:
 @bp.get("")
 @require_role("superadmin")
 def list_users():
-    return jsonify([_serialize(u) for u in db.users.find().sort("email", 1)])
+    if "page" not in request.args and "limit" not in request.args:
+        return jsonify([_serialize(u) for u in db.users.find().sort("email", 1)])
+
+    try:
+        page = max(1, int(request.args.get("page", 1)))
+        limit = max(1, min(int(request.args.get("limit", 50)), 200))
+    except (TypeError, ValueError):
+        return jsonify({"error": "page and limit must be whole numbers."}), 400
+
+    total = db.users.count_documents({})
+    cursor = db.users.find().sort("email", 1).skip((page - 1) * limit).limit(limit)
+    response = make_response(jsonify([_serialize(u) for u in cursor]))
+    response.headers["X-Total-Count"] = str(total)
+    response.headers["X-Page"] = str(page)
+    response.headers["X-Page-Size"] = str(limit)
+    return response
 
 
 @bp.post("")

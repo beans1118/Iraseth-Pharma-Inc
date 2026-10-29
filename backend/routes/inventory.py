@@ -8,7 +8,7 @@ Phase 1 hardening:
 """
 from datetime import datetime, timezone
 
-from flask import Blueprint, request, jsonify, g
+from flask import Blueprint, request, jsonify, g, make_response
 from pymongo import ReturnDocument, UpdateOne
 from pymongo.errors import BulkWriteError
 
@@ -154,8 +154,23 @@ def _log_and_apply(product_id: str, delta: int, action: str, note: str):
 def list_stock():
     """Live stock board. Any authenticated staff role can view."""
     _ensure_monthly_openings()
-    products = [_serialize(p) for p in db.products.find().sort("id", 1)]
-    return jsonify(products)
+
+    if "page" not in request.args and "limit" not in request.args:
+        return jsonify([_serialize(p) for p in db.products.find().sort("id", 1)])
+
+    try:
+        page = max(1, int(request.args.get("page", 1)))
+        limit = max(1, min(int(request.args.get("limit", 50)), 200))
+    except (TypeError, ValueError):
+        return jsonify({"error": "page and limit must be whole numbers."}), 400
+
+    total = db.products.count_documents({})
+    cursor = db.products.find().sort("id", 1).skip((page - 1) * limit).limit(limit)
+    response = make_response(jsonify([_serialize(p) for p in cursor]))
+    response.headers["X-Total-Count"] = str(total)
+    response.headers["X-Page"] = str(page)
+    response.headers["X-Page-Size"] = str(limit)
+    return response
 
 
 @bp.post("/<product_id>/release")

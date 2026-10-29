@@ -512,6 +512,16 @@ function mockStatus(p){
 }
 function serializeProduct(p){ return { ...p, status: mockStatus(p) }; }
 
+function paginate(items, params){
+  if(!params || (params.page === undefined && params.limit === undefined)){
+    return { ok:true, status:200, error:null, data:items };
+  }
+  const page = Math.max(1, parseInt(params.page) || 1);
+  const limit = Math.max(1, Math.min(parseInt(params.limit) || 50, 200));
+  const start = (page - 1) * limit;
+  return { ok:true, status:200, error:null, data:items.slice(start, start + limit), total:items.length, page, limit };
+}
+
 function currentMonthKey(){
   const d = new Date();
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
@@ -588,7 +598,11 @@ const MockApi = {
   },
 
   // ---- Products ----
-  getProducts(){ return MockDB.products().map(serializeProduct); },
+  getProducts(params){
+    const items = MockDB.products().map(serializeProduct);
+    if(!params) return items;
+    return paginate(items, params);
+  },
 
   createProduct(payload){
     const u = currentMockUser();
@@ -656,7 +670,7 @@ const MockApi = {
     return { ok:true, status:201, error:null, data:order };
   },
 
-  getOrders(){ return { ok:true, status:200, error:null, data:MockDB.orders() }; },
+  getOrders(params){ return paginate(MockDB.orders(), params); },
 
   getClientsSummary(){
     const orders = MockDB.orders();
@@ -705,7 +719,7 @@ const MockApi = {
   },
 
   // ---- Inventory ----
-  getStock(){ ensureMonthlyOpenings(); return { ok:true, status:200, error:null, data:MockDB.products().map(serializeProduct) }; },
+  getStock(params){ ensureMonthlyOpenings(); return paginate(MockDB.products().map(serializeProduct), params); },
 
   _stockAction(id, qty, note, action){
     const u = currentMockUser();
@@ -737,18 +751,18 @@ const MockApi = {
     let rows = MockDB.sessions();
     if(params.role && params.role !== "all") rows = rows.filter(s => s.role === params.role);
     if(params.user) rows = rows.filter(s => s.user_email.toLowerCase().includes(params.user.toLowerCase()));
-    return { ok:true, status:200, error:null, data:rows };
+    return paginate(rows, params.page || params.limit ? params : null);
   },
   getInventoryLogs(params = {}){
     let rows = MockDB.invLogs();
     if(params.action && params.action !== "all") rows = rows.filter(l => l.action === params.action);
     rows = rows.slice().sort((a,b) => new Date(b.at) - new Date(a.at));
-    return { ok:true, status:200, error:null, data:rows };
+    return paginate(rows, params.page || params.limit ? params : null);
   },
 
   // ---- Users ----
-  getUsers(){
-    return { ok:true, status:200, error:null, data:MockDB.users().map(u => ({ email:u.email, name:u.name, role:u.role })) };
+  getUsers(params){
+    return paginate(MockDB.users().map(u => ({ email:u.email, name:u.name, role:u.role })), params);
   },
   createUser(payload){
     const users = MockDB.users();
@@ -801,5 +815,5 @@ const MockApi = {
 
     return { ok:true, status:201, error:null, data:record };
   },
-  listBackups(){ return { ok:true, status:200, error:null, data:MockDB.backups() }; },
+  listBackups(params){ return paginate(MockDB.backups(), params); },
 };

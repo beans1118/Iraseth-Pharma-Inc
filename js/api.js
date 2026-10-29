@@ -25,10 +25,23 @@ const Api = {
       if(!res.ok){
         return { ok:false, status:res.status, error: (data && data.error) || "Request failed.", data:null };
       }
-      return { ok:true, status:res.status, data, error:null };
+      const out = { ok:true, status:res.status, data, error:null };
+      const total = res.headers.get("X-Total-Count");
+      if(total !== null){
+        out.total = parseInt(total);
+        out.page = parseInt(res.headers.get("X-Page")) || 1;
+        out.limit = parseInt(res.headers.get("X-Page-Size")) || 50;
+      }
+      return out;
     }catch(err){
       return { ok:false, status:0, error:"unreachable", data:null };
     }
+  },
+
+  _qs(params){
+    const clean = Object.fromEntries(Object.entries(params || {}).filter(([, v]) => v !== undefined && v !== null && v !== "" && v !== "all"));
+    const s = new URLSearchParams(clean).toString();
+    return s ? "?" + s : "";
   },
 
   _authHeaders(){
@@ -66,9 +79,10 @@ const Api = {
   },
 
   // ---- Products ----
-  async getProducts(){
-    if(this.mock) return MockApi.getProducts();
-    const r = await this._request("/products");
+  async getProducts(params){
+    if(this.mock) return MockApi.getProducts(params);
+    const r = await this._request("/products" + this._qs(params));
+    if(params) return r;
     return r.ok ? r.data : null;
   },
   async createProduct(payload){
@@ -89,9 +103,9 @@ const Api = {
     if(this.mock) return MockApi.createOrder(payload);
     return this._request("/orders", { method:"POST", body:JSON.stringify(payload) });
   },
-  async getOrders(){
-    if(this.mock) return MockApi.getOrders();
-    return this._request("/orders", { headers:this._authHeaders() });
+  async getOrders(params){
+    if(this.mock) return MockApi.getOrders(params);
+    return this._request("/orders" + this._qs(params), { headers:this._authHeaders() });
   },
   async getClientsSummary(){
     if(this.mock) return MockApi.getClientsSummary();
@@ -103,9 +117,9 @@ const Api = {
   },
 
   // ---- Inventory (real-time stock) ----
-  async getStock(){
-    if(this.mock) return MockApi.getStock();
-    return this._request("/inventory", { headers:this._authHeaders() });
+  async getStock(params){
+    if(this.mock) return MockApi.getStock(params);
+    return this._request("/inventory" + this._qs(params), { headers:this._authHeaders() });
   },
   async releaseStock(id, qty, note){
     if(this.mock) return MockApi.releaseStock(id, qty, note);
@@ -119,19 +133,17 @@ const Api = {
   // ---- Logs (superadmin + admin) ----
   async getSessionLogs(params = {}){
     if(this.mock) return MockApi.getSessionLogs(params);
-    const qs = new URLSearchParams(params).toString();
-    return this._request(`/logs/sessions${qs ? "?" + qs : ""}`, { headers:this._authHeaders() });
+    return this._request("/logs/sessions" + this._qs(params), { headers:this._authHeaders() });
   },
   async getInventoryLogs(params = {}){
     if(this.mock) return MockApi.getInventoryLogs(params);
-    const qs = new URLSearchParams(params).toString();
-    return this._request(`/logs/inventory${qs ? "?" + qs : ""}`, { headers:this._authHeaders() });
+    return this._request("/logs/inventory" + this._qs(params), { headers:this._authHeaders() });
   },
 
   // ---- Users & roles (superadmin only) ----
-  async getUsers(){
-    if(this.mock) return MockApi.getUsers();
-    return this._request("/users", { headers:this._authHeaders() });
+  async getUsers(params){
+    if(this.mock) return MockApi.getUsers(params);
+    return this._request("/users" + this._qs(params), { headers:this._authHeaders() });
   },
   async createUser(payload){
     if(this.mock) return MockApi.createUser(payload);
@@ -151,8 +163,8 @@ const Api = {
     if(this.mock) return MockApi.runBackup();
     return this._request("/backup/run", { method:"POST", headers:this._authHeaders() });
   },
-  async listBackups(){
-    if(this.mock) return MockApi.listBackups();
-    return this._request("/backup", { headers:this._authHeaders() });
+  async listBackups(params){
+    if(this.mock) return MockApi.listBackups(params);
+    return this._request("/backup" + this._qs(params), { headers:this._authHeaders() });
   },
 };

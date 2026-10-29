@@ -12,7 +12,7 @@ import json
 from pathlib import Path
 from datetime import datetime, timezone
 
-from flask import Blueprint, jsonify, send_from_directory
+from flask import Blueprint, request, jsonify, send_from_directory, make_response
 
 from config import Config
 from extensions import db
@@ -69,12 +69,32 @@ def run_backup():
 @bp.get("")
 @require_role("superadmin")
 def list_backups():
+    if "page" not in request.args and "limit" not in request.args:
+        rows = []
+        for b in db.backups.find().sort("created_at", -1):
+            b = dict(b)
+            b.pop("_id", None)
+            rows.append(b)
+        return jsonify(rows)
+
+    try:
+        page = max(1, int(request.args.get("page", 1)))
+        limit = max(1, min(int(request.args.get("limit", 50)), 200))
+    except (TypeError, ValueError):
+        return jsonify({"error": "page and limit must be whole numbers."}), 400
+
+    total = db.backups.count_documents({})
+    cursor = db.backups.find().sort("created_at", -1).skip((page - 1) * limit).limit(limit)
     rows = []
-    for b in db.backups.find().sort("created_at", -1):
+    for b in cursor:
         b = dict(b)
         b.pop("_id", None)
         rows.append(b)
-    return jsonify(rows)
+    response = make_response(jsonify(rows))
+    response.headers["X-Total-Count"] = str(total)
+    response.headers["X-Page"] = str(page)
+    response.headers["X-Page-Size"] = str(limit)
+    return response
 
 
 @bp.get("/<filename>/download")

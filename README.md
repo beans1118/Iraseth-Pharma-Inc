@@ -1,48 +1,38 @@
-# Iraseth Pharma — Ordering site + Inventory backend
-
-## Fastest way to see it working (no install required)
-
-Just open `index.html` or `admin.html` in a browser — double-click the
-file, or serve the folder with any static server. **No Python, no
-MongoDB, nothing to install.**
-
-If it can't reach a real backend at `http://localhost:5000`, the site
-automatically switches to **Demo Mode**: a small sample catalog (30
-products with realistic stock levels) and all three role accounts are
-created for you, stored only in your browser's local storage. A red
-banner at the top says "Demo Mode" whenever this is active, so it's never
-confused with real data.
-
-**Demo Mode logins** (shown on the admin login screen too):
-
-| Role | Email | Password |
-|---|---|---|
-| Superadmin | `superadmin@irasethpharma.com` | `demo-superadmin` |
-| Admin | `admin@irasethpharma.com` | `demo-admin` |
-| Sub-admin | `subadmin@irasethpharma.com` | `demo-subadmin` |
-
-Everything works in Demo Mode: browsing the catalog, checkout, the
-Inventory release/supply buttons, order fulfillment, activity logs, user
-management, and backups (backup even downloads a real JSON file to your
-computer). The only thing Demo Mode can't do is share data between two
-different browsers/devices, or persist across "clear browsing data" —
-that's what the real backend is for.
-
-## Running the real backend (Flask + MongoDB)
-
-For production use — real persistence, real multi-user access, real-time
-Socket.IO updates pushed across devices — set up the backend in
-`backend/README.md`. Once `python app.py` is running at
-`http://localhost:5000`, both `index.html` and `admin.html` detect it
-automatically and switch off Demo Mode with no configuration needed —
-same UI, same features, now backed by a real database.
-
-## Project layout
+# Iraseth Pharma — Storefront (React) + Admin Console + API
 
 ```
-index.html, admin.html   — the two pages (open these directly)
-css/styles.css           — all styling
-js/                      — frontend logic (config, mock-backend, api, data, main/admin)
-assets/                  — logo & images
-backend/                 — Flask + MongoDB API (see backend/README.md)
+storefront/   React source (Vite + React Router) — the customer-facing site
+site/         Ready-to-serve build: React storefront + admin console, linked together
+admin.html    Admin console (plain HTML/JS) — Superadmin / Admin / Sub-admin
+css/ js/ assets/   Admin console files
+backend/      Flask + MongoDB API (unchanged architecture; list endpoints now paginated)
+legacy-storefront/  Archived old HTML storefront (safe to delete)
 ```
+
+## Just view it
+Serve the **`site/`** folder with any static server (VS Code Live Server works: right-click `site/index.html` → Open with Live Server).
+Opening files by double-click will not work for the React build (browsers block module scripts on `file://`).
+
+- Storefront pages: `index.html#/` , `#/catalog`, `#/about`, `#/mission`, `#/leadership`, `#/locations`, `#/contact`
+  (hash routing, so it works on any static host with zero server config)
+- Admin console: `admin.html` (also reachable via the person icon in the storefront header)
+- With no backend running, both apps fall back to the built-in Demo Mode (browser localStorage).
+
+## Develop the React storefront
+```bash
+cd storefront
+npm install
+npm run dev      # hot-reload dev server
+npm run build    # rebuilds ../site (and copies the admin console into it)
+```
+
+## Pagination
+All list endpoints accept optional `?page=&limit=` (limit max 200) and return the same shape:
+plain JSON array body + `X-Total-Count`, `X-Page`, `X-Page-Size` headers. Omit both params and you get the full array exactly as before.
+Covered: products, orders, inventory (stock), session logs, inventory logs, users, backups.
+
+- Storefront catalog: 9 per page, resets to page 1 on search/category change.
+- Admin: logs, users and backups page server-side; inventory and orders page client-side (their KPI cards need the whole list).
+
+## Backend
+See `backend/README.md` and `DEVELOPMENT-PHASE1-3-README.md`.
