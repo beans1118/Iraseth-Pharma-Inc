@@ -130,7 +130,25 @@ def authenticate_token(token: str, allowed_roles=None):
     if session.get("role") != payload.get("role"):
         return None, ("Session role is no longer valid. Please sign in again.", 401)
 
-    if allowed_roles and payload.get("role") not in allowed_roles:
+    # A valid JWT and active session do not prove that the staff account
+    # still exists or still has the same privileges. Compare against the live
+    # user record, including the immutable MongoDB identity (not email alone).
+    user = db.users.find_one(
+        {"email": session.get("user_email")},
+        {"_id": 1, "role": 1, "email": 1, "is_active": 1},
+    )
+    if (
+        not user
+        or str(user["_id"]) != str(payload.get("sub"))
+        or user.get("email") != payload.get("email")
+        or user.get("is_active") is False
+    ):
+        return None, ("Account is no longer active. Please sign in again.", 401)
+
+    if user.get("role") != payload.get("role"):
+        return None, ("Account permissions changed. Please sign in again.", 401)
+
+    if allowed_roles and user.get("role") not in allowed_roles:
         return None, ("You do not have permission to do that.", 403)
 
     return payload, None

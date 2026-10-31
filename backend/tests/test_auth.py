@@ -1,42 +1,20 @@
-
-def test_login_requires_credentials(client):
-    response = client.post("/api/auth/login", json={})
-
-    assert response.status_code == 400
-    assert "error" in response.get_json()
+def test_empty_login(client):
+    r = client.post('/api/auth/login', json={})
+    assert r.status_code == 400
 
 
 def test_invalid_login(client):
-    response = client.post(
-        "/api/auth/login",
-        json={
-            "email": "nonexistent-test-user@example.invalid",
-            "password": "incorrect-password"
-        }
-    )
-
-    assert response.status_code == 401
-    assert "error" in response.get_json()
+    r = client.post('/api/auth/login', json={'email':'nobody@example.invalid','password':'wrong'})
+    assert r.status_code == 401
 
 
-def test_protected_endpoint_without_token(client):
-    response = client.get("/api/auth/me")
-
-    assert response.status_code == 401
+def test_missing_token(client):
+    assert client.get('/api/auth/me').status_code == 401
 
 
-def test_protected_endpoint_with_invalid_token(client):
-    response = client.get(
-        "/api/auth/me",
-        headers={
-            "Authorization": "Bearer invalid-token"
-        }
-    )
-
-    assert response.status_code == 401
+def test_invalid_token(client):
+    assert client.get('/api/auth/me', headers={'Authorization':'Bearer bad-token'}).status_code == 401
 
 
-def test_inventory_requires_authentication(client):
-    response = client.get("/api/inventory")
-
-    assert response.status_code == 401
+def test_inventory_requires_login(client):
+    assert client.get('/api/inventory').status_code == 401

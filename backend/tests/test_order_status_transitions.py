@@ -4,7 +4,6 @@ from datetime import datetime, timezone
 import pytest
 
 
-@pytest.mark.xfail(strict=True, reason="Current order PATCH allows reverting Fulfilled to Processing")
 def test_fulfilled_order_cannot_be_reopened(client, auth, test_db, product_factory, monkeypatch):
     import routes.orders as orders
     monkeypatch.setattr(orders, "order_status_email", lambda *a, **k: None)

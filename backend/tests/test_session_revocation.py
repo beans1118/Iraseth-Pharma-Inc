@@ -2,7 +2,6 @@
 import pytest
 
 
-@pytest.mark.xfail(strict=True, reason="Current auth checks session role, not current users.role")
 def test_role_demotion_revokes_old_superadmin_token(client, auth, accounts, test_db):
     headers = auth("superadmin")
     email = accounts["superadmin"]["email"]
@@ -13,7 +12,6 @@ def test_role_demotion_revokes_old_superadmin_token(client, auth, accounts, test
     assert response.status_code in (401, 403), response.get_json()
 
 
-@pytest.mark.xfail(strict=True, reason="Current auth checks active sessions but not deleted user accounts")
 def test_deleted_user_token_is_rejected(client, auth, accounts, test_db):
     headers = auth("superadmin")
     email = accounts["superadmin"]["email"]

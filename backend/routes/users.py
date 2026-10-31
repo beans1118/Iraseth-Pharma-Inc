@@ -2,6 +2,8 @@
 Superadmin-only: create staff accounts, change roles, remove accounts.
 This is the only place roles get assigned — nobody can promote themselves.
 """
+from datetime import datetime, timezone
+
 from flask import Blueprint, request, jsonify, make_response
 
 from config import Config
@@ -86,6 +88,13 @@ def update_user(email):
     result = db.users.update_one({"email": email.strip().lower()}, {"$set": updates})
     if result.matched_count == 0:
         return jsonify({"error": "User not found."}), 404
+    # Password and role changes invalidate existing sessions immediately.
+    # Name-only edits don't need to log out users.
+    if "role" in updates or "password_hash" in updates:
+        db.sessions.update_many(
+            {"user_email": email.strip().lower(), "logout_at": None},
+            {"$set": {"logout_at": datetime.now(timezone.utc).isoformat()}},
+        )
     return jsonify(_serialize(db.users.find_one({"email": email.strip().lower()})))
 
 
@@ -95,4 +104,8 @@ def delete_user(email):
     result = db.users.delete_one({"email": email.strip().lower()})
     if result.deleted_count == 0:
         return jsonify({"error": "User not found."}), 404
+    db.sessions.update_many(
+        {"user_email": email.strip().lower(), "logout_at": None},
+        {"$set": {"logout_at": datetime.now(timezone.utc).isoformat()}},
+    )
     return jsonify({"deleted": email})
