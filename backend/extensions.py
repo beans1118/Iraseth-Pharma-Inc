@@ -19,6 +19,17 @@ db = _client[Config.MONGO_DB_NAME]
 
 def ensure_indexes():
     """Call once on startup. Safe to call repeatedly."""
+    # Order-support OTPs, temporary customer sessions and chat history.
+    db.support_challenges.create_index('id', unique=True)
+    db.support_challenges.create_index('expires_at', expireAfterSeconds=0)
+    db.support_challenges.create_index([('order_id', 1), ('email', 1), ('expires_at', -1)])
+    db.support_sessions.create_index('token_hash', unique=True)
+    db.support_sessions.create_index('expires_at', expireAfterSeconds=0)
+    db.support_messages.create_index('id', unique=True)
+    db.support_messages.create_index([('order_id', 1), ('at', -1)])
+    db.support_threads.create_index('order_id', unique=True)
+    db.support_threads.create_index('updated_at')
+    db.support_rate_limits.create_index('expires_at', expireAfterSeconds=0)
     # Batch-mode indexes (created even while feature is disabled).
     db.inventory_batches.create_index('id', unique=True)
     db.inventory_batches.create_index([('product_id', 1), ('lot', 1),

@@ -15,6 +15,7 @@ from routes.backup import bp as backup_bp
 from realtime import socketio
 from modules.inventory.routes import bp as batch_inventory_bp
 from modules.orders.routes import bp as batch_orders_bp
+from modules.support.routes import bp as order_support_bp
 from utils.security import client_rate_limit
 
 
@@ -60,6 +61,7 @@ def create_app() -> Flask:
     app.register_blueprint(backup_bp)
     app.register_blueprint(batch_inventory_bp)
     app.register_blueprint(batch_orders_bp)
+    app.register_blueprint(order_support_bp)
 
     @app.before_request
     def phase2_rate_limits():
