@@ -128,6 +128,8 @@ def create_product():
     except (TypeError, ValueError):
         return jsonify({"error": "quantity and price must be numbers."}), 400
 
+    if Config.BATCH_MODE and doc['quantity'] != 0:
+        return jsonify({'error': 'Batch mode requires new products to start with zero stock. Use /api/v2/inventory/batches/receive.'}), 409
     if doc["quantity"] < 0:
         return jsonify({"error": "quantity cannot be negative."}), 400
 
@@ -166,6 +168,8 @@ def update_product(product_id):
     data = request.get_json(silent=True) or {}
     editable = [f for f in REQUIRED_FIELDS + OPTIONAL_FIELDS if f != "quantity"]
     updates = {f: data[f] for f in editable if f in data}
+    if Config.BATCH_MODE and 'id' in updates and updates['id'] != product_id:
+        return jsonify({'error': 'Product identifiers cannot be changed in batch mode.'}), 409
 
     if "price" in updates:
         try:

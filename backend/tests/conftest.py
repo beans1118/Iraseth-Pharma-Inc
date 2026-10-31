@@ -1,5 +1,7 @@
 """Load and lock test settings before application/database imports."""
 import os
+
+os.environ["BATCH_MODE"] = "false"
 import uuid
 from pathlib import Path
 

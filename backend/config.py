@@ -34,6 +34,9 @@ class Config:
     APP_ENV = os.getenv("APP_ENV", "development").strip().lower()
     IS_PRODUCTION = APP_ENV == "production"
 
+    # Opt-in activation only after migrating and reconciling every batch.
+    BATCH_MODE = _bool(os.getenv("BATCH_MODE"), False)
+
     # MongoDB
     MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")
     MONGO_DB_NAME = os.getenv("MONGO_DB_NAME", "iraseth_pharma")

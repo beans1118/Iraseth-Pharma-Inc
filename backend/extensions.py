@@ -19,6 +19,18 @@ db = _client[Config.MONGO_DB_NAME]
 
 def ensure_indexes():
     """Call once on startup. Safe to call repeatedly."""
+    # Batch-mode indexes (created even while feature is disabled).
+    db.inventory_batches.create_index('id', unique=True)
+    db.inventory_batches.create_index([('product_id', 1), ('lot', 1),
+        ('expires_on', 1), ('condition', 1), ('unverified', 1)], unique=True)
+    db.inventory_batches.create_index([('product_id', 1), ('condition', 1), ('expires_on', 1)])
+    db.stock_movements.create_index('id', unique=True)
+    db.stock_movements.create_index([('product_id', 1), ('at', -1)])
+    db.inventory_operations.create_index('key', unique=True)
+    db.stock_reservations.create_index('id', unique=True)
+    db.stock_reservations.create_index([('order_id', 1), ('status', 1)])
+    db.inventory_adjustments.create_index('id', unique=True)
+    db.inventory_adjustments.create_index([('status', 1), ('requested_at', -1)])
     db.products.create_index("id", unique=True)
     db.products.create_index("category")
 

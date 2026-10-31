@@ -13,6 +13,8 @@ from routes.users import bp as users_bp
 from routes.logs import bp as logs_bp
 from routes.backup import bp as backup_bp
 from realtime import socketio
+from modules.inventory.routes import bp as batch_inventory_bp
+from modules.orders.routes import bp as batch_orders_bp
 from utils.security import client_rate_limit
 
 
@@ -45,6 +47,9 @@ def create_app() -> Flask:
     )
 
     ensure_indexes()
+    if Config.BATCH_MODE:
+        from modules.inventory.readiness import check_ready
+        check_ready(db, require_marker=True)
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(products_bp)
@@ -53,6 +58,8 @@ def create_app() -> Flask:
     app.register_blueprint(users_bp)
     app.register_blueprint(logs_bp)
     app.register_blueprint(backup_bp)
+    app.register_blueprint(batch_inventory_bp)
+    app.register_blueprint(batch_orders_bp)
 
     @app.before_request
     def phase2_rate_limits():
@@ -61,6 +68,17 @@ def create_app() -> Flask:
             return None
 
         path = request.path
+        # Never allow legacy product-level stock writes once batch mode is active.
+        # Old GET inventory also reports obsolete product.quantity in batch mode.
+        if Config.BATCH_MODE:
+            legacy_inventory = path == '/api/inventory' or (
+                path.startswith('/api/inventory/') and request.method == 'POST')
+            legacy_products = path.startswith('/api/products/') and request.method == 'DELETE'
+            legacy_order_mutation = (path.startswith('/api/orders/') and request.method == 'PATCH')
+            legacy_inventory_log = path == '/api/logs/inventory'
+            legacy_backup = path == '/api/backup/run'
+            if legacy_inventory or legacy_products or legacy_order_mutation or legacy_inventory_log or legacy_backup:
+                return jsonify({'error': 'Legacy inventory APIs disabled in batch mode; use /api/v2.'}), 409
         method = request.method
 
         if method == "POST" and path == "/api/auth/login":
