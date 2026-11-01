@@ -6,6 +6,10 @@ export type Order = {id: string; client: string; email: string; facility: string
 export type InvoiceLine = {id:string;name:string;unit:string;qty:number;price:string;subtotal:string};
 export type Invoice = {id:string;order_id:string|null;client:string;email:string;facility:string;lines:InvoiceLine[];total:string;currency:string;status:'Draft'|'Issued'|'Voided';created_at:string;actor_email:string};
 export type InvoiceTransaction = {id:string;invoice_id:string;event:string;actor_email:string;at:string};
+export type AnalyticsOverview = {period_days:number;as_of_utc:string;products:number;batch_count:number;on_hand:number;reserved:number;available_eligible:number;expiring_batches_90d:number;orders_by_status:Record<string,number>;invoices_by_status:Record<string,number>;movement_trends:Array<{day:string;action:string;events:number;units:number}>;scope_note:string};
+export type AlertProduct = {product_id:string;product_name:string;category:string;unit:string;available:number;threshold:number;custom_threshold?:boolean};
+export type AlertBatch = {batch_id:string;product_id:string;lot:string;expires_on:string;on_hand:number;reserved:number;condition:string};
+export type InventoryAlerts = {as_of_utc:string;expiry_window_days:number;global_preview_threshold:number;note:string;all_products:AlertProduct[];low_stock:AlertProduct[];stockouts:AlertProduct[];expiring_batches:AlertBatch[];expired_batches:AlertBatch[];restricted_batches:AlertBatch[]};
 export type Adjustment = {id: string; batch_id: string; delta: number; reason: string; status?: string};
 export type Stock = {product_id: string; on_hand: number; reserved: number; available: number};
 export type Movement = {id?: string; product_id?: string; type?: string; action?: string; qty?: number; at?: string; actor_email?: string; lot?: string; batch_id?: string; reference?: string};
@@ -49,6 +53,9 @@ export const endpoints = {
   decideAdjustment: (id: string, approve: boolean) => api(`/api/v2/inventory/adjustments/${encodeURIComponent(id)}/decision`, {method: 'POST', data: {approve}, key: requestKey()}),
   users: () => api<User[]>('/api/users'),
   createUser: (data: unknown) => api<User>('/api/users', {method: 'POST', data}),
+  inventoryAlerts: (days:30|60|90, threshold:number) => api<InventoryAlerts>(`/api/v2/alerts/inventory?days=${days}&threshold=${threshold}`),
+  setInventoryThreshold: (id:string,threshold:number|null) => api<{product_id:string;threshold:number|null}>(`/api/v2/alerts/products/${encodeURIComponent(id)}/threshold`,{method:'PATCH',data:{threshold}}),
+  analyticsOverview: (days:7|30|90) => api<AnalyticsOverview>(`/api/v2/analytics/overview?days=${days}`),
   invoices: () => api<Invoice[]>('/api/v2/invoices'),
   invoiceTransactions: () => api<InvoiceTransaction[]>('/api/v2/invoices/transactions'),
   createInvoice: (data:unknown, key:string) => api<Invoice>('/api/v2/invoices',{method:'POST',data,key}),

@@ -17,6 +17,8 @@ from modules.inventory.routes import bp as batch_inventory_bp
 from modules.orders.routes import bp as batch_orders_bp
 from modules.support.routes import bp as order_support_bp
 from modules.invoices.routes import bp as invoices_bp
+from modules.analytics.routes import bp as analytics_bp
+from modules.alerts.routes import bp as alerts_bp
 from utils.security import client_rate_limit
 
 
@@ -64,6 +66,8 @@ def create_app() -> Flask:
     app.register_blueprint(batch_orders_bp)
     app.register_blueprint(order_support_bp)
     app.register_blueprint(invoices_bp)
+    app.register_blueprint(analytics_bp)
+    app.register_blueprint(alerts_bp)
 
     @app.before_request
     def phase2_rate_limits():

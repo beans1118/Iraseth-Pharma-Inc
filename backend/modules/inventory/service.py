@@ -389,3 +389,64 @@ def restrict_batch(batch_id, condition, actor, key, reason):
                  batch['on_hand'], batch['on_hand'], actor, reason, op_id)
         return {'batch_id': batch_id, 'condition': condition}
     return transaction(run)
+
+
+def receive_delivery(lines, reference, actor, key):
+    """Receive a delivery of 1..50 batch lines in a single MongoDB transaction.
+
+    All lines are validated before mutation. The shared operation key enforces
+    idempotency. Any failure rolls back all batches and movement records.
+    """
+    if not isinstance(lines, list) or not 1 <= len(lines) <= 50:
+        raise InventoryProblem('Delivery requires 1 to 50 lines.', 400)
+    if not isinstance(reference, str) or not reference.strip() or len(reference.strip()) > 150:
+        raise InventoryProblem('Delivery reference is required (max 150 characters).', 400)
+    if not isinstance(key, str) or not 8 <= len(key) <= 128:
+        raise InventoryProblem('Idempotency-Key header must contain 8–128 characters.', 400)
+    normalized = []
+    for index, item in enumerate(lines, start=1):
+        if not isinstance(item, dict):
+            raise InventoryProblem(f'Line {index}: invalid object.', 400)
+        pid = item.get('product_id')
+        lot = item.get('lot')
+        condition = item.get('condition', 'available')
+        if not isinstance(pid, str) or not pid.strip():
+            raise InventoryProblem(f'Line {index}: product required.', 400)
+        if not isinstance(lot, str) or not lot.strip() or len(lot.strip()) > 100:
+            raise InventoryProblem(f'Line {index}: lot required (max 100 characters).', 400)
+        if condition not in ('available', 'quarantine'):
+            raise InventoryProblem(f'Line {index}: invalid condition.', 400)
+        try:
+            qty = positive(item.get('qty'))
+            exp = expiry(item.get('expires_on'))
+        except InventoryProblem as exc:
+            raise InventoryProblem(f'Line {index}: {exc}', exc.status) from exc
+        if condition == 'available' and exp < date.today().isoformat():
+            raise InventoryProblem(f'Line {index}: expired stock must be quarantined.', 409)
+        normalized.append((pid.strip(), lot.strip(), exp, qty, condition))
+
+    def run(session):
+        op_id = operation(session, 'receive_delivery', key, actor)
+        product_ids = set(p for p, *_ in normalized)
+        found = {p['id'] for p in db.products.find(
+            {'id': {'$in': list(product_ids)}}, {'id': 1}, session=session)}
+        missing = product_ids - found
+        if missing:
+            raise InventoryProblem('Product not found: ' + ', '.join(sorted(missing)), 404)
+        received = []
+        for pid, lot, exp, qty, condition in normalized:
+            batch = db.inventory_batches.find_one_and_update(
+                {'product_id': pid, 'lot': lot, 'expires_on': exp,
+                 'condition': condition, 'unverified': False},
+                {'$inc': {'on_hand': qty}, '$setOnInsert': {'id': uuid4().hex,
+                    'reserved': 0, 'created_at': now(), 'unverified': False}},
+                upsert=True, return_document=ReturnDocument.AFTER, session=session)
+            db.products.update_one({'id': pid}, {'$inc': {'quantity': qty}}, session=session)
+            movement(session, batch, 'receive', qty, batch['on_hand'] - qty,
+                     batch['on_hand'], actor, reference.strip(), op_id)
+            received.append({'product_id': pid, 'batch_id': batch['id'],
+                             'lot': lot, 'qty': qty, 'expires_on': exp})
+        return {'operation_id': op_id, 'reference': reference.strip(),
+                'lines_received': len(received), 'units_received': sum(x['qty'] for x in received),
+                'items': received}
+    return transaction(run)

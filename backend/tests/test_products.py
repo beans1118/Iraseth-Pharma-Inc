@@ -11,8 +11,15 @@ def test_product_read_and_pagination(client, auth, product_factory):
     assert r.status_code == 200 and 'X-Total-Count' in r.headers
 
 
-def test_subadmin_cannot_create_products(client, auth):
+def test_subadmin_can_access_create_product_validation(client, auth):
+    """Sub-admin can create products, but an empty payload is invalid."""
     r = client.post('/api/products', headers=auth('subadmin'), json={})
+    assert r.status_code == 400
+
+
+def test_board_admin_cannot_create_products(client, auth):
+    """Board Admin retains read-only access, even with an invalid payload."""
+    r = client.post('/api/products', headers=auth('admin'), json={})
     assert r.status_code == 403
 
 

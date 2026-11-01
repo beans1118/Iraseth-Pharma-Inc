@@ -133,7 +133,7 @@ def get_product(product_id):
 
 
 @bp.post("")
-@require_role("superadmin")
+@require_role("superadmin", "subadmin")
 def create_product():
     data = request.get_json(silent=True) or {}
     missing = [f for f in REQUIRED_FIELDS if f not in data]
@@ -186,7 +186,7 @@ def create_product():
 
 
 @bp.put("/<product_id>")
-@require_role("superadmin")
+@require_role("superadmin", "subadmin")
 def update_product(product_id):
     """Edits product metadata. Quantity only changes through /api/inventory."""
     data = request.get_json(silent=True) or {}

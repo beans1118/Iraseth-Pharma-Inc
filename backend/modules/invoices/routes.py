@@ -85,7 +85,7 @@ def get_invoice(invoice_id):
     return jsonify(clean(doc)) if doc else (jsonify({'error':'Invoice not found.'}),404)
 
 @bp.post('')
-@require_role(*ROLES)
+@require_role("superadmin", "subadmin")
 def create_invoice():
     payload=request.get_json(silent=True)
     if not isinstance(payload,dict): return jsonify({'error':'JSON object required.'}),400
@@ -114,7 +114,7 @@ def create_invoice():
     return jsonify(clean(doc)),201
 
 @bp.post('/<invoice_id>/issue')
-@require_role(*ROLES)
+@require_role("superadmin", "subadmin")
 def issue_invoice(invoice_id):
     with db.client.start_session() as session:
         with session.start_transaction():
@@ -124,7 +124,7 @@ def issue_invoice(invoice_id):
     return jsonify(clean(doc))
 
 @bp.post('/<invoice_id>/void')
-@require_role('superadmin','admin')
+@require_role('superadmin')
 def void_invoice(invoice_id):
     with db.client.start_session() as session:
         with session.start_transaction():

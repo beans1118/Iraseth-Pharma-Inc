@@ -153,3 +153,13 @@ def restrict_batch(batch_id):
     d = data()
     return jsonify(svc.restrict_batch(batch_id, d.get('condition'),
         g.user['email'], key(), d.get('reason')))
+
+
+@bp.post('/deliveries/receive')
+@require_role('superadmin', 'subadmin')
+def receive_multi_delivery():
+    if (blocked := enabled()) is not None:
+        return blocked
+    d = data()
+    return jsonify(svc.receive_delivery(d.get('lines'), d.get('reference'),
+                                        g.user['email'], key())), 201

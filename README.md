@@ -1,38 +1,57 @@
-# Iraseth Pharma — Storefront (React) + Admin Console + API
+# Iraseth Pharma — Inventory Management System
 
+Iraseth Pharma includes a Flask/MongoDB backend, a React/TypeScript employee dashboard, and a separate React customer storefront.
+
+## Project structure
+
+- `backend/` — Flask APIs, authentication, batch inventory, orders, invoices, support, alerts, analytics, and tests
+- `frontend/` — employee dashboard (React, TypeScript, Vite)
+- `storefront/` — customer-facing React application
+- `legacy-storefront/`, `site/`, and root `admin.html` — historical or deployment artifacts; **do not delete or deploy without verifying their use**
+
+## Local development
+
+Requirements: Python 3.12, Node.js/npm, and MongoDB with a working replica set `rs0`. Configure local environment variables without committing secrets.
+
+From `backend/` (in the activated virtual environment):
+
+```powershell
+python app.py
+python -m pytest tests/ -v
+python -m flask --app app routes
 ```
-storefront/   React source (Vite + React Router) — the customer-facing site
-site/         Ready-to-serve build: React storefront + admin console, linked together
-admin.html    Admin console (plain HTML/JS) — Superadmin / Admin / Sub-admin
-css/ js/ assets/   Admin console files
-backend/      Flask + MongoDB API (unchanged architecture; list endpoints now paginated)
-legacy-storefront/  Archived old HTML storefront (safe to delete)
-```
 
-## Just view it
-Serve the **`site/`** folder with any static server (VS Code Live Server works: right-click `site/index.html` → Open with Live Server).
-Opening files by double-click will not work for the React build (browsers block module scripts on `file://`).
+From `frontend/`:
 
-- Storefront pages: `index.html#/` , `#/catalog`, `#/about`, `#/mission`, `#/leadership`, `#/locations`, `#/contact`
-  (hash routing, so it works on any static host with zero server config)
-- Admin console: `admin.html` (also reachable via the person icon in the storefront header)
-- With no backend running, both apps fall back to the built-in Demo Mode (browser localStorage).
-
-## Develop the React storefront
-```bash
-cd storefront
+```powershell
 npm install
-npm run dev      # hot-reload dev server
-npm run build    # rebuilds ../site (and copies the admin console into it)
+npm run dev
+npm run build
 ```
 
-## Pagination
-All list endpoints accept optional `?page=&limit=` (limit max 200) and return the same shape:
-plain JSON array body + `X-Total-Count`, `X-Page`, `X-Page-Size` headers. Omit both params and you get the full array exactly as before.
-Covered: products, orders, inventory (stock), session logs, inventory logs, users, backups.
+From `storefront/`:
 
-- Storefront catalog: 9 per page, resets to page 1 on search/category change.
-- Admin: logs, users and backups page server-side; inventory and orders page client-side (their KPI cards need the whole list).
+```powershell
+npm install
+npm run dev
+npm run build
+```
 
-## Backend
-See `backend/README.md` and `DEVELOPMENT-PHASE1-3-README.md`.
+**Caution:** Before running the storefront build, review `storefront/vite.config.js` and output destinations; earlier configurations generated files in `site/`. This repository has legacy UI artifacts that may still be part of deployment.
+
+## Current access policy
+
+- Superadmin: broad administrative access subject to stock safety and audit rules.
+- Admin (Board of Directors): read-only.
+- Sub-Admin: may create/edit products, receive/release stock through controlled batch operations, and handle order fulfillment; cannot permanently delete products or manage employee accounts.
+- Invoice and customer-message staff permissions still require final stakeholder approval.
+
+## Inventory safety
+
+Catalog creation does not add physical stock. Receiving uses batch/lot records. Inventory allocation is expiry-aware; reservations, movement logs, and transaction integrity must not be bypassed. Use `iraseth_test` for automated tests; do not run destructive seeding or migrations against live data.
+
+## Release status
+
+This is an actively developed project, not a certified production deployment. Backend automated tests were reported passing by the project owner after Phase 7; a full role-by-role user acceptance test and deployment/security review are pending.
+
+See `docs/GITHUB-REVIEW-CHECKLIST.md` for the staged-file review and human testing handoff.

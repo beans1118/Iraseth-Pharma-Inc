@@ -186,7 +186,7 @@ def staff_messages(order_id):
 
 
 @bp.post('/staff/threads/<order_id>/messages')
-@require_role()
+@require_role("superadmin", "subadmin")
 def staff_reply(order_id):
     if not db.support_threads.find_one({'order_id': order_id}):
         return jsonify(error='Conversation not found.'), 404
@@ -200,7 +200,7 @@ def staff_reply(order_id):
     return jsonify(serialize(message)), 201
 
 @bp.post('/staff/threads')
-@require_role()
+@require_role("superadmin", "subadmin")
 def staff_create_message():
     """Start a staff message attached to an existing order.
 
