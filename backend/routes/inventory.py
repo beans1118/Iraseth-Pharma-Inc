@@ -75,78 +75,91 @@ def _ensure_monthly_openings():
 
 
 def _log_and_apply(product_id: str, delta: int, action: str, note: str):
-    """Atomically change stock and then write the audit entry."""
-    if action == "release":
-        requested = abs(delta)
-        updated = db.products.find_one_and_update(
-            {"id": product_id, "quantity": {"$gte": requested}},
-            {"$inc": {"quantity": -requested}},
-            return_document=ReturnDocument.AFTER,
-        )
+    """Commit a stock change and its audit record as a single transaction.
 
-        if not updated:
-            existing = db.products.find_one({"id": product_id}, {"quantity": 1})
-            if not existing:
-                return None, ("Product not found.", 404)
-            available = existing.get("quantity", 0)
-            return None, (
-                f"Cannot release {requested} — only {available} in stock.",
-                400,
-            )
-
-        after = updated.get("quantity", 0)
-        before = after + requested
-        amount = requested
-
-    elif action == "supply":
-        amount = abs(delta)
-        updated = db.products.find_one_and_update(
-            {"id": product_id},
-            [
-                {
-                    "$set": {
-                        "quantity": {
-                            "$add": [
-                                {"$ifNull": ["$quantity", 0]},
-                                amount,
-                            ]
-                        }
-                    }
-                },
-                {"$set": {"baseline_qty": "$quantity"}},
-            ],
-            return_document=ReturnDocument.AFTER,
-        )
-
-        if not updated:
-            return None, ("Product not found.", 404)
-
-        after = updated.get("quantity", 0)
-        before = after - amount
-
-    else:
+    MongoDB's with_transaction retries transient transaction failures, which
+    also protects concurrent stock-release requests from losing an update.
+    Events are emitted only after the transaction commits.
+    """
+    if action not in ("release", "supply"):
         return None, ("Invalid inventory action.", 400)
 
-    log_entry = {
-        "product_id": product_id,
-        "product_name": updated.get("name", ""),
-        "action": action,
-        "qty": amount,
-        "before": before,
-        "after": after,
-        "note": note,
-        "actor_email": g.user["email"],
-        "actor_name": g.user.get("name", ""),
-        "role": g.user["role"],
-        "at": datetime.now(timezone.utc).isoformat(),
-    }
-    db.inventory_logs.insert_one(log_entry)
-    log_entry.pop("_id", None)
+    amount = abs(delta)
 
-    serialized = _serialize(updated)
-    emit_stock_update(serialized)
+    def perform(session):
+        if action == "release":
+            updated = db.products.find_one_and_update(
+                {"id": product_id, "quantity": {"$gte": amount}},
+                {"$inc": {"quantity": -amount}},
+                return_document=ReturnDocument.AFTER,
+                session=session,
+            )
+
+            if not updated:
+                existing = db.products.find_one(
+                    {"id": product_id}, {"quantity": 1}, session=session
+                )
+                if not existing:
+                    return None, ("Product not found.", 404)
+                available = existing.get("quantity", 0)
+                return None, (
+                    f"Cannot release {amount} — only {available} in stock.",
+                    400,
+                )
+
+            after = updated.get("quantity", 0)
+            before = after + amount
+        else:
+            updated = db.products.find_one_and_update(
+                {"id": product_id},
+                [
+                    {
+                        "$set": {
+                            "quantity": {
+                                "$add": [{"$ifNull": ["$quantity", 0]}, amount]
+                            }
+                        }
+                    },
+                    {"$set": {"baseline_qty": "$quantity"}},
+                ],
+                return_document=ReturnDocument.AFTER,
+                session=session,
+            )
+
+            if not updated:
+                return None, ("Product not found.", 404)
+
+            after = updated.get("quantity", 0)
+            before = after - amount
+
+        log_entry = {
+            "product_id": product_id,
+            "product_name": updated.get("name", ""),
+            "action": action,
+            "qty": amount,
+            "before": before,
+            "after": after,
+            "note": note,
+            "actor_email": g.user["email"],
+            "actor_name": g.user.get("name", ""),
+            "role": g.user["role"],
+            "at": datetime.now(timezone.utc).isoformat(),
+        }
+        db.inventory_logs.insert_one(log_entry, session=session)
+        log_entry.pop("_id", None)
+
+        return (_serialize(updated), log_entry), None
+
+    with db.client.start_session() as session:
+        result, error = session.with_transaction(perform)
+
+    if error:
+        return None, error
+
+    product, log_entry = result
+    emit_stock_update(product)
     emit_inventory_log(log_entry)
-    return (serialized, log_entry), None
+    return (product, log_entry), None
 
 
 @bp.get("")

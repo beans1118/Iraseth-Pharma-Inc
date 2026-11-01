@@ -15,6 +15,12 @@ from routes.products import _serialize as serialize_product
 bp = Blueprint("orders", __name__, url_prefix="/api/orders")
 
 VALID_STATUSES = ["Pending", "Processing", "Fulfilled"]
+# Preserve the original Pending / Processing workflow while making Fulfilled terminal.
+ALLOWED_TRANSITIONS = {
+    "Pending": {"Processing", "Fulfilled"},
+    "Processing": {"Pending", "Fulfilled"},
+    "Fulfilled": set(),
+}
 
 
 class FulfillmentError(Exception):
@@ -325,6 +331,9 @@ def update_order(order_id):
         return jsonify({"error": f"status must be one of {VALID_STATUSES}"}), 400
 
     status_changed = status is not None and status != order["status"]
+    if status_changed and status not in ALLOWED_TRANSITIONS.get(order["status"], set()):
+        return jsonify({"error": f"Cannot change order from {order['status']} to {status}."}), 409
+
     becoming_fulfilled = (
         status_changed
         and status == "Fulfilled"
@@ -358,7 +367,13 @@ def update_order(order_id):
             }
         }
 
-    db.orders.update_one({"id": order_id}, op)
+    # Compare-and-update stops a concurrent request from overwriting an order
+    # that changed status after our initial read (including a fulfillment).
+    result = db.orders.update_one(
+        {"id": order_id, "status": order["status"]}, op
+    )
+    if result.matched_count != 1:
+        return jsonify({"error": "Order changed during this request. Reload and retry."}), 409
     updated = db.orders.find_one({"id": order_id})
 
     if status_changed:

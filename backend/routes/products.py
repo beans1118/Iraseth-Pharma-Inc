@@ -7,6 +7,8 @@ existing response shape. When page/limit are omitted, existing frontend
 behavior remains unchanged.
 """
 from datetime import datetime, timezone
+import base64
+import binascii
 import re
 
 from flask import Blueprint, request, jsonify, g, make_response
@@ -20,7 +22,27 @@ from realtime import emit_inventory_log
 bp = Blueprint("products", __name__, url_prefix="/api/products")
 
 REQUIRED_FIELDS = ["id", "name", "description", "category", "unit", "quantity"]
-OPTIONAL_FIELDS = ["price"]
+OPTIONAL_FIELDS = ["price", "manufacturer", "image"]
+
+
+def _valid_product_image(value):
+    if value in (None, ""):
+        return True
+    if not isinstance(value, str) or len(value) > 275000:
+        return False
+    if not value.startswith(("data:image/png;base64,", "data:image/jpeg;base64,", "data:image/webp;base64,")):
+        return False
+    try:
+        prefix, encoded = value.split(",", 1)
+        payload = base64.b64decode(encoded, validate=True)
+    except (ValueError, binascii.Error):
+        return False
+    if len(payload) > 200000:
+        return False
+    return ((prefix == "data:image/png;base64" and payload.startswith(b"\x89PNG\r\n\x1a\n")) or
+            (prefix == "data:image/jpeg;base64" and payload.startswith(b"\xff\xd8\xff")) or
+            (prefix == "data:image/webp;base64" and payload.startswith(b"RIFF") and payload[8:12] == b"WEBP"))
+
 
 
 def _status(p: dict) -> str:
@@ -111,7 +133,7 @@ def get_product(product_id):
 
 
 @bp.post("")
-@require_role("superadmin")
+@require_role("superadmin", "subadmin")
 def create_product():
     data = request.get_json(silent=True) or {}
     missing = [f for f in REQUIRED_FIELDS if f not in data]
@@ -120,7 +142,7 @@ def create_product():
 
     doc = {f: data[f] for f in REQUIRED_FIELDS}
     for f in OPTIONAL_FIELDS:
-        doc[f] = data.get(f, 0)
+        doc[f] = data.get(f, 0 if f == "price" else "")
 
     try:
         doc["quantity"] = int(doc["quantity"])
@@ -128,6 +150,10 @@ def create_product():
     except (TypeError, ValueError):
         return jsonify({"error": "quantity and price must be numbers."}), 400
 
+    if not _valid_product_image(doc["image"]):
+        return jsonify({"error": "Product image must be a valid PNG, JPEG or WebP under 200 KB."}), 400
+    if Config.BATCH_MODE and doc['quantity'] != 0:
+        return jsonify({'error': 'Batch mode requires new products to start with zero stock. Use /api/v2/inventory/batches/receive.'}), 409
     if doc["quantity"] < 0:
         return jsonify({"error": "quantity cannot be negative."}), 400
 
@@ -160,18 +186,23 @@ def create_product():
 
 
 @bp.put("/<product_id>")
-@require_role("superadmin")
+@require_role("superadmin", "subadmin")
 def update_product(product_id):
     """Edits product metadata. Quantity only changes through /api/inventory."""
     data = request.get_json(silent=True) or {}
     editable = [f for f in REQUIRED_FIELDS + OPTIONAL_FIELDS if f != "quantity"]
     updates = {f: data[f] for f in editable if f in data}
+    if Config.BATCH_MODE and 'id' in updates and updates['id'] != product_id:
+        return jsonify({'error': 'Product identifiers cannot be changed in batch mode.'}), 409
 
     if "price" in updates:
         try:
             updates["price"] = float(updates["price"])
         except (TypeError, ValueError):
             return jsonify({"error": "price must be a number."}), 400
+
+    if "image" in updates and not _valid_product_image(updates["image"]):
+        return jsonify({"error": "Product image must be a valid PNG, JPEG or WebP under 200 KB."}), 400
 
     if not updates:
         return jsonify({"error": "No valid fields to update."}), 400
