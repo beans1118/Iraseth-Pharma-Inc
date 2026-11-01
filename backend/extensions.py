@@ -19,6 +19,11 @@ db = _client[Config.MONGO_DB_NAME]
 
 def ensure_indexes():
     """Call once on startup. Safe to call repeatedly."""
+    db.invoices.create_index("id", unique=True)
+    db.invoices.create_index([("actor_email", 1), ("idempotency_key", 1)], unique=True)
+    db.invoices.create_index("created_at")
+    db.invoice_events.create_index("id", unique=True)
+    db.invoice_events.create_index([("invoice_id", 1), ("at", -1)])
     # Order-support OTPs, temporary customer sessions and chat history.
     db.support_challenges.create_index('id', unique=True)
     db.support_challenges.create_index('expires_at', expireAfterSeconds=0)

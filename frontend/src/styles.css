@@ -39,3 +39,39 @@
 .login-badge{background:#e6efff;color:var(--brand-blue)}
 .boot{color:var(--brand-blue)}
 button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #87acf3}
+
+/* Dashboard optimization: readable dark small text and brand-consistent controls. */
+:root{--ink:#111827;--brand-navy:#152B69;--brand-blue:#1461C3;--brand-red:#CF1E2A}
+body,.content,.panel,.table-wrap{color:var(--ink)}
+.nav-item,.nav-label,.side-user-name small,.sidebar-bottom span,.breadcrumb,.page-heading p,
+.panel-head p,.stat-top span,.stat small,.sub-cell,.muted,.hint,.empty p,.empty strong,
+.inline-summary span,.field,.field span,.table-wrap th,.table-wrap td,.support-list button small,
+footer,.secure-note,.search input,.field input,.field select,.field textarea{color:var(--ink)}
+.nav-item,.panel-head p,.sub-cell,.stat small,.table-wrap th,.table-wrap td,.field,.hint,.muted,
+.search input,.support-list button small{font-size:max(12px,1em)}
+.nav-item{font-size:13px}.nav-label{font-size:12px}.stat small,.sub-cell,.panel-head p,.hint{font-size:12px}
+.table-wrap th,.table-wrap td{font-size:13px}
+.field input,.field select,.field textarea{font-size:14px}
+.field input::placeholder,.field textarea::placeholder,.search input::placeholder{color:#545b69}
+.nav-subitem{padding-left:32px}.products-toggle{width:100%;display:flex;align-items:center;text-align:left;gap:12px;color:var(--brand-navy);font-weight:750}.products-toggle span{flex:1}.products-toggle svg.collapsed{transform:rotate(-90deg)}
+.dashboard-bottom{margin-top:22px}.feature-pending{padding:36px 28px;color:#111827}.feature-pending h3{color:var(--brand-navy);margin:10px 0}.feature-pending p{max-width:600px;line-height:1.7;color:#111827}
+.field select{background:#fff}.btn.primary{background:var(--brand-red)}
+.pill.warn{color:#8f430b}.pill.bad{color:#a1101b}.pill.good{color:#11633b}
+
+/* Full-page Add Product layout, inspired by sectioned ecommerce admin pages. */
+.product-create{display:flex;flex-direction:column;gap:20px;max-width:1120px;margin:0 auto 24px;color:#111827}
+.product-create-card{background:#fff;border:1px solid #dce4ed;border-radius:14px;padding:26px;box-shadow:0 2px 7px rgba(21,43,105,.035)}
+.product-create-head{border-bottom:1px solid #e6ebf2;padding-bottom:17px;margin-bottom:22px}
+.product-create-head h2{margin:0 0 6px;color:#152B69;font-size:18px}
+.product-create-head p{margin:0;color:#111827;font-size:13px}
+.product-create-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 22px}
+.product-create .field{color:#111827;font-size:13px;font-weight:600}
+.product-create .field input,.product-create .field select,.product-create .field textarea{width:100%;color:#111827;font-size:14px;background:#fff}
+.product-image-drop{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;min-height:190px;border:2px dashed #aac2e8;border-radius:12px;background:#f8fbff;cursor:pointer;color:#111827;text-align:center;padding:22px}
+.product-image-drop span{font-size:13px;color:#111827}.product-image-drop strong{font-size:15px;color:#152B69}
+.product-image-icon{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:#e8f1ff;color:#1461C3!important}
+.product-image-drop input{max-width:250px;margin-top:8px;color:#111827;font-size:13px}
+.product-image-preview{margin-top:16px;display:flex;gap:16px;align-items:center}.product-image-preview img{max-width:130px;max-height:110px;object-fit:contain;border:1px solid #dce4ed;border-radius:8px}
+.product-create-foot{display:flex;align-items:center;justify-content:space-between;gap:18px}.product-create-foot p{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#111827;line-height:1.5;margin:0;max-width:650px}.product-create-foot p svg{flex-shrink:0;color:#1461C3}
+.product-create-buttons{display:flex;gap:10px;flex-shrink:0}
+@media(max-width:700px){.product-create-grid{grid-template-columns:1fr}.product-create-card{padding:18px}.product-create-foot{flex-direction:column;align-items:stretch}.product-create-buttons{justify-content:flex-end}}

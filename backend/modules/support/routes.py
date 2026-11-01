@@ -198,3 +198,30 @@ def staff_reply(order_id):
     db.support_messages.insert_one(message)
     db.support_threads.update_one({'order_id': order_id}, {'$set': {'updated_at': message['at'], 'last_message': body.strip()[:160]}})
     return jsonify(serialize(message)), 201
+
+@bp.post('/staff/threads')
+@require_role()
+def staff_create_message():
+    """Start a staff message attached to an existing order.
+
+    This does not email the customer or grant access. Customers still use
+    their order email and a valid OTP to access the order conversation.
+    """
+    data = request.get_json(silent=True) or {}
+    supplied_id = str(data.get('order_id') or '').strip()
+    body = data.get('body')
+    if not valid_text(supplied_id, 64) or not valid_text(body, MAX_MESSAGE):
+        return jsonify(error='Select an existing order and enter a message (1–2000 characters).'), 400
+    order = db.orders.find_one({'id': {'$regex': '^' + re.escape(supplied_id) + '$', '$options': 'i'}}, {'id': 1, 'email': 1})
+    if not order or not order.get('email'):
+        return jsonify(error='An order with a registered customer email is required.'), 404
+    order_id = order['id']
+    now = utcnow().isoformat()
+    message = {'id': secrets.token_hex(16), 'order_id': order_id, 'sender': 'staff',
+               'sender_email': g.user['email'], 'body': body.strip(), 'at': now}
+    db.support_threads.update_one({'order_id': order_id},
+                                  {'$set': {'updated_at': now, 'last_message': body.strip()[:160]},
+                                   '$setOnInsert': {'order_id': order_id, 'status': 'open'}},
+                                  upsert=True)
+    db.support_messages.insert_one(message)
+    return jsonify(serialize(message)), 201
