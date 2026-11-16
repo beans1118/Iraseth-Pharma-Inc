@@ -1,0 +1,36 @@
+{
+  "name": "iraseth-storefront-next",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "smoke": "node tests/source-smoke.mjs && node tests/ui-refinement.mjs",
+    "syntax": "node tests/typescript-syntax.mjs",
+    "test:inquiries": "node tests/inquiry-retries.mjs",
+    "test": "npm run smoke && npm run syntax && node tests/catalog-errors.mjs && node tests/catalog-pagination.mjs && node tests/gallery-interactions.mjs && node tests/image-pipeline.mjs && node tests/tracking-proxy.mjs && node tests/deployment-config.mjs && npm run test:inquiries",
+    "test:browser": "node tests/browser-e2e.mjs"
+  },
+  "dependencies": {
+    "framer-motion": "^12.0.0",
+    "next": "15.5.29",
+    "react": "19.1.10",
+    "react-dom": "19.1.10"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@tailwindcss/postcss": "^4.1.10",
+    "@types/node": "^20.0.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "postcss": "8.5.32",
+    "tailwindcss": "^4.1.10",
+    "typescript": "^5.8.0"
+  },
+  "overrides": {
+    "postcss": "$postcss",
+    "sharp": "0.35.5"
+  }
+}

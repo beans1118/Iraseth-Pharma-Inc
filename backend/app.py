@@ -19,7 +19,11 @@ from modules.support.routes import bp as order_support_bp
 from modules.invoices.routes import bp as invoices_bp
 from modules.analytics.routes import bp as analytics_bp
 from modules.alerts.routes import bp as alerts_bp
+from modules.public_catalog.routes import bp as public_catalog_bp, staff_bp as staff_catalog_bp
+from modules.quotations.routes import public_bp as public_quotations_bp, staff_bp as staff_quotations_bp
 from utils.security import client_rate_limit
+from modules.tracking.routes import bp as tracking_bp, staff_bp as communication_bp
+from modules.brochure.routes import bp as brochure_bp
 
 
 def create_app() -> Flask:
@@ -68,6 +72,13 @@ def create_app() -> Flask:
     app.register_blueprint(invoices_bp)
     app.register_blueprint(analytics_bp)
     app.register_blueprint(alerts_bp)
+    app.register_blueprint(public_catalog_bp)
+    app.register_blueprint(staff_catalog_bp)
+    app.register_blueprint(public_quotations_bp)
+    app.register_blueprint(staff_quotations_bp)
+    app.register_blueprint(tracking_bp)
+    app.register_blueprint(communication_bp)
+    app.register_blueprint(brochure_bp)
 
     @app.before_request
     def phase2_rate_limits():
@@ -76,6 +87,8 @@ def create_app() -> Flask:
             return None
 
         path = request.path
+        if request.method == "POST" and path == "/api/public/quotations":
+            return client_rate_limit("public-quotation", 6)
         # Never allow legacy product-level stock writes once batch mode is active.
         # Old GET inventory also reports obsolete product.quantity in batch mode.
         if Config.BATCH_MODE:

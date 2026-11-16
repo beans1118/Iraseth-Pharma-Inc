@@ -1,19 +1,28 @@
 """Regression checks for the dashboard optimization backend additions."""
 import base64
 import uuid
+from io import BytesIO
+from PIL import Image
 
 
-def test_product_image_validation(client, auth):
+def test_product_image_validation(client, auth, test_db):
     suffix = uuid.uuid4().hex
     base = {'id': 'UI-' + suffix, 'name': 'Sample', 'description': '', 'category': 'Medicines',
             'unit': 'Box', 'quantity': 0, 'price': 0, 'manufacturer': ''}
     bad = client.post('/api/products', headers=auth('superadmin'), json={**base, 'image': 'data:image/png;base64,not-base64!!!'})
     assert bad.status_code == 400
-    tiny_png = base64.b64encode(b'\x89PNG\r\n\x1a\n' + b'sample').decode()
-    ok = client.post('/api/products', headers=auth('superadmin'), json={**base, 'image': 'data:image/png;base64,' + tiny_png})
-    assert ok.status_code == 201
-    assert ok.get_json()['manufacturer'] == ''
-    assert ok.get_json()['image'].startswith('data:image/png;base64,')
+    truncated = base64.b64encode(b'\x89PNG\r\n\x1a\n' + b'sample').decode()
+    assert client.post('/api/products', headers=auth('superadmin'), json={**base, 'image': 'data:image/png;base64,' + truncated}).status_code == 400
+    output = BytesIO()
+    Image.new('RGB', (1,1), 'white').save(output, format='PNG')
+    tiny_png = base64.b64encode(output.getvalue()).decode()
+    try:
+        ok = client.post('/api/products', headers=auth('superadmin'), json={**base, 'image': 'data:image/png;base64,' + tiny_png})
+        assert ok.status_code == 201
+        assert ok.get_json()['manufacturer'] == ''
+        assert ok.get_json()['image'].startswith('data:image/png;base64,')
+    finally:
+        test_db.products.delete_one({'id':base['id']})
 
 
 def test_staff_create_message_requires_auth(client):

@@ -80,7 +80,7 @@ def order_confirmation_email(order: dict) -> None:
         f"Hi {order['client']},\n\n"
         f"We received your requisition {order['id']} for {order['facility']}.\n\n"
         f"Items:\n{lines_text}\n\n"
-        f"Total: PHP {order['total']:,.2f}\n"
+        f"Total: {_order_total(order)}\n"
         f"Status: {order['status']}\n\n"
         f"Our team will verify stock and pricing and follow up shortly.\n\n"
         f"- Iraseth Pharma Incorporated"
@@ -93,7 +93,7 @@ def order_status_email(order: dict, note: str = "") -> None:
         f"Hi {order['client']},\n\n"
         f"Your order {order['id']} status has been updated to: {order['status']}.\n"
         + (f"\nNote from our team: {note}\n" if note else "")
-        + f"\nTotal: PHP {order['total']:,.2f}\n\n"
+        + f"\nTotal: {_order_total(order)}\n\n"
         f"- Iraseth Pharma Incorporated"
     )
     _dispatch_email(
@@ -101,3 +101,7 @@ def order_status_email(order: dict, note: str = "") -> None:
         f"Order {order['id']} - status update: {order['status']}",
         body,
     )
+
+
+def _order_total(order):
+    return 'Price Upon Request' if order.get('total') is None else f"PHP {order['total']:,.2f}"

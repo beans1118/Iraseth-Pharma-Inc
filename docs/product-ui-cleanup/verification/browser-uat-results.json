@@ -1,0 +1,10 @@
+{
+  "database": "iraseth_test",
+  "brochure_imports_performed": true,
+  "pdf_products_created_in_test": true,
+  "mail_delivery": "Isolated in-memory test double only; no external email",
+  "dashboard_api_origins": [],
+  "checks": [],
+  "issues": [],
+  "browserErrors": []
+}

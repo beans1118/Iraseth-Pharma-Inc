@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {createRequire} from 'node:module';
+import {runInNewContext} from 'node:vm';
+const require=createRequire(import.meta.url),ts=require('typescript'),exports={};
+const code=ts.transpileModule(readFileSync(new URL('../app/api/tracking/route.ts',import.meta.url),'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
+let calls=0;
+runInNewContext(code,{exports,require,URL,AbortSignal,process:{env:{CATALOG_API_BASE_URL:'http://flask.invalid'}},fetch:async()=>{calls++;return new Response(JSON.stringify({reference:'RFQ-012345ABCDEF',status:'Inquiry Received',milestones:[]}),{status:200,headers:{'Content-Type':'application/json'}});}});
+const request=(origin,body=JSON.stringify({reference:'RFQ-012345ABCDEF'}))=>new Request('http://localhost:3101/api/tracking',{method:'POST',headers:{'Content-Type':'application/json',host:'127.0.0.1:3101',origin},body});
+let result=await exports.POST(request('http://127.0.0.1:3101'));assert.equal(result.status,200);assert.equal(result.headers.get('Cache-Control'),'no-store');
+assert.equal((await exports.POST(request('https://attacker.invalid'))).status,403);assert.equal(calls,1);
+assert.equal((await exports.POST(request('null'))).status,403);
+assert.equal((await exports.POST(request('http://127.0.0.1:3101','bad-json'))).status,400);
+assert.equal((await exports.POST(request('http://127.0.0.1:3101','null'))).status,400);
+assert.equal((await exports.POST(request('http://127.0.0.1:3101',JSON.stringify({operation:'constructor'})))).status,400);
+console.log('Tracking proxy: browser-visible host, cross-origin rejection, invalid JSON/object/operation and no-store passed.');

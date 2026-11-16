@@ -1,0 +1,1 @@
+export default function PageIntro({eyebrow,title,lead}:{eyebrow:string;title:string;lead?:string}){return <div className="page-intro"><div className="container"><p className="eyebrow">{eyebrow}</p><h1>{title}</h1>{lead&&<p className="lead">{lead}</p>}</div></div>}

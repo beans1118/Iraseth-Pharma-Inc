@@ -1,0 +1,1566 @@
+{
+  "database": "iraseth_dev",
+  "source_sha256": "4d1ac212740e739c6b5853231270cce2af22e66529916abc6835910b976a7696",
+  "authorized_scope": "All 114 remaining source-clear products; existing service; provisional identity; no stock/prices; excluded 142 records stay excluded",
+  "started_at": "2026-11-16T06:19:28.040237+00:00",
+  "status": "complete",
+  "added_count": 114,
+  "skipped_existing_count": 10,
+  "failed_count": 0,
+  "not_attempted_count": 0,
+  "skipped_existing_products": [
+    {
+      "id": "TMP-PDF-4D1AC21274-P05-44C2375CE24D",
+      "name": "Microfusion Set"
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P04-E228089CBACF",
+      "name": "Polyvol"
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P06-2541990213FF",
+      "name": "Photofusion Set"
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P07-303CA8B1C11B",
+      "name": "Blood Administration Set"
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P07-F2A62B743BA6",
+      "name": "Haemofusor Set"
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P03-0DAD68E8ADCD",
+      "name": "Alpha Care Adult Diaper - XL"
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P03-2D486F10F85E",
+      "name": "Alpha Care Underpads - 60 cm x 90 cm"
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P05-694DFD26E1A4",
+      "name": "Autofusion Set"
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P08-B9F2A7D02685",
+      "name": "Polyflex - 22G Blue"
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P09-E2C737E40D05",
+      "name": "Polyflon - 20G Pink"
+    }
+  ],
+  "batches": [
+    {
+      "batch": 1,
+      "status": "verified",
+      "added_count": 5,
+      "created_ids": [
+        "TMP-PDF-4D1AC21274-P05-741932F4EEFF",
+        "TMP-PDF-4D1AC21274-P05-A86A2AF43341",
+        "TMP-PDF-4D1AC21274-P06-CD9E31C95FDC",
+        "TMP-PDF-4D1AC21274-P06-B26C5146C71F",
+        "TMP-PDF-4D1AC21274-P06-EEE272B904B1"
+      ],
+      "catalog_count": 18,
+      "original_records_and_stock_unchanged": true,
+      "retry_plan_new_records": 0
+    },
+    {
+      "batch": 2,
+      "status": "verified",
+      "added_count": 5,
+      "created_ids": [
+        "TMP-PDF-4D1AC21274-P07-D83EC87E5074",
+        "TMP-PDF-4D1AC21274-P10-B0D4F7A891D5",
+        "TMP-PDF-4D1AC21274-P10-0B75CE4F5DE7",
+        "TMP-PDF-4D1AC21274-P10-002D5C84B821",
+        "TMP-PDF-4D1AC21274-P10-0382EE5131A9"
+      ],
+      "catalog_count": 23,
+      "original_records_and_stock_unchanged": true,
+      "retry_plan_new_records": 0
+    },
+    {
+      "batch": 3,
+      "status": "verified",
+      "added_count": 5,
+      "created_ids": [
+        "TMP-PDF-4D1AC21274-P10-EA48639C766F",
+        "TMP-PDF-4D1AC21274-P10-8A2EB16BDFAB",
+        "TMP-PDF-4D1AC21274-P11-316320BDCCB7",
+        "TMP-PDF-4D1AC21274-P11-169982803D35",
+        "TMP-PDF-4D1AC21274-P11-A61E897B07F2"
+      ],
+      "catalog_count": 28,
+      "original_records_and_stock_unchanged": true,
+      "retry_plan_new_records": 0
+    },
+    {
+      "batch": 4,
+      "status": "verified",
+      "added_count": 5,
+      "created_ids": [
+        "TMP-PDF-4D1AC21274-P11-9AD0ADCFBC2D",
+        "TMP-PDF-4D1AC21274-P11-33A1A7F661C9",
+        "TMP-PDF-4D1AC21274-P11-CC35BABF24F5",
+        "TMP-PDF-4D1AC21274-P11-EC960503E933",
+        "TMP-PDF-4D1AC21274-P11-F220FC062616"
+      ],
+      "catalog_count": 33,
+      "original_records_and_stock_unchanged": true,
+      "retry_plan_new_records": 0
+    },
+    {
+      "batch": 5,
+      "status": "verified",
+      "added_count": 5,
+      "created_ids": [
+        "TMP-PDF-4D1AC21274-P11-8E3E5764E678",
+        "TMP-PDF-4D1AC21274-P11-34B1ADAB7A76",
+        "TMP-PDF-4D1AC21274-P11-F1273F440512",
+        "TMP-PDF-4D1AC21274-P11-8AECB02A9C1D",
+        "TMP-PDF-4D1AC21274-P11-855414970B9A"
+      ],
+      "catalog_count": 38,
+      "original_records_and_stock_unchanged": true,
+      "retry_plan_new_records": 0
+    },
+    {
+      "batch": 6,
+      "status": "verified",
+      "added_count": 5,
+      "created_ids": [
+        "TMP-PDF-4D1AC21274-P11-03855B200C1C",
+        "TMP-PDF-4D1AC21274-P11-A3BC8E2215ED",
+        "TMP-PDF-4D1AC21274-P11-A8C58287E6BE",
+        "TMP-PDF-4D1AC21274-P11-F2DF959CAC53",
+        "TMP-PDF-4D1AC21274-P11-AE17BC9D1783"
+      ],
+      "catalog_count": 43,
+      "original_records_and_stock_unchanged": true,
+      "retry_plan_new_records": 0
+    },
+    {
+      "batch": 7,
+      "status": "verified",
+      "added_count": 5,
+      "created_ids": [
+        "TMP-PDF-4D1AC21274-P11-5EFFE5892207",
+        "TMP-PDF-4D1AC21274-P11-EF729D65F318",
+        "TMP-PDF-4D1AC21274-P11-0F3134BAB998",
+        "TMP-PDF-4D1AC21274-P11-9E1C730FE190",
+        "TMP-PDF-4D1AC21274-P11-C4F5B616C907"
+      ],
+      "catalog_count": 48,
+      "original_records_and_stock_unchanged": true,
+      "retry_plan_new_records": 0
+    },
+    {
+      "batch": 8,
+      "status": "verified",
+      "added_count": 5,
+      "created_ids": [
+        "TMP-PDF-4D1AC21274-P11-72AE79690461",
+        "TMP-PDF-4D1AC21274-P12-78F00508CC15",
+        "TMP-PDF-4D1AC21274-P12-DD75752EB999",
+        "TMP-PDF-4D1AC21274-P12-61B224D5ED7A",
+        "TMP-PDF-4D1AC21274-P12-0986E433F19E"
+      ],
+      "catalog_count": 53,
+      "original_records_and_stock_unchanged": true,
+      "retry_plan_new_records": 0
+    },
+    {
+      "batch": 9,
+      "status": "verified",
+      "added_count": 5,
+      "created_ids": [
+        "TMP-PDF-4D1AC21274-P12-FB6A65C9102A",
+        "TMP-PDF-4D1AC21274-P12-F1060515C6D4",
+        "TMP-PDF-4D1AC21274-P12-C51C05033F9B",
+        "TMP-PDF-4D1AC21274-P12-84047AC942F3",
+        "TMP-PDF-4D1AC21274-P12-05C1D67E4162"
+      ],
+      "catalog_count": 58,
+      "original_records_and_stock_unchanged": true,
+      "retry_plan_new_records": 0
+    },
+    {
+      "batch": 10,
+      "status": "verified",
+      "added_count": 5,
+      "created_ids": [
+        "TMP-PDF-4D1AC21274-P12-B58C4507D13C",
+        "TMP-PDF-4D1AC21274-P12-4E0C106393F8",
+        "TMP-PDF-4D1AC21274-P12-C6144403AC8B",
+        "TMP-PDF-4D1AC21274-P12-0CF604472C9C",
+        "TMP-PDF-4D1AC21274-P12-871A0D571DB5"
+      ],
+      "catalog_count": 63,
+      "original_records_and_stock_unchanged": true,
+      "retry_plan_new_records": 0
+    },
+    {
+      "batch": 11,
+      "status": "verified",
+      "added_count": 5,
+      "created_ids": [
+        "TMP-PDF-4D1AC21274-P12-76050E18EB34",
+        "TMP-PDF-4D1AC21274-P12-0BEFC5219547",
+        "TMP-PDF-4D1AC21274-P12-143AFB8B9478",
+        "TMP-PDF-4D1AC21274-P12-25C265995140",
+        "TMP-PDF-4D1AC21274-P12-FBFCD84339A8"
+      ],
+      "catalog_count": 68,
+      "original_records_and_stock_unchanged": true,
+      "retry_plan_new_records": 0
+    },
+    {
+      "batch": 12,
+      "status": "verified",
+      "added_count": 5,
+      "created_ids": [
+        "TMP-PDF-4D1AC21274-P12-E0342804CE14",
+        "TMP-PDF-4D1AC21274-P12-90E3E4DC2DD2",
+        "TMP-PDF-4D1AC21274-P12-9EF3379AC719",
+        "TMP-PDF-4D1AC21274-P12-D9C681D70A9A",
+        "TMP-PDF-4D1AC21274-P12-178A3A39D6C4"
+      ],
+      "catalog_count": 73,
+      "original_records_and_stock_unchanged": true,
+      "retry_plan_new_records": 0
+    },
+    {
+      "batch": 13,
+      "status": "verified",
+      "added_count": 5,
+      "created_ids": [
+        "TMP-PDF-4D1AC21274-P12-436149A31150",
+        "TMP-PDF-4D1AC21274-P12-018A403E77F5",
+        "TMP-PDF-4D1AC21274-P12-B58999A43B89",
+        "TMP-PDF-4D1AC21274-P12-767C3DCEA09D",
+        "TMP-PDF-4D1AC21274-P12-FFCB04B2D916"
+      ],
+      "catalog_count": 78,
+      "original_records_and_stock_unchanged": true,
+      "retry_plan_new_records": 0
+    },
+    {
+      "batch": 14,
+      "status": "verified",
+      "added_count": 5,
+      "created_ids": [
+        "TMP-PDF-4D1AC21274-P12-0C018AC048A6",
+        "TMP-PDF-4D1AC21274-P12-32BD0985AC6F",
+        "TMP-PDF-4D1AC21274-P12-B70081B362A6",
+        "TMP-PDF-4D1AC21274-P12-6F8B82B16290",
+        "TMP-PDF-4D1AC21274-P12-71365A3EBD60"
+      ],
+      "catalog_count": 83,
+      "original_records_and_stock_unchanged": true,
+      "retry_plan_new_records": 0
+    },
+    {
+      "batch": 15,
+      "status": "verified",
+      "added_count": 5,
+      "created_ids": [
+        "TMP-PDF-4D1AC21274-P12-93713663CA37",
+        "TMP-PDF-4D1AC21274-P12-7B3E3E2466BC",
+        "TMP-PDF-4D1AC21274-P12-14D8E2C6897A",
+        "TMP-PDF-4D1AC21274-P12-1A920DF9BD2F",
+        "TMP-PDF-4D1AC21274-P12-C17E193F75D8"
+      ],
+      "catalog_count": 88,
+      "original_records_and_stock_unchanged": true,
+      "retry_plan_new_records": 0
+    },
+    {
+      "batch": 16,
+      "status": "verified",
+      "added_count": 5,
+      "created_ids": [
+        "TMP-PDF-4D1AC21274-P12-12B525941FE6",
+        "TMP-PDF-4D1AC21274-P12-517C197081EB",
+        "TMP-PDF-4D1AC21274-P12-787638CADE8B",
+        "TMP-PDF-4D1AC21274-P12-979E3B9E183D",
+        "TMP-PDF-4D1AC21274-P12-2354466852AA"
+      ],
+      "catalog_count": 93,
+      "original_records_and_stock_unchanged": true,
+      "retry_plan_new_records": 0
+    },
+    {
+      "batch": 17,
+      "status": "verified",
+      "added_count": 5,
+      "created_ids": [
+        "TMP-PDF-4D1AC21274-P12-4FBB6228B3F9",
+        "TMP-PDF-4D1AC21274-P12-46C3EB98050A",
+        "TMP-PDF-4D1AC21274-P12-C28A49C72D67",
+        "TMP-PDF-4D1AC21274-P12-1B5036D5773B",
+        "TMP-PDF-4D1AC21274-P12-E65D3F50E5CD"
+      ],
+      "catalog_count": 98,
+      "original_records_and_stock_unchanged": true,
+      "retry_plan_new_records": 0
+    },
+    {
+      "batch": 18,
+      "status": "verified",
+      "added_count": 5,
+      "created_ids": [
+        "TMP-PDF-4D1AC21274-P12-45BFA38C52FF",
+        "TMP-PDF-4D1AC21274-P12-5AB78A25CAF1",
+        "TMP-PDF-4D1AC21274-P12-4C12662DA851",
+        "TMP-PDF-4D1AC21274-P12-487A06FC943F",
+        "TMP-PDF-4D1AC21274-P12-C8AA11F2E7A7"
+      ],
+      "catalog_count": 103,
+      "original_records_and_stock_unchanged": true,
+      "retry_plan_new_records": 0
+    },
+    {
+      "batch": 19,
+      "status": "verified",
+      "added_count": 5,
+      "created_ids": [
+        "TMP-PDF-4D1AC21274-P12-77E9071B342D",
+        "TMP-PDF-4D1AC21274-P12-BE993C8B1760",
+        "TMP-PDF-4D1AC21274-P12-9ED5A193B584",
+        "TMP-PDF-4D1AC21274-P12-861F47132734",
+        "TMP-PDF-4D1AC21274-P12-75600BBD3CD4"
+      ],
+      "catalog_count": 108,
+      "original_records_and_stock_unchanged": true,
+      "retry_plan_new_records": 0
+    },
+    {
+      "batch": 20,
+      "status": "verified",
+      "added_count": 5,
+      "created_ids": [
+        "TMP-PDF-4D1AC21274-P12-D7ABF14D45A0",
+        "TMP-PDF-4D1AC21274-P12-BDBAC9067879",
+        "TMP-PDF-4D1AC21274-P12-DBD670FECC0F",
+        "TMP-PDF-4D1AC21274-P12-A481A3EDB899",
+        "TMP-PDF-4D1AC21274-P12-2147E1BE5A35"
+      ],
+      "catalog_count": 113,
+      "original_records_and_stock_unchanged": true,
+      "retry_plan_new_records": 0
+    },
+    {
+      "batch": 21,
+      "status": "verified",
+      "added_count": 5,
+      "created_ids": [
+        "TMP-PDF-4D1AC21274-P12-2575CD9467FE",
+        "TMP-PDF-4D1AC21274-P12-920B3234BEFC",
+        "TMP-PDF-4D1AC21274-P12-D0F99AF8D5DC",
+        "TMP-PDF-4D1AC21274-P12-AEE4E29D1604",
+        "TMP-PDF-4D1AC21274-P12-BD52CA84847B"
+      ],
+      "catalog_count": 118,
+      "original_records_and_stock_unchanged": true,
+      "retry_plan_new_records": 0
+    },
+    {
+      "batch": 22,
+      "status": "verified",
+      "added_count": 5,
+      "created_ids": [
+        "TMP-PDF-4D1AC21274-P12-CE0BCF1CD92F",
+        "TMP-PDF-4D1AC21274-P12-0766D062CD5C",
+        "TMP-PDF-4D1AC21274-P12-0F72FABE7882",
+        "TMP-PDF-4D1AC21274-P12-97118A438B02",
+        "TMP-PDF-4D1AC21274-P12-550A4E016666"
+      ],
+      "catalog_count": 123,
+      "original_records_and_stock_unchanged": true,
+      "retry_plan_new_records": 0
+    },
+    {
+      "batch": 23,
+      "status": "verified",
+      "added_count": 4,
+      "created_ids": [
+        "TMP-PDF-4D1AC21274-P15-028C72ECA369",
+        "TMP-PDF-4D1AC21274-P15-9C3B522A3054",
+        "TMP-PDF-4D1AC21274-P15-19D0A457EC83",
+        "TMP-PDF-4D1AC21274-P15-F4EEA453ED51"
+      ],
+      "catalog_count": 127,
+      "original_records_and_stock_unchanged": true,
+      "retry_plan_new_records": 0
+    }
+  ],
+  "products": [
+    {
+      "id": "TMP-PDF-4D1AC21274-P05-741932F4EEFF",
+      "candidate_id": "p05-741932f4eeff",
+      "name": "Autofusion Set - Y Injection Port",
+      "page": 5,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P05-A86A2AF43341",
+      "candidate_id": "p05-a86a2af43341",
+      "name": "Autofusion Set - Back Check Valve",
+      "page": 5,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P06-CD9E31C95FDC",
+      "candidate_id": "p06-cd9e31c95fdc",
+      "name": "Oncofusion Set",
+      "page": 6,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P06-B26C5146C71F",
+      "candidate_id": "p06-b26c5146c71f",
+      "name": "Oncofusion Set - With Needle",
+      "page": 6,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P06-EEE272B904B1",
+      "candidate_id": "p06-eee272b904b1",
+      "name": "Oncofusion Set - Without Needle",
+      "page": 6,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P07-D83EC87E5074",
+      "candidate_id": "p07-d83ec87e5074",
+      "name": "Blood Administration Set - Priming Filter",
+      "page": 7,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P10-B0D4F7A891D5",
+      "candidate_id": "p10-b0d4f7a891d5",
+      "name": "Polyspike R - Safety Valve",
+      "page": 10,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P10-0B75CE4F5DE7",
+      "candidate_id": "p10-0b75ce4f5de7",
+      "name": "Polyspike R - Snap-fit Cap",
+      "page": 10,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P10-002D5C84B821",
+      "candidate_id": "p10-002d5c84b821",
+      "name": "Polyspike B - Safety Valve",
+      "page": 10,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P10-0382EE5131A9",
+      "candidate_id": "p10-0382ee5131a9",
+      "name": "Polyspike B - Snap-fit Cap",
+      "page": 10,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P10-EA48639C766F",
+      "candidate_id": "p10-ea48639c766f",
+      "name": "Polyspike G - Safety Valve",
+      "page": 10,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P10-8A2EB16BDFAB",
+      "candidate_id": "p10-8a2eb16bdfab",
+      "name": "Polyspike G - Snap-fit Cap",
+      "page": 10,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P11-316320BDCCB7",
+      "candidate_id": "p11-316320bdccb7",
+      "name": "Irasafety Syringe - 1cc 27G x 1 inch",
+      "page": 11,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P11-169982803D35",
+      "candidate_id": "p11-169982803d35",
+      "name": "Irasafety Syringe - 2cc 25G x 1 inch",
+      "page": 11,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P11-A61E897B07F2",
+      "candidate_id": "p11-a61e897b07f2",
+      "name": "Irasafety Syringe - 3cc 21G x 1 inch",
+      "page": 11,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P11-9AD0ADCFBC2D",
+      "candidate_id": "p11-9ad0adcfbc2d",
+      "name": "Irasafety Syringe - 3cc 23G x 1 inch",
+      "page": 11,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P11-33A1A7F661C9",
+      "candidate_id": "p11-33a1a7f661c9",
+      "name": "Irasafety Syringe - 5cc 21G x 1 inch",
+      "page": 11,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P11-CC35BABF24F5",
+      "candidate_id": "p11-cc35babf24f5",
+      "name": "Irasafety Syringe - 5cc 23G x 1 inch",
+      "page": 11,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P11-EC960503E933",
+      "candidate_id": "p11-ec960503e933",
+      "name": "Irasafety Syringe - 10cc 21G x 1 inch",
+      "page": 11,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P11-F220FC062616",
+      "candidate_id": "p11-f220fc062616",
+      "name": "Irasafety Syringe - 10cc 23G x 1 inch",
+      "page": 11,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P11-8E3E5764E678",
+      "candidate_id": "p11-8e3e5764e678",
+      "name": "Alphashot - 1ml 27G x 1/2 inch",
+      "page": 11,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P11-34B1ADAB7A76",
+      "candidate_id": "p11-34b1adab7a76",
+      "name": "Alphashot - 1ml 26G x 5/8 inch",
+      "page": 11,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P11-F1273F440512",
+      "candidate_id": "p11-f1273f440512",
+      "name": "Alphashot - 1ml 25G x 1 inch",
+      "page": 11,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P11-8AECB02A9C1D",
+      "candidate_id": "p11-8aecb02a9c1d",
+      "name": "Alphashot - 3ml 23G x 1 inch",
+      "page": 11,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P11-855414970B9A",
+      "candidate_id": "p11-855414970b9a",
+      "name": "Alphashot - 3ml 23G x 1 1/4 inch",
+      "page": 11,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P11-03855B200C1C",
+      "candidate_id": "p11-03855b200c1c",
+      "name": "Alphashot - 3ml 22G x 1 1/4 inch",
+      "page": 11,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P11-A3BC8E2215ED",
+      "candidate_id": "p11-a3bc8e2215ed",
+      "name": "Alphashot - 3ml 22G x 1 1/2 inch",
+      "page": 11,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P11-A8C58287E6BE",
+      "candidate_id": "p11-a8c58287e6be",
+      "name": "Alphashot - 3ml 21G x 1 1/4 inch",
+      "page": 11,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P11-F2DF959CAC53",
+      "candidate_id": "p11-f2df959cac53",
+      "name": "Alphashot - 5ml 23G x 1 inch",
+      "page": 11,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P11-AE17BC9D1783",
+      "candidate_id": "p11-ae17bc9d1783",
+      "name": "Alphashot - 5ml 23G x 1 1/4 inch",
+      "page": 11,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P11-5EFFE5892207",
+      "candidate_id": "p11-5effe5892207",
+      "name": "Alphashot - 5ml 22G x 1 1/4 inch",
+      "page": 11,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P11-EF729D65F318",
+      "candidate_id": "p11-ef729d65f318",
+      "name": "Alphashot - 5ml 22G x 1 1/2 inch",
+      "page": 11,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P11-0F3134BAB998",
+      "candidate_id": "p11-0f3134bab998",
+      "name": "Alphashot - 5ml 21G x 1 1/2 inch",
+      "page": 11,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P11-9E1C730FE190",
+      "candidate_id": "p11-9e1c730fe190",
+      "name": "Alphashot - 10ml 22G x 1 1/4 inch",
+      "page": 11,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P11-C4F5B616C907",
+      "candidate_id": "p11-c4f5b616c907",
+      "name": "Alphashot - 10ml 22G x 1 1/2 inch",
+      "page": 11,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P11-72AE79690461",
+      "candidate_id": "p11-72ae79690461",
+      "name": "Alphashot - 10ml 21G x 1 1/2 inch",
+      "page": 11,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-78F00508CC15",
+      "candidate_id": "p12-78f00508cc15",
+      "name": "Rapiquick Pregnancy Midstream Device (Urine)",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-DD75752EB999",
+      "candidate_id": "p12-dd75752eb999",
+      "name": "Rapiquick Pregnancy Cassette 10mIU/mL (S/P/U)",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-61B224D5ED7A",
+      "candidate_id": "p12-61b224d5ed7a",
+      "name": "Rapiquick Pregnancy Cassette 20mIU/mL (S/P/U)",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-0986E433F19E",
+      "candidate_id": "p12-0986e433f19e",
+      "name": "Rapiquick Pregnancy Cassette 25mIU/mL (S/P/U)",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-FB6A65C9102A",
+      "candidate_id": "p12-fb6a65c9102a",
+      "name": "Rapiquick Pregnancy Strip 10mIU/mL (Urine)",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-F1060515C6D4",
+      "candidate_id": "p12-f1060515c6d4",
+      "name": "Rapiquick Pregnancy Strip 25mIU/mL (Urine)",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-C51C05033F9B",
+      "candidate_id": "p12-c51c05033f9b",
+      "name": "LH Ovulation Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-84047AC942F3",
+      "candidate_id": "p12-84047ac942f3",
+      "name": "FSH Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-05C1D67E4162",
+      "candidate_id": "p12-05c1d67e4162",
+      "name": "Rapiquick Toxo Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-B58C4507D13C",
+      "candidate_id": "p12-b58c4507d13c",
+      "name": "Rapiquick Rubella Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-4E0C106393F8",
+      "candidate_id": "p12-4e0c106393f8",
+      "name": "Rapiquick CMV Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-C6144403AC8B",
+      "candidate_id": "p12-c6144403ac8b",
+      "name": "Rapiquick ToRCH IgG/IgM Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-0CF604472C9C",
+      "candidate_id": "p12-0cf604472c9c",
+      "name": "Rapiquick ToRCH Combo Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-871A0D571DB5",
+      "candidate_id": "p12-871a0d571db5",
+      "name": "Rapiquick Candida Albicans Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-76050E18EB34",
+      "candidate_id": "p12-76050e18eb34",
+      "name": "Rapiquick Neisseria Gonorrhea Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-0BEFC5219547",
+      "candidate_id": "p12-0befc5219547",
+      "name": "Rapiquick Chlamydia & Gonorrhea Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-143AFB8B9478",
+      "candidate_id": "p12-143afb8b9478",
+      "name": "Rapiquick Strep B Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-25C265995140",
+      "candidate_id": "p12-25c265995140",
+      "name": "Adenovirus & Rotavirus & Norovirus Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-FBFCD84339A8",
+      "candidate_id": "p12-fbfcd84339a8",
+      "name": "Rapiquick H.Pylori Antibody Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-E0342804CE14",
+      "candidate_id": "p12-e0342804ce14",
+      "name": "Rapiquick H.Pylori Antigen Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-90E3E4DC2DD2",
+      "candidate_id": "p12-90e3e4dc2dd2",
+      "name": "Rapiquick Zika IgG/IgM Rapid Test",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-9EF3379AC719",
+      "candidate_id": "p12-9ef3379ac719",
+      "name": "Rapiquick Chagas Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-D9C681D70A9A",
+      "candidate_id": "p12-d9c681d70a9a",
+      "name": "Rapiquick Dengue IgG/IgM Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-178A3A39D6C4",
+      "candidate_id": "p12-178a3a39d6c4",
+      "name": "Rapiquick Dengue NS1 Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-436149A31150",
+      "candidate_id": "p12-436149a31150",
+      "name": "Rapiquick Dengue Combo Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-018A403E77F5",
+      "candidate_id": "p12-018a403e77f5",
+      "name": "Rapiquick Filariasis Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-B58999A43B89",
+      "candidate_id": "p12-b58999a43b89",
+      "name": "Rapiquick Typhoid Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-767C3DCEA09D",
+      "candidate_id": "p12-767c3dcea09d",
+      "name": "Rapiquick Salmonella typhi antigen Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-FFCB04B2D916",
+      "candidate_id": "p12-ffcb04b2d916",
+      "name": "Rapiquick Salmonella paratyphi antigen Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-0C018AC048A6",
+      "candidate_id": "p12-0c018ac048a6",
+      "name": "Rapiquick Leishmania Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-32BD0985AC6F",
+      "candidate_id": "p12-32bd0985ac6f",
+      "name": "Rapiquick Malaria Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-B70081B362A6",
+      "candidate_id": "p12-b70081b362a6",
+      "name": "Rapiquick Leptospira Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-6F8B82B16290",
+      "candidate_id": "p12-6f8b82b16290",
+      "name": "Rapiquick Hepatitis B (HBsAb) Rapid Test Device",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-71365A3EBD60",
+      "candidate_id": "p12-71365a3ebd60",
+      "name": "Rapiquick Hepatitis B (HBsAg) Rapid Test Cassette",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-93713663CA37",
+      "candidate_id": "p12-93713663ca37",
+      "name": "Rapiquick Hepatitis B (HBsAg) Rapid Test Strips",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-7B3E3E2466BC",
+      "candidate_id": "p12-7b3e3e2466bc",
+      "name": "Rapiquick Hepatitis C (HCV) Rapid Test Cassette",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-14D8E2C6897A",
+      "candidate_id": "p12-14d8e2c6897a",
+      "name": "Rapiquick Hepatitis C (HCV) Rapid Test Strips",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-1A920DF9BD2F",
+      "candidate_id": "p12-1a920df9bd2f",
+      "name": "Strep A Rapid Test",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-C17E193F75D8",
+      "candidate_id": "p12-c17e193f75d8",
+      "name": "Rapiquick Influenza A + B Rapid Test",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-12B525941FE6",
+      "candidate_id": "p12-12b525941fe6",
+      "name": "Respiratory Syncytial Virus Antigen Rapid Test",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-517C197081EB",
+      "candidate_id": "p12-517c197081eb",
+      "name": "RSV and Influenza A + B Rapid Test",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-787638CADE8B",
+      "candidate_id": "p12-787638cade8b",
+      "name": "Rapiquick Measles Virus Rapid Test",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-979E3B9E183D",
+      "candidate_id": "p12-979e3b9e183d",
+      "name": "Rapiquick Tetanus Rapid Test",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-2354466852AA",
+      "candidate_id": "p12-2354466852aa",
+      "name": "Rapiquick Tuberculosis Rapid Test",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-4FBB6228B3F9",
+      "candidate_id": "p12-4fbb6228b3f9",
+      "name": "Rapiquick THC50/MET1000 Drug of Abuse Rapid Test Panel",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-46C3EB98050A",
+      "candidate_id": "p12-46c3eb98050a",
+      "name": "Rapiquick THC50/MET1000 Drug of Abuse Rapid Test Cassette",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-C28A49C72D67",
+      "candidate_id": "p12-c28a49c72d67",
+      "name": "Rapiquick THC50/MET1000/MDMA500 Drug of Abuse Rapid Test Cassette",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-1B5036D5773B",
+      "candidate_id": "p12-1b5036d5773b",
+      "name": "Rapiquick THC50/MET1000/MDMA500/COC300/MOP2000 Drug of Abuse Rapid Test Panel",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-E65D3F50E5CD",
+      "candidate_id": "p12-e65d3f50e5cd",
+      "name": "Rapiquick THC50/MET1000/MDMA500/COC300/MOP2000 Drug of Abuse Rapid Test Cassette",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-45BFA38C52FF",
+      "candidate_id": "p12-45bfa38c52ff",
+      "name": "Rapiquick Alpha Fetoprotein Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-5AB78A25CAF1",
+      "candidate_id": "p12-5ab78a25caf1",
+      "name": "Rapiquick Carcinoembryonic Antigen Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-4C12662DA851",
+      "candidate_id": "p12-4c12662da851",
+      "name": "Rapiquick Prostate Specific Antigen Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-487A06FC943F",
+      "candidate_id": "p12-487a06fc943f",
+      "name": "Rapiquick Fecal Occult Blood Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-C8AA11F2E7A7",
+      "candidate_id": "p12-c8aa11f2e7a7",
+      "name": "Rapiquick Transferrin & Hemoglobin and Hemoglobin-Haptoglobin Combo Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-77E9071B342D",
+      "candidate_id": "p12-77e9071b342d",
+      "name": "Rapiquick Hemoglobin and Hemoglobin-Haptoglobin Combo Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-BE993C8B1760",
+      "candidate_id": "p12-be993c8b1760",
+      "name": "Rapiquick Troponin I Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-9ED5A193B584",
+      "candidate_id": "p12-9ed5a193b584",
+      "name": "Rapiquick Troponin T Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-861F47132734",
+      "candidate_id": "p12-861f47132734",
+      "name": "Rapiquick CK-MB Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-75600BBD3CD4",
+      "candidate_id": "p12-75600bbd3cd4",
+      "name": "Rapiquick Myoglobin Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-D7ABF14D45A0",
+      "candidate_id": "p12-d7abf14d45a0",
+      "name": "Myoglobin, CK-MB & Troponin I Combo Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-BDBAC9067879",
+      "candidate_id": "p12-bdbac9067879",
+      "name": "H-FABP, Myoglobin/CK-MB/Troponin I Combo Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-DBD670FECC0F",
+      "candidate_id": "p12-dbd670fecc0f",
+      "name": "Rapiquick NT-proBNP Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-A481A3EDB899",
+      "candidate_id": "p12-a481a3edb899",
+      "name": "Rapiquick D-Dimer Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-2147E1BE5A35",
+      "candidate_id": "p12-2147e1be5a35",
+      "name": "Rapiquick C-reactive Protein Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-2575CD9467FE",
+      "candidate_id": "p12-2575cd9467fe",
+      "name": "Rapiquick Procalcitonin Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-920B3234BEFC",
+      "candidate_id": "p12-920b3234befc",
+      "name": "Rapiquick Ferritin Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-D0F99AF8D5DC",
+      "candidate_id": "p12-d0f99af8d5dc",
+      "name": "Rapiquick SP-10 Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-AEE4E29D1604",
+      "candidate_id": "p12-aee4e29d1604",
+      "name": "Rapiquick Thyroid Stimulating Hormone Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-BD52CA84847B",
+      "candidate_id": "p12-bd52ca84847b",
+      "name": "Rapiquick Vitamin D Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-CE0BCF1CD92F",
+      "candidate_id": "p12-ce0bcf1cd92f",
+      "name": "Rapiquick RPR Screening Test",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-0766D062CD5C",
+      "candidate_id": "p12-0766d062cd5c",
+      "name": "Rapiquick Rheumatoid Factor Rapid Test Kit",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-0F72FABE7882",
+      "candidate_id": "p12-0f72fabe7882",
+      "name": "SARS-COV-2 IgG/IgM Rapid Test",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-97118A438B02",
+      "candidate_id": "p12-97118a438b02",
+      "name": "Hangzhou Alltest COVID-19 Antigen Rapid Test (Specimen: Nasopharyngeal Swab)",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-550A4E016666",
+      "candidate_id": "p12-550a4e016666",
+      "name": "VCODE Encode SARS-COV-2 Rapid Test Device (Specimen: Throat Swab and Nasal Swab)",
+      "page": 12,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P15-028C72ECA369",
+      "candidate_id": "p15-028c72eca369",
+      "name": "Video laryngoscope - VL3D",
+      "page": 15,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P15-9C3B522A3054",
+      "candidate_id": "p15-9c3b522a3054",
+      "name": "Video laryngoscope - VL3R",
+      "page": 15,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P15-19D0A457EC83",
+      "candidate_id": "p15-19d0a457ec83",
+      "name": "Video laryngoscope - VLDM",
+      "page": 15,
+      "status": "created",
+      "image_count": 0
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P15-F4EEA453ED51",
+      "candidate_id": "p15-f4eea453ed51",
+      "name": "Video laryngoscope - VLRM",
+      "page": 15,
+      "status": "created",
+      "image_count": 0
+    }
+  ],
+  "completed_at": "2026-11-16T06:19:30.892462+00:00",
+  "final_catalog_count": 127,
+  "data_preservation_verified": true,
+  "source_conflicted_excluded": 11,
+  "families_offerings_excluded": 131,
+  "duplicate_reviews_documented_in": "remaining-114-dry-run.json",
+  "browser_verification": {
+    "status": "passed",
+    "mode": "Read-only live iraseth_dev API/browser verification",
+    "catalog_count": 127,
+    "api_page_sizes": [
+      100,
+      27
+    ],
+    "ui_page_sizes": [
+      24,
+      24,
+      24,
+      24,
+      24,
+      7
+    ],
+    "all_api_and_ui_product_ids_unique": true,
+    "new_public_products_content_checked": 114,
+    "existing_reviewed_images_checked": 8,
+    "representative_cards_and_modals_checked": 27,
+    "sample": [
+      {
+        "id": "TMP-PDF-4D1AC21274-P05-741932F4EEFF",
+        "name": "Autofusion Set - Y Injection Port",
+        "category": "Infusion and Transfusion",
+        "image_count": 0,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P10-B0D4F7A891D5",
+        "name": "Polyspike R - Safety Valve",
+        "category": "Vial Access",
+        "image_count": 0,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P11-316320BDCCB7",
+        "name": "Irasafety Syringe - 1cc 27G x 1 inch",
+        "category": "Syringes",
+        "image_count": 0,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P12-78F00508CC15",
+        "name": "Rapiquick Pregnancy Midstream Device (Urine)",
+        "category": "Rapid Test Kits - Women's Health",
+        "image_count": 0,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P12-05C1D67E4162",
+        "name": "Rapiquick Toxo Rapid Test Kit",
+        "category": "Rapid Test Kits - TORCH Range",
+        "image_count": 0,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P12-871A0D571DB5",
+        "name": "Rapiquick Candida Albicans Rapid Test Kit",
+        "category": "Rapid Test Kits - Women's Health - Others",
+        "image_count": 0,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P12-25C265995140",
+        "name": "Adenovirus & Rotavirus & Norovirus Rapid Test Kit",
+        "category": "Rapid Test Kits - Infectious",
+        "image_count": 0,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P12-9EF3379AC719",
+        "name": "Rapiquick Chagas Rapid Test Kit",
+        "category": "Rapid Test Kits - Tropical Diseases",
+        "image_count": 0,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P12-6F8B82B16290",
+        "name": "Rapiquick Hepatitis B (HBsAb) Rapid Test Device",
+        "category": "Rapid Test Kits - Hepatitis Markers",
+        "image_count": 0,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P12-1A920DF9BD2F",
+        "name": "Strep A Rapid Test",
+        "category": "Rapid Test Kits - Respiratory Tract",
+        "image_count": 0,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P12-979E3B9E183D",
+        "name": "Rapiquick Tetanus Rapid Test",
+        "category": "Rapid Test Kits - Respiratory Tract - Others",
+        "image_count": 0,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P12-4FBB6228B3F9",
+        "name": "Rapiquick THC50/MET1000 Drug of Abuse Rapid Test Panel",
+        "category": "Rapid Test Kits - Drug of Abuse",
+        "image_count": 0,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P12-45BFA38C52FF",
+        "name": "Rapiquick Alpha Fetoprotein Rapid Test Kit",
+        "category": "Rapid Test Kits - Tumor Markers",
+        "image_count": 0,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P12-BE993C8B1760",
+        "name": "Rapiquick Troponin I Rapid Test Kit",
+        "category": "Rapid Test Kits - Cardiac Marker",
+        "image_count": 0,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P12-920B3234BEFC",
+        "name": "Rapiquick Ferritin Rapid Test Kit",
+        "category": "Rapid Test Kits - Others",
+        "image_count": 0,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P12-0F72FABE7882",
+        "name": "SARS-COV-2 IgG/IgM Rapid Test",
+        "category": "Rapid Test Kits - COVID Related - Antibody",
+        "image_count": 0,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P12-97118A438B02",
+        "name": "Hangzhou Alltest COVID-19 Antigen Rapid Test (Specimen: Nasopharyngeal Swab)",
+        "category": "Rapid Test Kits - COVID Related - Antigen",
+        "image_count": 0,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P15-028C72ECA369",
+        "name": "Video laryngoscope - VL3D",
+        "category": "ENT Equipment",
+        "image_count": 0,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P06-EEE272B904B1",
+        "name": "Oncofusion Set - Without Needle",
+        "category": "Infusion and Transfusion",
+        "image_count": 0,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P10-8A2EB16BDFAB",
+        "name": "Polyspike G - Snap-fit Cap",
+        "category": "Vial Access",
+        "image_count": 0,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P11-72AE79690461",
+        "name": "Alphashot - 10ml 21G x 1 1/2 inch",
+        "category": "Syringes",
+        "image_count": 0,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P12-93713663CA37",
+        "name": "Rapiquick Hepatitis B (HBsAg) Rapid Test Strips",
+        "category": "Rapid Test Kits - Hepatitis Markers",
+        "image_count": 0,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P12-9ED5A193B584",
+        "name": "Rapiquick Troponin T Rapid Test Kit",
+        "category": "Rapid Test Kits - Cardiac Marker",
+        "image_count": 0,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P15-F4EEA453ED51",
+        "name": "Video laryngoscope - VLRM",
+        "category": "ENT Equipment",
+        "image_count": 0,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P05-44C2375CE24D",
+        "name": "Microfusion Set",
+        "category": "Infusion and Transfusion",
+        "image_count": 1,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P03-0DAD68E8ADCD",
+        "name": "Alpha Care Adult Diaper - XL",
+        "category": "Adult Care",
+        "image_count": 0,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P08-B9F2A7D02685",
+        "name": "Polyflex - 22G Blue",
+        "category": "IV Cannulas",
+        "image_count": 1,
+        "card_modal_source_content_placeholder_or_gallery_shared_url_and_disabled_ordering": "passed"
+      }
+    ],
+    "search_category_stock_filters": "passed",
+    "browser_errors": [],
+    "preview_url": "http://127.0.0.1:3000/products"
+  },
+  "final_verification": {
+    "database": "iraseth_dev",
+    "host": "127.0.0.1:27017",
+    "catalog_count": 127,
+    "pdf_products": 124,
+    "original_products": 3,
+    "added": 114,
+    "existing_pdf_skipped": 10,
+    "failed": 0,
+    "source_clear_remaining": 0,
+    "source_conflicted_excluded": 11,
+    "families_offerings_excluded": 131,
+    "original_13_records_unchanged": true,
+    "protected_collection_count": 25,
+    "all_protected_collection_records_unchanged": true,
+    "historical_catalog_audits_unchanged": true,
+    "creation_audits_added": 114,
+    "all_index_definitions_unchanged": true,
+    "all_pdf_identities_provisional": true,
+    "all_pdf_stock_zero_and_prices_unset": true,
+    "retry_plan_creates": 0,
+    "retry_plan_existing": 114,
+    "test_pdf_fixtures_remaining": 0,
+    "git_staging_unchanged": true,
+    "git_whitespace_check": "passed",
+    "backend_regressions": {
+      "passed": 224,
+      "deselected": 1,
+      "seconds": 151.96,
+      "database": "iraseth_test"
+    }
+  }
+}

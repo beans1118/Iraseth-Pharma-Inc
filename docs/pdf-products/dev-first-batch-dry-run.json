@@ -1,0 +1,202 @@
+{
+  "database": "iraseth_dev",
+  "source_sha256": "4d1ac212740e739c6b5853231270cce2af22e66529916abc6835910b976a7696",
+  "manifest_hash": "2738afd5a4b8f5d652abcb879e4ee20347611b03f4a1664af496770fde29c238",
+  "image_review_hash": "067a61a27828f810768c8d766cbcda6f1546de214b92036c9b396cb1541dde5a",
+  "candidate_ids": [
+    "p05-44c2375ce24d",
+    "p04-e228089cbacf",
+    "p06-2541990213ff",
+    "p07-303ca8b1c11b",
+    "p07-f2a62b743ba6"
+  ],
+  "catalog_identity_hash": "84db1a4ad3d6fff082a38c98b8f06345c190f6f0f873a8a6bbc9a6f3d134dd00",
+  "duplicate_reviews": {},
+  "selection_hash": "c53f6afa9b73b4479ab020a2e40e66205c7b5a3bdfe9a275932a24fe3ae9a2a3",
+  "document_hash": "085b67488f4b98a2867cd8f0a8b539b24a6a89c4a3da0ddc41958df3ebd5be5a",
+  "already_existing_ids": [],
+  "products": [
+    {
+      "id": "TMP-PDF-4D1AC21274-P05-44C2375CE24D",
+      "name": "Microfusion Set",
+      "category": "Infusion and Transfusion",
+      "unit": "PENDING UNIT CONFIRMATION",
+      "sku": null,
+      "identity_status": "provisional",
+      "source_page": 5,
+      "brand": "POLYMED",
+      "manufacturer": "",
+      "model": "",
+      "description": "IV infusion set with micro drip for paediatric use.",
+      "key_features": [
+        "Transparent flexible drip chamber",
+        "Soft, kink-resistant PVC tubing",
+        "Smooth roller clamp for controlled fluid-rate adjustment",
+        "Latex-free Y injection port for intermittent medication",
+        "DEHP free; latex free"
+      ],
+      "specifications": [
+        {
+          "label": "Drop factor",
+          "value": "Approximately 60 drops/ml"
+        },
+        {
+          "label": "Fluid filter",
+          "value": "15 micron in drip chamber"
+        },
+        {
+          "label": "Standard tube length",
+          "value": "150 cm"
+        },
+        {
+          "label": "Tube inner diameter",
+          "value": "3 mm"
+        },
+        {
+          "label": "Tube outer diameter",
+          "value": "4.1 mm"
+        }
+      ],
+      "image_count": 1,
+      "quantity": 0,
+      "price": null,
+      "publicPrice": null,
+      "inStock": false
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P04-E228089CBACF",
+      "name": "Polyvol",
+      "category": "Infusion and Transfusion",
+      "unit": "PENDING UNIT CONFIRMATION",
+      "sku": null,
+      "identity_status": "provisional",
+      "source_page": 4,
+      "brand": "POLYMED",
+      "manufacturer": "",
+      "model": "",
+      "description": "Measured volume fluid administration set (burette set).",
+      "key_features": [
+        "Sterile volumetric infusion set with calibrated durable/elastic burette chamber",
+        "Bacteria-retentive air inlet on spike",
+        "Automatic shut-off valve prevents entry of air when the chamber empties and indicates fluid level",
+        "Soft and kink-resistant tubing",
+        "One roller clamp after air-vent spike; one roller clamp and one pinch clamp after burette chamber",
+        "Needleless Y-port",
+        "DEHP free; latex free",
+        "Hook protects against accidental pulling from the IV bottle and holds the chamber",
+        "Easy roller-clamp regulation",
+        "Auto-stop feature when IV fluid is consumed"
+      ],
+      "specifications": [
+        {
+          "label": "Burette capacity",
+          "value": "150 ml"
+        },
+        {
+          "label": "Graduation",
+          "value": "10 ml"
+        },
+        {
+          "label": "Drop factor",
+          "value": "Approximately 60 drops/ml"
+        },
+        {
+          "label": "Fluid filter",
+          "value": "15 micron"
+        },
+        {
+          "label": "Tip",
+          "value": "Luer lock with cap"
+        }
+      ],
+      "image_count": 1,
+      "quantity": 0,
+      "price": null,
+      "publicPrice": null,
+      "inStock": false
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P06-2541990213FF",
+      "name": "Photofusion Set",
+      "category": "Infusion and Transfusion",
+      "unit": "PENDING UNIT CONFIRMATION",
+      "sku": null,
+      "identity_status": "provisional",
+      "source_page": 6,
+      "brand": "POLYMED",
+      "manufacturer": "",
+      "model": "",
+      "description": "IV infusion set for photosensitive drugs.",
+      "key_features": [
+        "Protects light-sensitive drugs from UV exposure",
+        "UV-resistant tubing minimizes decomposition of active ingredients",
+        "Hydrophobic priming-filter cap prevents fluid leakage",
+        "Latex free; DEHP free"
+      ],
+      "specifications": [],
+      "image_count": 1,
+      "quantity": 0,
+      "price": null,
+      "publicPrice": null,
+      "inStock": false
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P07-303CA8B1C11B",
+      "name": "Blood Administration Set",
+      "category": "Infusion and Transfusion",
+      "unit": "PENDING UNIT CONFIRMATION",
+      "sku": null,
+      "identity_status": "provisional",
+      "source_page": 7,
+      "brand": "POLYMED",
+      "manufacturer": "",
+      "model": "",
+      "description": "For transfusion of blood or blood components.",
+      "key_features": [
+        "Transparent flexible drip chamber",
+        "Soft kink-resistant PVC tubing",
+        "Lightweight ball facilitates auto shut-off",
+        "DEHP free"
+      ],
+      "specifications": [
+        {
+          "label": "Drop factor",
+          "value": "Approximately 20 drops/ml"
+        },
+        {
+          "label": "Blood filter",
+          "value": "200 micron"
+        }
+      ],
+      "image_count": 1,
+      "quantity": 0,
+      "price": null,
+      "publicPrice": null,
+      "inStock": false
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P07-F2A62B743BA6",
+      "name": "Haemofusor Set",
+      "category": "Infusion and Transfusion",
+      "unit": "PENDING UNIT CONFIRMATION",
+      "sku": null,
+      "identity_status": "provisional",
+      "source_page": 7,
+      "brand": "POLYMED",
+      "manufacturer": "",
+      "model": "",
+      "description": "Blood administration set with airvent and priming filter.",
+      "key_features": [
+        "Priming filter allows automatic filling and maintains a closed system until connected",
+        "Latex-free Y injection port"
+      ],
+      "specifications": [],
+      "image_count": 1,
+      "quantity": 0,
+      "price": null,
+      "publicPrice": null,
+      "inStock": false
+    }
+  ],
+  "message": "Existing products collection only. No database writes or indexes in this dry run; no stock/batches or approved SKU/unit/price."
+}

@@ -1,0 +1,31 @@
+{
+  "products_total": 127,
+  "pdf_products": 124,
+  "pdf_products_with_verified_images": 11,
+  "pdf_placeholders": 113,
+  "non_image_fields_unchanged_for_all_products": true,
+  "other_124_complete_products_unchanged": true,
+  "protected_collections_unchanged": true,
+  "historical_audits_unchanged": true,
+  "image_audits_added": 3,
+  "indexes_unchanged": true,
+  "git_staging_unchanged": true,
+  "test_pdf_fixtures_remaining": 0,
+  "whitespace_check": "passed",
+  "modified_existing_paths": [
+    "backend/routes/products.py"
+  ],
+  "new_paths": [
+    "backend/tests/test_pdf_image_updates.py",
+    "docs/product-images/REPORT.md",
+    "docs/product-images/candidates/rapiquick-dengue-igg-igm.webp",
+    "docs/product-images/candidates/rapiquick-hbsag-label-review.webp",
+    "docs/product-images/image-audit-and-plan.json",
+    "docs/product-images/image-update-results.json",
+    "docs/product-images/underpads-live-gallery.png",
+    "docs/product-images/verification/backend-regression.txt",
+    "docs/product-images/verification/change-audit.json"
+  ],
+  "deleted_paths": [],
+  "environment_files_unchanged": true
+}

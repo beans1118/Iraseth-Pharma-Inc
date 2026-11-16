@@ -1,0 +1,3 @@
+-r requirements.txt
+# Tested local regression runner; no change to production requirements.
+pytest==9.2.0

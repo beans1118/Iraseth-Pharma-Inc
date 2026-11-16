@@ -1,0 +1,82 @@
+9001 : 2015
+ER - OR - ICU EQUIPMENT
+DIAGNOSTIC EQUIPMENT
+Defibrillator
+Biphasic Defibrillator
+Monitor Cardioverter Biphasic Defibrillator
+Automated External Defibrillator
+Electrosurgical Unit
+Argon Coagulation unit
+Shadowless Operating Lamp
+Surgical LED Light
+Infusion Pump
+Syringe pump
+Portable Ventilator
+Mechanical Ventilator
+Anesthesia Machine
+Handheld Vital Sign Monitor (NIBP)
+Vital Sign Monitor
+Patient Monitor
+High-flow heated respiratory humidifier
+Chest Compressions Machine
+Oxygen Concentration
+Colonoscopes
+Gastroscopy and Colonoscopy
+High End Gyn & GS Laparoscopy
+Laparoscopy with Hysteroscopy
+Standard Gyn & GS Laparoscopy
+Heavy Duty Mobile Suction Machine
+Portable Suction Unit
+And many more..
+Diagnostic devices are devices used to identify the nature or cause of a certain
+phenomenon, usually related to a medical condition
+Fingertip Oximeter
+3 channel ECG
+12 channel ECG
+Otoscope and Opthalmoscope
+Fetal Doppler
+Fetal or Maternal Monitor
+Automatic Digital Non-Contact Thermometer
+K9 Thermal Scanner
+and many more..
+9001 : 2015
+LABORATORY EQUIPMENT
+STERILIZATION EQUIPMENT
+Tissue Embedding System
+Mini Centrifuge
+PRP Centrifuge
+Microhematocrit centrifuge
+Table Top Centrifuge
+Universal Centrifuge
+Desktop Low Speed Temperature Control Centrifuge
+Floor Universal High-Speed Refrigerated Centrifuge
+Blood Gas Analyzer
+Auto Hematology Analyzer
+Chemistry Analyzer
+Powered Air Purifying Respirator (PAPR)
+Vortex mixer
+Biological Microscopes
+High Quality Ductless Fume Hood
+Biosafety Transport Box
+Dry bath incubator
+Micro Pette Mechanical Pipette
+Analytical Balance
+Digital Thermostatic Water Bath
+Pcr hood workstation
+Class II A2 Biological Safety Cabinet
+High Quality Ductless Fume Hood
+Cell Smear Centrifuge
+Microtome
+And many more..
+Equipment in a hospital where cleaning and sterilization of devices used in medical
+procedures takes place
+Table Type Steam Sterilizer Infant Incubator
+Vertical Pressure Steam Sterilizer
+Autoclave
+Hot Air Sterilization
+Vertical Autoclave
+Vertical Steam Autoclave
+High Pressure Steam Autoclave
+Air Purifier
+Portable air cleaner HEPA filtration system
+Uvion Air Asepticizer

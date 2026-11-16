@@ -1,0 +1,7 @@
+# Preserve source-media bytes and hashes on Windows and Linux.
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.ico binary
