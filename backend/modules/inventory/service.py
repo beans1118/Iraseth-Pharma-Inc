@@ -9,6 +9,10 @@ from uuid import uuid4
 from pymongo import ReturnDocument
 from pymongo.errors import DuplicateKeyError, OperationFailure
 from extensions import db
+from modules.product_metadata import identity_pending, IDENTITY_REQUIRED
+
+# Persisted order lifecycle supported by this module (legacy values live in routes.orders).
+ORDER_STATUSES = ('Pending', 'Approved', 'Fulfilled', 'Cancelled')
 
 
 class InventoryProblem(Exception):
@@ -97,7 +101,15 @@ def get_batch(session, batch_id):
     batch = db.inventory_batches.find_one({'id': batch_id}, session=session)
     if not batch:
         raise InventoryProblem('Batch not found.', 404)
+    require_product_identity(batch['product_id'],session)
     return batch
+
+
+def require_product_identity(product_id, session=None):
+    product=db.products.find_one({'id':product_id},session=session)
+    if not product:raise InventoryProblem('Product not found.',404)
+    if identity_pending(product):raise InventoryProblem(IDENTITY_REQUIRED,409)
+    return product
 
 
 def ensure_eligible(batch):
@@ -119,8 +131,7 @@ def receive(product_id, lot, expires_on, quantity, actor, key, condition='availa
 
     def run(session):
         op_id = operation(session, 'receive', key, actor)
-        if not db.products.find_one({'id': product_id}, {'_id': 1}, session=session):
-            raise InventoryProblem('Product not found.', 404)
+        require_product_identity(product_id,session)
         batch = db.inventory_batches.find_one_and_update(
             {'product_id': product_id, 'lot': lot.strip(), 'expires_on': expires_on,
              'condition': condition, 'unverified': False},
@@ -136,6 +147,7 @@ def receive(product_id, lot, expires_on, quantity, actor, key, condition='availa
 
 def allocate(session, product_id, qty):
     """FEFO allocation with conditional updates; caller owns a transaction."""
+    require_product_identity(product_id,session)
     remaining = positive(qty)
     picks = []
     today = date.today().isoformat()
@@ -278,6 +290,7 @@ def request_adjustment(batch_id, delta, reason, actor):
     batch = db.inventory_batches.find_one({'id': batch_id})
     if not batch:
         raise InventoryProblem('Batch not found.', 404)
+    require_product_identity(batch['product_id'])
     doc = {'id': uuid4().hex, 'batch_id': batch_id, 'delta': delta,
         'reason': reason.strip(), 'status': 'pending',
         'observed_on_hand': batch['on_hand'], 'requested_by': actor, 'requested_at': now()}

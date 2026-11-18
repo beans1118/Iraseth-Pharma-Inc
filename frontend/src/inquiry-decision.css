@@ -1,0 +1,6 @@
+.inquiry-decision{border:1px solid #dbe4f3;border-radius:16px;padding:0;width:min(540px,calc(100% - 32px));max-height:90dvh;overflow:auto;color:#152B69;background:white;box-shadow:0 24px 70px #152b6933}
+.inquiry-decision::backdrop{background:#101e43a6}
+.inquiry-decision h2{font-size:22px;margin:0}.inquiry-decision .eyebrow{color:#1461C3}
+.inquiry-decision .modal-body{line-height:1.65;color:#243552}.inquiry-reference{background:#E8F1FF;padding:12px;border-radius:8px;font-weight:800;overflow-wrap:anywhere}
+.inquiry-decision .btn.inquiry-accept{background:#1461C3;color:#fff}.inquiry-decision .btn.inquiry-decline{background:#CF1E2A;color:#fff}
+.inquiry-decision .modal-footer{display:flex;flex-wrap:wrap;gap:12px}.inquiry-decision button:focus-visible{outline:3px solid #1461C3;outline-offset:3px}

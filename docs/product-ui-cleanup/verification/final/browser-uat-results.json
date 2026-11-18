@@ -1,0 +1,99 @@
+{
+  "database": "iraseth_test",
+  "brochure_imports_performed": true,
+  "pdf_products_created_in_test": true,
+  "mail_delivery": "Isolated in-memory test double only; no external email",
+  "dashboard_api_origins": [
+    "http://127.0.0.1:5011",
+    "http://127.0.0.1:5174"
+  ],
+  "checks": [
+    {
+      "name": "Product create/edit, real multi-image upload and zero-stock metadata safety",
+      "status": "passed",
+      "seconds": 2.8
+    },
+    {
+      "name": "Employee catalog pagination, compact rows, product details and removed brochure navigation",
+      "status": "passed",
+      "seconds": 0.6
+    },
+    {
+      "name": "Actual Alpha Care WebP uploads, metadata/stock preservation and live public galleries in test only",
+      "status": "passed",
+      "seconds": 12.2
+    },
+    {
+      "name": "Actual PDF product in existing Next catalog, staff metadata edit, genuine-identity gate and later receipt",
+      "status": "passed",
+      "seconds": 5.9
+    },
+    {
+      "name": "Inventory receipt through dashboard and batch availability",
+      "status": "passed",
+      "seconds": 0.4
+    },
+    {
+      "name": "Next image optimizer returns a decodable WebP through native Sharp",
+      "status": "passed",
+      "seconds": 0.4
+    },
+    {
+      "name": "Storefront search, real categories/brand/stock filters and pagination >100",
+      "status": "passed",
+      "seconds": 21.1
+    },
+    {
+      "name": "Carousel, keyboard focus, shared URL and My Order submission",
+      "status": "passed",
+      "seconds": 13
+    },
+    {
+      "name": "Reference-only tracking, no private data and honest missing-SMTP feedback",
+      "status": "passed",
+      "seconds": 6.3
+    },
+    {
+      "name": "Inquiry review/accept/decline, atomic one-order conversion and pending state",
+      "status": "passed",
+      "seconds": 5.4
+    },
+    {
+      "name": "Verified communications, alternate-email ownership isolation and staff update",
+      "status": "passed",
+      "seconds": 17.1
+    },
+    {
+      "name": "Official approval/reservation, FEFO fulfillment and completed tracking",
+      "status": "passed",
+      "seconds": 1.2
+    },
+    {
+      "name": "Verified order-linked customer chat and staff reply",
+      "status": "passed",
+      "seconds": 5.8
+    },
+    {
+      "name": "Order-linked invoice draft/issue, explicit prices and stock independence",
+      "status": "passed",
+      "seconds": 0.5
+    },
+    {
+      "name": "Manual official order and cancellation preserve stock",
+      "status": "passed",
+      "seconds": 0.6
+    },
+    {
+      "name": "Analytics, read-only Admin and removal of separate brochure management",
+      "status": "passed",
+      "seconds": 1
+    },
+    {
+      "name": "Superadmin invoice void, mobile layout and browser errors",
+      "status": "passed",
+      "seconds": 1.6
+    }
+  ],
+  "issues": [],
+  "browserErrors": []
+}

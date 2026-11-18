@@ -1,0 +1,1788 @@
+{
+  "scope": "All retained/removed legacy files, existing documentation/evidence and reviewed tools/tests; generated folders are patterns. Relative to cleanup recovery baseline.",
+  "classifications": [
+    {
+      "path": "DEVELOPMENT-PHASE1-3-README.md",
+      "classification": "SAFE TO REMOVE",
+      "action": "moved without byte changes to docs/history/DEVELOPMENT-PHASE1-3-README.md",
+      "evidence": "Historical documentation; no incoming links/imports. Consolidated under docs; no content removed.",
+      "sha256_before": "aa394af6f48e54c82db6295ed6f6c005de58628123dc7360c9f6f5ed88d5a636"
+    },
+    {
+      "path": "admin.html",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "200fcd35bb2e2e7c854e0071604ba80de546954b50c2bc4f715cd3e1e39d07c7"
+    },
+    {
+      "path": "assets/ceo.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Referenced/copied by retained root admin or storefront/scripts/copy-admin.mjs. Active Next brand assets are independent; old pipeline still needs these originals.",
+      "sha256_before": "b8dea68a8af121162cd4c2f1c12df81797f4a30c9684d6e8ece0daa42d0d87ba"
+    },
+    {
+      "path": "assets/iso_logo.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Referenced/copied by retained root admin or storefront/scripts/copy-admin.mjs. Active Next brand assets are independent; old pipeline still needs these originals.",
+      "sha256_before": "00d2609eb042f906dcbe2316d45697e128524cc4c872955d2fd13c239bb07c41"
+    },
+    {
+      "path": "assets/logo-mark.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Referenced/copied by retained root admin or storefront/scripts/copy-admin.mjs. Active Next brand assets are independent; old pipeline still needs these originals.",
+      "sha256_before": "8f750a30cea42f9d0b6b26a1c5753bec7b24086fdee2e3fe92757b6b15040eaa"
+    },
+    {
+      "path": "assets/logo.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Referenced/copied by retained root admin or storefront/scripts/copy-admin.mjs. Active Next brand assets are independent; old pipeline still needs these originals.",
+      "sha256_before": "26453272b5438e85ab99236c609f7b4f1d1a6fc010d415125e6d00ea08a8b716"
+    },
+    {
+      "path": "backend/migrations/legacy_inventory.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "5a8a7cc441dc2fbe3e485123bf242038cbcdefec3508e5e5f70de02502e14d72"
+    },
+    {
+      "path": "backend/migrations/verify_and_activate.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "946f0c9c7cdff771ae3017311945dc23b24d1df3be6b343079f7e92956e17d40"
+    },
+    {
+      "path": "backend/products_seed.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "c612b560be060101c8c69c6c3cfa744d421a814a64c2e6a093cb303fe4294841"
+    },
+    {
+      "path": "backend/tests/conftest.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "8e67833f528754f9711d21a8cf6ffe12b7ddc641f42d6ae2f9ada7f86cffbec1"
+    },
+    {
+      "path": "backend/tests/test_alert_thresholds.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "2daa4a8923fd43365e7930f5bef2e132612b08b3611ead88a563f60746e38635"
+    },
+    {
+      "path": "backend/tests/test_analytics.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "8cceb4d1af11568be30e159ce9ea68307214c4114c66b24bb76ce42f8b201aa5"
+    },
+    {
+      "path": "backend/tests/test_auth.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "99bbeac782f30e5ef4ea77a24a777deb1d6444a4dbbc2c0fd0938d6546759429"
+    },
+    {
+      "path": "backend/tests/test_auth_sessions.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "50febb30cc5784e7c513d10475e778dd12eb6dc3063858738184a4ba719a3b4b"
+    },
+    {
+      "path": "backend/tests/test_batch_api_end_to_end.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "7599a4c82a9c83ae7d539b33b5ea4fdc77d55276bdc4cbaeaa96ecc3931dbe7e"
+    },
+    {
+      "path": "backend/tests/test_batch_mode.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "3b1c88f590394a15f2d063fe347e6b4d106b244d3fc6697facc2d9f2df97796a"
+    },
+    {
+      "path": "backend/tests/test_brochure_import.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "59e47d01bd142e873efd4ebc29a5781fbc26d6263370a1cc7ed48e05ad7722b2"
+    },
+    {
+      "path": "backend/tests/test_brochure_real_manifest.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "f67606f36953fe624a59f37f1dd38e85eb7573228bb69c20fbb416148b9a89e1"
+    },
+    {
+      "path": "backend/tests/test_brochure_staff_workflow.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "d8a161f9cc9e35d2a394fd1c82771a970cdbb703437bf1caaf6e56a24e87aa1c"
+    },
+    {
+      "path": "backend/tests/test_cleanup_image_candidates.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "3ead3d0667296a5bfe664e99fc8d786c4d821bd8871894d0a4dd05c2689d3564"
+    },
+    {
+      "path": "backend/tests/test_dashboard_optimization.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "95bea24e4797670c50933000336ba3180a3351c501039b1747669eaa2954939b"
+    },
+    {
+      "path": "backend/tests/test_health.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "ebdbc4b1a425f6d7d69417ce7b30293dbbedf11deddd3a8a2a5fe78ab7f2c4ee"
+    },
+    {
+      "path": "backend/tests/test_inquiry_acceptance.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "088fefcc201eb1610050e64c041236b865fb09efc7b018477955c3d32b525e0a"
+    },
+    {
+      "path": "backend/tests/test_inventory.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "3857d831f19b0f872516753ec4583e0c87cfee668840b3c0a2941e3a63a8f811"
+    },
+    {
+      "path": "backend/tests/test_inventory_alerts.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "6395d878871244cbcd2b385e1b36d8cee5a6b3e8ff255232fdd5e15a923e2256"
+    },
+    {
+      "path": "backend/tests/test_inventory_concurrency.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "aaa65e21f56b39af6e2e518349a28882cc34133350dbc91a46b62b26df4763a4"
+    },
+    {
+      "path": "backend/tests/test_inventory_rollback.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "d23aa1056bc1a780dfb251af42f7643f26da91ecb6f9777c3292778042fd5938"
+    },
+    {
+      "path": "backend/tests/test_invoices.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "136df6eee7eadd063c150fda5be4caa4cf6ef6c1fa5d8345414c1e29c460a38f"
+    },
+    {
+      "path": "backend/tests/test_local_account_bootstrap.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "26892cfaab54b7701bbec7585f0e45b74554328accd6ea1e55fa9ee0352cd0ba"
+    },
+    {
+      "path": "backend/tests/test_order_fulfillment.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "daae1f40cba3d8c1e80d35ebd67e60998aa0a830f045d530ffe691ca05ffcccd"
+    },
+    {
+      "path": "backend/tests/test_order_status_transitions.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "11f721473726c69f345e80171b5365ee11be9b29077262dbb82ae52bad0e4a7b"
+    },
+    {
+      "path": "backend/tests/test_order_support_chat.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "07814fd4fd3fe2f2e01932d158d7e95b4a646d293f72a7bff4be38c9afb991a9"
+    },
+    {
+      "path": "backend/tests/test_orders.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "a52f289e6f9c02a6fdbb3577650d3e7502e6d556b81f33352a062aba2942a651"
+    },
+    {
+      "path": "backend/tests/test_pdf_image_updates.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "04ff82b7354b7c3259daee8f08f527c3563d996be8e2f1d5d39e89ae8aa60432"
+    },
+    {
+      "path": "backend/tests/test_pdf_products_existing_system.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "8b7cef0aab477746f09365e7e022367464d8c16b26ddaec0ed28fbe67c24c198"
+    },
+    {
+      "path": "backend/tests/test_phase4f_resilience.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "43f66b978fe0305b8dd8deae77d862e01d92f4434a48a89edd1e3ecfd319ce76"
+    },
+    {
+      "path": "backend/tests/test_phase7_rbac.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "7dd9130d7d5eb374d8cb6a51190d5cc9f89ae30e366d5831cd2a06d4e8c3c2d9"
+    },
+    {
+      "path": "backend/tests/test_product_metadata.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "1e650107f53294d83f3911a850e5e4f6cf791b9c42f841d4026662bd6aa082d8"
+    },
+    {
+      "path": "backend/tests/test_products.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "51a4c49dacad7e571253edc2c2fc8e88afe47b2bf1ef957c905e8ed94348664a"
+    },
+    {
+      "path": "backend/tests/test_public_catalog_phase2.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "a90a387e14b07eb288c94b45aa3b9eda3b7824266dee7f90b91606a44d619390"
+    },
+    {
+      "path": "backend/tests/test_quotations_phase3.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "bc6ab4e4c2eec2ae2cf4fab64d36fc07eb431625b32f121d7824bf24474bbedd"
+    },
+    {
+      "path": "backend/tests/test_receive_delivery_validation.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "83382318a5ac3a9147daa9ab9e3d1e0dd8133738da6620fb6b1d373b2a49ce62"
+    },
+    {
+      "path": "backend/tests/test_session_revocation.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "e2ac82599c664c15b1d931258d125525c3fd88b2483845427576cfda89c5d7fa"
+    },
+    {
+      "path": "backend/tests/test_staff_session_invalidation.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "5ae4bc3bdece98ab63c6016ab8e26e649cc8057ee8a3510d8745b88fc938bdef"
+    },
+    {
+      "path": "backend/tests/test_staging_configuration.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "561a6992648f7db676151759f739fff49054d36835eabe2bc16d3da77dbd2192"
+    },
+    {
+      "path": "backend/tests/test_tracking.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "72f846453db5ee1da5b5d76cfea99180eb31b10fe3e8e41ee65d380937a679cc"
+    },
+    {
+      "path": "backend/tools/add_pdf_products.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "bb7c3e9d6d6fd30dcbb7b5a8bc400121f20243a12a34f310f0e6b050fa639b67"
+    },
+    {
+      "path": "backend/tools/audit_batch_integrity.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "880128aa02411e6eca0c578f8c02affda1a741fa7b8b1453a90036ef9ffe2693"
+    },
+    {
+      "path": "backend/tools/browser_qa_server.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "fd5bba3a1158ddf48ef3df47888d08f3135a33515624a7a2d8925109ddc0c6ad"
+    },
+    {
+      "path": "backend/tools/build_brochure_manifest.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "1c3b10ce4324032a7f3427f99f8ec932320874ad7f2d6bac9d3d3357fd4ef3d5"
+    },
+    {
+      "path": "backend/tools/create_local_test_accounts.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "1a6a623e1e6bdfd8b6653b42bab031d75590a53b2f090157575038d0d888c831"
+    },
+    {
+      "path": "backend/tools/dry_run_brochure_mapping.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "d34df66ab35924532cefa618de8e0b8a2237804a01cfc2c9bcf2313c0c745e10"
+    },
+    {
+      "path": "backend/tools/initialize_staging.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "5cda1fa56d627aef07695a9f582e558cf37525a52ee34af33f37b89aec915b18"
+    },
+    {
+      "path": "backend/tools/prepare_brochure_review.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "8b930cb5989a8e469ed762ea6f15ede926f3bb9542f34fe39247bef9e12ce475"
+    },
+    {
+      "path": "backend/tools/preview_brochure.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "530fd354925beaebf2a29db045f0555c153d339c4d465b132590b6e8bff03c05"
+    },
+    {
+      "path": "backend/tools/review_brochure.py",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Active regression tests, isolated browser fixture tools, safety/migration or import preparation tooling. No execution of seed/import/migration against development.",
+      "sha256_before": "97c977f54e0f1145716cb4f55ea15e65dd465e8ecf57b12b49930657689e66d3"
+    },
+    {
+      "path": "css/styles.css",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Referenced/copied by retained root admin or storefront/scripts/copy-admin.mjs. Active Next brand assets are independent; old pipeline still needs these originals.",
+      "sha256_before": "b80533e65eb10c72a0083e56eac4f7a47975a970fa937e4a62f376dc17d898d8"
+    },
+    {
+      "path": "docs/CONTINUED-DEVELOPMENT-REPORT.md",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "10b821bb5599af4f4306ca6b96b1895bac1120964b2710d78e28e41836157896"
+    },
+    {
+      "path": "docs/GITHUB-REVIEW-CHECKLIST.md",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "308d70a48eb405dd05330b3dcb0e4e9566a402dd6e593b650018cdcbfd2c17c5"
+    },
+    {
+      "path": "docs/LEGACY-CLEANUP-AUDIT.md",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "e2ee7470c5618ce5b177cd4d7a98baf3d742a2264156fa62c9d3bd55b2d1244c"
+    },
+    {
+      "path": "docs/LOCAL-UAT-REPORT.md",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "5089b7e1cea5550758319cf69a1c614fe8bc7c3e05e0aec4de0e50e11b1584d4"
+    },
+    {
+      "path": "docs/RECOVERY-VERIFICATION-REPORT.md",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "3beb64da34a8e88af5df1b5342dc8a51a3eedc80967b35fbbe7579a76bc3b7c6"
+    },
+    {
+      "path": "docs/STAGING-DEPLOYMENT-PLAN.md",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "cbda8643f4ff3e32f948f62162217c6f54303e7eee2938899ba3f55934b7e5bd"
+    },
+    {
+      "path": "docs/brochure/CORE_PRODUCTS_INTEGRATION_REPORT.md",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "5174757b84f1ef526070ba1bee059d940c1ee1d36c61bb15f39493a7bbe4c82a"
+    },
+    {
+      "path": "docs/brochure/Core Product A5 (2).pdf",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "4d1ac212740e739c6b5853231270cce2af22e66529916abc6835910b976a7696"
+    },
+    {
+      "path": "docs/brochure/DEV_APPROVAL_PROCEDURE.md",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "913bdf9fe41701869b99b19fd427a86e1f1320885879ad1d1cbab50905e133b3"
+    },
+    {
+      "path": "docs/brochure/MANIFEST_REVIEW.md",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "6cc8fc1b1538ffe814b990794b909ec0e8803cf2c9f6c06a89753f566fab175c"
+    },
+    {
+      "path": "docs/brochure/SOURCE_REVIEW.md",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "9cd346a9fe878823ec23093d95cd689b28350bdfe61e01e438f607d468a97e7c"
+    },
+    {
+      "path": "docs/brochure/STAFF_APPROVAL_WORKFLOW_REPORT.md",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "01b366349423e30d27ebdd4aee45aa1d07976e631c3be404e0d4940dca406f31"
+    },
+    {
+      "path": "docs/brochure/catalog-match-review.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "f1db83b9fdd76b2908b28421586516188665197ef037d4c51e822bc88f7ff35c"
+    },
+    {
+      "path": "docs/brochure/images/alpha-care-adult-diaper.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "e9ecb2d1a8c4df21f0bcc788056ddb212621be131f377970056c789c22db5b25"
+    },
+    {
+      "path": "docs/brochure/images/alpha-care-underpads-front.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "10eba8a4639e45ce72f6f8a3b439c8ffd89846e96c9b82a771241bf6d57bb52f"
+    },
+    {
+      "path": "docs/brochure/images/alpha-care-underpads-side.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "75b0bd0de6e1b4b363d416b3ad14c8c2c59dc63e3ede4038be7ca64fe0359478"
+    },
+    {
+      "path": "docs/brochure/images/alphashot.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "910750434472ff54622d6fe1273ed23670b1aeed9607ffc22566c513f99130d6"
+    },
+    {
+      "path": "docs/brochure/images/autofusion.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "18cca29a8522c9e6ad4e94ef6e5194971ddbac5b4ea722a349b2712b6aadd27a"
+    },
+    {
+      "path": "docs/brochure/images/blood-administration.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "99c9aeb69afd0c04413a52cc328f46a1b8b2e600702cca3969565844ad5cf93e"
+    },
+    {
+      "path": "docs/brochure/images/glucoseth-kit.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "95065d7feab51ca454ac7574e748d5a3e9754d8d600178db49db3e43dd2c0cbe"
+    },
+    {
+      "path": "docs/brochure/images/haemofusor.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "80f941b5d9168a54032564b53388c828426efd08a18c987afd5456a3b4070762"
+    },
+    {
+      "path": "docs/brochure/images/irasafety-syringe.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "76e2f27d70981673743442bcfa25e22a8d963d1b9a70474f9bacc64a266f2462"
+    },
+    {
+      "path": "docs/brochure/images/microfusion.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "5cfef9b95b6e822f744e421c31aa149fc314c26271531dcd64b8c756fa243af7"
+    },
+    {
+      "path": "docs/brochure/images/oncofusion.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "0e4acd183b08287d3207b6804776d51d0c419007cb74352fcbad084ecd12d4c5"
+    },
+    {
+      "path": "docs/brochure/images/photofusion.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "aef76703e4c591e1c6ce1706f1eb2287711de4c67e3f2d18531f695ae93fe150"
+    },
+    {
+      "path": "docs/brochure/images/polycan-safety.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "e6493cca7d8a1c3dfd3737977e3d09cb66d749bc6778faca39ceabc4cbdaba1c"
+    },
+    {
+      "path": "docs/brochure/images/polyflex.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "712677afccb7327f88fd59591c1dedd41d7f3ab52519756e5bf81a90e4138b1c"
+    },
+    {
+      "path": "docs/brochure/images/polyflon.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "a1984dd767b8c22f4b5a3047a1d7803a8ff5efa1c8261fd9ab2a2d969baa0dc1"
+    },
+    {
+      "path": "docs/brochure/images/polysafety.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "d19b97beb0669ecd0329d0e9e647e5277814e65b50da26c291ac07c177d24cdf"
+    },
+    {
+      "path": "docs/brochure/images/polyspike-safety-valve.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "2b4856b0fe4c389fecef48f4b8c8cf50be2cf6fbfe31a294f143b6fbe61a23f8"
+    },
+    {
+      "path": "docs/brochure/images/polyspike-snap-fit.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "63b895a25d89bb79e08ef9932e5b1421fa0e6c965c6932f162f6a7e0462975ba"
+    },
+    {
+      "path": "docs/brochure/images/polyvol.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "569380b9bb5fe0bf496d55ca0c5bca288b9eeb8f87702d30db509267d6157786"
+    },
+    {
+      "path": "docs/brochure/images/polywin-safety.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "448f42f51dc7f92f2dcd33a465602262c22505d5eaf6f2157f6cb390bbfadc1b"
+    },
+    {
+      "path": "docs/brochure/import-manifest.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "fe2b1be5ff180b53572d613d48593ae8febae91cf0a8b423efd6ba86d746e24a"
+    },
+    {
+      "path": "docs/brochure/pdf-product-image-review.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "00f40b4c61d401a23dc04552b49b25b8f3185ab1890bc5b898f3c7d87b970100"
+    },
+    {
+      "path": "docs/brochure/review/page-01.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "4aac6ce162452ed64668977bf8d9862084ade2b067a26d76ac36e2542d694a79"
+    },
+    {
+      "path": "docs/brochure/review/page-01.txt",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "28a1c191eb3fb70959d8b14c644d25730859ea4f8afe2936ec12b95ee4c08501"
+    },
+    {
+      "path": "docs/brochure/review/page-02.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "beb6872e75ebec9e48246f8cbf814cb38baefc33ae2aea72390889fa6c842dbc"
+    },
+    {
+      "path": "docs/brochure/review/page-02.txt",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "d62d7843bfca71ff93658f48948ba7e9ba55a85d79fa792dff853e76536e43f9"
+    },
+    {
+      "path": "docs/brochure/review/page-03.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "f0a07aa020029beb60ee5426cc0830220d604a0d49031e54fc7fce1d8623d5b1"
+    },
+    {
+      "path": "docs/brochure/review/page-03.txt",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "85e4ac96ebc43fb65c35f820ad812bb685811a70e65ec0231a0c21cbad3be985"
+    },
+    {
+      "path": "docs/brochure/review/page-04.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "60632be2be43ebaa0ec62dc41c60b77b6c23abf17fc4907e459e1ab228ed9416"
+    },
+    {
+      "path": "docs/brochure/review/page-04.txt",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "042412d7cc3b35d0b5dd0b1f5e6f9a8333badaa583777e575e0d938b1a7fcd09"
+    },
+    {
+      "path": "docs/brochure/review/page-05.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "2aacacc0977fd9c3af74e71591aa94b7ea157ce0ae97537c4b44cd2d784244f2"
+    },
+    {
+      "path": "docs/brochure/review/page-05.txt",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "22b3c6a68f34e3fb1128814fa631bbf2b62757bd9440b6e0877ea2b0e0f932fc"
+    },
+    {
+      "path": "docs/brochure/review/page-06.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "c97fcd8e7bcac7d306a4db84307695e235961751caf5661c1d0e559a7b8390c2"
+    },
+    {
+      "path": "docs/brochure/review/page-06.txt",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "55590b004139189e0977ea243ba1fa06fac44577e585878c9573f2d2b5e8e1c4"
+    },
+    {
+      "path": "docs/brochure/review/page-07.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "f207e751b9abd8d8b9942356288868ce356065d5b8a64f2fb3c52dfe6a42c6c7"
+    },
+    {
+      "path": "docs/brochure/review/page-07.txt",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "0c3a3e95ba68d2e8277acac759bd402d98a13a1c60ae114277c534daea2f4c63"
+    },
+    {
+      "path": "docs/brochure/review/page-08.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "cc5e06688d468bf707103a9b80ebe78c6289f1c501efd684296a9d69c9db866b"
+    },
+    {
+      "path": "docs/brochure/review/page-08.txt",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "9c10a4b299e421770549f884a356a0463d7a3467b1ba657919c0fcd1d4e9ee1e"
+    },
+    {
+      "path": "docs/brochure/review/page-09.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "9d9c393f5a6d71f69bd084bbcb82d1a6c0e6f3d01fd140595ee372d467ff4b8d"
+    },
+    {
+      "path": "docs/brochure/review/page-09.txt",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "ccbac6694c33d7ef5fc454c9fd0743e4e1ee065e2f96daf451e3d9cc75ed293d"
+    },
+    {
+      "path": "docs/brochure/review/page-10.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "67906a4bde2d7881d7265fb81e535dcbe34e467fbc862beaf716b79fd5cb5755"
+    },
+    {
+      "path": "docs/brochure/review/page-10.txt",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "a7935b538924cd4c5e4afaf9610cfbf1f0784c3e7f75c837cf504c43dc6e6ba7"
+    },
+    {
+      "path": "docs/brochure/review/page-11-tables.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "600dc1a3049750089c39fc1485bd3d84072584efc3bf07f9006f86d06869cb64"
+    },
+    {
+      "path": "docs/brochure/review/page-11.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "76ea2e3c194afb68a991359844b486dd426a12607c8b7955905e9a66c36695c6"
+    },
+    {
+      "path": "docs/brochure/review/page-11.txt",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "4ed729bc957ae679c3434d94d5949264d65d35e304d7eb1662bfb2ab4f551247"
+    },
+    {
+      "path": "docs/brochure/review/page-12.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "8a9b03267c94449fe5b302a2892f38d27ec07b6664ec6f9afa9a38d0b74f12e4"
+    },
+    {
+      "path": "docs/brochure/review/page-12.txt",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "1cb47119fde7919af1c32df7b7e165be1d40cd1582eedd0a3431e3772156b180"
+    },
+    {
+      "path": "docs/brochure/review/page-13.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "dfdfec922b4c5e501b496c9f1d81d62191510f40f6fe8b416306d5952420640e"
+    },
+    {
+      "path": "docs/brochure/review/page-13.txt",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "ec47b50a957eb1114ef2a991d158d63cb350e4ea243b92f4395a29156c0c69e1"
+    },
+    {
+      "path": "docs/brochure/review/page-14.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "1a289ba836365dc065904b09265a0cf0ffde7d9cd1370db0c3b1595e2986c162"
+    },
+    {
+      "path": "docs/brochure/review/page-14.txt",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "771505207bac8adbeb8bf361b7142ffdb6516bd66b92a6d6be79dc123b0ddb56"
+    },
+    {
+      "path": "docs/brochure/review/page-15.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "99a77fd1bd67b44e7fa36e127932b573701968be15756e1359f1f100343dcd56"
+    },
+    {
+      "path": "docs/brochure/review/page-15.txt",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "39a30c35cfb847f4c99578227f3ba5954e97776c1a64ffe3ce310dfa7391f48f"
+    },
+    {
+      "path": "docs/brochure/review/source.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "da0241c44c99488891c0792ebd4b7b20721841d63d902b2637c053f8dce9d09a"
+    },
+    {
+      "path": "docs/brochure/reviewed-candidates.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "bd046253132cf24734e09cf25418d38073528b129f61877d1a4b66fe7c4db998"
+    },
+    {
+      "path": "docs/brochure/staff-mapping-template.csv",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "e1c86b936417f1c80b6377d2014d2db7aaf12d8ef588aad71bbc7098cd4b38f5"
+    },
+    {
+      "path": "docs/pdf-products/EXISTING-PRODUCTS-PROCEDURE.md",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "a8b82c48c8744e9456f3d73a13a96bb94f2464606d86b443f557a687724a0c48"
+    },
+    {
+      "path": "docs/pdf-products/INTEGRATION-REPORT.md",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "bf8c25f2299d70c13b062e899aeb7a72c618455d7ceecf20b0c32ce799aa3243"
+    },
+    {
+      "path": "docs/pdf-products/NEXT-BATCH-APPROVAL.md",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "35bc1e300a45def7c5dea207ff7a56e581bd6896bb0037e15fe8eeaeeeb1d7f7"
+    },
+    {
+      "path": "docs/pdf-products/dev-first-batch-dry-run.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "291146a85ac66cc2ee41783ded437f0858fa8860b3433b9fced20b8a6c3a3cff"
+    },
+    {
+      "path": "docs/pdf-products/dev-next-batch-dry-run.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "c68268003dd385840ae86fce1d5a480b0aa1a45146077ef76eeb8270608ee3ac"
+    },
+    {
+      "path": "docs/pdf-products/remaining-114-dry-run.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "ac4c49ab28f421a6dcd5a3ba07b5576ee552ba9fb03293d470f1148506e3d199"
+    },
+    {
+      "path": "docs/pdf-products/remaining-114-import-results.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "fe4736c4bd81ff89fed42203bc2074f702d99692263d9d6dae0389c2831f357e"
+    },
+    {
+      "path": "docs/pdf-products/source-clear-products.csv",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "d4aa2f36ef3640912d77347952bd1402e5f8f270d4894a5f889ce27635fb9160"
+    },
+    {
+      "path": "docs/pdf-products/verification/browser-uat-results.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "91a3f0ae6c4413f2ac06c44bb45c5629978b5fb476811115f7441b763b7ca05d"
+    },
+    {
+      "path": "docs/pdf-products/verification/dashboard-failure.png",
+      "classification": "UNCERTAIN",
+      "action": "retained",
+      "evidence": "Historical failed-UAT evidence: distinct from successful results; retained pending evidence-retention decision. No active application import asserted.",
+      "sha256_before": "ad259c759062554e8262e0a75dd10f1747cf85c2f24fad3bc9c89502e03b7f68"
+    },
+    {
+      "path": "docs/pdf-products/verification/data-safety.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "b9165f931f989f2c0598221d145b105a5e8bc559d688a17381f8bf36b3796f82"
+    },
+    {
+      "path": "docs/pdf-products/verification/files-changed.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "f5600f2a5cdf07c2566d66d522f98e70d8a9ee3d89998b0ac0fcd27f536f0cc3"
+    },
+    {
+      "path": "docs/pdf-products/verification/final-complete/browser-uat-results.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "fafc64f2b727eacac68042fe849b33dfbcaf23cc0332380760632dc8130dfc74"
+    },
+    {
+      "path": "docs/pdf-products/verification/final-complete/mobile-uat.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "29eb1f44652ba747198ccaac2ee0b113a27b9ea8a74b37b39061aa3f3de04160"
+    },
+    {
+      "path": "docs/pdf-products/verification/final-model-check/browser-uat-results.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "1dd691d11b8f596ae0787c12bda3af513b207a3477813ba1a3aef0b3ef4d2a4f"
+    },
+    {
+      "path": "docs/pdf-products/verification/final-model-check/dashboard-failure.png",
+      "classification": "UNCERTAIN",
+      "action": "retained",
+      "evidence": "Historical failed-UAT evidence: distinct from successful results; retained pending evidence-retention decision. No active application import asserted.",
+      "sha256_before": "af4bd137cd3a34d2afd86e14a133fcbd1554138fc8f3d76fd4849498ecdf637d"
+    },
+    {
+      "path": "docs/pdf-products/verification/final-model-check/storefront-failure.png",
+      "classification": "UNCERTAIN",
+      "action": "retained",
+      "evidence": "Historical failed-UAT evidence: distinct from successful results; retained pending evidence-retention decision. No active application import asserted.",
+      "sha256_before": "cb9c3b8047859412e8abcaed51ad9ecefb4bd820c8849af4992e593d500d1836"
+    },
+    {
+      "path": "docs/pdf-products/verification/final/browser-uat-results.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "2f3ffe3f4e5e958c5b67d8a260a95f542dad67802287f15593b6c20a4b43ad42"
+    },
+    {
+      "path": "docs/pdf-products/verification/final/mobile-uat.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "29eb1f44652ba747198ccaac2ee0b113a27b9ea8a74b37b39061aa3f3de04160"
+    },
+    {
+      "path": "docs/pdf-products/verification/storefront-failure.png",
+      "classification": "UNCERTAIN",
+      "action": "retained",
+      "evidence": "Historical failed-UAT evidence: distinct from successful results; retained pending evidence-retention decision. No active application import asserted.",
+      "sha256_before": "935d0bf95da54c05420fb7c7fce8106bc652ef03fff335fcbfd9bd6c23c4ee7e"
+    },
+    {
+      "path": "docs/product-images/REPORT.md",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "c98f74ca5f7a59f1beeb2b777621d9ae04a41d01a8218aca6788840e71e83db5"
+    },
+    {
+      "path": "docs/product-images/candidates/rapiquick-dengue-igg-igm.webp",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "31bd51ec1caa7f3151e3f3e10883be6139316d7294a328f067d68e7207901e07"
+    },
+    {
+      "path": "docs/product-images/candidates/rapiquick-hbsag-label-review.webp",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "a34adb471b951ef56b8b2b1b5779b76b1503cc24045e790a83df7f2ce5697ae2"
+    },
+    {
+      "path": "docs/product-images/image-audit-and-plan.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "2bac8d59aae06a4ead9a8263a7b77bc33eb219d04163ba0c0250fc12adf0b9cf"
+    },
+    {
+      "path": "docs/product-images/image-update-results.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "a04005531bb6bad625b7517370a8b288545736412a15a758bcc933e1dcb277a5"
+    },
+    {
+      "path": "docs/product-images/underpads-live-gallery.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "3511ccab5af2da721f98b16432dc276175f3907ac4e887a25aeb62bc5b1f1fdb"
+    },
+    {
+      "path": "docs/product-images/verification/backend-regression.txt",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "e3f7c2190b834a02807ea580e848f45f2b7fe6e2798388e86d33fea7dadbbe3d"
+    },
+    {
+      "path": "docs/product-images/verification/change-audit.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "5437a7a52990a041e3d38f3a0c69d41793cb4d802cbfc342eff1a02c1d68d7e6"
+    },
+    {
+      "path": "docs/product-ui-cleanup/REPORT.md",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "c716f419ab11993cda0e654aef9587ce8f61f55e4a92d751df1e9aec02bf2b27"
+    },
+    {
+      "path": "docs/product-ui-cleanup/image-candidates/alpha-care-adult-diaper.webp",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "4bbc267310088614f562426bfc4e83c140438ea3e7b5683e4f11579731d97e17"
+    },
+    {
+      "path": "docs/product-ui-cleanup/image-candidates/alpha-care-underpads-front.webp",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "f88494cd1ee5a477684912082179e9d44a22358d7ebb78a3efb24b70719cc370"
+    },
+    {
+      "path": "docs/product-ui-cleanup/image-candidates/alpha-care-underpads-side.webp",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "508ba4381087d545406b51bd8f3b67aab5524dddd3f6a60043596ba83be57229"
+    },
+    {
+      "path": "docs/product-ui-cleanup/image-mapping-proposal.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "f880af4c0e81a88ec704dede57b3a119d2d78e87990c20942d3f3416d7b7e1cb"
+    },
+    {
+      "path": "docs/product-ui-cleanup/verification/browser-uat-results.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "1bf01ab3ff780d1c49c8aa613ca80e1cb5d6f369660a3d0ad3f20945a95432a4"
+    },
+    {
+      "path": "docs/product-ui-cleanup/verification/change-audit.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "70f5484d197453a60bb2e4d6f628090bd31fcc8bf12240eb4f7824346fafca61"
+    },
+    {
+      "path": "docs/product-ui-cleanup/verification/complete/browser-uat-results.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "37838f9b7eac65440417c9702b6d12be5723376296260bc2fb6c029970b072c1"
+    },
+    {
+      "path": "docs/product-ui-cleanup/verification/complete/dashboard-failure.png",
+      "classification": "UNCERTAIN",
+      "action": "retained",
+      "evidence": "Historical failed-UAT evidence: distinct from successful results; retained pending evidence-retention decision. No active application import asserted.",
+      "sha256_before": "f173b79e25ad51f3763c07f16768652340bf480f58c52ab46499ed10396a4d4c"
+    },
+    {
+      "path": "docs/product-ui-cleanup/verification/complete/employee-products-desktop.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "cc80bfcc7d12934fc586903820b0cbec7df0dfeaf86450f5b87f4208d8fb3a64"
+    },
+    {
+      "path": "docs/product-ui-cleanup/verification/complete/mobile-uat.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "9a9a5b13ca108063fc5468a14de68e7d2426d2b04e6f73e60c29573a6e3f529b"
+    },
+    {
+      "path": "docs/product-ui-cleanup/verification/complete/storefront-failure.png",
+      "classification": "UNCERTAIN",
+      "action": "retained",
+      "evidence": "Historical failed-UAT evidence: distinct from successful results; retained pending evidence-retention decision. No active application import asserted.",
+      "sha256_before": "f4e9bc584b03866ed9cbd660e568dc4364f1f568cdee8a0b7f8e895c8f0f5b32"
+    },
+    {
+      "path": "docs/product-ui-cleanup/verification/final-complete/browser-uat-results.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "a47331fe4c63e4db75c62df9c9f91fb07bd97820a49568e7b4e25ef4b0c3df2f"
+    },
+    {
+      "path": "docs/product-ui-cleanup/verification/final-complete/employee-products-desktop.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "6d2e9645919894130fed7aa3372dc2dddb31c1d1c7734c5c15e7df8d3f35c65b"
+    },
+    {
+      "path": "docs/product-ui-cleanup/verification/final-complete/employee-products-mobile.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "c7ea0e3ab980e941adf4bec13f7e57b042b1deafddd2525b4663a98584cc0fdc"
+    },
+    {
+      "path": "docs/product-ui-cleanup/verification/final-complete/mobile-uat.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "9a9a5b13ca108063fc5468a14de68e7d2426d2b04e6f73e60c29573a6e3f529b"
+    },
+    {
+      "path": "docs/product-ui-cleanup/verification/final/browser-uat-results.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "888b115593e711c1790f6164f507791dc40ad1e5f751284839e7d9214bf8cc06"
+    },
+    {
+      "path": "docs/product-ui-cleanup/verification/final/dashboard-failure.png",
+      "classification": "UNCERTAIN",
+      "action": "retained",
+      "evidence": "Historical failed-UAT evidence: distinct from successful results; retained pending evidence-retention decision. No active application import asserted.",
+      "sha256_before": "1fa864cf0be3eb6b961c2fab4401b2edc7cd9038650eb92ccead9b669f591ff9"
+    },
+    {
+      "path": "docs/product-ui-cleanup/verification/final/employee-products-desktop.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "4827180f881b7c3aef3b66f05f870f7eb2491264323e89992c5805571648bb0b"
+    },
+    {
+      "path": "docs/product-ui-cleanup/verification/final/employee-products-mobile.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "2c7d964dbe369226bcf20eeb3ba02d418674187ce22e4275d646444d9155eabe"
+    },
+    {
+      "path": "docs/product-ui-cleanup/verification/final/mobile-live-checks.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "b215e94b564d49e5435e0b69b2d7304d3f926c86d56327afacd1647e0cb95302"
+    },
+    {
+      "path": "docs/product-ui-cleanup/verification/final/mobile-uat.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "4668fca6ccf59d626ef78bde7ac518243e0ba3ab96b9ae9a541f210e1139f0d1"
+    },
+    {
+      "path": "docs/product-ui-cleanup/verification/final/storefront-category-mobile.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "b7b92eb10396366bc68d7cf85a1a37afaaf7ef08f8fc064f4ec071259fa02976"
+    },
+    {
+      "path": "docs/product-ui-cleanup/verification/final/storefront-failure.png",
+      "classification": "UNCERTAIN",
+      "action": "retained",
+      "evidence": "Historical failed-UAT evidence: distinct from successful results; retained pending evidence-retention decision. No active application import asserted.",
+      "sha256_before": "cb9c3b8047859412e8abcaed51ad9ecefb4bd820c8849af4992e593d500d1836"
+    },
+    {
+      "path": "docs/staging/backend.env.example",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "baefde5ef69e7068e30465557187bcfc2537680b79411ad7025705a5b2984220"
+    },
+    {
+      "path": "docs/staging/dashboard.env.example",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "e324050506bcc070fb591fe66e97063c240e7fa80fb247de23cfb716f356eca1"
+    },
+    {
+      "path": "docs/staging/recovery-verification/browser-uat-results.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "e51616f71f798cba668a4d3f637e04c80470e6a72d84d66345e8a381f4a5d9eb"
+    },
+    {
+      "path": "docs/staging/recovery-verification/mobile-uat.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "29eb1f44652ba747198ccaac2ee0b113a27b9ea8a74b37b39061aa3f3de04160"
+    },
+    {
+      "path": "docs/staging/storefront.env.example",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Historical/current deployment, UAT and approval instructions; indexed rather than deleted or merged destructively.",
+      "sha256_before": "a16d5b6899cfedfed79764399d499ea69ed44b470b8afd904f988a2458c80ed2"
+    },
+    {
+      "path": "docs/uat/browser-uat-results.json",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "662a9c66393c714b78dd2240f3e93420c02377871381b12d0b1cd508af27b092"
+    },
+    {
+      "path": "docs/uat/desktop-product-gallery.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "03ef2c8657bb91a479adf9646a0e238c4e12393516f0c153ee46ee39df723c47"
+    },
+    {
+      "path": "docs/uat/mobile-product-gallery.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "a164e924629a60e9857accf1658c3713efabb8a0733aeeaa1308040490bf7eb5"
+    },
+    {
+      "path": "docs/uat/mobile-uat.png",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Source/review/import/approval or UAT evidence. Tests and tools read brochure manifests, mappings, image plan and exact source/candidate paths. No media deduplication or path migration.",
+      "sha256_before": "29eb1f44652ba747198ccaac2ee0b113a27b9ea8a74b37b39061aa3f3de04160"
+    },
+    {
+      "path": "frontend/src/BrochureReview.tsx",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Not mounted in dashboard, but retained deployment-config test reads BrochureReview.tsx; component imports CSS/mapping. Deleting requires test/workflow retirement outside this evidence-only cleanup.",
+      "sha256_before": "71ea614e69ad441c3b923f014538a3288b8e3b24f420253233813a6c9273eb67"
+    },
+    {
+      "path": "frontend/src/brochure-review.css",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Not mounted in dashboard, but retained deployment-config test reads BrochureReview.tsx; component imports CSS/mapping. Deleting requires test/workflow retirement outside this evidence-only cleanup.",
+      "sha256_before": "6a5a998729eb8601b42eefd6f2700f20f1905f8660298d66e289e458f72c6e8d"
+    },
+    {
+      "path": "js/admin.js",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Referenced/copied by retained root admin or storefront/scripts/copy-admin.mjs. Active Next brand assets are independent; old pipeline still needs these originals.",
+      "sha256_before": "bf1de6095efd2bd3d4b0d1985c0bdd20b1f1b389713d63929757888eaf17d6f4"
+    },
+    {
+      "path": "js/api.js",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Referenced/copied by retained root admin or storefront/scripts/copy-admin.mjs. Active Next brand assets are independent; old pipeline still needs these originals.",
+      "sha256_before": "5240153f8529d0d0e5ed07cfca3b4ceecb23d1e1aabacf31418438ecb116875c"
+    },
+    {
+      "path": "js/config.js",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Referenced/copied by retained root admin or storefront/scripts/copy-admin.mjs. Active Next brand assets are independent; old pipeline still needs these originals.",
+      "sha256_before": "613d0dfcd8ec94bbe2a2c6931df7d72f70e67314955b0075f0a0e6767c102ec0"
+    },
+    {
+      "path": "js/mock-backend.js",
+      "classification": "MUST KEEP",
+      "action": "retained",
+      "evidence": "Referenced/copied by retained root admin or storefront/scripts/copy-admin.mjs. Active Next brand assets are independent; old pipeline still needs these originals.",
+      "sha256_before": "9957dab1564a58662e3e57f92e13fd8412788552ae316531e29164d7ba867f7d"
+    },
+    {
+      "path": "legacy-storefront/README.txt",
+      "classification": "SAFE TO REMOVE",
+      "action": "removed",
+      "evidence": "Archive README explicitly marked obsolete. No incoming runtime/import/build references; paths in the archive do not run from that directory. Company content and original images remain in storefront/src and approved Next assets. No staged/unstaged edits.",
+      "sha256_before": "8f45174810602db2c4b053bf5d3c3281100bd77840c0a44b6a8235737edd3474"
+    },
+    {
+      "path": "legacy-storefront/data.js",
+      "classification": "UNCERTAIN",
+      "action": "retained",
+      "evidence": "Archived fmtPHP implementation relates to missing js/data.js expected by root and copied admin. Retain until legacy admin is formally retired.",
+      "sha256_before": "e475acc00cd100da775dca04e2c5ec41af80868a960d78f00d0c7d700d9d407d"
+    },
+    {
+      "path": "legacy-storefront/index.html",
+      "classification": "SAFE TO REMOVE",
+      "action": "removed",
+      "evidence": "Archive README explicitly marked obsolete. No incoming runtime/import/build references; paths in the archive do not run from that directory. Company content and original images remain in storefront/src and approved Next assets. No staged/unstaged edits.",
+      "sha256_before": "7dc9c9748e652e87dfb2b66d9733c381d1226e7c28e88bffca6af164383ef9bd"
+    },
+    {
+      "path": "legacy-storefront/main.js",
+      "classification": "SAFE TO REMOVE",
+      "action": "removed",
+      "evidence": "Archive README explicitly marked obsolete. No incoming runtime/import/build references; paths in the archive do not run from that directory. Company content and original images remain in storefront/src and approved Next assets. No staged/unstaged edits.",
+      "sha256_before": "284ec1b60436541cbebaa42b69bc61519347218b56689353b86a1aff343ecc92"
+    },
+    {
+      "path": "site/admin.html",
+      "classification": "UNCERTAIN",
+      "action": "retained",
+      "evidence": "Generated legacy build and copied assets; internally referenced by site/index.html/admin.html. No repository evidence establishes whether externally published.",
+      "sha256_before": "200fcd35bb2e2e7c854e0071604ba80de546954b50c2bc4f715cd3e1e39d07c7"
+    },
+    {
+      "path": "site/assets/ceo.png",
+      "classification": "UNCERTAIN",
+      "action": "retained",
+      "evidence": "Generated legacy build and copied assets; internally referenced by site/index.html/admin.html. No repository evidence establishes whether externally published.",
+      "sha256_before": "b8dea68a8af121162cd4c2f1c12df81797f4a30c9684d6e8ece0daa42d0d87ba"
+    },
+    {
+      "path": "site/assets/iso_logo.png",
+      "classification": "UNCERTAIN",
+      "action": "retained",
+      "evidence": "Generated legacy build and copied assets; internally referenced by site/index.html/admin.html. No repository evidence establishes whether externally published.",
+      "sha256_before": "00d2609eb042f906dcbe2316d45697e128524cc4c872955d2fd13c239bb07c41"
+    },
+    {
+      "path": "site/assets/logo-mark.png",
+      "classification": "UNCERTAIN",
+      "action": "retained",
+      "evidence": "Generated legacy build and copied assets; internally referenced by site/index.html/admin.html. No repository evidence establishes whether externally published.",
+      "sha256_before": "8f750a30cea42f9d0b6b26a1c5753bec7b24086fdee2e3fe92757b6b15040eaa"
+    },
+    {
+      "path": "site/assets/logo.png",
+      "classification": "UNCERTAIN",
+      "action": "retained",
+      "evidence": "Generated legacy build and copied assets; internally referenced by site/index.html/admin.html. No repository evidence establishes whether externally published.",
+      "sha256_before": "26453272b5438e85ab99236c609f7b4f1d1a6fc010d415125e6d00ea08a8b716"
+    },
+    {
+      "path": "site/css/styles.css",
+      "classification": "UNCERTAIN",
+      "action": "retained",
+      "evidence": "Generated legacy build and copied assets; internally referenced by site/index.html/admin.html. No repository evidence establishes whether externally published.",
+      "sha256_before": "b80533e65eb10c72a0083e56eac4f7a47975a970fa937e4a62f376dc17d898d8"
+    },
+    {
+      "path": "site/index.html",
+      "classification": "UNCERTAIN",
+      "action": "retained",
+      "evidence": "Generated legacy build and copied assets; internally referenced by site/index.html/admin.html. No repository evidence establishes whether externally published.",
+      "sha256_before": "a833756c494d03770dd95ff26072874130dc13f08c68de38c04aebbf0017e76a"
+    },
+    {
+      "path": "site/js/admin.js",
+      "classification": "UNCERTAIN",
+      "action": "retained",
+      "evidence": "Generated legacy build and copied assets; internally referenced by site/index.html/admin.html. No repository evidence establishes whether externally published.",
+      "sha256_before": "bf1de6095efd2bd3d4b0d1985c0bdd20b1f1b389713d63929757888eaf17d6f4"
+    },
+    {
+      "path": "site/js/api.js",
+      "classification": "UNCERTAIN",
+      "action": "retained",
+      "evidence": "Generated legacy build and copied assets; internally referenced by site/index.html/admin.html. No repository evidence establishes whether externally published.",
+      "sha256_before": "5240153f8529d0d0e5ed07cfca3b4ceecb23d1e1aabacf31418438ecb116875c"
+    },
+    {
+      "path": "site/js/config.js",
+      "classification": "UNCERTAIN",
+      "action": "retained",
+      "evidence": "Generated legacy build and copied assets; internally referenced by site/index.html/admin.html. No repository evidence establishes whether externally published.",
+      "sha256_before": "613d0dfcd8ec94bbe2a2c6931df7d72f70e67314955b0075f0a0e6767c102ec0"
+    },
+    {
+      "path": "site/js/mock-backend.js",
+      "classification": "UNCERTAIN",
+      "action": "retained",
+      "evidence": "Generated legacy build and copied assets; internally referenced by site/index.html/admin.html. No repository evidence establishes whether externally published.",
+      "sha256_before": "9957dab1564a58662e3e57f92e13fd8412788552ae316531e29164d7ba867f7d"
+    },
+    {
+      "path": "site/static/ceo-BVFsIQ7U.png",
+      "classification": "UNCERTAIN",
+      "action": "retained",
+      "evidence": "Generated legacy build and copied assets; internally referenced by site/index.html/admin.html. No repository evidence establishes whether externally published.",
+      "sha256_before": "b8dea68a8af121162cd4c2f1c12df81797f4a30c9684d6e8ece0daa42d0d87ba"
+    },
+    {
+      "path": "site/static/index-CFDRxSQq.css",
+      "classification": "UNCERTAIN",
+      "action": "retained",
+      "evidence": "Generated legacy build and copied assets; internally referenced by site/index.html/admin.html. No repository evidence establishes whether externally published.",
+      "sha256_before": "99ab22afc2ab55f47966bbcf7b1eab7f2bf838504d917a58345c12b30c70e5db"
+    },
+    {
+      "path": "site/static/index-CmN22FRi.js",
+      "classification": "UNCERTAIN",
+      "action": "retained",
+      "evidence": "Generated legacy build and copied assets; internally referenced by site/index.html/admin.html. No repository evidence establishes whether externally published.",
+      "sha256_before": "54f3d265b9dd06b161805210ad97842ec0a7ffc874cebcf1e79ead679d7570eb"
+    },
+    {
+      "path": "site/static/iso_logo-DFPdTY5H.png",
+      "classification": "UNCERTAIN",
+      "action": "retained",
+      "evidence": "Generated legacy build and copied assets; internally referenced by site/index.html/admin.html. No repository evidence establishes whether externally published.",
+      "sha256_before": "00d2609eb042f906dcbe2316d45697e128524cc4c872955d2fd13c239bb07c41"
+    },
+    {
+      "path": "site/static/logo-mark-CjJmYcjR.png",
+      "classification": "UNCERTAIN",
+      "action": "retained",
+      "evidence": "Generated legacy build and copied assets; internally referenced by site/index.html/admin.html. No repository evidence establishes whether externally published.",
+      "sha256_before": "8f750a30cea42f9d0b6b26a1c5753bec7b24086fdee2e3fe92757b6b15040eaa"
+    },
+    {
+      "path": "storefront/.gitignore",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "d50ab07e11fa4bf3b1c7c3312e1d7baeab56cca756832ccf40476823ad2a38b7"
+    },
+    {
+      "path": "storefront/.oxlintrc.json",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "9a11085b48d1ea2c1cdd18c3438a669abcc635f5586019e5df87161369af70ef"
+    },
+    {
+      "path": "storefront/README.md",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "3fde43cae789b2a7011b266f6925d928e52d99012c7673141a22952eeef7a3c0"
+    },
+    {
+      "path": "storefront/index.html",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "95afee8273cb5dcf0393c2f61cc4163d65e2decc8fd04e0445d397335fde1d93"
+    },
+    {
+      "path": "storefront/package-lock.json",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "0c157929c78ee0c2f47a83934b8206f014779f9aec8c51503563838a26609c96"
+    },
+    {
+      "path": "storefront/package.json",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "ada4fb3b55cfefe5293ddba4fc3a7bf44e75cef8838bdf5fa5d0f1ec710d2c77"
+    },
+    {
+      "path": "storefront/scripts/copy-admin.mjs",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "ab2827ec0cf932a48ed862b8fbcaa07b7b67b9edeefdbc98c4b8488b3e22ce21"
+    },
+    {
+      "path": "storefront/src/App.jsx",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "f6a3aed0eb3c2ae6b3708f15d8ca492e7030a29cd4f7534a9ab6900805f0e7e9"
+    },
+    {
+      "path": "storefront/src/api.js",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "6ed5a6d605d68df76f4cdab4cabdcc5bdff22ce2b24e91a5e876d3bc03860741"
+    },
+    {
+      "path": "storefront/src/assets/ceo.png",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "b8dea68a8af121162cd4c2f1c12df81797f4a30c9684d6e8ece0daa42d0d87ba"
+    },
+    {
+      "path": "storefront/src/assets/iso_logo.png",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "00d2609eb042f906dcbe2316d45697e128524cc4c872955d2fd13c239bb07c41"
+    },
+    {
+      "path": "storefront/src/assets/logo-mark.png",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "8f750a30cea42f9d0b6b26a1c5753bec7b24086fdee2e3fe92757b6b15040eaa"
+    },
+    {
+      "path": "storefront/src/assets/logo.png",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "26453272b5438e85ab99236c609f7b4f1d1a6fc010d415125e6d00ea08a8b716"
+    },
+    {
+      "path": "storefront/src/components/CartDrawer.jsx",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "299490367bd77d830cd3d4a6b9979eed4898293bc8440eae6326965c6d3432ef"
+    },
+    {
+      "path": "storefront/src/components/Footer.jsx",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "e8ec45ee2bf805d1e94c7b998271b52b1d3c8e0514ca9f2f2ed1382c5db242fe"
+    },
+    {
+      "path": "storefront/src/components/Header.jsx",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "ae989a55e5feaf8da98db0028cd72b3c83583357647d9a6b8ee1a2f5ccc6b9f7"
+    },
+    {
+      "path": "storefront/src/components/Layout.jsx",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "f49f937701cf750ba3ca4300f643505fb9a3a1e48d5c3e8fdcf868ca13909585"
+    },
+    {
+      "path": "storefront/src/components/PageHero.jsx",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "61146a5187af4aee37b984e2d2c718d5cf7d77f096f35d24a1263db5fd037974"
+    },
+    {
+      "path": "storefront/src/components/Pagination.jsx",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "808122edf18394e2f9115a4d54280c50f96ebc34417f185330fcd93814e88bb8"
+    },
+    {
+      "path": "storefront/src/components/ProductModal.jsx",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "eaa4ec3ec0c7b79588c241a25df9452540bacb5c2cb9adc88462f07b23f36903"
+    },
+    {
+      "path": "storefront/src/config.js",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "f3ee34d73395b209073bdb879ba852c460f44ef3904eca92ef8881c50f060233"
+    },
+    {
+      "path": "storefront/src/context/AppContext.jsx",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "b8ed7bf3a300130f57e3008c5c731cc33a29baeabfd641208339b879a4eedeb6"
+    },
+    {
+      "path": "storefront/src/data.js",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "4fd9195b9e3e25935042f9d42f7ce222a206b674aeb3f789a1778897a99f51a6"
+    },
+    {
+      "path": "storefront/src/main.jsx",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "5200d77b4bab402f27a92cbae1750aaf2c2fd512f03e48c0da9859fa9d0172f4"
+    },
+    {
+      "path": "storefront/src/mock-backend.js",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "117a3d5eed5c6fb287f0ccc460563c13e7a5715b47e668ea6464b67d6aecbcfc"
+    },
+    {
+      "path": "storefront/src/pages/About.jsx",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "ce10ae90d9dd9aa3e95b323594a477bcea3700177cda9a542c5a60a51c21e605"
+    },
+    {
+      "path": "storefront/src/pages/Catalog.jsx",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "d25f5bca52d1756cb9ec17e9ec1e9b69f6745787aa685812506dd75a630a1763"
+    },
+    {
+      "path": "storefront/src/pages/Contact.jsx",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "9ac4228b1b0f021d598d801a9b8b5ec494558ce0bfcc0ebec264ded6c2e34228"
+    },
+    {
+      "path": "storefront/src/pages/Home.jsx",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "96f1d9ca03679da865686a87473a37be4e291412cbf06d4a3d34fd5db792683a"
+    },
+    {
+      "path": "storefront/src/pages/Leadership.jsx",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "d601c6f98b19c396dd7b6eff4faf78a7876dd28eb59185b75b784ac40db5c4e8"
+    },
+    {
+      "path": "storefront/src/pages/Locations.jsx",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "fba9dcb1b94ad755b55b9b7c1fef1903489d3d74eff848250693b7926b271eeb"
+    },
+    {
+      "path": "storefront/src/pages/Mission.jsx",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "365b359f72455a8a0ad7a080a59766755feb08d7ee982b1b1575769c1e6ead04"
+    },
+    {
+      "path": "storefront/src/styles.css",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "e2d16a49cc15d16ef95c0d4bd551ccb149bd4f2b896e15da07af6db5ecabd54c"
+    },
+    {
+      "path": "storefront/vite.config.js",
+      "classification": "NEEDS MIGRATION",
+      "action": "retained",
+      "evidence": "Complete old React build links to admin.html, uses HashRouter URLs and mock API fallback; writes site with emptyOutDir then copies admin.html/js/css/assets. Source/provenance and URL retirement remain unresolved.",
+      "sha256_before": "8addef963dd97e5d38dfce10c6332f12b3974806cffb962f8fcc3f5da4efc7a2"
+    },
+    {
+      "path": "frontend/node_modules/",
+      "classification": "SAFE TO REMOVE",
+      "action": "retained locally; ignored/hidden, not deleted",
+      "evidence": "Generated dependencies/build/cache outputs are regenerable; local builds, preview and tests need them. User requested Explorer exclusions without deleting dependencies. Tracked site output has a separate hosting hold."
+    },
+    {
+      "path": "storefront-next/node_modules/",
+      "classification": "SAFE TO REMOVE",
+      "action": "retained locally; ignored/hidden, not deleted",
+      "evidence": "Generated dependencies/build/cache outputs are regenerable; local builds, preview and tests need them. User requested Explorer exclusions without deleting dependencies. Tracked site output has a separate hosting hold."
+    },
+    {
+      "path": "storefront/node_modules/",
+      "classification": "SAFE TO REMOVE",
+      "action": "retained locally; ignored/hidden, not deleted",
+      "evidence": "Generated dependencies/build/cache outputs are regenerable; local builds, preview and tests need them. User requested Explorer exclusions without deleting dependencies. Tracked site output has a separate hosting hold."
+    },
+    {
+      "path": "backend/.venv/",
+      "classification": "SAFE TO REMOVE",
+      "action": "retained locally; ignored/hidden, not deleted",
+      "evidence": "Generated dependencies/build/cache outputs are regenerable; local builds, preview and tests need them. User requested Explorer exclusions without deleting dependencies. Tracked site output has a separate hosting hold."
+    },
+    {
+      "path": "frontend/dist/",
+      "classification": "SAFE TO REMOVE",
+      "action": "retained locally; ignored/hidden, not deleted",
+      "evidence": "Generated dependencies/build/cache outputs are regenerable; local builds, preview and tests need them. User requested Explorer exclusions without deleting dependencies. Tracked site output has a separate hosting hold."
+    },
+    {
+      "path": "storefront-next/.next/",
+      "classification": "SAFE TO REMOVE",
+      "action": "retained locally; ignored/hidden, not deleted",
+      "evidence": "Generated dependencies/build/cache outputs are regenerable; local builds, preview and tests need them. User requested Explorer exclusions without deleting dependencies. Tracked site output has a separate hosting hold."
+    },
+    {
+      "path": "**/__pycache__/",
+      "classification": "SAFE TO REMOVE",
+      "action": "retained locally; ignored/hidden, not deleted",
+      "evidence": "Generated dependencies/build/cache outputs are regenerable; local builds, preview and tests need them. User requested Explorer exclusions without deleting dependencies. Tracked site output has a separate hosting hold."
+    },
+    {
+      "path": "**/.pytest_cache/",
+      "classification": "SAFE TO REMOVE",
+      "action": "retained locally; ignored/hidden, not deleted",
+      "evidence": "Generated dependencies/build/cache outputs are regenerable; local builds, preview and tests need them. User requested Explorer exclusions without deleting dependencies. Tracked site output has a separate hosting hold."
+    },
+    {
+      "path": "**/*.tsbuildinfo",
+      "classification": "SAFE TO REMOVE",
+      "action": "retained locally; ignored/hidden, not deleted",
+      "evidence": "Generated dependencies/build/cache outputs are regenerable; local builds, preview and tests need them. User requested Explorer exclusions without deleting dependencies. Tracked site output has a separate hosting hold."
+    }
+  ]
+}

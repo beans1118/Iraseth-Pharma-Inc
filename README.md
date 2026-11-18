@@ -1,57 +1,50 @@
-# Iraseth Pharma — Inventory Management System
+# Iraseth Pharma
 
-Iraseth Pharma includes a Flask/MongoDB backend, a React/TypeScript employee dashboard, and a separate React customer storefront.
+The current system uses a Flask/MongoDB API, a React employee dashboard and a Next.js public storefront.
 
-## Project structure
-
-- `backend/` — Flask APIs, authentication, batch inventory, orders, invoices, support, alerts, analytics, and tests
-- `frontend/` — employee dashboard (React, TypeScript, Vite)
-- `storefront/` — customer-facing React application
-- `legacy-storefront/`, `site/`, and root `admin.html` — historical or deployment artifacts; **do not delete or deploy without verifying their use**
+| Directory | Purpose | Planned staging host |
+| --- | --- | --- |
+| `backend/` | API, authentication, inventory, inquiries, orders, invoices, analytics and tests | Render |
+| `frontend/` | Employee dashboard: React, TypeScript and Vite | Vercel |
+| `storefront-next/` | Public Products, My Order and reference tracking: Next.js | Vercel |
+| `docs/` | Deployment/UAT instructions, product source evidence, import metadata and reports | Brochure files are required by backend tools |
 
 ## Local development
 
-Requirements: Python 3.12, Node.js/npm, and MongoDB with a working replica set `rs0`. Configure local environment variables without committing secrets.
+Use Python 3.12, Node.js 24 and local MongoDB with replica set `rs0`. Keep existing environment files private; example files document settings. See each application's README and [the documentation index](docs/README.md).
 
-From `backend/` (in the activated virtual environment):
+From `backend/`, with its virtual environment activated:
 
 ```powershell
 python app.py
-python -m pytest tests/ -v
-python -m flask --app app routes
 ```
 
 From `frontend/`:
 
 ```powershell
-npm install
-npm run dev
-npm run build
+npm.cmd ci
+npm.cmd run dev
 ```
 
-From `storefront/`:
+From `storefront-next/`:
 
 ```powershell
-npm install
-npm run dev
-npm run build
+npm.cmd ci
+npm.cmd run dev
 ```
 
-**Caution:** Before running the storefront build, review `storefront/vite.config.js` and output destinations; earlier configurations generated files in `site/`. This repository has legacy UI artifacts that may still be part of deployment.
+The dashboard's default Vite port is 5173 and Next.js uses 3000. Review configured API origins before running. These commands do not initialize or seed a database.
 
-## Current access policy
+## Verification and data safety
 
-- Superadmin: broad administrative access subject to stock safety and audit rules.
-- Admin (Board of Directors): read-only.
-- Sub-Admin: may create/edit products, receive/release stock through controlled batch operations, and handle order fulfillment; cannot permanently delete products or manage employee accounts.
-- Invoice and customer-message staff permissions still require final stakeholder approval.
+Automated record-changing tests must use isolated local `iraseth_test`. The backend test configuration refuses other targets. Do not seed, migrate or import into `iraseth_dev` as a test setup. Product creation does not add stock: receiving uses batches, and provisional PDF identities block stock operations until genuine SKU and unit confirmation.
 
-## Inventory safety
+Run the [current verification procedure](docs/GITHUB-REVIEW-CHECKLIST.md). Latest cleanup results and exact retained legacy dependencies are in [the repository cleanup report](docs/REPOSITORY-CLEANUP-REPORT.md). Build checks do not establish external SMTP delivery or cloud readiness by themselves.
 
-Catalog creation does not add physical stock. Receiving uses batch/lot records. Inventory allocation is expiry-aware; reservations, movement logs, and transaction integrity must not be bypassed. Use `iraseth_test` for automated tests; do not run destructive seeding or migrations against live data.
+## Deployment and retained legacy files
 
-## Release status
+Follow [the staging deployment plan](docs/STAGING-DEPLOYMENT-PLAN.md) for the Render root/start command, separate Vercel project roots, isolated Atlas database, secrets, SMTP and health checks. Deployment, provisioning, commits and pushes require separate authorization.
 
-This is an actively developed project, not a certified production deployment. Backend automated tests were reported passing by the project owner after Phase 7; a full role-by-role user acceptance test and deployment/security review are pending.
+`storefront/` is the old React app, not the active customer storefront. Its build clears/recreates `site/` and copies root `admin.html`, `js/`, `css/` and `assets/`. That connected legacy group remains until static-host ownership and URL retirement are resolved. Do not run its build or select those folders as the new deployment roots. `legacy-storefront/data.js` remains for the unresolved old admin dependency. Company-source content and imagery are retained.
 
-See `docs/GITHUB-REVIEW-CHECKLIST.md` for the staged-file review and human testing handoff.
+Superadmin and Sub-admin writes remain subject to backend permissions and stock safeguards; Board Admin is read-only. Stakeholder UAT and permissions sign-off remain required before production.

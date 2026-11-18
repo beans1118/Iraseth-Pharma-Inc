@@ -1,0 +1,2 @@
+# Optional, offline document-review tooling. Not required by the Flask server.
+pypdfium2>=4,<6

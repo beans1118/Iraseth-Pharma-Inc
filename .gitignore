@@ -13,13 +13,17 @@ __pycache__/
 .env
 .env.*
 !.env.example
+!backend/.env.test.example
 
 # Node.js dependencies and build artifacts
 node_modules/
 dist/
+.next/
+.vercel/
 
 # Editor and operating system files
-.vscode/
+.vscode/*
+!.vscode/settings.json
 .DS_Store
 Thumbs.db
 # Generated output and local-only files
@@ -31,3 +35,27 @@ htmlcov/
 *.tmp
 *.zip
 *.rar
+
+# Local database exports, backups and private key material
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3-*
+*.bson
+*.bson.gz
+*.pem
+*.key
+*.p12
+*.pfx
+/backend/backups/
+/dump/
+
+# Regenerable browser artifacts; keep source media and JSON audit summaries
+test-results/
+playwright-report/
+/docs/**/verification/**/*.png
+/docs/uat/*.png
+/docs/repository-cleanup-verification/*.png
+/docs/product-images/underpads-live-gallery.png
+/docs/final-commit-verification/*.png

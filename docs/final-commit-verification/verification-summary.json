@@ -1,0 +1,856 @@
+{
+  "baseline": {
+    "collections": {
+      "backups": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "brochure_imports": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "catalog_events": {
+        "count": 130,
+        "sha256": "c90ff47937c0a3335e2a3b23c3f7e42b4bea960572d9170a5060333208681b7b"
+      },
+      "communication_requests": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "counters": {
+        "count": 1,
+        "sha256": "5d7de16ecf79a6565d6bcc68d0b7297a581ab795e086458bad678f4c8ca991a1"
+      },
+      "inventory_adjustments": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "inventory_batches": {
+        "count": 3,
+        "sha256": "1a5fb025b696f00df5aa480399a2a23fda30ecbe6ec0047b0674cd22a87a5533"
+      },
+      "inventory_logs": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "inventory_operations": {
+        "count": 5,
+        "sha256": "4210f801b9c5bf650e8173612e4e5704f78c005d2c4e3e0b9e209f24801d47c3"
+      },
+      "invoice_events": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "invoices": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "orders": {
+        "count": 2,
+        "sha256": "ccce3bbb7de1c96eb586dd6a6500302d0d170294d23a538b1c672c55a7bddb86"
+      },
+      "products": {
+        "count": 127,
+        "sha256": "e54d75099eb7c3c3ab7c3603de01edaaae0f5d2d4abf0f7c445a463cbe5a7c18"
+      },
+      "quotation_events": {
+        "count": 6,
+        "sha256": "af1a22e11b9064503d7836e5a0a7632c037fea83f475d327177cf26412f00c63"
+      },
+      "quotations": {
+        "count": 2,
+        "sha256": "6d2fe55ddb7a8d8b7fed173a785ad20b3e61e777e6112dacb067d2df6d8d4549"
+      },
+      "rate_limits": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "sessions": {
+        "count": 6,
+        "sha256": "1967f153e78a59f4843dd05998612279251c19f858e6c65b1d291acd539d6cba"
+      },
+      "stock_movements": {
+        "count": 4,
+        "sha256": "4e833697069b689447944d7a1592b4206e0ad8e20cc7e9bde0799b47a1a5f611"
+      },
+      "stock_reservations": {
+        "count": 1,
+        "sha256": "d02f813bab7064904b6996c55d44afb9e57adc35d6b4916a47c39754fbf846ea"
+      },
+      "support_challenges": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "support_messages": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "support_rate_limits": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "support_sessions": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "support_threads": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "system_metadata": {
+        "count": 1,
+        "sha256": "2f5554ea74ff03c570e2aa2e184e7e18ffcd9ea11ccd2544d0fe5d03d0abc2bf"
+      },
+      "tracking_challenges": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "users": {
+        "count": 1,
+        "sha256": "9e936eab0ba49086e34b2459f527a5455c55bd496c84283c657311f676092429"
+      }
+    },
+    "indexes": {
+      "backups": "b52d3d3d41590b9e5f83f94209518da9ce95343d3ad3d9cbe20e97c6474f8f26",
+      "brochure_imports": "647d8f28ccf8523845c35484ce187f3bd57573ba75092f0478c4d90d4e1baddb",
+      "catalog_events": "66b8f8db3f5dfb4ca3264a65f8546e06d5d92dbd4ab1d618bb8a560e9e3e251b",
+      "communication_requests": "625fe58ac5acbf13d7bac8e06962de8466c76de8a58cf607a31691356ecaa558",
+      "counters": "36e25f60f178ba617706dc5a950742d0c06feeab6c27d1936230f0178bc91665",
+      "inventory_adjustments": "f24c90aa8b9deb712fcfbbcbbf0975410b355f81cb80d68c4940ef141152537b",
+      "inventory_batches": "fc8a6f1149acaa582167922da27bf96be15c83a4c79c610ae59f33544a55deb1",
+      "inventory_logs": "e34047d3b979aa6f7c7c0714a3267a53b5be6638f499947c26f494d496b7ea9a",
+      "inventory_operations": "647d8f28ccf8523845c35484ce187f3bd57573ba75092f0478c4d90d4e1baddb",
+      "invoice_events": "2fee0aa8a049574c1a4ddf6f894ec904c97e261582227507811404742260d9a9",
+      "invoices": "358f24a277d9fbf2ae8b38ce03ebf0904c98b24c120c325105c02b9c5c3ce957",
+      "orders": "cb8d7b5d5689d62c09f50e93d9e2c6ca9fbc5fd944a05f2cbe99c8ca640074de",
+      "products": "a860b63c95568166bec30c434c8cc5cc9f92739c4cb3a41f130853d91d207a29",
+      "quotation_events": "e5401fee6345ee5dfddebcba7805c159f173bbe7601f191f635ad59c3f16c0ab",
+      "quotations": "0e7ece2ed82b4decf941e607e35c73aee48e91fe0aa8853e000c01a7d3bf4aa0",
+      "rate_limits": "adb450035d1a2a3f28dd2a1785a63f70bf2aedb186847af221805bc20300d028",
+      "sessions": "19062d710d1cd55e51a348a8e260459a86703109787b33e4450a7e2a41a1ee92",
+      "stock_movements": "66b8f8db3f5dfb4ca3264a65f8546e06d5d92dbd4ab1d618bb8a560e9e3e251b",
+      "stock_reservations": "c134ad35c491e794d37d31ac020b68f7b79520d38e90d1d035442ed21c80e5d1",
+      "support_challenges": "679bb16d548a29362e5214d7747fdbcf782261a5faa7165b4b6418ec3dc9b75f",
+      "support_messages": "07fc2f043867030158fdaf90dc67b3ede22774f6ed70262a2c2eaf63bce94261",
+      "support_rate_limits": "adb450035d1a2a3f28dd2a1785a63f70bf2aedb186847af221805bc20300d028",
+      "support_sessions": "e4530b82f0f81936a58d49cacf55de32484034d6bad0eff7bf3c0f0d09686027",
+      "support_threads": "5ae29bf44bf29ba5a29b7de1a70e9cf750d9942de544f691cb7647ee00a271d6",
+      "system_metadata": "36e25f60f178ba617706dc5a950742d0c06feeab6c27d1936230f0178bc91665",
+      "tracking_challenges": "87ff9307f1afd7b257227480abc061aec83578b2be7092ee15672d19ed74ddbd",
+      "users": "f730b5e387b33b58fd7bcc6a213b83e08ac3559fcb103b1cdf1679f8d17d58b5"
+    },
+    "files": {
+      ".gitignore": "dad4301836cb21d067fb1ed3bdbd960dfd6bfa53d048fccc9284d5486b846e66",
+      ".vscode/settings.json": "f30f24048ebbcf36ae8bf246105885e2b8e5a6ea5bf84dd006b8adbafff7bd68",
+      "README.md": "e1e7d76ef89342ad4985134a1874e15b1505c15cd1bd359a7f9ca798e09bec28",
+      "admin.html": "200fcd35bb2e2e7c854e0071604ba80de546954b50c2bc4f715cd3e1e39d07c7",
+      "assets/ceo.png": "b8dea68a8af121162cd4c2f1c12df81797f4a30c9684d6e8ece0daa42d0d87ba",
+      "assets/iso_logo.png": "00d2609eb042f906dcbe2316d45697e128524cc4c872955d2fd13c239bb07c41",
+      "assets/logo-mark.png": "8f750a30cea42f9d0b6b26a1c5753bec7b24086fdee2e3fe92757b6b15040eaa",
+      "assets/logo.png": "26453272b5438e85ab99236c609f7b4f1d1a6fc010d415125e6d00ea08a8b716",
+      "backend/.env": "fcafd3e12d093418060c263aef5cf70f181853654d9b5da310fadf868b6222fc",
+      "backend/.env.example": "aab13a2ce41bd673e903484fa6c7d27d16d4be2fd536b2b084f2c1140847071c",
+      "backend/.env.test": "389b8a00f10e3d5ed2968fe379f4933c46fe1700e248fca799e80cb081a73db5",
+      "backend/README.md": "c3a4c4eb44174e9579ae542ebd10a236b154bf8b993554abae05076e7e817184",
+      "backend/app.py": "701648260c83ab35c23b224da15f9adee73428c54eba6a54a1cca708bb325cb1",
+      "backend/config.py": "9ae0664c540d9a4108e4d2fd670467ea3e13cab54324ae008abe99db335aba7c",
+      "backend/extensions.py": "6401e919812fe8ce35a16def3f9b2c135c7224cfb6e9f7fcac1bbd41e7f8750b",
+      "backend/gunicorn.conf.py": "6d17685924f0f69c3f2db0ff5afff7e0c6d46d2e38010d34a692b36753384a45",
+      "backend/migrations/legacy_inventory.py": "5a8a7cc441dc2fbe3e485123bf242038cbcdefec3508e5e5f70de02502e14d72",
+      "backend/migrations/verify_and_activate.py": "946f0c9c7cdff771ae3017311945dc23b24d1df3be6b343079f7e92956e17d40",
+      "backend/modules/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backend/modules/alerts/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backend/modules/alerts/routes.py": "75645b7f47226c384cc80c151011b0614562a1cea4de0681dfc1815400d6fd61",
+      "backend/modules/analytics/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backend/modules/analytics/routes.py": "573ee513c545adcd56fe248f0a4a15cf5c8a7b25c3f4f0e5cfba046966d16a8c",
+      "backend/modules/brochure/__init__.py": "f143cb3f96d80258795a7c84289c0206a25e57bfa6380835fb833a64f67d7002",
+      "backend/modules/brochure/assessment.py": "6e24c914779eb4262c8211146c62f7339005e70fcd053379f4a6719486207e85",
+      "backend/modules/brochure/review_sheet.py": "dd78620265015ef095f33a3826e002ed5fa37d51cc4624b41eebac322cd1a6e4",
+      "backend/modules/brochure/routes.py": "09b7b073d97be2373f6d57fef84ae04b8ac61ef0f3361af6c3f7a27f5e496298",
+      "backend/modules/brochure/service.py": "6c1de15df78ed08e555d3ab28fdd58d59f44b6b0d56b238645d5d921b1d3bac8",
+      "backend/modules/inventory/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backend/modules/inventory/readiness.py": "a0e5f9e893e4de9a0c5a80cd1e7f73312ea9f83cedd1e73ac4867c1ec924481c",
+      "backend/modules/inventory/routes.py": "aa12089db9aef7c66891ce3d9c903f3eb5b9bd430201ef3a6dd707c9b91a64e6",
+      "backend/modules/inventory/service.py": "03ddf28d694d84a69e5b7df532dd3a94d4a30f60084e9ca8b62f3eb392bc6952",
+      "backend/modules/invoices/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backend/modules/invoices/routes.py": "35775f478dfcc79f2ae06df0a857403dfa999d28f2919dfd6aeac8d48ea6afc5",
+      "backend/modules/orders/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backend/modules/orders/routes.py": "36a63b8760aa0f0873428eee2b859950d1547bd350202457a243361024f6a0b2",
+      "backend/modules/product_metadata.py": "eb0097ab09d55255ec0715a67fd7125485f7b9c47d223e82060fcdf893aaeffc",
+      "backend/modules/public_catalog/__init__.py": "d4fdfb3ecb63e47d579efa3946aad9a9864a8279c9d892e2abf733559c8033f6",
+      "backend/modules/public_catalog/routes.py": "8418da35a04f568a77b0604a3e64e658c9bb64146f1900500d4eaa7221a16ba5",
+      "backend/modules/quotations/__init__.py": "b1393917e7b2612a50333019dbcc77b5bf7c54da1876803c98357d6613b5ce0e",
+      "backend/modules/quotations/routes.py": "7e3334808efa2054f60eaf6b5f89d7e15c6359c97c0bba24619825a5966d11c3",
+      "backend/modules/support/__init__.py": "99d9297b887df340f87fbf4414077334bc966c942b1e360e2953b9861eaac873",
+      "backend/modules/support/routes.py": "972989693482b34a3d602ad75b7ca1a71c1194081e2e47f7500ecd28ba41d574",
+      "backend/modules/tracking/__init__.py": "73ea9cf20d0f6f0c3a89fbb1d4b3ddb10a568168cf11bbd66e1b8fce6090f80c",
+      "backend/modules/tracking/routes.py": "aa521e8b83dc1b25c1d02cfcc4998a1bb885ebde5d2238b1fa9c990342bf3ad3",
+      "backend/products_seed.json": "c612b560be060101c8c69c6c3cfa744d421a814a64c2e6a093cb303fe4294841",
+      "backend/realtime.py": "3f99df60139a2384bdc03357e2d9d46fe11d019a79951d50cef5827932fff59d",
+      "backend/requirements-brochure.txt": "921771639dcf618e12aa3dc6eb93c91dfb250ecb46a6a0985c54425050c0c0c6",
+      "backend/requirements.txt": "c680321e2a7c8ca6f527118c24af5d1b56a7d58a80195c32ba0628f2640c81d5",
+      "backend/routes/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backend/routes/auth.py": "474807e6f54c8d2e098190f9cdbf8b919c1d75e955cac212de6b83c777a19698",
+      "backend/routes/backup.py": "1357a0f27e9f8756dbccff46fb236edd0e89edf877e37bdb9f58e0d4790b2045",
+      "backend/routes/inventory.py": "b9ae97df5a4057148bb5badd78091f77d446dffa2c8c3d1f27f3f0438da0ddf8",
+      "backend/routes/logs.py": "9ada4b982ef38109769aed8d4837e983e47d5d712bdb34938e3232116691b374",
+      "backend/routes/orders.py": "c9c74a89a165befdf2f849942907171e2d89362c9a0a33562470521020b00661",
+      "backend/routes/products.py": "0ba6d309e347676f2ef3c5d09f149f023e78ab4b0e271fec592640f47715ce94",
+      "backend/routes/users.py": "de32f514c7bb12064dd21e2497e7e02fc42becb306fe23c13704be0ce1f05366",
+      "backend/seed.py": "4d6604cb87767628a8b433354668b0485448e2c46561350935ccf6801a59b759",
+      "backend/tests/conftest.py": "8e67833f528754f9711d21a8cf6ffe12b7ddc641f42d6ae2f9ada7f86cffbec1",
+      "backend/tests/test_alert_thresholds.py": "2daa4a8923fd43365e7930f5bef2e132612b08b3611ead88a563f60746e38635",
+      "backend/tests/test_analytics.py": "8cceb4d1af11568be30e159ce9ea68307214c4114c66b24bb76ce42f8b201aa5",
+      "backend/tests/test_auth.py": "99bbeac782f30e5ef4ea77a24a777deb1d6444a4dbbc2c0fd0938d6546759429",
+      "backend/tests/test_auth_sessions.py": "50febb30cc5784e7c513d10475e778dd12eb6dc3063858738184a4ba719a3b4b",
+      "backend/tests/test_batch_api_end_to_end.py": "7599a4c82a9c83ae7d539b33b5ea4fdc77d55276bdc4cbaeaa96ecc3931dbe7e",
+      "backend/tests/test_batch_mode.py": "3b1c88f590394a15f2d063fe347e6b4d106b244d3fc6697facc2d9f2df97796a",
+      "backend/tests/test_brochure_import.py": "59e47d01bd142e873efd4ebc29a5781fbc26d6263370a1cc7ed48e05ad7722b2",
+      "backend/tests/test_brochure_real_manifest.py": "f67606f36953fe624a59f37f1dd38e85eb7573228bb69c20fbb416148b9a89e1",
+      "backend/tests/test_brochure_staff_workflow.py": "d8a161f9cc9e35d2a394fd1c82771a970cdbb703437bf1caaf6e56a24e87aa1c",
+      "backend/tests/test_cleanup_image_candidates.py": "3ead3d0667296a5bfe664e99fc8d786c4d821bd8871894d0a4dd05c2689d3564",
+      "backend/tests/test_dashboard_optimization.py": "95bea24e4797670c50933000336ba3180a3351c501039b1747669eaa2954939b",
+      "backend/tests/test_health.py": "ebdbc4b1a425f6d7d69417ce7b30293dbbedf11deddd3a8a2a5fe78ab7f2c4ee",
+      "backend/tests/test_inquiry_acceptance.py": "088fefcc201eb1610050e64c041236b865fb09efc7b018477955c3d32b525e0a",
+      "backend/tests/test_inventory.py": "3857d831f19b0f872516753ec4583e0c87cfee668840b3c0a2941e3a63a8f811",
+      "backend/tests/test_inventory_alerts.py": "6395d878871244cbcd2b385e1b36d8cee5a6b3e8ff255232fdd5e15a923e2256",
+      "backend/tests/test_inventory_concurrency.py": "aaa65e21f56b39af6e2e518349a28882cc34133350dbc91a46b62b26df4763a4",
+      "backend/tests/test_inventory_rollback.py": "d23aa1056bc1a780dfb251af42f7643f26da91ecb6f9777c3292778042fd5938",
+      "backend/tests/test_invoices.py": "136df6eee7eadd063c150fda5be4caa4cf6ef6c1fa5d8345414c1e29c460a38f",
+      "backend/tests/test_local_account_bootstrap.py": "26892cfaab54b7701bbec7585f0e45b74554328accd6ea1e55fa9ee0352cd0ba",
+      "backend/tests/test_order_fulfillment.py": "daae1f40cba3d8c1e80d35ebd67e60998aa0a830f045d530ffe691ca05ffcccd",
+      "backend/tests/test_order_status_transitions.py": "11f721473726c69f345e80171b5365ee11be9b29077262dbb82ae52bad0e4a7b",
+      "backend/tests/test_order_support_chat.py": "07814fd4fd3fe2f2e01932d158d7e95b4a646d293f72a7bff4be38c9afb991a9",
+      "backend/tests/test_orders.py": "a52f289e6f9c02a6fdbb3577650d3e7502e6d556b81f33352a062aba2942a651",
+      "backend/tests/test_pdf_image_updates.py": "04ff82b7354b7c3259daee8f08f527c3563d996be8e2f1d5d39e89ae8aa60432",
+      "backend/tests/test_pdf_products_existing_system.py": "8b7cef0aab477746f09365e7e022367464d8c16b26ddaec0ed28fbe67c24c198",
+      "backend/tests/test_phase4f_resilience.py": "43f66b978fe0305b8dd8deae77d862e01d92f4434a48a89edd1e3ecfd319ce76",
+      "backend/tests/test_phase7_rbac.py": "7dd9130d7d5eb374d8cb6a51190d5cc9f89ae30e366d5831cd2a06d4e8c3c2d9",
+      "backend/tests/test_product_metadata.py": "1e650107f53294d83f3911a850e5e4f6cf791b9c42f841d4026662bd6aa082d8",
+      "backend/tests/test_products.py": "51a4c49dacad7e571253edc2c2fc8e88afe47b2bf1ef957c905e8ed94348664a",
+      "backend/tests/test_public_catalog_phase2.py": "a90a387e14b07eb288c94b45aa3b9eda3b7824266dee7f90b91606a44d619390",
+      "backend/tests/test_quotations_phase3.py": "bc6ab4e4c2eec2ae2cf4fab64d36fc07eb431625b32f121d7824bf24474bbedd",
+      "backend/tests/test_receive_delivery_validation.py": "83382318a5ac3a9147daa9ab9e3d1e0dd8133738da6620fb6b1d373b2a49ce62",
+      "backend/tests/test_session_revocation.py": "e2ac82599c664c15b1d931258d125525c3fd88b2483845427576cfda89c5d7fa",
+      "backend/tests/test_staff_session_invalidation.py": "5ae4bc3bdece98ab63c6016ab8e26e649cc8057ee8a3510d8745b88fc938bdef",
+      "backend/tests/test_staging_configuration.py": "561a6992648f7db676151759f739fff49054d36835eabe2bc16d3da77dbd2192",
+      "backend/tests/test_tracking.py": "72f846453db5ee1da5b5d76cfea99180eb31b10fe3e8e41ee65d380937a679cc",
+      "backend/tools/add_pdf_products.py": "bb7c3e9d6d6fd30dcbb7b5a8bc400121f20243a12a34f310f0e6b050fa639b67",
+      "backend/tools/audit_batch_integrity.py": "880128aa02411e6eca0c578f8c02affda1a741fa7b8b1453a90036ef9ffe2693",
+      "backend/tools/browser_qa_server.py": "fd5bba3a1158ddf48ef3df47888d08f3135a33515624a7a2d8925109ddc0c6ad",
+      "backend/tools/build_brochure_manifest.py": "1c3b10ce4324032a7f3427f99f8ec932320874ad7f2d6bac9d3d3357fd4ef3d5",
+      "backend/tools/create_local_test_accounts.py": "1a6a623e1e6bdfd8b6653b42bab031d75590a53b2f090157575038d0d888c831",
+      "backend/tools/dry_run_brochure_mapping.py": "d34df66ab35924532cefa618de8e0b8a2237804a01cfc2c9bcf2313c0c745e10",
+      "backend/tools/initialize_staging.py": "5cda1fa56d627aef07695a9f582e558cf37525a52ee34af33f37b89aec915b18",
+      "backend/tools/prepare_brochure_review.py": "8b930cb5989a8e469ed762ea6f15ede926f3bb9542f34fe39247bef9e12ce475",
+      "backend/tools/preview_brochure.py": "530fd354925beaebf2a29db045f0555c153d339c4d465b132590b6e8bff03c05",
+      "backend/tools/review_brochure.py": "97c977f54e0f1145716cb4f55ea15e65dd465e8ecf57b12b49930657689e66d3",
+      "backend/utils/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backend/utils/deployment.py": "4a4dd81c605869e68a6e5a7ca30fb4a2c3c275bffafa93bd2299ee966e4b91a9",
+      "backend/utils/email.py": "366a188586dae9286528823472085a1fd0d8c377633357972c2ce1030a909e90",
+      "backend/utils/security.py": "4df4b920bf9d75b2a56b6913701cf2165e20e088344fd42aba28e3165629c610",
+      "css/styles.css": "b80533e65eb10c72a0083e56eac4f7a47975a970fa937e4a62f376dc17d898d8",
+      "docs/CONTINUED-DEVELOPMENT-REPORT.md": "10b821bb5599af4f4306ca6b96b1895bac1120964b2710d78e28e41836157896",
+      "docs/GITHUB-REVIEW-CHECKLIST.md": "6122eed969420e3062df18a44883b8aba4b1fd7f0b7308d624e90a3445d823a6",
+      "docs/LEGACY-CLEANUP-AUDIT.md": "948f3daeeb223a77ba1eebd74af64ca8ac97ac7f5a069cbf88caf1d458cd3814",
+      "docs/LOCAL-UAT-REPORT.md": "5089b7e1cea5550758319cf69a1c614fe8bc7c3e05e0aec4de0e50e11b1584d4",
+      "docs/README.md": "46b6967f9e17a605c5ad779873bc5e3dc7c1854cd83bf36bf946123ee4f61cb8",
+      "docs/RECOVERY-VERIFICATION-REPORT.md": "3beb64da34a8e88af5df1b5342dc8a51a3eedc80967b35fbbe7579a76bc3b7c6",
+      "docs/REPOSITORY-CLEANUP-REPORT.md": "42a4c5af5a63347470b90402ce58909fb07f762ceb664b8e5a338ca85987ffef",
+      "docs/STAGING-DEPLOYMENT-PLAN.md": "cbda8643f4ff3e32f948f62162217c6f54303e7eee2938899ba3f55934b7e5bd",
+      "docs/brochure/CORE_PRODUCTS_INTEGRATION_REPORT.md": "5174757b84f1ef526070ba1bee059d940c1ee1d36c61bb15f39493a7bbe4c82a",
+      "docs/brochure/Core Product A5 (2).pdf": "4d1ac212740e739c6b5853231270cce2af22e66529916abc6835910b976a7696",
+      "docs/brochure/DEV_APPROVAL_PROCEDURE.md": "913bdf9fe41701869b99b19fd427a86e1f1320885879ad1d1cbab50905e133b3",
+      "docs/brochure/MANIFEST_REVIEW.md": "6cc8fc1b1538ffe814b990794b909ec0e8803cf2c9f6c06a89753f566fab175c",
+      "docs/brochure/SOURCE_REVIEW.md": "9cd346a9fe878823ec23093d95cd689b28350bdfe61e01e438f607d468a97e7c",
+      "docs/brochure/STAFF_APPROVAL_WORKFLOW_REPORT.md": "01b366349423e30d27ebdd4aee45aa1d07976e631c3be404e0d4940dca406f31",
+      "docs/brochure/catalog-match-review.json": "f1db83b9fdd76b2908b28421586516188665197ef037d4c51e822bc88f7ff35c",
+      "docs/brochure/images/alpha-care-adult-diaper.png": "e9ecb2d1a8c4df21f0bcc788056ddb212621be131f377970056c789c22db5b25",
+      "docs/brochure/images/alpha-care-underpads-front.png": "10eba8a4639e45ce72f6f8a3b439c8ffd89846e96c9b82a771241bf6d57bb52f",
+      "docs/brochure/images/alpha-care-underpads-side.png": "75b0bd0de6e1b4b363d416b3ad14c8c2c59dc63e3ede4038be7ca64fe0359478",
+      "docs/brochure/images/alphashot.png": "910750434472ff54622d6fe1273ed23670b1aeed9607ffc22566c513f99130d6",
+      "docs/brochure/images/autofusion.png": "18cca29a8522c9e6ad4e94ef6e5194971ddbac5b4ea722a349b2712b6aadd27a",
+      "docs/brochure/images/blood-administration.png": "99c9aeb69afd0c04413a52cc328f46a1b8b2e600702cca3969565844ad5cf93e",
+      "docs/brochure/images/glucoseth-kit.png": "95065d7feab51ca454ac7574e748d5a3e9754d8d600178db49db3e43dd2c0cbe",
+      "docs/brochure/images/haemofusor.png": "80f941b5d9168a54032564b53388c828426efd08a18c987afd5456a3b4070762",
+      "docs/brochure/images/irasafety-syringe.png": "76e2f27d70981673743442bcfa25e22a8d963d1b9a70474f9bacc64a266f2462",
+      "docs/brochure/images/microfusion.png": "5cfef9b95b6e822f744e421c31aa149fc314c26271531dcd64b8c756fa243af7",
+      "docs/brochure/images/oncofusion.png": "0e4acd183b08287d3207b6804776d51d0c419007cb74352fcbad084ecd12d4c5",
+      "docs/brochure/images/photofusion.png": "aef76703e4c591e1c6ce1706f1eb2287711de4c67e3f2d18531f695ae93fe150",
+      "docs/brochure/images/polycan-safety.png": "e6493cca7d8a1c3dfd3737977e3d09cb66d749bc6778faca39ceabc4cbdaba1c",
+      "docs/brochure/images/polyflex.png": "712677afccb7327f88fd59591c1dedd41d7f3ab52519756e5bf81a90e4138b1c",
+      "docs/brochure/images/polyflon.png": "a1984dd767b8c22f4b5a3047a1d7803a8ff5efa1c8261fd9ab2a2d969baa0dc1",
+      "docs/brochure/images/polysafety.png": "d19b97beb0669ecd0329d0e9e647e5277814e65b50da26c291ac07c177d24cdf",
+      "docs/brochure/images/polyspike-safety-valve.png": "2b4856b0fe4c389fecef48f4b8c8cf50be2cf6fbfe31a294f143b6fbe61a23f8",
+      "docs/brochure/images/polyspike-snap-fit.png": "63b895a25d89bb79e08ef9932e5b1421fa0e6c965c6932f162f6a7e0462975ba",
+      "docs/brochure/images/polyvol.png": "569380b9bb5fe0bf496d55ca0c5bca288b9eeb8f87702d30db509267d6157786",
+      "docs/brochure/images/polywin-safety.png": "448f42f51dc7f92f2dcd33a465602262c22505d5eaf6f2157f6cb390bbfadc1b",
+      "docs/brochure/import-manifest.json": "fe2b1be5ff180b53572d613d48593ae8febae91cf0a8b423efd6ba86d746e24a",
+      "docs/brochure/pdf-product-image-review.json": "00f40b4c61d401a23dc04552b49b25b8f3185ab1890bc5b898f3c7d87b970100",
+      "docs/brochure/review/page-01.png": "4aac6ce162452ed64668977bf8d9862084ade2b067a26d76ac36e2542d694a79",
+      "docs/brochure/review/page-01.txt": "28a1c191eb3fb70959d8b14c644d25730859ea4f8afe2936ec12b95ee4c08501",
+      "docs/brochure/review/page-02.png": "beb6872e75ebec9e48246f8cbf814cb38baefc33ae2aea72390889fa6c842dbc",
+      "docs/brochure/review/page-02.txt": "d62d7843bfca71ff93658f48948ba7e9ba55a85d79fa792dff853e76536e43f9",
+      "docs/brochure/review/page-03.png": "f0a07aa020029beb60ee5426cc0830220d604a0d49031e54fc7fce1d8623d5b1",
+      "docs/brochure/review/page-03.txt": "85e4ac96ebc43fb65c35f820ad812bb685811a70e65ec0231a0c21cbad3be985",
+      "docs/brochure/review/page-04.png": "60632be2be43ebaa0ec62dc41c60b77b6c23abf17fc4907e459e1ab228ed9416",
+      "docs/brochure/review/page-04.txt": "042412d7cc3b35d0b5dd0b1f5e6f9a8333badaa583777e575e0d938b1a7fcd09",
+      "docs/brochure/review/page-05.png": "2aacacc0977fd9c3af74e71591aa94b7ea157ce0ae97537c4b44cd2d784244f2",
+      "docs/brochure/review/page-05.txt": "22b3c6a68f34e3fb1128814fa631bbf2b62757bd9440b6e0877ea2b0e0f932fc",
+      "docs/brochure/review/page-06.png": "c97fcd8e7bcac7d306a4db84307695e235961751caf5661c1d0e559a7b8390c2",
+      "docs/brochure/review/page-06.txt": "55590b004139189e0977ea243ba1fa06fac44577e585878c9573f2d2b5e8e1c4",
+      "docs/brochure/review/page-07.png": "f207e751b9abd8d8b9942356288868ce356065d5b8a64f2fb3c52dfe6a42c6c7",
+      "docs/brochure/review/page-07.txt": "0c3a3e95ba68d2e8277acac759bd402d98a13a1c60ae114277c534daea2f4c63",
+      "docs/brochure/review/page-08.png": "cc5e06688d468bf707103a9b80ebe78c6289f1c501efd684296a9d69c9db866b",
+      "docs/brochure/review/page-08.txt": "9c10a4b299e421770549f884a356a0463d7a3467b1ba657919c0fcd1d4e9ee1e",
+      "docs/brochure/review/page-09.png": "9d9c393f5a6d71f69bd084bbcb82d1a6c0e6f3d01fd140595ee372d467ff4b8d",
+      "docs/brochure/review/page-09.txt": "ccbac6694c33d7ef5fc454c9fd0743e4e1ee065e2f96daf451e3d9cc75ed293d",
+      "docs/brochure/review/page-10.png": "67906a4bde2d7881d7265fb81e535dcbe34e467fbc862beaf716b79fd5cb5755",
+      "docs/brochure/review/page-10.txt": "a7935b538924cd4c5e4afaf9610cfbf1f0784c3e7f75c837cf504c43dc6e6ba7",
+      "docs/brochure/review/page-11-tables.png": "600dc1a3049750089c39fc1485bd3d84072584efc3bf07f9006f86d06869cb64",
+      "docs/brochure/review/page-11.png": "76ea2e3c194afb68a991359844b486dd426a12607c8b7955905e9a66c36695c6",
+      "docs/brochure/review/page-11.txt": "4ed729bc957ae679c3434d94d5949264d65d35e304d7eb1662bfb2ab4f551247",
+      "docs/brochure/review/page-12.png": "8a9b03267c94449fe5b302a2892f38d27ec07b6664ec6f9afa9a38d0b74f12e4",
+      "docs/brochure/review/page-12.txt": "1cb47119fde7919af1c32df7b7e165be1d40cd1582eedd0a3431e3772156b180",
+      "docs/brochure/review/page-13.png": "dfdfec922b4c5e501b496c9f1d81d62191510f40f6fe8b416306d5952420640e",
+      "docs/brochure/review/page-13.txt": "ec47b50a957eb1114ef2a991d158d63cb350e4ea243b92f4395a29156c0c69e1",
+      "docs/brochure/review/page-14.png": "1a289ba836365dc065904b09265a0cf0ffde7d9cd1370db0c3b1595e2986c162",
+      "docs/brochure/review/page-14.txt": "771505207bac8adbeb8bf361b7142ffdb6516bd66b92a6d6be79dc123b0ddb56",
+      "docs/brochure/review/page-15.png": "99a77fd1bd67b44e7fa36e127932b573701968be15756e1359f1f100343dcd56",
+      "docs/brochure/review/page-15.txt": "39a30c35cfb847f4c99578227f3ba5954e97776c1a64ffe3ce310dfa7391f48f",
+      "docs/brochure/review/source.json": "da0241c44c99488891c0792ebd4b7b20721841d63d902b2637c053f8dce9d09a",
+      "docs/brochure/reviewed-candidates.json": "bd046253132cf24734e09cf25418d38073528b129f61877d1a4b66fe7c4db998",
+      "docs/brochure/staff-mapping-template.csv": "e1c86b936417f1c80b6377d2014d2db7aaf12d8ef588aad71bbc7098cd4b38f5",
+      "docs/history/DEVELOPMENT-PHASE1-3-README.md": "aa394af6f48e54c82db6295ed6f6c005de58628123dc7360c9f6f5ed88d5a636",
+      "docs/pdf-products/EXISTING-PRODUCTS-PROCEDURE.md": "a8b82c48c8744e9456f3d73a13a96bb94f2464606d86b443f557a687724a0c48",
+      "docs/pdf-products/INTEGRATION-REPORT.md": "bf8c25f2299d70c13b062e899aeb7a72c618455d7ceecf20b0c32ce799aa3243",
+      "docs/pdf-products/NEXT-BATCH-APPROVAL.md": "35bc1e300a45def7c5dea207ff7a56e581bd6896bb0037e15fe8eeaeeeb1d7f7",
+      "docs/pdf-products/dev-first-batch-dry-run.json": "291146a85ac66cc2ee41783ded437f0858fa8860b3433b9fced20b8a6c3a3cff",
+      "docs/pdf-products/dev-next-batch-dry-run.json": "c68268003dd385840ae86fce1d5a480b0aa1a45146077ef76eeb8270608ee3ac",
+      "docs/pdf-products/remaining-114-dry-run.json": "ac4c49ab28f421a6dcd5a3ba07b5576ee552ba9fb03293d470f1148506e3d199",
+      "docs/pdf-products/remaining-114-import-results.json": "fe4736c4bd81ff89fed42203bc2074f702d99692263d9d6dae0389c2831f357e",
+      "docs/pdf-products/source-clear-products.csv": "d4aa2f36ef3640912d77347952bd1402e5f8f270d4894a5f889ce27635fb9160",
+      "docs/pdf-products/verification/browser-uat-results.json": "91a3f0ae6c4413f2ac06c44bb45c5629978b5fb476811115f7441b763b7ca05d",
+      "docs/pdf-products/verification/dashboard-failure.png": "ad259c759062554e8262e0a75dd10f1747cf85c2f24fad3bc9c89502e03b7f68",
+      "docs/pdf-products/verification/data-safety.json": "b9165f931f989f2c0598221d145b105a5e8bc559d688a17381f8bf36b3796f82",
+      "docs/pdf-products/verification/files-changed.json": "f5600f2a5cdf07c2566d66d522f98e70d8a9ee3d89998b0ac0fcd27f536f0cc3",
+      "docs/pdf-products/verification/final-complete/browser-uat-results.json": "fafc64f2b727eacac68042fe849b33dfbcaf23cc0332380760632dc8130dfc74",
+      "docs/pdf-products/verification/final-complete/mobile-uat.png": "29eb1f44652ba747198ccaac2ee0b113a27b9ea8a74b37b39061aa3f3de04160",
+      "docs/pdf-products/verification/final-model-check/browser-uat-results.json": "1dd691d11b8f596ae0787c12bda3af513b207a3477813ba1a3aef0b3ef4d2a4f",
+      "docs/pdf-products/verification/final-model-check/dashboard-failure.png": "af4bd137cd3a34d2afd86e14a133fcbd1554138fc8f3d76fd4849498ecdf637d",
+      "docs/pdf-products/verification/final-model-check/storefront-failure.png": "cb9c3b8047859412e8abcaed51ad9ecefb4bd820c8849af4992e593d500d1836",
+      "docs/pdf-products/verification/final/browser-uat-results.json": "2f3ffe3f4e5e958c5b67d8a260a95f542dad67802287f15593b6c20a4b43ad42",
+      "docs/pdf-products/verification/final/mobile-uat.png": "29eb1f44652ba747198ccaac2ee0b113a27b9ea8a74b37b39061aa3f3de04160",
+      "docs/pdf-products/verification/storefront-failure.png": "935d0bf95da54c05420fb7c7fce8106bc652ef03fff335fcbfd9bd6c23c4ee7e",
+      "docs/product-images/REPORT.md": "c98f74ca5f7a59f1beeb2b777621d9ae04a41d01a8218aca6788840e71e83db5",
+      "docs/product-images/candidates/rapiquick-dengue-igg-igm.webp": "31bd51ec1caa7f3151e3f3e10883be6139316d7294a328f067d68e7207901e07",
+      "docs/product-images/candidates/rapiquick-hbsag-label-review.webp": "a34adb471b951ef56b8b2b1b5779b76b1503cc24045e790a83df7f2ce5697ae2",
+      "docs/product-images/image-audit-and-plan.json": "2bac8d59aae06a4ead9a8263a7b77bc33eb219d04163ba0c0250fc12adf0b9cf",
+      "docs/product-images/image-update-results.json": "a04005531bb6bad625b7517370a8b288545736412a15a758bcc933e1dcb277a5",
+      "docs/product-images/underpads-live-gallery.png": "3511ccab5af2da721f98b16432dc276175f3907ac4e887a25aeb62bc5b1f1fdb",
+      "docs/product-images/verification/backend-regression.txt": "e3f7c2190b834a02807ea580e848f45f2b7fe6e2798388e86d33fea7dadbbe3d",
+      "docs/product-images/verification/change-audit.json": "5437a7a52990a041e3d38f3a0c69d41793cb4d802cbfc342eff1a02c1d68d7e6",
+      "docs/product-ui-cleanup/REPORT.md": "c716f419ab11993cda0e654aef9587ce8f61f55e4a92d751df1e9aec02bf2b27",
+      "docs/product-ui-cleanup/image-candidates/alpha-care-adult-diaper.webp": "4bbc267310088614f562426bfc4e83c140438ea3e7b5683e4f11579731d97e17",
+      "docs/product-ui-cleanup/image-candidates/alpha-care-underpads-front.webp": "f88494cd1ee5a477684912082179e9d44a22358d7ebb78a3efb24b70719cc370",
+      "docs/product-ui-cleanup/image-candidates/alpha-care-underpads-side.webp": "508ba4381087d545406b51bd8f3b67aab5524dddd3f6a60043596ba83be57229",
+      "docs/product-ui-cleanup/image-mapping-proposal.json": "f880af4c0e81a88ec704dede57b3a119d2d78e87990c20942d3f3416d7b7e1cb",
+      "docs/product-ui-cleanup/verification/browser-uat-results.json": "1bf01ab3ff780d1c49c8aa613ca80e1cb5d6f369660a3d0ad3f20945a95432a4",
+      "docs/product-ui-cleanup/verification/change-audit.json": "70f5484d197453a60bb2e4d6f628090bd31fcc8bf12240eb4f7824346fafca61",
+      "docs/product-ui-cleanup/verification/complete/browser-uat-results.json": "37838f9b7eac65440417c9702b6d12be5723376296260bc2fb6c029970b072c1",
+      "docs/product-ui-cleanup/verification/complete/dashboard-failure.png": "f173b79e25ad51f3763c07f16768652340bf480f58c52ab46499ed10396a4d4c",
+      "docs/product-ui-cleanup/verification/complete/employee-products-desktop.png": "cc80bfcc7d12934fc586903820b0cbec7df0dfeaf86450f5b87f4208d8fb3a64",
+      "docs/product-ui-cleanup/verification/complete/mobile-uat.png": "9a9a5b13ca108063fc5468a14de68e7d2426d2b04e6f73e60c29573a6e3f529b",
+      "docs/product-ui-cleanup/verification/complete/storefront-failure.png": "f4e9bc584b03866ed9cbd660e568dc4364f1f568cdee8a0b7f8e895c8f0f5b32",
+      "docs/product-ui-cleanup/verification/final-complete/browser-uat-results.json": "a47331fe4c63e4db75c62df9c9f91fb07bd97820a49568e7b4e25ef4b0c3df2f",
+      "docs/product-ui-cleanup/verification/final-complete/employee-products-desktop.png": "6d2e9645919894130fed7aa3372dc2dddb31c1d1c7734c5c15e7df8d3f35c65b",
+      "docs/product-ui-cleanup/verification/final-complete/employee-products-mobile.png": "c7ea0e3ab980e941adf4bec13f7e57b042b1deafddd2525b4663a98584cc0fdc",
+      "docs/product-ui-cleanup/verification/final-complete/mobile-uat.png": "9a9a5b13ca108063fc5468a14de68e7d2426d2b04e6f73e60c29573a6e3f529b",
+      "docs/product-ui-cleanup/verification/final/browser-uat-results.json": "888b115593e711c1790f6164f507791dc40ad1e5f751284839e7d9214bf8cc06",
+      "docs/product-ui-cleanup/verification/final/dashboard-failure.png": "1fa864cf0be3eb6b961c2fab4401b2edc7cd9038650eb92ccead9b669f591ff9",
+      "docs/product-ui-cleanup/verification/final/employee-products-desktop.png": "4827180f881b7c3aef3b66f05f870f7eb2491264323e89992c5805571648bb0b",
+      "docs/product-ui-cleanup/verification/final/employee-products-mobile.png": "2c7d964dbe369226bcf20eeb3ba02d418674187ce22e4275d646444d9155eabe",
+      "docs/product-ui-cleanup/verification/final/mobile-live-checks.json": "b215e94b564d49e5435e0b69b2d7304d3f926c86d56327afacd1647e0cb95302",
+      "docs/product-ui-cleanup/verification/final/mobile-uat.png": "4668fca6ccf59d626ef78bde7ac518243e0ba3ab96b9ae9a541f210e1139f0d1",
+      "docs/product-ui-cleanup/verification/final/storefront-category-mobile.png": "b7b92eb10396366bc68d7cf85a1a37afaaf7ef08f8fc064f4ec071259fa02976",
+      "docs/product-ui-cleanup/verification/final/storefront-failure.png": "cb9c3b8047859412e8abcaed51ad9ecefb4bd820c8849af4992e593d500d1836",
+      "docs/repository-cleanup-verification/browser-uat-results.json": "2e2fc95027e572745394d4bc954cae77001bdc274af5041830dbadc8af2b5c32",
+      "docs/repository-cleanup-verification/dependency-classification.json": "cd83b1e34d54aa8f07a592851773135f6709597735fbf68bd9450adb5ec5e9b6",
+      "docs/repository-cleanup-verification/employee-products-desktop.png": "ebe740d67ade60818ce03b243296d6465ad31aa7383a9622d77451a846a126e7",
+      "docs/repository-cleanup-verification/employee-products-mobile.png": "a5678142e3aafdc6ff3526842d19b0af379c3c96ac6d3ba093e6277cad7aec1b",
+      "docs/repository-cleanup-verification/mobile-uat.png": "4668fca6ccf59d626ef78bde7ac518243e0ba3ab96b9ae9a541f210e1139f0d1",
+      "docs/repository-cleanup-verification/preservation.json": "926e1b746d70b6bc559f51c406c63f6d04f86819ca128bf12ee8a51548ac2d37",
+      "docs/staging/backend.env.example": "baefde5ef69e7068e30465557187bcfc2537680b79411ad7025705a5b2984220",
+      "docs/staging/dashboard.env.example": "e324050506bcc070fb591fe66e97063c240e7fa80fb247de23cfb716f356eca1",
+      "docs/staging/recovery-verification/browser-uat-results.json": "e51616f71f798cba668a4d3f637e04c80470e6a72d84d66345e8a381f4a5d9eb",
+      "docs/staging/recovery-verification/mobile-uat.png": "29eb1f44652ba747198ccaac2ee0b113a27b9ea8a74b37b39061aa3f3de04160",
+      "docs/staging/storefront.env.example": "a16d5b6899cfedfed79764399d499ea69ed44b470b8afd904f988a2458c80ed2",
+      "docs/uat/browser-uat-results.json": "662a9c66393c714b78dd2240f3e93420c02377871381b12d0b1cd508af27b092",
+      "docs/uat/desktop-product-gallery.png": "03ef2c8657bb91a479adf9646a0e238c4e12393516f0c153ee46ee39df723c47",
+      "docs/uat/mobile-product-gallery.png": "a164e924629a60e9857accf1658c3713efabb8a0733aeeaa1308040490bf7eb5",
+      "docs/uat/mobile-uat.png": "29eb1f44652ba747198ccaac2ee0b113a27b9ea8a74b37b39061aa3f3de04160",
+      "frontend/.env.example": "fd160208a004988f1c807801fa97c7eb913c9e85c6aadfe1cbb32a8865d9144f",
+      "frontend/.gitignore": "28c5cefa5ad87f7116a693595c9cdae71e79d5f150f5dc23647b0ffce670fd88",
+      "frontend/README.md": "7e1ff6a8d6cdeb6252a3f4cd18bffb387693e334a61f0f9124c8f1cfa1b34516",
+      "frontend/ReceiveDelivery.tsx": "bf0b70554bcaafe8fefe303bcbf3e576e7a6e22a0c808284741a11f9eed5e812",
+      "frontend/index.html": "bc8a917f94f79aa78494cfe05d45497deef6e74339040576478599982ee6953a",
+      "frontend/package-lock.json": "24e9823ea19fae1f48111c358ce1cb0fddb2c27cc3d159c5d79109f63456c38d",
+      "frontend/package.json": "e0278d71634ca24a92075281138a9f0d7c6dd84bb8f4707dd2db66552f9a36ed",
+      "frontend/receive-delivery.css": "7038aa0b3fc1da8172f3ece01221ca382d19f097121e2c79b0a26197a4bcec9b",
+      "frontend/src/App.tsx": "47fa942c0096460401bcf4ab85ba039c640f96d2bef6810f72e29caa7b6f9bb0",
+      "frontend/src/BrochureReview.tsx": "71ea614e69ad441c3b923f014538a3288b8e3b24f420253233813a6c9273eb67",
+      "frontend/src/CommunicationRequests.tsx": "5f2f528dad26d8a565263b6548003962e095f77b02190c6ba8e9e79ac5151b25",
+      "frontend/src/InquiryDecision.tsx": "8e1fa07298581f75d928d68b3880824c24c501051a6220214be55caea68abc26",
+      "frontend/src/InventoryAlerts.tsx": "1673fa3ff0c8d979638d60cc689286391e89c073da2441ebc6a3d3a974ed122a",
+      "frontend/src/Invoices.tsx": "b09c2a3c9df78748527d9a0da1e59c431e285cedddfa69ac91dbf95bf78c7ce9",
+      "frontend/src/ProductCatalog.tsx": "0c940ec1f3ab9e4dcbd9a74e673c2af7d460c30e56f31e6c4dd5db940ab92530",
+      "frontend/src/ProductEditor.tsx": "eb35b24c85103c1657571d44aba7239a67e8c86eb1b3cbb9533aee139b292548",
+      "frontend/src/Quotations.tsx": "d517c65132bb1944099d25bd35520f0e12ebba94b4536b6b636b3f93471171a8",
+      "frontend/src/Reports.tsx": "ab9b6a129787d876caf9dbcf6792b757715e36c5bdea2cb6f0db3fcb7c4a03e3",
+      "frontend/src/StorefrontSettings.tsx": "38d8c29f4140e3d536be7f4fb1085ab223da20a82b32361762f8fd6f138c404a",
+      "frontend/src/SupportChat.tsx": "660c7ad656d00604bdf1feec5f204f13ea753901529c7eb2243367c76269023f",
+      "frontend/src/api-url.ts": "4bd67b6db456684610ebdddb48acf2bf8835a8b1ac355bd039d79ae752b3a22a",
+      "frontend/src/api.ts": "3339ab4733b17df2de96cc5441992d501e61fcde116c3e55cb5848205a37b3f4",
+      "frontend/src/brochure-mapping.ts": "7ba57e8198588029eb894826b92804f4fe17724b4d253368f96d94f626a3c5f2",
+      "frontend/src/brochure-review.css": "6a5a998729eb8601b42eefd6f2700f20f1905f8660298d66e289e458f72c6e8d",
+      "frontend/src/inquiry-decision.css": "a6c11cd028d4dbe6cd6ce6033b82abc65d2499dfc4c3cb6728fd4698907801cc",
+      "frontend/src/inventory-alerts.css": "4e6c906d54dadc8c54a794211755accd6b8a30a69de17f1112cf8e156757f601",
+      "frontend/src/invoices.css": "f85d84aff63856df86a81d955252372a4d42219b9e179ece835792992fdbc40a",
+      "frontend/src/main.tsx": "b77cd84bcf959c8ffcd092569081189ce55e525fa22561f1959404d9ca8f1bdc",
+      "frontend/src/product-catalog.css": "ac8091f018146fd2801cc46bc1638ed5a497eaa0c2e2c70f152689fb428bf830",
+      "frontend/src/product-editor.css": "98d4e7d0e487a4683093119dca79e72c7a3dae08be931beec90daf8b5fb85e1c",
+      "frontend/src/reports.css": "ee2bd0611aca43ebf5a859e4251a1c287eeefb767d8dcd5d78593bc25d23c71a",
+      "frontend/src/styles.css": "f3cc2f2ae6c3fd01baf85852cd4b32bc5aa4f33869f562785b152bee40aea554",
+      "frontend/src/support.css": "09c0bbd81629847df05cb42d084227d99b6d0aa37962201bcabebd7fba54c7e3",
+      "frontend/src/vite-env.d.ts": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5",
+      "frontend/tests/brochure-mapping.mjs": "79dc701bebbd97c8cec15d7ba8753946b188a3037cb8b5af4fbc2e2b829d439f",
+      "frontend/tests/deployment-config.mjs": "4428281aa1fe7026c030e71e67e00525ef8476a8e06d6231bfa641e3c220150b",
+      "frontend/tsconfig.json": "f848e033eb4135b82cbc014917323a290ea3b8b23e8bc21bb1fa4e5d1749bee0",
+      "frontend/vercel.json": "aa26e838cd8c4206f8ae66d68661824743765e9aca91aea65165279695405851",
+      "frontend/vite.config.ts": "bc5d6c70f12632ad4cec1c2a315d3db8307f6571e6b6152d318b83e5757164cd",
+      "js/admin.js": "bf1de6095efd2bd3d4b0d1985c0bdd20b1f1b389713d63929757888eaf17d6f4",
+      "js/api.js": "5240153f8529d0d0e5ed07cfca3b4ceecb23d1e1aabacf31418438ecb116875c",
+      "js/config.js": "613d0dfcd8ec94bbe2a2c6931df7d72f70e67314955b0075f0a0e6767c102ec0",
+      "js/mock-backend.js": "9957dab1564a58662e3e57f92e13fd8412788552ae316531e29164d7ba867f7d",
+      "legacy-storefront/data.js": "e475acc00cd100da775dca04e2c5ec41af80868a960d78f00d0c7d700d9d407d",
+      "site/admin.html": "200fcd35bb2e2e7c854e0071604ba80de546954b50c2bc4f715cd3e1e39d07c7",
+      "site/assets/ceo.png": "b8dea68a8af121162cd4c2f1c12df81797f4a30c9684d6e8ece0daa42d0d87ba",
+      "site/assets/iso_logo.png": "00d2609eb042f906dcbe2316d45697e128524cc4c872955d2fd13c239bb07c41",
+      "site/assets/logo-mark.png": "8f750a30cea42f9d0b6b26a1c5753bec7b24086fdee2e3fe92757b6b15040eaa",
+      "site/assets/logo.png": "26453272b5438e85ab99236c609f7b4f1d1a6fc010d415125e6d00ea08a8b716",
+      "site/css/styles.css": "b80533e65eb10c72a0083e56eac4f7a47975a970fa937e4a62f376dc17d898d8",
+      "site/index.html": "a833756c494d03770dd95ff26072874130dc13f08c68de38c04aebbf0017e76a",
+      "site/js/admin.js": "bf1de6095efd2bd3d4b0d1985c0bdd20b1f1b389713d63929757888eaf17d6f4",
+      "site/js/api.js": "5240153f8529d0d0e5ed07cfca3b4ceecb23d1e1aabacf31418438ecb116875c",
+      "site/js/config.js": "613d0dfcd8ec94bbe2a2c6931df7d72f70e67314955b0075f0a0e6767c102ec0",
+      "site/js/mock-backend.js": "9957dab1564a58662e3e57f92e13fd8412788552ae316531e29164d7ba867f7d",
+      "site/static/ceo-BVFsIQ7U.png": "b8dea68a8af121162cd4c2f1c12df81797f4a30c9684d6e8ece0daa42d0d87ba",
+      "site/static/index-CFDRxSQq.css": "99ab22afc2ab55f47966bbcf7b1eab7f2bf838504d917a58345c12b30c70e5db",
+      "site/static/index-CmN22FRi.js": "54f3d265b9dd06b161805210ad97842ec0a7ffc874cebcf1e79ead679d7570eb",
+      "site/static/iso_logo-DFPdTY5H.png": "00d2609eb042f906dcbe2316d45697e128524cc4c872955d2fd13c239bb07c41",
+      "site/static/logo-mark-CjJmYcjR.png": "8f750a30cea42f9d0b6b26a1c5753bec7b24086fdee2e3fe92757b6b15040eaa",
+      "storefront-next/.env": "340dea75d7a660fcafea5963f2613c81d7f437c042be4c4db03643172506b43e",
+      "storefront-next/.env.example": "0413cb508b75ec7c1f16a1ce1c05535d4200e173edf946ddbc499619da403b0a",
+      "storefront-next/.gitignore": "4a2604f31a67914f9a00e537685de5eb3fac21fc12109e6983b0d655a80696ce",
+      "storefront-next/README.md": "66c9789c1097fe99aacd77700e36dbeb726bed6f1859dbccd20d0686ae10edda",
+      "storefront-next/app/@modal/(.)products/[slug]/page.tsx": "1bab0935ce403d60db9ad714b4ea3f9caa196d355142c54f6bbf3ba11bda4744",
+      "storefront-next/app/@modal/[...catchAll]/page.tsx": "18ea4758a886bf7fe3f0c8e0360a8f015d6d86c8890cbf78cc274646c06063c5",
+      "storefront-next/app/@modal/default.tsx": "7ca8364c746b97d760e77a0d04cdcb87a08c7fc23237bb4d502d54c7b5fef23b",
+      "storefront-next/app/about/page.tsx": "0c7af598583cbfc2fbca8abe23394208d1c20b02a4fd317cce6a4730b1ddd1d5",
+      "storefront-next/app/api/quotations/route.ts": "31e57197a447a952688f492b904678e37e4db1560da37a8de16ffb12998c47d5",
+      "storefront-next/app/api/tracking/route.ts": "f137675c296109a53ab97aef92e8c98ad9290b2537cc55effe4388479d7d175a",
+      "storefront-next/app/cart/page.tsx": "cadfd79376652c98476840e9eaf1ba5f9e47ef2af5276f0db3b6ce8147beeb0d",
+      "storefront-next/app/contact/page.tsx": "27e5835a2b0cd0a531820c88eb0b510a4c9231f08b6ef72e26344ba4a85c407c",
+      "storefront-next/app/globals.css": "191e0e3cf9553ff0e2ab4e334353820d6ae04610bee822c62dd7e7412e1e05a7",
+      "storefront-next/app/layout.tsx": "e443b4457beb1ef47b03f0b58c9c6893daa77a7ae6af3e1078e60c44b8cbce3f",
+      "storefront-next/app/leadership/page.tsx": "e8f514c7dd8955979710b657c75e4d60a33c3e8998869308b756bf4a8bdfcfa4",
+      "storefront-next/app/mission-vision/page.tsx": "94e15f57b92add2eaa10b08325ed26a0f5caeb8c53a01e7a3a49dfdd15ce0feb",
+      "storefront-next/app/page.tsx": "ff48983b47fc5e9093f86b60f9f6a42674d4fdfe4503f827877cdb6390b134c4",
+      "storefront-next/app/products/[slug]/page.tsx": "24a674ca8fdd755ca276b0590c1b0f0b1ff711f65b874b516620b50a19e2fbbd",
+      "storefront-next/app/products/page.tsx": "9def8a37759a8c0b16bf6ce4832e46a486a4be75f8b83f0c113f648b6ac83fd6",
+      "storefront-next/app/quotation/success/page.tsx": "ae3253a277e57b537e2cc30e3947a6a9288146b2fe967f07ad02e92dd90a8871",
+      "storefront-next/app/track-order/page.tsx": "703e9163d70d96d7c8e7691b45bb4802773d339ec256f71a97b33a336a31922f",
+      "storefront-next/components/CartDrawer.tsx": "fde67dc14abf789c256385eddd7ef160e7eaa5fc6c5b1a4c5d6e177fd6616279",
+      "storefront-next/components/CartPageClient.tsx": "db405f3a8aa69f368cc3a8818168997d3767c1e377e93a666bb50790aa603a39",
+      "storefront-next/components/CartProductImage.tsx": "5f54249f6956533c7c84a8269debb3ad360a31c42beac0a02e3159a87baaa09a",
+      "storefront-next/components/CartProvider.tsx": "e00bf3798935d661bfd692dcb36eb29ae8d2baff585e4ba3d880efeae7fd5fc1",
+      "storefront-next/components/CartShell.tsx": "402b96a0e0b268084e058b389f812f21d9d62793cf94b568fdf23f55ec36c377",
+      "storefront-next/components/CatalogClient.tsx": "75394aa892960723276591a0627de0ba7386d93d9e73ca25e34b0707be82856f",
+      "storefront-next/components/ContactForm.tsx": "202718178f5b134e2a7436f212115231d82a26fe3d0cd87b7bf261ea141e5474",
+      "storefront-next/components/EcosystemMarquee.tsx": "121b9be0bd6d6be49e3a8412b792c2060da61cdec04e87b20f6b91867d034e21",
+      "storefront-next/components/FloatingActions.tsx": "74883876d4e5680ecfc2efdb3a82ed4fadcd4a75d313947deeec11cdce3e4898",
+      "storefront-next/components/PageIntro.tsx": "67de2fe9dfa27ca4dd99a0a198a79d9dcaacffdb88d04f9cc40e328c82ec17b4",
+      "storefront-next/components/ProductDetail.tsx": "7cb6268f0de0031bce3646ea80cb0c383f52616aeefe051d35bd2b027d8524fa",
+      "storefront-next/components/ProductGallery.tsx": "b778b9fb2e2c83526018bb5792d41edf9273a8bd7bd304d60b63f1cc15195bf6",
+      "storefront-next/components/ProductModal.tsx": "17e11ee2fa936aaf76267c64af427406891aaa650cd0f4bc1a5300de04f4e7b8",
+      "storefront-next/components/Reveal.tsx": "b2856aae587ee7286936bca6ef85e0bdafe5665c15eb97d6516604ff0a417c54",
+      "storefront-next/components/SiteFooter.tsx": "4ef3cec675da05fce8d9967667ddccd8c98730aa2346d5f6cd6869ee3ce77e3b",
+      "storefront-next/components/SiteHeader.tsx": "541af6961c0964de82f1830cc1b44047f126e2bfe9fc930b9205ddab549d7cbb",
+      "storefront-next/components/TrackOrder.tsx": "ad266108ec7553bb2d658d9153e73e33d09f7e15ea55cf1b472bc104a38044a8",
+      "storefront-next/docs/CONTENT_PROVENANCE.md": "9de87ff1e1114a3c5b8afaf277dad5afac7d167a426ea940fdeab0b905502519",
+      "storefront-next/docs/ORDER_INQUIRIES.md": "8d014c79cac1a09a5fdcc932d4785b98e83bc2bbd8175d0560ad953bde0ead8b",
+      "storefront-next/docs/PHASE2_API_CONTRACT.md": "8896387aec98d80120f59e068e86ab33287f5932baef1ce2b5d05bae871521b3",
+      "storefront-next/docs/README.md": "1e0b37e470dce187c3984a6af7d838f98afdc15dfd457bcd4a1abff3f9ca6391",
+      "storefront-next/docs/UX_REFINEMENT_AND_NEXT_STEPS.md": "617944f875b4ba39886947a8450260aa50ece83ecd40603c69bc018bf65b73db",
+      "storefront-next/lib/catalog.ts": "c3bbe8faf74fd6fb289352c0fe30a7db2699e7b1b97e6c174e3bde93043fd312",
+      "storefront-next/lib/content.ts": "759743f99d437ef28cc89ac0322b64c8e24127364c88adf5b1e68798154c09d8",
+      "storefront-next/lib/inquiry-submission.ts": "97dd9e77c1036462baa1e567ffac8c802c280c60651b29814f03d9b6256034bb",
+      "storefront-next/lib/partners.ts": "adfe12b9a12783f34319877d817193be3340e25d7375c8932863f31b6b4363b4",
+      "storefront-next/next-env.d.ts": "85ae5aee75f011967cf2d25cbc342f62d69314e9d925f7f4aa3456fc2cffcca6",
+      "storefront-next/next.config.mjs": "227c6a3ffbf4f7df37aef885c21038680474aaa47c8df2e8466025d361b4f079",
+      "storefront-next/package-lock.json": "f767452b50c0068e64e89294999b2e39edbac41a0684b79255c6e5ef10419838",
+      "storefront-next/package.json": "211ed468a76ebf33e782506068091b9bc91889b5c6728e1540a4e4695897a256",
+      "storefront-next/postcss.config.mjs": "f50058e0d309cdb3e7c25a1123337338641fb71e988572607d57f47209db1fd1",
+      "storefront-next/public/brand/ceo.png": "58e9e566bf06e869a5514d93ca88c92e975009d8ca63fdaac97dc1ca788cc8e3",
+      "storefront-next/public/brand/logo-mark.png": "8f750a30cea42f9d0b6b26a1c5753bec7b24086fdee2e3fe92757b6b15040eaa",
+      "storefront-next/public/brand/logo.png": "26453272b5438e85ab99236c609f7b4f1d1a6fc010d415125e6d00ea08a8b716",
+      "storefront-next/public/partners/README.md": "46c482c11651cbc63fc0469aa20e715f1b13110240a7ef265623db62a7ed2997",
+      "storefront-next/tests/browser-e2e.mjs": "fb4a34f2b39d5ce1d268d5dac79bc79c409930c15b01115efb5a46df537c1dc7",
+      "storefront-next/tests/catalog-errors.mjs": "d73e520338bbb7bcaaf56a119f94abfbeab96326bce37e1bed583480f3fd69b0",
+      "storefront-next/tests/catalog-pagination.mjs": "68f27dc096d0ec6c3def33b0dfc1aa0081cd96f27472d4e892c4d0ba83828314",
+      "storefront-next/tests/deployment-config.mjs": "66723917499d73cc560a9e4274d6b48edbba08283f1f41b34449f43c26166fb8",
+      "storefront-next/tests/gallery-interactions.mjs": "eaefda38e52dc90f0ef04ade3837c2e8033efcfd4f0919c89e27768464b609e2",
+      "storefront-next/tests/image-pipeline.mjs": "e523c788e3aae01c2f8545fa7d5ca419af3db3c0a69b4fceac99e4eb26f3d6c0",
+      "storefront-next/tests/inquiry-retries.mjs": "d5df80177eeccbf2cf8a85af8a226171807e18a6bbd77d64c49043e0801975a8",
+      "storefront-next/tests/local-uat.mjs": "c9d0455acf04c98a06b8a6a0c19ed007e5f45ef15c4d738961c85a7d8d1e36ed",
+      "storefront-next/tests/source-smoke.mjs": "ae49c24ce2827bdaaa01e1d0bfa4253d1a34c7adb8a23bbac0dc7d32d349c95d",
+      "storefront-next/tests/tracking-proxy.mjs": "d7f4e8386fafa6476726416d9f33fd3183dea1a2f3bb958345b79957d9aea2f0",
+      "storefront-next/tests/typescript-syntax.mjs": "1a28f7dce17fff8b4fdbccb9c51949772e90b02373f871970c6ef6d7b6915ef7",
+      "storefront-next/tests/ui-refinement.mjs": "b2cc1d059136982d06d4ccb5fb34338784b9c724d57cbf1f43704cf934258ebd",
+      "storefront-next/tsconfig.json": "e56963ed2e62020bf6bb7d37f9579735d022301a6b28b955b6d1bfd16bd324c1",
+      "storefront-next/vercel.json": "9fd4ea9e9bbb01391e7e946e1b2d3e2af2dd003b27067dadcdcaf4f20b799fb1",
+      "storefront/.gitignore": "d50ab07e11fa4bf3b1c7c3312e1d7baeab56cca756832ccf40476823ad2a38b7",
+      "storefront/.oxlintrc.json": "9a11085b48d1ea2c1cdd18c3438a669abcc635f5586019e5df87161369af70ef",
+      "storefront/README.md": "3fde43cae789b2a7011b266f6925d928e52d99012c7673141a22952eeef7a3c0",
+      "storefront/index.html": "95afee8273cb5dcf0393c2f61cc4163d65e2decc8fd04e0445d397335fde1d93",
+      "storefront/package-lock.json": "0c157929c78ee0c2f47a83934b8206f014779f9aec8c51503563838a26609c96",
+      "storefront/package.json": "ada4fb3b55cfefe5293ddba4fc3a7bf44e75cef8838bdf5fa5d0f1ec710d2c77",
+      "storefront/scripts/copy-admin.mjs": "ab2827ec0cf932a48ed862b8fbcaa07b7b67b9edeefdbc98c4b8488b3e22ce21",
+      "storefront/src/App.jsx": "f6a3aed0eb3c2ae6b3708f15d8ca492e7030a29cd4f7534a9ab6900805f0e7e9",
+      "storefront/src/api.js": "6ed5a6d605d68df76f4cdab4cabdcc5bdff22ce2b24e91a5e876d3bc03860741",
+      "storefront/src/assets/ceo.png": "b8dea68a8af121162cd4c2f1c12df81797f4a30c9684d6e8ece0daa42d0d87ba",
+      "storefront/src/assets/iso_logo.png": "00d2609eb042f906dcbe2316d45697e128524cc4c872955d2fd13c239bb07c41",
+      "storefront/src/assets/logo-mark.png": "8f750a30cea42f9d0b6b26a1c5753bec7b24086fdee2e3fe92757b6b15040eaa",
+      "storefront/src/assets/logo.png": "26453272b5438e85ab99236c609f7b4f1d1a6fc010d415125e6d00ea08a8b716",
+      "storefront/src/components/CartDrawer.jsx": "299490367bd77d830cd3d4a6b9979eed4898293bc8440eae6326965c6d3432ef",
+      "storefront/src/components/Footer.jsx": "e8ec45ee2bf805d1e94c7b998271b52b1d3c8e0514ca9f2f2ed1382c5db242fe",
+      "storefront/src/components/Header.jsx": "ae989a55e5feaf8da98db0028cd72b3c83583357647d9a6b8ee1a2f5ccc6b9f7",
+      "storefront/src/components/Layout.jsx": "f49f937701cf750ba3ca4300f643505fb9a3a1e48d5c3e8fdcf868ca13909585",
+      "storefront/src/components/PageHero.jsx": "61146a5187af4aee37b984e2d2c718d5cf7d77f096f35d24a1263db5fd037974",
+      "storefront/src/components/Pagination.jsx": "808122edf18394e2f9115a4d54280c50f96ebc34417f185330fcd93814e88bb8",
+      "storefront/src/components/ProductModal.jsx": "eaa4ec3ec0c7b79588c241a25df9452540bacb5c2cb9adc88462f07b23f36903",
+      "storefront/src/config.js": "f3ee34d73395b209073bdb879ba852c460f44ef3904eca92ef8881c50f060233",
+      "storefront/src/context/AppContext.jsx": "b8ed7bf3a300130f57e3008c5c731cc33a29baeabfd641208339b879a4eedeb6",
+      "storefront/src/data.js": "4fd9195b9e3e25935042f9d42f7ce222a206b674aeb3f789a1778897a99f51a6",
+      "storefront/src/main.jsx": "5200d77b4bab402f27a92cbae1750aaf2c2fd512f03e48c0da9859fa9d0172f4",
+      "storefront/src/mock-backend.js": "117a3d5eed5c6fb287f0ccc460563c13e7a5715b47e668ea6464b67d6aecbcfc",
+      "storefront/src/pages/About.jsx": "ce10ae90d9dd9aa3e95b323594a477bcea3700177cda9a542c5a60a51c21e605",
+      "storefront/src/pages/Catalog.jsx": "d25f5bca52d1756cb9ec17e9ec1e9b69f6745787aa685812506dd75a630a1763",
+      "storefront/src/pages/Contact.jsx": "9ac4228b1b0f021d598d801a9b8b5ec494558ce0bfcc0ebec264ded6c2e34228",
+      "storefront/src/pages/Home.jsx": "96f1d9ca03679da865686a87473a37be4e291412cbf06d4a3d34fd5db792683a",
+      "storefront/src/pages/Leadership.jsx": "d601c6f98b19c396dd7b6eff4faf78a7876dd28eb59185b75b784ac40db5c4e8",
+      "storefront/src/pages/Locations.jsx": "fba9dcb1b94ad755b55b9b7c1fef1903489d3d74eff848250693b7926b271eeb",
+      "storefront/src/pages/Mission.jsx": "365b359f72455a8a0ad7a080a59766755feb08d7ee982b1b1575769c1e6ead04",
+      "storefront/src/styles.css": "e2d16a49cc15d16ef95c0d4bd551ccb149bd4f2b896e15da07af6db5ecabd54c",
+      "storefront/vite.config.js": "8addef963dd97e5d38dfce10c6332f12b3974806cffb962f8fcc3f5da4efc7a2"
+    },
+    "head": "211ebbe8a567ec7ab1b2c237354785667e934f0c",
+    "main": "622d94e831ee0c413c8e1db3c8e9b56c8e4f4346"
+  },
+  "tests": {
+    "backend": {
+      "passed": 233,
+      "skipped": 0,
+      "seconds": 156.67,
+      "database": "iraseth_test"
+    },
+    "dashboard_checks_and_build": "passed",
+    "storefront_checks_and_build": "passed",
+    "browser": {
+      "passed": 17,
+      "errors": [],
+      "database": "iraseth_test",
+      "external_mail": "Isolated in-memory double only"
+    }
+  },
+  "security": {
+    "working_snapshot": {
+      "mode": "working",
+      "files_scanned": 384,
+      "binary_files_checked_for_known_env_values": 62,
+      "private_env_values_compared": 1,
+      "high_confidence_findings": [],
+      "literal_reviews": [
+        {
+          "path": "backend/tests/test_order_support_chat.py",
+          "line": 44,
+          "kind": "credential_literal_review",
+          "length": 9,
+          "value_sha256": "171785f8a24d"
+        }
+      ],
+      "non_fixture_email_locations": {
+        "admin.html": [
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "fce919bdd6be"
+          }
+        ],
+        "backend/.env.example": [
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "8eff6f8d1c8b"
+          },
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "0ee85868aeaa"
+          },
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "b75ae9b8e699"
+          },
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "8951ebffb6f1"
+          }
+        ],
+        "backend/config.py": [
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "8eff6f8d1c8b"
+          },
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "0ee85868aeaa"
+          },
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "b75ae9b8e699"
+          },
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "8951ebffb6f1"
+          }
+        ],
+        "backend/routes/inventory.py": [
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "ffdef3c3e89e"
+          }
+        ],
+        "backend/seed.py": [
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "ffdef3c3e89e"
+          }
+        ],
+        "docs/brochure/review/page-01.txt": [
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "ce5f838b6da1"
+          }
+        ],
+        "frontend/src/App.tsx": [
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "e8593be8fc50"
+          },
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "fce919bdd6be"
+          }
+        ],
+        "frontend/src/SupportChat.tsx": [
+          {
+            "domain": "company.com",
+            "sha256": "652740e1be1c"
+          }
+        ],
+        "js/mock-backend.js": [
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "8eff6f8d1c8b"
+          },
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "b75ae9b8e699"
+          },
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "8951ebffb6f1"
+          },
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "ffdef3c3e89e"
+          }
+        ],
+        "site/admin.html": [
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "fce919bdd6be"
+          }
+        ],
+        "site/js/mock-backend.js": [
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "8eff6f8d1c8b"
+          },
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "b75ae9b8e699"
+          },
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "8951ebffb6f1"
+          },
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "ffdef3c3e89e"
+          }
+        ],
+        "site/static/index-CmN22FRi.js": [
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "8eff6f8d1c8b"
+          },
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "b75ae9b8e699"
+          },
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "8951ebffb6f1"
+          },
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "ffdef3c3e89e"
+          },
+          {
+            "domain": "facility.ph",
+            "sha256": "c417a3121b4d"
+          }
+        ],
+        "storefront-next/components/ContactForm.tsx": [
+          {
+            "domain": "organization.com",
+            "sha256": "e0bc1826afdb"
+          }
+        ],
+        "storefront/src/components/CartDrawer.jsx": [
+          {
+            "domain": "facility.ph",
+            "sha256": "c417a3121b4d"
+          }
+        ],
+        "storefront/src/mock-backend.js": [
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "8eff6f8d1c8b"
+          },
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "b75ae9b8e699"
+          },
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "8951ebffb6f1"
+          },
+          {
+            "domain": "irasethpharma.com",
+            "sha256": "ffdef3c3e89e"
+          }
+        ]
+      }
+    },
+    "history_and_generated_output": {
+      "history_blobs_scanned": 283,
+      "history_bytes": 2767161,
+      "history_findings": [],
+      "generated_frontend_files_scanned": 137,
+      "generated_findings": []
+    },
+    "reviewed_literal_exceptions": [
+      {
+        "path": "backend/tests/test_order_support_chat.py",
+        "line": 44,
+        "reason": "Deliberately invalid support token in a negative test"
+      }
+    ],
+    "private_env_values": "Compared without disclosing values; actual development JWT absent from source/history/generated output. Public test placeholder excluded.",
+    "staged_snapshot": {
+      "files_scanned": 265,
+      "high_confidence_findings": [],
+      "literal_reviews": []
+    }
+  },
+  "preservation": {
+    "database": "iraseth_dev",
+    "products": 127,
+    "all_27_collections_unchanged": true,
+    "indexes_unchanged": true,
+    "main_unchanged": true,
+    "all_existing_source_images_and_metadata_preserved": true,
+    "all_environment_files_unchanged": true,
+    "additional_deleted_files": [],
+    "existing_files_modified_in_final_review": [
+      ".gitignore",
+      "backend/README.md",
+      "docs/GITHUB-REVIEW-CHECKLIST.md",
+      "docs/README.md",
+      "docs/STAGING-DEPLOYMENT-PLAN.md",
+      "frontend/README.md",
+      "storefront-next/README.md",
+      "storefront-next/docs/README.md"
+    ],
+    "browser_fixture_products_remaining": 0,
+    "format_only_changes": [
+      "docs/brochure/review/page-01.txt",
+      "docs/brochure/review/page-02.txt",
+      "docs/brochure/review/page-03.txt",
+      "docs/brochure/review/page-04.txt",
+      "docs/brochure/review/page-05.txt",
+      "docs/brochure/review/page-06.txt",
+      "docs/brochure/review/page-07.txt",
+      "docs/brochure/review/page-08.txt",
+      "docs/brochure/review/page-09.txt",
+      "docs/brochure/review/page-10.txt",
+      "docs/brochure/review/page-11.txt",
+      "docs/brochure/review/page-12.txt",
+      "docs/brochure/review/page-13.txt",
+      "docs/brochure/review/page-14.txt",
+      "docs/brochure/review/page-15.txt",
+      "docs/repository-cleanup-verification/dependency-classification.json",
+      "docs/repository-cleanup-verification/preservation.json",
+      "frontend/src/ProductEditor.tsx"
+    ],
+    "original_pdf_and_all_source_media_bytes_unchanged": true
+  },
+  "staged_review": {
+    "manifest_paths": 269,
+    "git_diff_cached_check": "passed",
+    "source_media_files_byte_identical_to_working_originals": 46,
+    "original_pdf_sha256": "4d1ac212740e739c6b5853231270cce2af22e66529916abc6835910b976a7696",
+    "exact_manifest_matches_index": true,
+    "database_data_not_transferred_by_git": true
+  },
+  "format_only_changes": [
+    "docs/brochure/review/page-01.txt",
+    "docs/brochure/review/page-02.txt",
+    "docs/brochure/review/page-03.txt",
+    "docs/brochure/review/page-04.txt",
+    "docs/brochure/review/page-05.txt",
+    "docs/brochure/review/page-06.txt",
+    "docs/brochure/review/page-07.txt",
+    "docs/brochure/review/page-08.txt",
+    "docs/brochure/review/page-09.txt",
+    "docs/brochure/review/page-10.txt",
+    "docs/brochure/review/page-11.txt",
+    "docs/brochure/review/page-12.txt",
+    "docs/brochure/review/page-13.txt",
+    "docs/brochure/review/page-14.txt",
+    "docs/brochure/review/page-15.txt",
+    "docs/repository-cleanup-verification/dependency-classification.json",
+    "docs/repository-cleanup-verification/preservation.json",
+    "frontend/src/ProductEditor.tsx"
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "database": "iraseth_test",
+  "brochure_imports_performed": true,
+  "pdf_products_created_in_test": true,
+  "mail_delivery": "Isolated in-memory test double only; no external email",
+  "dashboard_api_origins": [
+    "http://127.0.0.1:5011",
+    "http://127.0.0.1:5174"
+  ],
+  "checks": [
+    {
+      "name": "Product create/edit, real multi-image upload and zero-stock metadata safety",
+      "status": "passed",
+      "seconds": 2.1
+    },
+    {
+      "name": "Actual PDF product in existing Next catalog, staff metadata edit, genuine-identity gate and later receipt",
+      "status": "passed",
+      "seconds": 5.6
+    },
+    {
+      "name": "Inventory receipt through dashboard and batch availability",
+      "status": "passed",
+      "seconds": 0.2
+    },
+    {
+      "name": "Next image optimizer returns a decodable WebP through native Sharp",
+      "status": "passed",
+      "seconds": 0.2
+    },
+    {
+      "name": "Storefront search, real categories/brand/stock filters and pagination >100",
+      "status": "passed",
+      "seconds": 18.6
+    },
+    {
+      "name": "Carousel, keyboard focus, shared URL and My Order submission",
+      "status": "passed",
+      "seconds": 14.9
+    },
+    {
+      "name": "Reference-only tracking, no private data and honest missing-SMTP feedback",
+      "status": "passed",
+      "seconds": 7.3
+    },
+    {
+      "name": "Inquiry review/accept/decline, atomic one-order conversion and pending state",
+      "status": "passed",
+      "seconds": 1
+    },
+    {
+      "name": "Verified communications, alternate-email ownership isolation and staff update",
+      "status": "passed",
+      "seconds": 15.9
+    },
+    {
+      "name": "Official approval/reservation, FEFO fulfillment and completed tracking",
+      "status": "passed",
+      "seconds": 0.8
+    },
+    {
+      "name": "Verified order-linked customer chat and staff reply",
+      "status": "passed",
+      "seconds": 5.7
+    },
+    {
+      "name": "Order-linked invoice draft/issue, explicit prices and stock independence",
+      "status": "passed",
+      "seconds": 0.4
+    },
+    {
+      "name": "Manual official order and cancellation preserve stock",
+      "status": "passed",
+      "seconds": 0.5
+    },
+    {
+      "name": "Brochure CSV draft loading, missing mappings and duplicate-row rejection",
+      "status": "passed",
+      "seconds": 3.8
+    },
+    {
+      "name": "Analytics, brochure review/dry-run/duplicates only, and read-only Admin",
+      "status": "passed",
+      "seconds": 4.1
+    },
+    {
+      "name": "Superadmin invoice void, mobile layout and browser errors",
+      "status": "passed",
+      "seconds": 2.1
+    }
+  ],
+  "issues": [],
+  "browserErrors": []
+}

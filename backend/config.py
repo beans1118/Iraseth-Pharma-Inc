@@ -33,6 +33,7 @@ class Config:
     # Environment
     APP_ENV = os.getenv("APP_ENV", "development").strip().lower()
     IS_PRODUCTION = APP_ENV == "production"
+    DEPLOYMENT_ENVIRONMENT = os.getenv("DEPLOYMENT_ENVIRONMENT", "").strip().lower()
 
     # Opt-in activation only after migrating and reconciling every batch.
     BATCH_MODE = _bool(os.getenv("BATCH_MODE"), False)
@@ -138,6 +139,9 @@ class Config:
     @classmethod
     def validate_production(cls):
         """Fail fast when unsafe development defaults reach production."""
+        if cls.DEPLOYMENT_ENVIRONMENT == 'staging':
+            from utils.deployment import validate_staging_target
+            validate_staging_target(cls.APP_ENV, cls.MONGO_DB_NAME, cls.MONGO_URI)
         if not cls.IS_PRODUCTION:
             return
 
@@ -148,18 +152,21 @@ class Config:
             "dev-secret-change-me",
             "change-this-to-a-long-random-string",
         }
-        if cls.JWT_SECRET in weak_jwt_values or len(cls.JWT_SECRET) < 32:
+        if cls.JWT_SECRET in weak_jwt_values or len(cls.JWT_SECRET) < 32 or cls.JWT_SECRET.upper().startswith(('REPLACE_', 'YOUR_')):
             problems.append("JWT_SECRET must be a strong value of at least 32 characters")
 
         if not cls.CORS_ORIGINS or "*" in cls.CORS_ORIGINS:
             problems.append("CORS_ORIGINS must list explicit production frontend origins")
+
+        if not cls.SOCKET_AUTH_REQUIRED:
+            problems.append("SOCKET_AUTH_REQUIRED must be true in production")
 
         default_passwords = {
             "change-me-superadmin",
             "change-me-admin",
             "change-me-subadmin",
         }
-        if any(user["password"] in default_passwords for user in cls.SEED_USERS):
+        if any(user["password"] in default_passwords or user['password'].upper().startswith(('REPLACE_', 'YOUR_')) for user in cls.SEED_USERS):
             problems.append("default seed account passwords must be changed")
 
         if cls.FLASK_DEBUG:

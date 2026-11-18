@@ -1,0 +1,99 @@
+{
+  "database": "iraseth_test",
+  "brochure_imports_performed": true,
+  "pdf_products_created_in_test": true,
+  "mail_delivery": "Isolated in-memory test double only; no external email",
+  "dashboard_api_origins": [
+    "http://127.0.0.1:5011",
+    "http://127.0.0.1:5174"
+  ],
+  "checks": [
+    {
+      "name": "Product create/edit, real multi-image upload and zero-stock metadata safety",
+      "status": "passed",
+      "seconds": 2.3
+    },
+    {
+      "name": "Employee catalog pagination, compact rows, product details and removed brochure navigation",
+      "status": "passed",
+      "seconds": 0.9
+    },
+    {
+      "name": "Actual Alpha Care WebP uploads, metadata/stock preservation and live public galleries in test only",
+      "status": "passed",
+      "seconds": 11.9
+    },
+    {
+      "name": "Actual PDF product in existing Next catalog, staff metadata edit, genuine-identity gate and later receipt",
+      "status": "passed",
+      "seconds": 5.6
+    },
+    {
+      "name": "Inventory receipt through dashboard and batch availability",
+      "status": "passed",
+      "seconds": 0.3
+    },
+    {
+      "name": "Next image optimizer returns a decodable WebP through native Sharp",
+      "status": "passed",
+      "seconds": 0.3
+    },
+    {
+      "name": "Storefront search, real categories/brand/stock filters and pagination >100",
+      "status": "passed",
+      "seconds": 21
+    },
+    {
+      "name": "Carousel, keyboard focus, shared URL and My Order submission",
+      "status": "passed",
+      "seconds": 14
+    },
+    {
+      "name": "Reference-only tracking, no private data and honest missing-SMTP feedback",
+      "status": "passed",
+      "seconds": 8.3
+    },
+    {
+      "name": "Inquiry review/accept/decline, atomic one-order conversion and pending state",
+      "status": "passed",
+      "seconds": 1
+    },
+    {
+      "name": "Verified communications, alternate-email ownership isolation and staff update",
+      "status": "passed",
+      "seconds": 16.1
+    },
+    {
+      "name": "Official approval/reservation, FEFO fulfillment and completed tracking",
+      "status": "passed",
+      "seconds": 0.9
+    },
+    {
+      "name": "Verified order-linked customer chat and staff reply",
+      "status": "passed",
+      "seconds": 5.8
+    },
+    {
+      "name": "Order-linked invoice draft/issue, explicit prices and stock independence",
+      "status": "passed",
+      "seconds": 0.4
+    },
+    {
+      "name": "Manual official order and cancellation preserve stock",
+      "status": "passed",
+      "seconds": 0.5
+    },
+    {
+      "name": "Analytics, read-only Admin and removal of separate brochure management",
+      "status": "passed",
+      "seconds": 0.9
+    },
+    {
+      "name": "Superadmin invoice void, mobile layout and browser errors",
+      "status": "failed",
+      "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.nav button').filter({ has: getByText('All Products', { exact: true }) })\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"nav-item  nav-subitem\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  2 × retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m  56 × retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n"
+    }
+  ],
+  "issues": [],
+  "browserErrors": []
+}

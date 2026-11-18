@@ -1,4 +1,5 @@
 from datetime import datetime, timezone
+from modules.product_metadata import identity_pending, IDENTITY_REQUIRED
 import re
 
 from flask import Blueprint, request, jsonify, g, make_response
@@ -89,6 +90,8 @@ def _fulfill_order_transaction(order_id: str, note_text: str):
                 return _serialize(order), [], [], False
 
             for line in order["lines"]:
+                product=db.products.find_one({'id':line['id']},session=session)
+                if product and identity_pending(product):raise FulfillmentError(IDENTITY_REQUIRED)
                 qty = int(line["qty"])
                 updated_product = db.products.find_one_and_update(
                     {"id": line["id"], "quantity": {"$gte": qty}},
@@ -213,8 +216,10 @@ def create_order():
     total = 0.0
     for product_id, qty in validated:
         product = products[product_id]
-        line_total = round(product.get("price", 0) * qty, 2)
-        total += line_total
+        if identity_pending(product):return jsonify(error=IDENTITY_REQUIRED),409
+        price=product.get('price',0)
+        line_total = None if price is None else round(price * qty, 2)
+        total = None if total is None or line_total is None else total + line_total
         lines.append({
             "id": product["id"],
             "name": product["name"],
@@ -230,7 +235,7 @@ def create_order():
         "email": email,
         "facility": facility,
         "lines": lines,
-        "total": round(total, 2),
+        "total": None if total is None else round(total, 2),
         "status": "Pending",
         "notes": [],
         "date": datetime.now(timezone.utc).isoformat(),

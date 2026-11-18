@@ -1,0 +1,5 @@
+import PageIntro from '@/components/PageIntro';
+import Reveal from '@/components/Reveal';
+import {company} from '@/lib/content';
+export const metadata={title:'Mission & Vision'};
+export default function Mission(){return <><PageIntro eyebrow="WHAT DRIVES US" title="Our mission. Our vision. Our commitment." lead="The guiding purpose behind our work in Philippine healthcare."/><section className="section"><div className="container mission-bento"><Reveal className="bento-card bento-big"><div className="bento-symbol">✳</div><div><p className="eyebrow">01 / MISSION</p><h2>Quality and safety in every solution.</h2><p>{company.mission}</p></div></Reveal><Reveal className="bento-card bento-blue"><div className="bento-symbol">◈</div><div><p className="eyebrow eyebrow-light">02 / VISION</p><h2>Better healthcare for more people.</h2><p>{company.vision}</p></div></Reveal><Reveal className="bento-card bento-wide"><div><p className="eyebrow">03 / OUR COMMITMENT</p><h2>Responsibility that goes beyond products.</h2><p>{company.commitment}</p></div><span className="large-asterisk">✚</span></Reveal></div></section></>}
