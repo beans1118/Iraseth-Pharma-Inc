@@ -1,0 +1,1935 @@
+{
+  "branch": "feature/storefront-modernization",
+  "single_coherent_commit": "feat: integrate storefront and inventory workflows for staging",
+  "reviewed_paths_to_stage": [
+    {
+      "path": ".gitattributes",
+      "action": "add/update",
+      "purpose": "Preserve binary media/source hashes across Git line-ending normalization",
+      "bytes": 143,
+      "sha256_working": "240c2b19d075bda55fc68b274ed4ed5c93b3ab26bb6f0020f2ac474455e5266a"
+    },
+    {
+      "path": ".gitignore",
+      "action": "add/update",
+      "purpose": "Reviewed repository entrypoint, ignore policy or editor visibility settings",
+      "bytes": 928,
+      "sha256_working": "34f18b7d4065a3389bf1f5d2f8b3eb91192b06385f53b99c1263aca8a74387fb"
+    },
+    {
+      "path": ".vscode/settings.json",
+      "action": "add/update",
+      "purpose": "Reviewed repository entrypoint, ignore policy or editor visibility settings",
+      "bytes": 543,
+      "sha256_working": "f30f24048ebbcf36ae8bf246105885e2b8e5a6ea5bf84dd006b8adbafff7bd68"
+    },
+    {
+      "path": "DEVELOPMENT-PHASE1-3-README.md",
+      "action": "delete",
+      "purpose": "Previously verified byte-preserving move into docs/history",
+      "bytes": null,
+      "sha256_working": null
+    },
+    {
+      "path": "README.md",
+      "action": "add/update",
+      "purpose": "Reviewed repository entrypoint, ignore policy or editor visibility settings",
+      "bytes": 2949,
+      "sha256_working": "e1e7d76ef89342ad4985134a1874e15b1505c15cd1bd359a7f9ca798e09bec28"
+    },
+    {
+      "path": "backend/.env.example",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 2091,
+      "sha256_working": "aab13a2ce41bd673e903484fa6c7d27d16d4be2fd536b2b084f2c1140847071c"
+    },
+    {
+      "path": "backend/.env.test.example",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 464,
+      "sha256_working": "4cc4b8470b6f6cc4f708f91391f75822db55803b3e84799eb6227691a81b9fba"
+    },
+    {
+      "path": "backend/README.md",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 4173,
+      "sha256_working": "53c0bd764bd94c5c102fee5d0361d33673801558aab9672fc4d2143435313b77"
+    },
+    {
+      "path": "backend/app.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 7071,
+      "sha256_working": "701648260c83ab35c23b224da15f9adee73428c54eba6a54a1cca708bb325cb1"
+    },
+    {
+      "path": "backend/config.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 6663,
+      "sha256_working": "9ae0664c540d9a4108e4d2fd670467ea3e13cab54324ae008abe99db335aba7c"
+    },
+    {
+      "path": "backend/extensions.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 5975,
+      "sha256_working": "6401e919812fe8ce35a16def3f9b2c135c7224cfb6e9f7fcac1bbd41e7f8750b"
+    },
+    {
+      "path": "backend/gunicorn.conf.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 489,
+      "sha256_working": "6d17685924f0f69c3f2db0ff5afff7e0c6d46d2e38010d34a692b36753384a45"
+    },
+    {
+      "path": "backend/modules/brochure/__init__.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 73,
+      "sha256_working": "f143cb3f96d80258795a7c84289c0206a25e57bfa6380835fb833a64f67d7002"
+    },
+    {
+      "path": "backend/modules/brochure/assessment.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 3577,
+      "sha256_working": "6e24c914779eb4262c8211146c62f7339005e70fcd053379f4a6719486207e85"
+    },
+    {
+      "path": "backend/modules/brochure/review_sheet.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 3706,
+      "sha256_working": "dd78620265015ef095f33a3826e002ed5fa37d51cc4624b41eebac322cd1a6e4"
+    },
+    {
+      "path": "backend/modules/brochure/routes.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 13656,
+      "sha256_working": "09b7b073d97be2373f6d57fef84ae04b8ac61ef0f3361af6c3f7a27f5e496298"
+    },
+    {
+      "path": "backend/modules/brochure/service.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 5682,
+      "sha256_working": "6c1de15df78ed08e555d3ab28fdd58d59f44b6b0d56b238645d5d921b1d3bac8"
+    },
+    {
+      "path": "backend/modules/inventory/service.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 23776,
+      "sha256_working": "03ddf28d694d84a69e5b7df532dd3a94d4a30f60084e9ca8b62f3eb392bc6952"
+    },
+    {
+      "path": "backend/modules/invoices/routes.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 7504,
+      "sha256_working": "35775f478dfcc79f2ae06df0a857403dfa999d28f2919dfd6aeac8d48ea6afc5"
+    },
+    {
+      "path": "backend/modules/product_metadata.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 6280,
+      "sha256_working": "eb0097ab09d55255ec0715a67fd7125485f7b9c47d223e82060fcdf893aaeffc"
+    },
+    {
+      "path": "backend/modules/public_catalog/__init__.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 82,
+      "sha256_working": "d4fdfb3ecb63e47d579efa3946aad9a9864a8279c9d892e2abf733559c8033f6"
+    },
+    {
+      "path": "backend/modules/public_catalog/routes.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 7994,
+      "sha256_working": "8418da35a04f568a77b0604a3e64e658c9bb64146f1900500d4eaa7221a16ba5"
+    },
+    {
+      "path": "backend/modules/quotations/__init__.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 69,
+      "sha256_working": "b1393917e7b2612a50333019dbcc77b5bf7c54da1876803c98357d6613b5ce0e"
+    },
+    {
+      "path": "backend/modules/quotations/routes.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 11663,
+      "sha256_working": "7e3334808efa2054f60eaf6b5f89d7e15c6359c97c0bba24619825a5966d11c3"
+    },
+    {
+      "path": "backend/modules/tracking/__init__.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 74,
+      "sha256_working": "73ea9cf20d0f6f0c3a89fbb1d4b3ddb10a568168cf11bbd66e1b8fce6090f80c"
+    },
+    {
+      "path": "backend/modules/tracking/routes.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 13169,
+      "sha256_working": "aa521e8b83dc1b25c1d02cfcc4998a1bb885ebde5d2238b1fa9c990342bf3ad3"
+    },
+    {
+      "path": "backend/requirements-brochure.txt",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 95,
+      "sha256_working": "921771639dcf618e12aa3dc6eb93c91dfb250ecb46a6a0985c54425050c0c0c6"
+    },
+    {
+      "path": "backend/requirements-dev.txt",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 106,
+      "sha256_working": "6e969cf24d97590ab6adb9fae51d8b61265cc622861729ca740641d7d84870a4"
+    },
+    {
+      "path": "backend/requirements.txt",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 254,
+      "sha256_working": "c680321e2a7c8ca6f527118c24af5d1b56a7d58a80195c32ba0628f2640c81d5"
+    },
+    {
+      "path": "backend/routes/inventory.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 7930,
+      "sha256_working": "b9ae97df5a4057148bb5badd78091f77d446dffa2c8c3d1f27f3f0438da0ddf8"
+    },
+    {
+      "path": "backend/routes/orders.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 13454,
+      "sha256_working": "c9c74a89a165befdf2f849942907171e2d89362c9a0a33562470521020b00661"
+    },
+    {
+      "path": "backend/routes/products.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 17350,
+      "sha256_working": "0ba6d309e347676f2ef3c5d09f149f023e78ab4b0e271fec592640f47715ce94"
+    },
+    {
+      "path": "backend/tests/test_brochure_import.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 9196,
+      "sha256_working": "59e47d01bd142e873efd4ebc29a5781fbc26d6263370a1cc7ed48e05ad7722b2"
+    },
+    {
+      "path": "backend/tests/test_brochure_real_manifest.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 7955,
+      "sha256_working": "f67606f36953fe624a59f37f1dd38e85eb7573228bb69c20fbb416148b9a89e1"
+    },
+    {
+      "path": "backend/tests/test_brochure_staff_workflow.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 7121,
+      "sha256_working": "d8a161f9cc9e35d2a394fd1c82771a970cdbb703437bf1caaf6e56a24e87aa1c"
+    },
+    {
+      "path": "backend/tests/test_cleanup_image_candidates.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 2188,
+      "sha256_working": "3ead3d0667296a5bfe664e99fc8d786c4d821bd8871894d0a4dd05c2689d3564"
+    },
+    {
+      "path": "backend/tests/test_dashboard_optimization.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 1749,
+      "sha256_working": "95bea24e4797670c50933000336ba3180a3351c501039b1747669eaa2954939b"
+    },
+    {
+      "path": "backend/tests/test_inquiry_acceptance.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 11105,
+      "sha256_working": "088fefcc201eb1610050e64c041236b865fb09efc7b018477955c3d32b525e0a"
+    },
+    {
+      "path": "backend/tests/test_pdf_image_updates.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 4788,
+      "sha256_working": "04ff82b7354b7c3259daee8f08f527c3563d996be8e2f1d5d39e89ae8aa60432"
+    },
+    {
+      "path": "backend/tests/test_pdf_products_existing_system.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 14494,
+      "sha256_working": "8b7cef0aab477746f09365e7e022367464d8c16b26ddaec0ed28fbe67c24c198"
+    },
+    {
+      "path": "backend/tests/test_product_metadata.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 7688,
+      "sha256_working": "1e650107f53294d83f3911a850e5e4f6cf791b9c42f841d4026662bd6aa082d8"
+    },
+    {
+      "path": "backend/tests/test_public_catalog_phase2.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 7329,
+      "sha256_working": "a90a387e14b07eb288c94b45aa3b9eda3b7824266dee7f90b91606a44d619390"
+    },
+    {
+      "path": "backend/tests/test_quotations_phase3.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 4802,
+      "sha256_working": "bc6ab4e4c2eec2ae2cf4fab64d36fc07eb431625b32f121d7824bf24474bbedd"
+    },
+    {
+      "path": "backend/tests/test_staging_configuration.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 5524,
+      "sha256_working": "561a6992648f7db676151759f739fff49054d36835eabe2bc16d3da77dbd2192"
+    },
+    {
+      "path": "backend/tests/test_tracking.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 11707,
+      "sha256_working": "72f846453db5ee1da5b5d76cfea99180eb31b10fe3e8e41ee65d380937a679cc"
+    },
+    {
+      "path": "backend/tools/add_pdf_products.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 9206,
+      "sha256_working": "bb7c3e9d6d6fd30dcbb7b5a8bc400121f20243a12a34f310f0e6b050fa639b67"
+    },
+    {
+      "path": "backend/tools/browser_qa_server.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 10654,
+      "sha256_working": "fd5bba3a1158ddf48ef3df47888d08f3135a33515624a7a2d8925109ddc0c6ad"
+    },
+    {
+      "path": "backend/tools/build_brochure_manifest.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 30381,
+      "sha256_working": "1c3b10ce4324032a7f3427f99f8ec932320874ad7f2d6bac9d3d3357fd4ef3d5"
+    },
+    {
+      "path": "backend/tools/dry_run_brochure_mapping.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 5431,
+      "sha256_working": "d34df66ab35924532cefa618de8e0b8a2237804a01cfc2c9bcf2313c0c745e10"
+    },
+    {
+      "path": "backend/tools/initialize_staging.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 5511,
+      "sha256_working": "5cda1fa56d627aef07695a9f582e558cf37525a52ee34af33f37b89aec915b18"
+    },
+    {
+      "path": "backend/tools/prepare_brochure_review.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 5611,
+      "sha256_working": "8b930cb5989a8e469ed762ea6f15ede926f3bb9542f34fe39247bef9e12ce475"
+    },
+    {
+      "path": "backend/tools/preview_brochure.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 1289,
+      "sha256_working": "530fd354925beaebf2a29db045f0555c153d339c4d465b132590b6e8bff03c05"
+    },
+    {
+      "path": "backend/tools/review_brochure.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 1579,
+      "sha256_working": "97c977f54e0f1145716cb4f55ea15e65dd465e8ecf57b12b49930657689e66d3"
+    },
+    {
+      "path": "backend/utils/deployment.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 723,
+      "sha256_working": "4a4dd81c605869e68a6e5a7ca30fb4a2c3c275bffafa93bd2299ee966e4b91a9"
+    },
+    {
+      "path": "backend/utils/email.py",
+      "action": "add/update",
+      "purpose": "Existing API, guards, staff services, local-only tools/tests, runtime or sanitized test/deployment setup",
+      "bytes": 3524,
+      "sha256_working": "366a188586dae9286528823472085a1fd0d8c377633357972c2ce1030a909e90"
+    },
+    {
+      "path": "docs/CONTINUED-DEVELOPMENT-REPORT.md",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 21671,
+      "sha256_working": "10b821bb5599af4f4306ca6b96b1895bac1120964b2710d78e28e41836157896"
+    },
+    {
+      "path": "docs/GITHUB-REVIEW-CHECKLIST.md",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 3367,
+      "sha256_working": "845f7a0c42e16bf2c5c020deae3567914e7b39a4988f996e88b1f04235b6e60d"
+    },
+    {
+      "path": "docs/LEGACY-CLEANUP-AUDIT.md",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 10743,
+      "sha256_working": "948f3daeeb223a77ba1eebd74af64ca8ac97ac7f5a069cbf88caf1d458cd3814"
+    },
+    {
+      "path": "docs/LOCAL-COMMIT-REVIEW.md",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 9132,
+      "sha256_working": "f820e7d05831750c43921c716a3cd539ff100703d539c59711c0456c46d4f108"
+    },
+    {
+      "path": "docs/LOCAL-UAT-REPORT.md",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 11187,
+      "sha256_working": "5089b7e1cea5550758319cf69a1c614fe8bc7c3e05e0aec4de0e50e11b1584d4"
+    },
+    {
+      "path": "docs/README.md",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 2575,
+      "sha256_working": "c8b3af0676dec8f7dbbfcc80adf9460c0086e62ecf05dbd257f03b6358a3ef61"
+    },
+    {
+      "path": "docs/RECOVERY-VERIFICATION-REPORT.md",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 10950,
+      "sha256_working": "3beb64da34a8e88af5df1b5342dc8a51a3eedc80967b35fbbe7579a76bc3b7c6"
+    },
+    {
+      "path": "docs/REPOSITORY-CLEANUP-REPORT.md",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 12682,
+      "sha256_working": "42a4c5af5a63347470b90402ce58909fb07f762ceb664b8e5a338ca85987ffef"
+    },
+    {
+      "path": "docs/STAGING-DEPLOYMENT-PLAN.md",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 27415,
+      "sha256_working": "6cccbc099b106af197b3870121c62ee95a7ee4eb7909428cfe1cdd750fb4c221"
+    },
+    {
+      "path": "docs/brochure/CORE_PRODUCTS_INTEGRATION_REPORT.md",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 11504,
+      "sha256_working": "5174757b84f1ef526070ba1bee059d940c1ee1d36c61bb15f39493a7bbe4c82a"
+    },
+    {
+      "path": "docs/brochure/Core Product A5 (2).pdf",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 14192758,
+      "sha256_working": "4d1ac212740e739c6b5853231270cce2af22e66529916abc6835910b976a7696"
+    },
+    {
+      "path": "docs/brochure/DEV_APPROVAL_PROCEDURE.md",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 10543,
+      "sha256_working": "913bdf9fe41701869b99b19fd427a86e1f1320885879ad1d1cbab50905e133b3"
+    },
+    {
+      "path": "docs/brochure/MANIFEST_REVIEW.md",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 59143,
+      "sha256_working": "6cc8fc1b1538ffe814b990794b909ec0e8803cf2c9f6c06a89753f566fab175c"
+    },
+    {
+      "path": "docs/brochure/SOURCE_REVIEW.md",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 35011,
+      "sha256_working": "9cd346a9fe878823ec23093d95cd689b28350bdfe61e01e438f607d468a97e7c"
+    },
+    {
+      "path": "docs/brochure/STAFF_APPROVAL_WORKFLOW_REPORT.md",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 10253,
+      "sha256_working": "01b366349423e30d27ebdd4aee45aa1d07976e631c3be404e0d4940dca406f31"
+    },
+    {
+      "path": "docs/brochure/catalog-match-review.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 343998,
+      "sha256_working": "f1db83b9fdd76b2908b28421586516188665197ef037d4c51e822bc88f7ff35c"
+    },
+    {
+      "path": "docs/brochure/images/alpha-care-adult-diaper.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 229353,
+      "sha256_working": "e9ecb2d1a8c4df21f0bcc788056ddb212621be131f377970056c789c22db5b25"
+    },
+    {
+      "path": "docs/brochure/images/alpha-care-underpads-front.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 346251,
+      "sha256_working": "10eba8a4639e45ce72f6f8a3b439c8ffd89846e96c9b82a771241bf6d57bb52f"
+    },
+    {
+      "path": "docs/brochure/images/alpha-care-underpads-side.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 307490,
+      "sha256_working": "75b0bd0de6e1b4b363d416b3ad14c8c2c59dc63e3ede4038be7ca64fe0359478"
+    },
+    {
+      "path": "docs/brochure/images/alphashot.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 152267,
+      "sha256_working": "910750434472ff54622d6fe1273ed23670b1aeed9607ffc22566c513f99130d6"
+    },
+    {
+      "path": "docs/brochure/images/autofusion.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 40728,
+      "sha256_working": "18cca29a8522c9e6ad4e94ef6e5194971ddbac5b4ea722a349b2712b6aadd27a"
+    },
+    {
+      "path": "docs/brochure/images/blood-administration.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 34497,
+      "sha256_working": "99c9aeb69afd0c04413a52cc328f46a1b8b2e600702cca3969565844ad5cf93e"
+    },
+    {
+      "path": "docs/brochure/images/glucoseth-kit.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 140365,
+      "sha256_working": "95065d7feab51ca454ac7574e748d5a3e9754d8d600178db49db3e43dd2c0cbe"
+    },
+    {
+      "path": "docs/brochure/images/haemofusor.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 34003,
+      "sha256_working": "80f941b5d9168a54032564b53388c828426efd08a18c987afd5456a3b4070762"
+    },
+    {
+      "path": "docs/brochure/images/irasafety-syringe.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 6348,
+      "sha256_working": "76e2f27d70981673743442bcfa25e22a8d963d1b9a70474f9bacc64a266f2462"
+    },
+    {
+      "path": "docs/brochure/images/microfusion.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 35309,
+      "sha256_working": "5cfef9b95b6e822f744e421c31aa149fc314c26271531dcd64b8c756fa243af7"
+    },
+    {
+      "path": "docs/brochure/images/oncofusion.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 74930,
+      "sha256_working": "0e4acd183b08287d3207b6804776d51d0c419007cb74352fcbad084ecd12d4c5"
+    },
+    {
+      "path": "docs/brochure/images/photofusion.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 37584,
+      "sha256_working": "aef76703e4c591e1c6ce1706f1eb2287711de4c67e3f2d18531f695ae93fe150"
+    },
+    {
+      "path": "docs/brochure/images/polycan-safety.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 115153,
+      "sha256_working": "e6493cca7d8a1c3dfd3737977e3d09cb66d749bc6778faca39ceabc4cbdaba1c"
+    },
+    {
+      "path": "docs/brochure/images/polyflex.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 26825,
+      "sha256_working": "712677afccb7327f88fd59591c1dedd41d7f3ab52519756e5bf81a90e4138b1c"
+    },
+    {
+      "path": "docs/brochure/images/polyflon.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 69392,
+      "sha256_working": "a1984dd767b8c22f4b5a3047a1d7803a8ff5efa1c8261fd9ab2a2d969baa0dc1"
+    },
+    {
+      "path": "docs/brochure/images/polysafety.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 115306,
+      "sha256_working": "d19b97beb0669ecd0329d0e9e647e5277814e65b50da26c291ac07c177d24cdf"
+    },
+    {
+      "path": "docs/brochure/images/polyspike-safety-valve.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 20786,
+      "sha256_working": "2b4856b0fe4c389fecef48f4b8c8cf50be2cf6fbfe31a294f143b6fbe61a23f8"
+    },
+    {
+      "path": "docs/brochure/images/polyspike-snap-fit.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 20486,
+      "sha256_working": "63b895a25d89bb79e08ef9932e5b1421fa0e6c965c6932f162f6a7e0462975ba"
+    },
+    {
+      "path": "docs/brochure/images/polyvol.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 36934,
+      "sha256_working": "569380b9bb5fe0bf496d55ca0c5bca288b9eeb8f87702d30db509267d6157786"
+    },
+    {
+      "path": "docs/brochure/images/polywin-safety.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 95481,
+      "sha256_working": "448f42f51dc7f92f2dcd33a465602262c22505d5eaf6f2157f6cb390bbfadc1b"
+    },
+    {
+      "path": "docs/brochure/import-manifest.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 326827,
+      "sha256_working": "fe2b1be5ff180b53572d613d48593ae8febae91cf0a8b423efd6ba86d746e24a"
+    },
+    {
+      "path": "docs/brochure/pdf-product-image-review.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 3028,
+      "sha256_working": "00f40b4c61d401a23dc04552b49b25b8f3185ab1890bc5b898f3c7d87b970100"
+    },
+    {
+      "path": "docs/brochure/review/page-01.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 708812,
+      "sha256_working": "4aac6ce162452ed64668977bf8d9862084ade2b067a26d76ac36e2542d694a79"
+    },
+    {
+      "path": "docs/brochure/review/page-01.txt",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 1147,
+      "sha256_working": "b04e5dd59457f5b64bf22f2d99cabbe7e856048cfec9f52fe809c5eed080a6f8"
+    },
+    {
+      "path": "docs/brochure/review/page-02.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 604656,
+      "sha256_working": "beb6872e75ebec9e48246f8cbf814cb38baefc33ae2aea72390889fa6c842dbc"
+    },
+    {
+      "path": "docs/brochure/review/page-02.txt",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 761,
+      "sha256_working": "0d2c66787594d8731ee571f7b45125d84b2bdad4132304df69c972e9235f5139"
+    },
+    {
+      "path": "docs/brochure/review/page-03.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 390664,
+      "sha256_working": "f0a07aa020029beb60ee5426cc0830220d604a0d49031e54fc7fce1d8623d5b1"
+    },
+    {
+      "path": "docs/brochure/review/page-03.txt",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 344,
+      "sha256_working": "204a7b1505d957c658337238178c19a7b5c4244552cd9a4393e4967035ddf032"
+    },
+    {
+      "path": "docs/brochure/review/page-04.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 354141,
+      "sha256_working": "60632be2be43ebaa0ec62dc41c60b77b6c23abf17fc4907e459e1ab228ed9416"
+    },
+    {
+      "path": "docs/brochure/review/page-04.txt",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 1685,
+      "sha256_working": "787b8bbcd2d9d10e4b3b93c21397c0f664f6b1ba81bbdf9eaf9007df4464762b"
+    },
+    {
+      "path": "docs/brochure/review/page-05.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 209340,
+      "sha256_working": "2aacacc0977fd9c3af74e71591aa94b7ea157ce0ae97537c4b44cd2d784244f2"
+    },
+    {
+      "path": "docs/brochure/review/page-05.txt",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 1512,
+      "sha256_working": "c8b8d432c488887b058f45427a0d540af61e227d57e42db5fe608b8388d54335"
+    },
+    {
+      "path": "docs/brochure/review/page-06.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 198060,
+      "sha256_working": "c97fcd8e7bcac7d306a4db84307695e235961751caf5661c1d0e559a7b8390c2"
+    },
+    {
+      "path": "docs/brochure/review/page-06.txt",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 792,
+      "sha256_working": "3cfa8c73cb4e7d14c3457d6dd85236ea31d57c5e018d41efc3c930dca7a16b6b"
+    },
+    {
+      "path": "docs/brochure/review/page-07.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 140217,
+      "sha256_working": "f207e751b9abd8d8b9942356288868ce356065d5b8a64f2fb3c52dfe6a42c6c7"
+    },
+    {
+      "path": "docs/brochure/review/page-07.txt",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 586,
+      "sha256_working": "23b8de536379f8d1d6a118e69d16bdadeebf5c0f76d51ad3e007a95dfc73d6aa"
+    },
+    {
+      "path": "docs/brochure/review/page-08.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 226969,
+      "sha256_working": "cc5e06688d468bf707103a9b80ebe78c6289f1c501efd684296a9d69c9db866b"
+    },
+    {
+      "path": "docs/brochure/review/page-08.txt",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 1452,
+      "sha256_working": "503906e217ac5ddf04efc69ff8c1b9ba1d46c8c1dd7273f3e8c8f73324404b3c"
+    },
+    {
+      "path": "docs/brochure/review/page-09.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 223644,
+      "sha256_working": "9d9c393f5a6d71f69bd084bbcb82d1a6c0e6f3d01fd140595ee372d467ff4b8d"
+    },
+    {
+      "path": "docs/brochure/review/page-09.txt",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 1477,
+      "sha256_working": "3f17dc998049581a65b1525f558b356c7de82932f9da7ba2adabd9482d4898f6"
+    },
+    {
+      "path": "docs/brochure/review/page-10.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 314508,
+      "sha256_working": "67906a4bde2d7881d7265fb81e535dcbe34e467fbc862beaf716b79fd5cb5755"
+    },
+    {
+      "path": "docs/brochure/review/page-10.txt",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 1220,
+      "sha256_working": "06f9d459755f74e3e082520b015f72f805c6d91f73318a3fe52863901f8cc4a6"
+    },
+    {
+      "path": "docs/brochure/review/page-11-tables.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 902851,
+      "sha256_working": "600dc1a3049750089c39fc1485bd3d84072584efc3bf07f9006f86d06869cb64"
+    },
+    {
+      "path": "docs/brochure/review/page-11.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 371727,
+      "sha256_working": "76ea2e3c194afb68a991359844b486dd426a12607c8b7955905e9a66c36695c6"
+    },
+    {
+      "path": "docs/brochure/review/page-11.txt",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 2040,
+      "sha256_working": "8829f35da306c3e4b04abed25c9158294d6d58c56fccefc5252fd277c9d2b103"
+    },
+    {
+      "path": "docs/brochure/review/page-12.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 434190,
+      "sha256_working": "8a9b03267c94449fe5b302a2892f38d27ec07b6664ec6f9afa9a38d0b74f12e4"
+    },
+    {
+      "path": "docs/brochure/review/page-12.txt",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 3742,
+      "sha256_working": "ae571cd349ba5849d57e5fd2c3cadc412fb2e5a3ea36ebed9308391dee2d9ba6"
+    },
+    {
+      "path": "docs/brochure/review/page-13.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 250173,
+      "sha256_working": "dfdfec922b4c5e501b496c9f1d81d62191510f40f6fe8b416306d5952420640e"
+    },
+    {
+      "path": "docs/brochure/review/page-13.txt",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 2381,
+      "sha256_working": "f8c16c4d5f0d436552f592a0050c3b6edbe174beead5b1a668c32b3a3650ceeb"
+    },
+    {
+      "path": "docs/brochure/review/page-14.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 242314,
+      "sha256_working": "1a289ba836365dc065904b09265a0cf0ffde7d9cd1370db0c3b1595e2986c162"
+    },
+    {
+      "path": "docs/brochure/review/page-14.txt",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 2121,
+      "sha256_working": "15a1baa381ef02e854c54ff61744c935968f5be570489414bb0407c819eba321"
+    },
+    {
+      "path": "docs/brochure/review/page-15.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 302144,
+      "sha256_working": "99a77fd1bd67b44e7fa36e127932b573701968be15756e1359f1f100343dcd56"
+    },
+    {
+      "path": "docs/brochure/review/page-15.txt",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 553,
+      "sha256_working": "b1f14fa8be3fcb3857a5359f99c3dc85ffb41967b868abdcce6f8d1b89c38fde"
+    },
+    {
+      "path": "docs/brochure/review/source.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 1751,
+      "sha256_working": "da0241c44c99488891c0792ebd4b7b20721841d63d902b2637c053f8dce9d09a"
+    },
+    {
+      "path": "docs/brochure/reviewed-candidates.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 530748,
+      "sha256_working": "bd046253132cf24734e09cf25418d38073528b129f61877d1a4b66fe7c4db998"
+    },
+    {
+      "path": "docs/brochure/staff-mapping-template.csv",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 77681,
+      "sha256_working": "e1c86b936417f1c80b6377d2014d2db7aaf12d8ef588aad71bbc7098cd4b38f5"
+    },
+    {
+      "path": "docs/final-commit-verification/STAGING-MANIFEST.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": null,
+      "sha256_working": null
+    },
+    {
+      "path": "docs/final-commit-verification/browser-uat-results.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 2853,
+      "sha256_working": "6e46841ce7ca49f0a1e89d0c63f5a5aa86fefecb42427d61769bc25d253ce8e5"
+    },
+    {
+      "path": "docs/final-commit-verification/verification-summary.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 62414,
+      "sha256_working": "140c2e42308c9f8eb8006f3d949b61c157ba5e284b85c41813d44d5ca2179741"
+    },
+    {
+      "path": "docs/history/DEVELOPMENT-PHASE1-3-README.md",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 15997,
+      "sha256_working": "aa394af6f48e54c82db6295ed6f6c005de58628123dc7360c9f6f5ed88d5a636"
+    },
+    {
+      "path": "docs/pdf-products/EXISTING-PRODUCTS-PROCEDURE.md",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 9663,
+      "sha256_working": "a8b82c48c8744e9456f3d73a13a96bb94f2464606d86b443f557a687724a0c48"
+    },
+    {
+      "path": "docs/pdf-products/INTEGRATION-REPORT.md",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 12646,
+      "sha256_working": "bf8c25f2299d70c13b062e899aeb7a72c618455d7ceecf20b0c32ce799aa3243"
+    },
+    {
+      "path": "docs/pdf-products/NEXT-BATCH-APPROVAL.md",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 7863,
+      "sha256_working": "35bc1e300a45def7c5dea207ff7a56e581bd6896bb0037e15fe8eeaeeeb1d7f7"
+    },
+    {
+      "path": "docs/pdf-products/dev-first-batch-dry-run.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 6656,
+      "sha256_working": "291146a85ac66cc2ee41783ded437f0858fa8860b3433b9fced20b8a6c3a3cff"
+    },
+    {
+      "path": "docs/pdf-products/dev-next-batch-dry-run.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 6948,
+      "sha256_working": "c68268003dd385840ae86fce1d5a480b0aa1a45146077ef76eeb8270608ee3ac"
+    },
+    {
+      "path": "docs/pdf-products/remaining-114-dry-run.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 399673,
+      "sha256_working": "ac4c49ab28f421a6dcd5a3ba07b5576ee552ba9fb03293d470f1148506e3d199"
+    },
+    {
+      "path": "docs/pdf-products/remaining-114-import-results.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 50016,
+      "sha256_working": "fe4736c4bd81ff89fed42203bc2074f702d99692263d9d6dae0389c2831f357e"
+    },
+    {
+      "path": "docs/pdf-products/source-clear-products.csv",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 127449,
+      "sha256_working": "d4aa2f36ef3640912d77347952bd1402e5f8f270d4894a5f889ce27635fb9160"
+    },
+    {
+      "path": "docs/pdf-products/verification/browser-uat-results.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 3610,
+      "sha256_working": "91a3f0ae6c4413f2ac06c44bb45c5629978b5fb476811115f7441b763b7ca05d"
+    },
+    {
+      "path": "docs/pdf-products/verification/data-safety.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 5108,
+      "sha256_working": "b9165f931f989f2c0598221d145b105a5e8bc559d688a17381f8bf36b3796f82"
+    },
+    {
+      "path": "docs/pdf-products/verification/files-changed.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 2099,
+      "sha256_working": "f5600f2a5cdf07c2566d66d522f98e70d8a9ee3d89998b0ac0fcd27f536f0cc3"
+    },
+    {
+      "path": "docs/pdf-products/verification/final-complete/browser-uat-results.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 2694,
+      "sha256_working": "fafc64f2b727eacac68042fe849b33dfbcaf23cc0332380760632dc8130dfc74"
+    },
+    {
+      "path": "docs/pdf-products/verification/final-model-check/browser-uat-results.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 603,
+      "sha256_working": "1dd691d11b8f596ae0787c12bda3af513b207a3477813ba1a3aef0b3ef4d2a4f"
+    },
+    {
+      "path": "docs/pdf-products/verification/final/browser-uat-results.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 2692,
+      "sha256_working": "2f3ffe3f4e5e958c5b67d8a260a95f542dad67802287f15593b6c20a4b43ad42"
+    },
+    {
+      "path": "docs/product-images/REPORT.md",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 10950,
+      "sha256_working": "c98f74ca5f7a59f1beeb2b777621d9ae04a41d01a8218aca6788840e71e83db5"
+    },
+    {
+      "path": "docs/product-images/candidates/rapiquick-dengue-igg-igm.webp",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 47508,
+      "sha256_working": "31bd51ec1caa7f3151e3f3e10883be6139316d7294a328f067d68e7207901e07"
+    },
+    {
+      "path": "docs/product-images/candidates/rapiquick-hbsag-label-review.webp",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 48820,
+      "sha256_working": "a34adb471b951ef56b8b2b1b5779b76b1503cc24045e790a83df7f2ce5697ae2"
+    },
+    {
+      "path": "docs/product-images/image-audit-and-plan.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 118012,
+      "sha256_working": "2bac8d59aae06a4ead9a8263a7b77bc33eb219d04163ba0c0250fc12adf0b9cf"
+    },
+    {
+      "path": "docs/product-images/image-update-results.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 4425,
+      "sha256_working": "a04005531bb6bad625b7517370a8b288545736412a15a758bcc933e1dcb277a5"
+    },
+    {
+      "path": "docs/product-images/verification/backend-regression.txt",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 744,
+      "sha256_working": "e3f7c2190b834a02807ea580e848f45f2b7fe6e2798388e86d33fea7dadbbe3d"
+    },
+    {
+      "path": "docs/product-images/verification/change-audit.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 1121,
+      "sha256_working": "5437a7a52990a041e3d38f3a0c69d41793cb4d802cbfc342eff1a02c1d68d7e6"
+    },
+    {
+      "path": "docs/product-ui-cleanup/REPORT.md",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 10526,
+      "sha256_working": "c716f419ab11993cda0e654aef9587ce8f61f55e4a92d751df1e9aec02bf2b27"
+    },
+    {
+      "path": "docs/product-ui-cleanup/image-candidates/alpha-care-adult-diaper.webp",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 169442,
+      "sha256_working": "4bbc267310088614f562426bfc4e83c140438ea3e7b5683e4f11579731d97e17"
+    },
+    {
+      "path": "docs/product-ui-cleanup/image-candidates/alpha-care-underpads-front.webp",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 69768,
+      "sha256_working": "f88494cd1ee5a477684912082179e9d44a22358d7ebb78a3efb24b70719cc370"
+    },
+    {
+      "path": "docs/product-ui-cleanup/image-candidates/alpha-care-underpads-side.webp",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 62162,
+      "sha256_working": "508ba4381087d545406b51bd8f3b67aab5524dddd3f6a60043596ba83be57229"
+    },
+    {
+      "path": "docs/product-ui-cleanup/image-mapping-proposal.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 4245,
+      "sha256_working": "f880af4c0e81a88ec704dede57b3a119d2d78e87990c20942d3f3416d7b7e1cb"
+    },
+    {
+      "path": "docs/product-ui-cleanup/verification/browser-uat-results.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 273,
+      "sha256_working": "1bf01ab3ff780d1c49c8aa613ca80e1cb5d6f369660a3d0ad3f20945a95432a4"
+    },
+    {
+      "path": "docs/product-ui-cleanup/verification/change-audit.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 2718,
+      "sha256_working": "70f5484d197453a60bb2e4d6f628090bd31fcc8bf12240eb4f7824346fafca61"
+    },
+    {
+      "path": "docs/product-ui-cleanup/verification/complete/browser-uat-results.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 4449,
+      "sha256_working": "37838f9b7eac65440417c9702b6d12be5723376296260bc2fb6c029970b072c1"
+    },
+    {
+      "path": "docs/product-ui-cleanup/verification/final-complete/browser-uat-results.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 2880,
+      "sha256_working": "a47331fe4c63e4db75c62df9c9f91fb07bd97820a49568e7b4e25ef4b0c3df2f"
+    },
+    {
+      "path": "docs/product-ui-cleanup/verification/final/browser-uat-results.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 2886,
+      "sha256_working": "888b115593e711c1790f6164f507791dc40ad1e5f751284839e7d9214bf8cc06"
+    },
+    {
+      "path": "docs/product-ui-cleanup/verification/final/mobile-live-checks.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 294,
+      "sha256_working": "b215e94b564d49e5435e0b69b2d7304d3f926c86d56327afacd1647e0cb95302"
+    },
+    {
+      "path": "docs/repository-cleanup-verification/browser-uat-results.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 2855,
+      "sha256_working": "2e2fc95027e572745394d4bc954cae77001bdc274af5041830dbadc8af2b5c32"
+    },
+    {
+      "path": "docs/repository-cleanup-verification/dependency-classification.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 107024,
+      "sha256_working": "aa4d3b5c8de7f8932fd928a9c86f2c8219d0a661ff9e239269f7c8567b712ae3"
+    },
+    {
+      "path": "docs/repository-cleanup-verification/preservation.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 24511,
+      "sha256_working": "9d5beee5fa3f387e806722ee0669d507c0d934b8d4880da81c806d9cf3adc24a"
+    },
+    {
+      "path": "docs/staging/backend.env.example",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 1919,
+      "sha256_working": "baefde5ef69e7068e30465557187bcfc2537680b79411ad7025705a5b2984220"
+    },
+    {
+      "path": "docs/staging/dashboard.env.example",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 269,
+      "sha256_working": "e324050506bcc070fb591fe66e97063c240e7fa80fb247de23cfb716f356eca1"
+    },
+    {
+      "path": "docs/staging/recovery-verification/browser-uat-results.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 2472,
+      "sha256_working": "e51616f71f798cba668a4d3f637e04c80470e6a72d84d66345e8a381f4a5d9eb"
+    },
+    {
+      "path": "docs/staging/recovery-verification/mobile-uat.png",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 19748,
+      "sha256_working": "29eb1f44652ba747198ccaac2ee0b113a27b9ea8a74b37b39061aa3f3de04160"
+    },
+    {
+      "path": "docs/staging/storefront.env.example",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 331,
+      "sha256_working": "a16d5b6899cfedfed79764399d499ea69ed44b470b8afd904f988a2458c80ed2"
+    },
+    {
+      "path": "docs/uat/browser-uat-results.json",
+      "action": "add/update",
+      "purpose": "Required source PDF/media/manifests, approval/import evidence, historical/current instructions or sanitized verification report",
+      "bytes": 2233,
+      "sha256_working": "662a9c66393c714b78dd2240f3e93420c02377871381b12d0b1cd508af27b092"
+    },
+    {
+      "path": "frontend/.env.example",
+      "action": "add/update",
+      "purpose": "Employee dashboard, shared API/gallery/inquiry consumers, tests and Vite deployment configuration",
+      "bytes": 290,
+      "sha256_working": "fd160208a004988f1c807801fa97c7eb913c9e85c6aadfe1cbb32a8865d9144f"
+    },
+    {
+      "path": "frontend/README.md",
+      "action": "add/update",
+      "purpose": "Employee dashboard, shared API/gallery/inquiry consumers, tests and Vite deployment configuration",
+      "bytes": 2575,
+      "sha256_working": "2cc3937cd70eaba82137e2bbc23b642eed034dde2e317f2f571a2441e6161f05"
+    },
+    {
+      "path": "frontend/package.json",
+      "action": "add/update",
+      "purpose": "Employee dashboard, shared API/gallery/inquiry consumers, tests and Vite deployment configuration",
+      "bytes": 584,
+      "sha256_working": "e0278d71634ca24a92075281138a9f0d7c6dd84bb8f4707dd2db66552f9a36ed"
+    },
+    {
+      "path": "frontend/src/App.tsx",
+      "action": "add/update",
+      "purpose": "Employee dashboard, shared API/gallery/inquiry consumers, tests and Vite deployment configuration",
+      "bytes": 31597,
+      "sha256_working": "47fa942c0096460401bcf4ab85ba039c640f96d2bef6810f72e29caa7b6f9bb0"
+    },
+    {
+      "path": "frontend/src/BrochureReview.tsx",
+      "action": "add/update",
+      "purpose": "Employee dashboard, shared API/gallery/inquiry consumers, tests and Vite deployment configuration",
+      "bytes": 15774,
+      "sha256_working": "71ea614e69ad441c3b923f014538a3288b8e3b24f420253233813a6c9273eb67"
+    },
+    {
+      "path": "frontend/src/CommunicationRequests.tsx",
+      "action": "add/update",
+      "purpose": "Employee dashboard, shared API/gallery/inquiry consumers, tests and Vite deployment configuration",
+      "bytes": 2555,
+      "sha256_working": "5f2f528dad26d8a565263b6548003962e095f77b02190c6ba8e9e79ac5151b25"
+    },
+    {
+      "path": "frontend/src/InquiryDecision.tsx",
+      "action": "add/update",
+      "purpose": "Employee dashboard, shared API/gallery/inquiry consumers, tests and Vite deployment configuration",
+      "bytes": 3287,
+      "sha256_working": "8e1fa07298581f75d928d68b3880824c24c501051a6220214be55caea68abc26"
+    },
+    {
+      "path": "frontend/src/Invoices.tsx",
+      "action": "add/update",
+      "purpose": "Employee dashboard, shared API/gallery/inquiry consumers, tests and Vite deployment configuration",
+      "bytes": 8260,
+      "sha256_working": "b09c2a3c9df78748527d9a0da1e59c431e285cedddfa69ac91dbf95bf78c7ce9"
+    },
+    {
+      "path": "frontend/src/ProductCatalog.tsx",
+      "action": "add/update",
+      "purpose": "Employee dashboard, shared API/gallery/inquiry consumers, tests and Vite deployment configuration",
+      "bytes": 9269,
+      "sha256_working": "0c940ec1f3ab9e4dcbd9a74e673c2af7d460c30e56f31e6c4dd5db940ab92530"
+    },
+    {
+      "path": "frontend/src/ProductEditor.tsx",
+      "action": "add/update",
+      "purpose": "Employee dashboard, shared API/gallery/inquiry consumers, tests and Vite deployment configuration",
+      "bytes": 10709,
+      "sha256_working": "78ae0107e72dc7b18aa402f4901eaa70c78644e02493d1a57408b2b429f1bce4"
+    },
+    {
+      "path": "frontend/src/Quotations.tsx",
+      "action": "add/update",
+      "purpose": "Employee dashboard, shared API/gallery/inquiry consumers, tests and Vite deployment configuration",
+      "bytes": 3607,
+      "sha256_working": "d517c65132bb1944099d25bd35520f0e12ebba94b4536b6b636b3f93471171a8"
+    },
+    {
+      "path": "frontend/src/StorefrontSettings.tsx",
+      "action": "add/update",
+      "purpose": "Employee dashboard, shared API/gallery/inquiry consumers, tests and Vite deployment configuration",
+      "bytes": 3466,
+      "sha256_working": "38d8c29f4140e3d536be7f4fb1085ab223da20a82b32361762f8fd6f138c404a"
+    },
+    {
+      "path": "frontend/src/SupportChat.tsx",
+      "action": "add/update",
+      "purpose": "Employee dashboard, shared API/gallery/inquiry consumers, tests and Vite deployment configuration",
+      "bytes": 9661,
+      "sha256_working": "660c7ad656d00604bdf1feec5f204f13ea753901529c7eb2243367c76269023f"
+    },
+    {
+      "path": "frontend/src/api-url.ts",
+      "action": "add/update",
+      "purpose": "Employee dashboard, shared API/gallery/inquiry consumers, tests and Vite deployment configuration",
+      "bytes": 199,
+      "sha256_working": "4bd67b6db456684610ebdddb48acf2bf8835a8b1ac355bd039d79ae752b3a22a"
+    },
+    {
+      "path": "frontend/src/api.ts",
+      "action": "add/update",
+      "purpose": "Employee dashboard, shared API/gallery/inquiry consumers, tests and Vite deployment configuration",
+      "bytes": 8297,
+      "sha256_working": "3339ab4733b17df2de96cc5441992d501e61fcde116c3e55cb5848205a37b3f4"
+    },
+    {
+      "path": "frontend/src/brochure-mapping.ts",
+      "action": "add/update",
+      "purpose": "Employee dashboard, shared API/gallery/inquiry consumers, tests and Vite deployment configuration",
+      "bytes": 3736,
+      "sha256_working": "7ba57e8198588029eb894826b92804f4fe17724b4d253368f96d94f626a3c5f2"
+    },
+    {
+      "path": "frontend/src/brochure-review.css",
+      "action": "add/update",
+      "purpose": "Employee dashboard, shared API/gallery/inquiry consumers, tests and Vite deployment configuration",
+      "bytes": 1530,
+      "sha256_working": "6a5a998729eb8601b42eefd6f2700f20f1905f8660298d66e289e458f72c6e8d"
+    },
+    {
+      "path": "frontend/src/inquiry-decision.css",
+      "action": "add/update",
+      "purpose": "Employee dashboard, shared API/gallery/inquiry consumers, tests and Vite deployment configuration",
+      "bytes": 802,
+      "sha256_working": "a6c11cd028d4dbe6cd6ce6033b82abc65d2499dfc4c3cb6728fd4698907801cc"
+    },
+    {
+      "path": "frontend/src/product-catalog.css",
+      "action": "add/update",
+      "purpose": "Employee dashboard, shared API/gallery/inquiry consumers, tests and Vite deployment configuration",
+      "bytes": 8445,
+      "sha256_working": "ac8091f018146fd2801cc46bc1638ed5a497eaa0c2e2c70f152689fb428bf830"
+    },
+    {
+      "path": "frontend/src/product-editor.css",
+      "action": "add/update",
+      "purpose": "Employee dashboard, shared API/gallery/inquiry consumers, tests and Vite deployment configuration",
+      "bytes": 1043,
+      "sha256_working": "98d4e7d0e487a4683093119dca79e72c7a3dae08be931beec90daf8b5fb85e1c"
+    },
+    {
+      "path": "frontend/src/vite-env.d.ts",
+      "action": "add/update",
+      "purpose": "Employee dashboard, shared API/gallery/inquiry consumers, tests and Vite deployment configuration",
+      "bytes": 38,
+      "sha256_working": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5"
+    },
+    {
+      "path": "frontend/tests/brochure-mapping.mjs",
+      "action": "add/update",
+      "purpose": "Employee dashboard, shared API/gallery/inquiry consumers, tests and Vite deployment configuration",
+      "bytes": 2529,
+      "sha256_working": "79dc701bebbd97c8cec15d7ba8753946b188a3037cb8b5af4fbc2e2b829d439f"
+    },
+    {
+      "path": "frontend/tests/deployment-config.mjs",
+      "action": "add/update",
+      "purpose": "Employee dashboard, shared API/gallery/inquiry consumers, tests and Vite deployment configuration",
+      "bytes": 2048,
+      "sha256_working": "4428281aa1fe7026c030e71e67e00525ef8476a8e06d6231bfa641e3c220150b"
+    },
+    {
+      "path": "frontend/vercel.json",
+      "action": "add/update",
+      "purpose": "Employee dashboard, shared API/gallery/inquiry consumers, tests and Vite deployment configuration",
+      "bytes": 241,
+      "sha256_working": "aa26e838cd8c4206f8ae66d68661824743765e9aca91aea65165279695405851"
+    },
+    {
+      "path": "frontend/vite.config.ts",
+      "action": "add/update",
+      "purpose": "Employee dashboard, shared API/gallery/inquiry consumers, tests and Vite deployment configuration",
+      "bytes": 902,
+      "sha256_working": "bc5d6c70f12632ad4cec1c2a315d3db8307f6571e6b6152d318b83e5757164cd"
+    },
+    {
+      "path": "legacy-storefront/README.txt",
+      "action": "delete",
+      "purpose": "Previously verified obsolete archive removal",
+      "bytes": null,
+      "sha256_working": null
+    },
+    {
+      "path": "legacy-storefront/index.html",
+      "action": "delete",
+      "purpose": "Previously verified obsolete archive removal",
+      "bytes": null,
+      "sha256_working": null
+    },
+    {
+      "path": "legacy-storefront/main.js",
+      "action": "delete",
+      "purpose": "Previously verified obsolete archive removal",
+      "bytes": null,
+      "sha256_working": null
+    },
+    {
+      "path": "storefront-next/.env.example",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 404,
+      "sha256_working": "0413cb508b75ec7c1f16a1ce1c05535d4200e173edf946ddbc499619da403b0a"
+    },
+    {
+      "path": "storefront-next/.gitignore",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 66,
+      "sha256_working": "4a2604f31a67914f9a00e537685de5eb3fac21fc12109e6983b0d655a80696ce"
+    },
+    {
+      "path": "storefront-next/README.md",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 1677,
+      "sha256_working": "a4daaf013ae02786b4e366af2173e1da700efe58ccffaf0a95b1d9a97c6b41e7"
+    },
+    {
+      "path": "storefront-next/app/@modal/(.)products/[slug]/page.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 541,
+      "sha256_working": "1bab0935ce403d60db9ad714b4ea3f9caa196d355142c54f6bbf3ba11bda4744"
+    },
+    {
+      "path": "storefront-next/app/@modal/[...catchAll]/page.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 52,
+      "sha256_working": "18ea4758a886bf7fe3f0c8e0360a8f015d6d86c8890cbf78cc274646c06063c5"
+    },
+    {
+      "path": "storefront-next/app/@modal/default.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 54,
+      "sha256_working": "7ca8364c746b97d760e77a0d04cdcb87a08c7fc23237bb4d502d54c7b5fef23b"
+    },
+    {
+      "path": "storefront-next/app/about/page.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 1912,
+      "sha256_working": "0c7af598583cbfc2fbca8abe23394208d1c20b02a4fd317cce6a4730b1ddd1d5"
+    },
+    {
+      "path": "storefront-next/app/api/quotations/route.ts",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 1227,
+      "sha256_working": "31e57197a447a952688f492b904678e37e4db1560da37a8de16ffb12998c47d5"
+    },
+    {
+      "path": "storefront-next/app/api/tracking/route.ts",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 2533,
+      "sha256_working": "f137675c296109a53ab97aef92e8c98ad9290b2537cc55effe4388479d7d175a"
+    },
+    {
+      "path": "storefront-next/app/cart/page.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 163,
+      "sha256_working": "cadfd79376652c98476840e9eaf1ba5f9e47ef2af5276f0db3b6ce8147beeb0d"
+    },
+    {
+      "path": "storefront-next/app/contact/page.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 1194,
+      "sha256_working": "27e5835a2b0cd0a531820c88eb0b510a4c9231f08b6ef72e26344ba4a85c407c"
+    },
+    {
+      "path": "storefront-next/app/globals.css",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 34021,
+      "sha256_working": "191e0e3cf9553ff0e2ab4e334353820d6ae04610bee822c62dd7e7412e1e05a7"
+    },
+    {
+      "path": "storefront-next/app/layout.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 719,
+      "sha256_working": "e443b4457beb1ef47b03f0b58c9c6893daa77a7ae6af3e1078e60c44b8cbce3f"
+    },
+    {
+      "path": "storefront-next/app/leadership/page.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 892,
+      "sha256_working": "e8f514c7dd8955979710b657c75e4d60a33c3e8998869308b756bf4a8bdfcfa4"
+    },
+    {
+      "path": "storefront-next/app/mission-vision/page.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 1124,
+      "sha256_working": "94e15f57b92add2eaa10b08325ed26a0f5caeb8c53a01e7a3a49dfdd15ce0feb"
+    },
+    {
+      "path": "storefront-next/app/page.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 5566,
+      "sha256_working": "ff48983b47fc5e9093f86b60f9f6a42674d4fdfe4503f827877cdb6390b134c4"
+    },
+    {
+      "path": "storefront-next/app/products/[slug]/page.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 908,
+      "sha256_working": "24a674ca8fdd755ca276b0590c1b0f0b1ff711f65b874b516620b50a19e2fbbd"
+    },
+    {
+      "path": "storefront-next/app/products/page.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 611,
+      "sha256_working": "9def8a37759a8c0b16bf6ce4832e46a486a4be75f8b83f0c113f648b6ac83fd6"
+    },
+    {
+      "path": "storefront-next/app/quotation/success/page.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 1079,
+      "sha256_working": "ae3253a277e57b537e2cc30e3947a6a9288146b2fe967f07ad02e92dd90a8871"
+    },
+    {
+      "path": "storefront-next/app/track-order/page.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 456,
+      "sha256_working": "703e9163d70d96d7c8e7691b45bb4802773d339ec256f71a97b33a336a31922f"
+    },
+    {
+      "path": "storefront-next/components/CartDrawer.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 1644,
+      "sha256_working": "fde67dc14abf789c256385eddd7ef160e7eaa5fc6c5b1a4c5d6e177fd6616279"
+    },
+    {
+      "path": "storefront-next/components/CartPageClient.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 4959,
+      "sha256_working": "db405f3a8aa69f368cc3a8818168997d3767c1e377e93a666bb50790aa603a39"
+    },
+    {
+      "path": "storefront-next/components/CartProductImage.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 819,
+      "sha256_working": "5f54249f6956533c7c84a8269debb3ad360a31c42beac0a02e3159a87baaa09a"
+    },
+    {
+      "path": "storefront-next/components/CartProvider.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 1866,
+      "sha256_working": "e00bf3798935d661bfd692dcb36eb29ae8d2baff585e4ba3d880efeae7fd5fc1"
+    },
+    {
+      "path": "storefront-next/components/CartShell.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 331,
+      "sha256_working": "402b96a0e0b268084e058b389f812f21d9d62793cf94b568fdf23f55ec36c377"
+    },
+    {
+      "path": "storefront-next/components/CatalogClient.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 4375,
+      "sha256_working": "75394aa892960723276591a0627de0ba7386d93d9e73ca25e34b0707be82856f"
+    },
+    {
+      "path": "storefront-next/components/ContactForm.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 1093,
+      "sha256_working": "202718178f5b134e2a7436f212115231d82a26fe3d0cd87b7bf261ea141e5474"
+    },
+    {
+      "path": "storefront-next/components/EcosystemMarquee.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 2062,
+      "sha256_working": "121b9be0bd6d6be49e3a8412b792c2060da61cdec04e87b20f6b91867d034e21"
+    },
+    {
+      "path": "storefront-next/components/FloatingActions.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 8123,
+      "sha256_working": "74883876d4e5680ecfc2efdb3a82ed4fadcd4a75d313947deeec11cdce3e4898"
+    },
+    {
+      "path": "storefront-next/components/PageIntro.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 265,
+      "sha256_working": "67de2fe9dfa27ca4dd99a0a198a79d9dcaacffdb88d04f9cc40e328c82ec17b4"
+    },
+    {
+      "path": "storefront-next/components/ProductDetail.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 2339,
+      "sha256_working": "7cb6268f0de0031bce3646ea80cb0c383f52616aeefe051d35bd2b027d8524fa"
+    },
+    {
+      "path": "storefront-next/components/ProductGallery.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 2342,
+      "sha256_working": "b778b9fb2e2c83526018bb5792d41edf9273a8bd7bd304d60b63f1cc15195bf6"
+    },
+    {
+      "path": "storefront-next/components/ProductModal.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 1836,
+      "sha256_working": "17e11ee2fa936aaf76267c64af427406891aaa650cd0f4bc1a5300de04f4e7b8"
+    },
+    {
+      "path": "storefront-next/components/Reveal.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 482,
+      "sha256_working": "b2856aae587ee7286936bca6ef85e0bdafe5665c15eb97d6516604ff0a417c54"
+    },
+    {
+      "path": "storefront-next/components/SiteFooter.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 1008,
+      "sha256_working": "4ef3cec675da05fce8d9967667ddccd8c98730aa2346d5f6cd6869ee3ce77e3b"
+    },
+    {
+      "path": "storefront-next/components/SiteHeader.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 4037,
+      "sha256_working": "541af6961c0964de82f1830cc1b44047f126e2bfe9fc930b9205ddab549d7cbb"
+    },
+    {
+      "path": "storefront-next/components/TrackOrder.tsx",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 6122,
+      "sha256_working": "ad266108ec7553bb2d658d9153e73e33d09f7e15ea55cf1b472bc104a38044a8"
+    },
+    {
+      "path": "storefront-next/docs/CONTENT_PROVENANCE.md",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 1501,
+      "sha256_working": "9de87ff1e1114a3c5b8afaf277dad5afac7d167a426ea940fdeab0b905502519"
+    },
+    {
+      "path": "storefront-next/docs/ORDER_INQUIRIES.md",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 3274,
+      "sha256_working": "8d014c79cac1a09a5fdcc932d4785b98e83bc2bbd8175d0560ad953bde0ead8b"
+    },
+    {
+      "path": "storefront-next/docs/PHASE2_API_CONTRACT.md",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 1711,
+      "sha256_working": "8896387aec98d80120f59e068e86ab33287f5932baef1ce2b5d05bae871521b3"
+    },
+    {
+      "path": "storefront-next/docs/README.md",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 1498,
+      "sha256_working": "cf0520f6ee329e7e3344d575a3ec7147bd454b258fd9bdd5429e0ac6cb73f5ba"
+    },
+    {
+      "path": "storefront-next/docs/UX_REFINEMENT_AND_NEXT_STEPS.md",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 3041,
+      "sha256_working": "617944f875b4ba39886947a8450260aa50ece83ecd40603c69bc018bf65b73db"
+    },
+    {
+      "path": "storefront-next/lib/catalog.ts",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 4293,
+      "sha256_working": "c3bbe8faf74fd6fb289352c0fe30a7db2699e7b1b97e6c174e3bde93043fd312"
+    },
+    {
+      "path": "storefront-next/lib/content.ts",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 2803,
+      "sha256_working": "759743f99d437ef28cc89ac0322b64c8e24127364c88adf5b1e68798154c09d8"
+    },
+    {
+      "path": "storefront-next/lib/inquiry-submission.ts",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 3016,
+      "sha256_working": "97dd9e77c1036462baa1e567ffac8c802c280c60651b29814f03d9b6256034bb"
+    },
+    {
+      "path": "storefront-next/lib/partners.ts",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 435,
+      "sha256_working": "adfe12b9a12783f34319877d817193be3340e25d7375c8932863f31b6b4363b4"
+    },
+    {
+      "path": "storefront-next/next-env.d.ts",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 262,
+      "sha256_working": "85ae5aee75f011967cf2d25cbc342f62d69314e9d925f7f4aa3456fc2cffcca6"
+    },
+    {
+      "path": "storefront-next/next.config.mjs",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 558,
+      "sha256_working": "227c6a3ffbf4f7df37aef885c21038680474aaa47c8df2e8466025d361b4f079"
+    },
+    {
+      "path": "storefront-next/package-lock.json",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 61580,
+      "sha256_working": "f767452b50c0068e64e89294999b2e39edbac41a0684b79255c6e5ef10419838"
+    },
+    {
+      "path": "storefront-next/package.json",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 1244,
+      "sha256_working": "211ed468a76ebf33e782506068091b9bc91889b5c6728e1540a4e4695897a256"
+    },
+    {
+      "path": "storefront-next/postcss.config.mjs",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 60,
+      "sha256_working": "f50058e0d309cdb3e7c25a1123337338641fb71e988572607d57f47209db1fd1"
+    },
+    {
+      "path": "storefront-next/public/brand/ceo.png",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 108718,
+      "sha256_working": "58e9e566bf06e869a5514d93ca88c92e975009d8ca63fdaac97dc1ca788cc8e3"
+    },
+    {
+      "path": "storefront-next/public/brand/logo-mark.png",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 95488,
+      "sha256_working": "8f750a30cea42f9d0b6b26a1c5753bec7b24086fdee2e3fe92757b6b15040eaa"
+    },
+    {
+      "path": "storefront-next/public/brand/logo.png",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 130358,
+      "sha256_working": "26453272b5438e85ab99236c609f7b4f1d1a6fc010d415125e6d00ea08a8b716"
+    },
+    {
+      "path": "storefront-next/public/partners/README.md",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 730,
+      "sha256_working": "46c482c11651cbc63fc0469aa20e715f1b13110240a7ef265623db62a7ed2997"
+    },
+    {
+      "path": "storefront-next/tests/browser-e2e.mjs",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 17060,
+      "sha256_working": "fb4a34f2b39d5ce1d268d5dac79bc79c409930c15b01115efb5a46df537c1dc7"
+    },
+    {
+      "path": "storefront-next/tests/catalog-errors.mjs",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 2307,
+      "sha256_working": "d73e520338bbb7bcaaf56a119f94abfbeab96326bce37e1bed583480f3fd69b0"
+    },
+    {
+      "path": "storefront-next/tests/catalog-pagination.mjs",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 1428,
+      "sha256_working": "68f27dc096d0ec6c3def33b0dfc1aa0081cd96f27472d4e892c4d0ba83828314"
+    },
+    {
+      "path": "storefront-next/tests/deployment-config.mjs",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 1548,
+      "sha256_working": "66723917499d73cc560a9e4274d6b48edbba08283f1f41b34449f43c26166fb8"
+    },
+    {
+      "path": "storefront-next/tests/gallery-interactions.mjs",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 2340,
+      "sha256_working": "eaefda38e52dc90f0ef04ade3837c2e8033efcfd4f0919c89e27768464b609e2"
+    },
+    {
+      "path": "storefront-next/tests/image-pipeline.mjs",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 908,
+      "sha256_working": "e523c788e3aae01c2f8545fa7d5ca419af3db3c0a69b4fceac99e4eb26f3d6c0"
+    },
+    {
+      "path": "storefront-next/tests/inquiry-retries.mjs",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 2829,
+      "sha256_working": "d5df80177eeccbf2cf8a85af8a226171807e18a6bbd77d64c49043e0801975a8"
+    },
+    {
+      "path": "storefront-next/tests/local-uat.mjs",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 39490,
+      "sha256_working": "c9d0455acf04c98a06b8a6a0c19ed007e5f45ef15c4d738961c85a7d8d1e36ed"
+    },
+    {
+      "path": "storefront-next/tests/source-smoke.mjs",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 1556,
+      "sha256_working": "ae49c24ce2827bdaaa01e1d0bfa4253d1a34c7adb8a23bbac0dc7d32d349c95d"
+    },
+    {
+      "path": "storefront-next/tests/tracking-proxy.mjs",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 1747,
+      "sha256_working": "d7f4e8386fafa6476726416d9f33fd3183dea1a2f3bb958345b79957d9aea2f0"
+    },
+    {
+      "path": "storefront-next/tests/typescript-syntax.mjs",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 961,
+      "sha256_working": "1a28f7dce17fff8b4fdbccb9c51949772e90b02373f871970c6ef6d7b6915ef7"
+    },
+    {
+      "path": "storefront-next/tests/ui-refinement.mjs",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 2253,
+      "sha256_working": "b2cc1d059136982d06d4ccb5fb34338784b9c724d57cbf1f43704cf934258ebd"
+    },
+    {
+      "path": "storefront-next/tsconfig.json",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 445,
+      "sha256_working": "e56963ed2e62020bf6bb7d37f9579735d022301a6b28b955b6d1bfd16bd324c1"
+    },
+    {
+      "path": "storefront-next/vercel.json",
+      "action": "add/update",
+      "purpose": "Public storefront routes/components, API adapters, tests, lockfile, approved brand assets and deployment configuration",
+      "bytes": 147,
+      "sha256_working": "9fd4ea9e9bbb01391e7e946e1b2d3e2af2dd003b27067dadcdcaf4f20b799fb1"
+    }
+  ],
+  "excluded_existing_files_preserved_locally": [
+    "backend/.env",
+    "backend/.env.test",
+    "docs/final-commit-verification/employee-products-desktop.png",
+    "docs/final-commit-verification/employee-products-mobile.png",
+    "docs/final-commit-verification/mobile-uat.png",
+    "docs/pdf-products/verification/dashboard-failure.png",
+    "docs/pdf-products/verification/final-complete/mobile-uat.png",
+    "docs/pdf-products/verification/final-model-check/dashboard-failure.png",
+    "docs/pdf-products/verification/final-model-check/storefront-failure.png",
+    "docs/pdf-products/verification/final/mobile-uat.png",
+    "docs/pdf-products/verification/storefront-failure.png",
+    "docs/product-images/underpads-live-gallery.png",
+    "docs/product-ui-cleanup/verification/complete/dashboard-failure.png",
+    "docs/product-ui-cleanup/verification/complete/employee-products-desktop.png",
+    "docs/product-ui-cleanup/verification/complete/mobile-uat.png",
+    "docs/product-ui-cleanup/verification/complete/storefront-failure.png",
+    "docs/product-ui-cleanup/verification/final-complete/employee-products-desktop.png",
+    "docs/product-ui-cleanup/verification/final-complete/employee-products-mobile.png",
+    "docs/product-ui-cleanup/verification/final-complete/mobile-uat.png",
+    "docs/product-ui-cleanup/verification/final/dashboard-failure.png",
+    "docs/product-ui-cleanup/verification/final/employee-products-desktop.png",
+    "docs/product-ui-cleanup/verification/final/employee-products-mobile.png",
+    "docs/product-ui-cleanup/verification/final/mobile-uat.png",
+    "docs/product-ui-cleanup/verification/final/storefront-category-mobile.png",
+    "docs/product-ui-cleanup/verification/final/storefront-failure.png",
+    "docs/repository-cleanup-verification/employee-products-desktop.png",
+    "docs/repository-cleanup-verification/employee-products-mobile.png",
+    "docs/repository-cleanup-verification/mobile-uat.png",
+    "docs/uat/desktop-product-gallery.png",
+    "docs/uat/mobile-product-gallery.png",
+    "docs/uat/mobile-uat.png",
+    "storefront-next/.env"
+  ],
+  "excluded_generated_directories": [
+    "backend/.venv/",
+    "backend/__pycache__/",
+    "backend/.pytest_cache/",
+    "frontend/node_modules/",
+    "frontend/dist/",
+    "storefront-next/node_modules/",
+    "storefront-next/.next/",
+    "storefront/node_modules/"
+  ],
+  "deletion_note": "Only the prior cleanup removals and documentation move; no additional files deleted in final review.",
+  "snapshot_note": "Complete working source, not the older partial index. Source PDF retained intentionally. No MongoDB data exports or business records. Self-manifest hash/size omitted to avoid recursion."
+}

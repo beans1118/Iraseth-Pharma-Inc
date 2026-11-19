@@ -1,0 +1,304 @@
+{
+  "branch": "feature/storefront-modernization",
+  "database": "iraseth_dev",
+  "method": "Read-only MongoDB fingerprints before/after cleanup and tests; no Flask startup imported for development snapshots. Hashes only, no database dump or backup.",
+  "verification": {
+    "all_27_development_collections_unchanged": true,
+    "indexes_unchanged": true,
+    "git_staging_unchanged": true,
+    "history_move_same_bytes": true,
+    "git_diff_check": "passed",
+    "products": 127
+  },
+  "development_collections_before_and_after": {
+    "backups": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "brochure_imports": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "catalog_events": {
+      "count": 130,
+      "sha256": "c90ff47937c0a3335e2a3b23c3f7e42b4bea960572d9170a5060333208681b7b"
+    },
+    "communication_requests": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "counters": {
+      "count": 1,
+      "sha256": "5d7de16ecf79a6565d6bcc68d0b7297a581ab795e086458bad678f4c8ca991a1"
+    },
+    "inventory_adjustments": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "inventory_batches": {
+      "count": 3,
+      "sha256": "1a5fb025b696f00df5aa480399a2a23fda30ecbe6ec0047b0674cd22a87a5533"
+    },
+    "inventory_logs": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "inventory_operations": {
+      "count": 5,
+      "sha256": "4210f801b9c5bf650e8173612e4e5704f78c005d2c4e3e0b9e209f24801d47c3"
+    },
+    "invoice_events": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "invoices": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "orders": {
+      "count": 2,
+      "sha256": "ccce3bbb7de1c96eb586dd6a6500302d0d170294d23a538b1c672c55a7bddb86"
+    },
+    "products": {
+      "count": 127,
+      "sha256": "e54d75099eb7c3c3ab7c3603de01edaaae0f5d2d4abf0f7c445a463cbe5a7c18"
+    },
+    "quotation_events": {
+      "count": 6,
+      "sha256": "af1a22e11b9064503d7836e5a0a7632c037fea83f475d327177cf26412f00c63"
+    },
+    "quotations": {
+      "count": 2,
+      "sha256": "6d2fe55ddb7a8d8b7fed173a785ad20b3e61e777e6112dacb067d2df6d8d4549"
+    },
+    "rate_limits": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "sessions": {
+      "count": 6,
+      "sha256": "1967f153e78a59f4843dd05998612279251c19f858e6c65b1d291acd539d6cba"
+    },
+    "stock_movements": {
+      "count": 4,
+      "sha256": "4e833697069b689447944d7a1592b4206e0ad8e20cc7e9bde0799b47a1a5f611"
+    },
+    "stock_reservations": {
+      "count": 1,
+      "sha256": "d02f813bab7064904b6996c55d44afb9e57adc35d6b4916a47c39754fbf846ea"
+    },
+    "support_challenges": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "support_messages": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "support_rate_limits": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "support_sessions": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "support_threads": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "system_metadata": {
+      "count": 1,
+      "sha256": "2f5554ea74ff03c570e2aa2e184e7e18ffcd9ea11ccd2544d0fe5d03d0abc2bf"
+    },
+    "tracking_challenges": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "users": {
+      "count": 1,
+      "sha256": "9e936eab0ba49086e34b2459f527a5455c55bd496c84283c657311f676092429"
+    }
+  },
+  "index_sha256_before_and_after": {
+    "backups": "b52d3d3d41590b9e5f83f94209518da9ce95343d3ad3d9cbe20e97c6474f8f26",
+    "brochure_imports": "647d8f28ccf8523845c35484ce187f3bd57573ba75092f0478c4d90d4e1baddb",
+    "catalog_events": "66b8f8db3f5dfb4ca3264a65f8546e06d5d92dbd4ab1d618bb8a560e9e3e251b",
+    "communication_requests": "625fe58ac5acbf13d7bac8e06962de8466c76de8a58cf607a31691356ecaa558",
+    "counters": "36e25f60f178ba617706dc5a950742d0c06feeab6c27d1936230f0178bc91665",
+    "inventory_adjustments": "f24c90aa8b9deb712fcfbbcbbf0975410b355f81cb80d68c4940ef141152537b",
+    "inventory_batches": "fc8a6f1149acaa582167922da27bf96be15c83a4c79c610ae59f33544a55deb1",
+    "inventory_logs": "e34047d3b979aa6f7c7c0714a3267a53b5be6638f499947c26f494d496b7ea9a",
+    "inventory_operations": "647d8f28ccf8523845c35484ce187f3bd57573ba75092f0478c4d90d4e1baddb",
+    "invoice_events": "2fee0aa8a049574c1a4ddf6f894ec904c97e261582227507811404742260d9a9",
+    "invoices": "358f24a277d9fbf2ae8b38ce03ebf0904c98b24c120c325105c02b9c5c3ce957",
+    "orders": "cb8d7b5d5689d62c09f50e93d9e2c6ca9fbc5fd944a05f2cbe99c8ca640074de",
+    "products": "a860b63c95568166bec30c434c8cc5cc9f92739c4cb3a41f130853d91d207a29",
+    "quotation_events": "e5401fee6345ee5dfddebcba7805c159f173bbe7601f191f635ad59c3f16c0ab",
+    "quotations": "0e7ece2ed82b4decf941e607e35c73aee48e91fe0aa8853e000c01a7d3bf4aa0",
+    "rate_limits": "adb450035d1a2a3f28dd2a1785a63f70bf2aedb186847af221805bc20300d028",
+    "sessions": "19062d710d1cd55e51a348a8e260459a86703109787b33e4450a7e2a41a1ee92",
+    "stock_movements": "66b8f8db3f5dfb4ca3264a65f8546e06d5d92dbd4ab1d618bb8a560e9e3e251b",
+    "stock_reservations": "c134ad35c491e794d37d31ac020b68f7b79520d38e90d1d035442ed21c80e5d1",
+    "support_challenges": "679bb16d548a29362e5214d7747fdbcf782261a5faa7165b4b6418ec3dc9b75f",
+    "support_messages": "07fc2f043867030158fdaf90dc67b3ede22774f6ed70262a2c2eaf63bce94261",
+    "support_rate_limits": "adb450035d1a2a3f28dd2a1785a63f70bf2aedb186847af221805bc20300d028",
+    "support_sessions": "e4530b82f0f81936a58d49cacf55de32484034d6bad0eff7bf3c0f0d09686027",
+    "support_threads": "5ae29bf44bf29ba5a29b7de1a70e9cf750d9942de544f691cb7647ee00a271d6",
+    "system_metadata": "36e25f60f178ba617706dc5a950742d0c06feeab6c27d1936230f0178bc91665",
+    "tracking_challenges": "87ff9307f1afd7b257227480abc061aec83578b2be7092ee15672d19ed74ddbd",
+    "users": "f730b5e387b33b58fd7bcc6a213b83e08ac3559fcb103b1cdf1679f8d17d58b5"
+  },
+  "git": {
+    "staged_paths_unchanged": [
+      "backend/app.py",
+      "backend/extensions.py",
+      "backend/modules/public_catalog/__init__.py",
+      "backend/modules/public_catalog/routes.py",
+      "backend/routes/products.py",
+      "backend/tests/test_public_catalog_phase2.py",
+      "frontend/src/App.tsx",
+      "frontend/src/StorefrontSettings.tsx",
+      "frontend/src/api.ts",
+      "storefront-next/.env.example",
+      "storefront-next/.gitignore",
+      "storefront-next/README.md",
+      "storefront-next/app/about/page.tsx",
+      "storefront-next/app/cart/page.tsx",
+      "storefront-next/app/contact/page.tsx",
+      "storefront-next/app/globals.css",
+      "storefront-next/app/layout.tsx",
+      "storefront-next/app/leadership/page.tsx",
+      "storefront-next/app/mission-vision/page.tsx",
+      "storefront-next/app/page.tsx",
+      "storefront-next/app/products/[slug]/page.tsx",
+      "storefront-next/app/products/page.tsx",
+      "storefront-next/app/quotation/success/page.tsx",
+      "storefront-next/components/CartDrawer.tsx",
+      "storefront-next/components/CartPageClient.tsx",
+      "storefront-next/components/CartProvider.tsx",
+      "storefront-next/components/CartShell.tsx",
+      "storefront-next/components/CatalogClient.tsx",
+      "storefront-next/components/ContactForm.tsx",
+      "storefront-next/components/EcosystemMarquee.tsx",
+      "storefront-next/components/FloatingActions.tsx",
+      "storefront-next/components/PageIntro.tsx",
+      "storefront-next/components/ProductDetail.tsx",
+      "storefront-next/components/Reveal.tsx",
+      "storefront-next/components/SiteFooter.tsx",
+      "storefront-next/components/SiteHeader.tsx",
+      "storefront-next/docs/CONTENT_PROVENANCE.md",
+      "storefront-next/docs/PHASE2_API_CONTRACT.md",
+      "storefront-next/docs/README.md",
+      "storefront-next/docs/UX_REFINEMENT_AND_NEXT_STEPS.md",
+      "storefront-next/lib/catalog.ts",
+      "storefront-next/lib/content.ts",
+      "storefront-next/lib/partners.ts",
+      "storefront-next/next-env.d.ts",
+      "storefront-next/next.config.mjs",
+      "storefront-next/package-lock.json",
+      "storefront-next/package.json",
+      "storefront-next/postcss.config.mjs",
+      "storefront-next/public/brand/ceo.png",
+      "storefront-next/public/brand/logo-mark.png",
+      "storefront-next/public/brand/logo.png",
+      "storefront-next/public/partners/README.md",
+      "storefront-next/tests/source-smoke.mjs",
+      "storefront-next/tests/typescript-syntax.mjs",
+      "storefront-next/tests/ui-refinement.mjs",
+      "storefront-next/tsconfig.json"
+    ],
+    "staged_patch_sha256": "903f8f349a45b816998b7c085f0b3c16cdb38e0339bfaf779d72f309cf0edf2d",
+    "staged_diff_summary": "56 files changed, 2991 insertions(+), 1 deletion(-)",
+    "working_tree_diff_summary_includes_prior_work": "45 files changed, 808 insertions(+), 1716 deletions(-)",
+    "initial_working_tree_status": " M backend/.env.example\nMM backend/app.py\n M backend/config.py\nMM backend/extensions.py\n M backend/modules/inventory/service.py\n M backend/modules/invoices/routes.py\nA  backend/modules/public_catalog/__init__.py\nAM backend/modules/public_catalog/routes.py\n M backend/requirements.txt\n M backend/routes/inventory.py\n M backend/routes/orders.py\nMM backend/routes/products.py\n M backend/tests/test_dashboard_optimization.py\nA  backend/tests/test_public_catalog_phase2.py\n M backend/utils/email.py\n M frontend/.env.example\n M frontend/package.json\nMM frontend/src/App.tsx\n M frontend/src/Invoices.tsx\nA  frontend/src/StorefrontSettings.tsx\n M frontend/src/SupportChat.tsx\nMM frontend/src/api.ts\n M frontend/vite.config.ts\nAM storefront-next/.env.example\nA  storefront-next/.gitignore\nA  storefront-next/README.md\nA  storefront-next/app/about/page.tsx\nA  storefront-next/app/cart/page.tsx\nA  storefront-next/app/contact/page.tsx\nAM storefront-next/app/globals.css\nAM storefront-next/app/layout.tsx\nA  storefront-next/app/leadership/page.tsx\nA  storefront-next/app/mission-vision/page.tsx\nAM storefront-next/app/page.tsx\nAM storefront-next/app/products/[slug]/page.tsx\nAM storefront-next/app/products/page.tsx\nAM storefront-next/app/quotation/success/page.tsx\nAM storefront-next/components/CartDrawer.tsx\nAM storefront-next/components/CartPageClient.tsx\nA  storefront-next/components/CartProvider.tsx\nA  storefront-next/components/CartShell.tsx\nAM storefront-next/components/CatalogClient.tsx\nA  storefront-next/components/ContactForm.tsx\nA  storefront-next/components/EcosystemMarquee.tsx\nA  storefront-next/components/FloatingActions.tsx\nA  storefront-next/components/PageIntro.tsx\nAM storefront-next/components/ProductDetail.tsx\nA  storefront-next/components/Reveal.tsx\nA  storefront-next/components/SiteFooter.tsx\nAM storefront-next/components/SiteHeader.tsx\nA  storefront-next/docs/CONTENT_PROVENANCE.md\nA  storefront-next/docs/PHASE2_API_CONTRACT.md\nA  storefront-next/docs/README.md\nA  storefront-next/docs/UX_REFINEMENT_AND_NEXT_STEPS.md\nAM storefront-next/lib/catalog.ts\nA  storefront-next/lib/content.ts\nA  storefront-next/lib/partners.ts\nAM storefront-next/next-env.d.ts\nAM storefront-next/next.config.mjs\nAM storefront-next/package-lock.json\nAM storefront-next/package.json\nA  storefront-next/postcss.config.mjs\nA  storefront-next/public/brand/ceo.png\nA  storefront-next/public/brand/logo-mark.png\nA  storefront-next/public/brand/logo.png\nA  storefront-next/public/partners/README.md\nAM storefront-next/tests/source-smoke.mjs\nA  storefront-next/tests/typescript-syntax.mjs\nA  storefront-next/tests/ui-refinement.mjs\nA  storefront-next/tsconfig.json\n?? backend/gunicorn.conf.py\n?? backend/modules/brochure/__init__.py\n?? backend/modules/brochure/assessment.py\n?? backend/modules/brochure/review_sheet.py\n?? backend/modules/brochure/routes.py\n?? backend/modules/brochure/service.py\n?? backend/modules/product_metadata.py\n?? backend/modules/quotations/__init__.py\n?? backend/modules/quotations/routes.py\n?? backend/modules/tracking/__init__.py\n?? backend/modules/tracking/routes.py\n?? backend/requirements-brochure.txt\n?? backend/tests/test_brochure_import.py\n?? backend/tests/test_brochure_real_manifest.py\n?? backend/tests/test_brochure_staff_workflow.py\n?? backend/tests/test_cleanup_image_candidates.py\n?? backend/tests/test_inquiry_acceptance.py\n?? backend/tests/test_pdf_image_updates.py\n?? backend/tests/test_pdf_products_existing_system.py\n?? backend/tests/test_product_metadata.py\n?? backend/tests/test_quotations_phase3.py\n?? backend/tests/test_staging_configuration.py\n?? backend/tests/test_tracking.py\n?? backend/tools/add_pdf_products.py\n?? backend/tools/browser_qa_server.py\n?? backend/tools/build_brochure_manifest.py\n?? backend/tools/dry_run_brochure_mapping.py\n?? backend/tools/initialize_staging.py\n?? backend/tools/prepare_brochure_review.py\n?? backend/tools/preview_brochure.py\n?? backend/tools/review_brochure.py\n?? backend/utils/deployment.py\n?? docs/CONTINUED-DEVELOPMENT-REPORT.md\n?? docs/LEGACY-CLEANUP-AUDIT.md\n?? docs/LOCAL-UAT-REPORT.md\n?? docs/RECOVERY-VERIFICATION-REPORT.md\n?? docs/STAGING-DEPLOYMENT-PLAN.md\n?? docs/brochure/CORE_PRODUCTS_INTEGRATION_REPORT.md\n?? \"docs/brochure/Core Product A5 (2).pdf\"\n?? docs/brochure/DEV_APPROVAL_PROCEDURE.md\n?? docs/brochure/MANIFEST_REVIEW.md\n?? docs/brochure/SOURCE_REVIEW.md\n?? docs/brochure/STAFF_APPROVAL_WORKFLOW_REPORT.md\n?? docs/brochure/catalog-match-review.json\n?? docs/brochure/images/alpha-care-adult-diaper.png\n?? docs/brochure/images/alpha-care-underpads-front.png\n?? docs/brochure/images/alpha-care-underpads-side.png\n?? docs/brochure/images/alphashot.png\n?? docs/brochure/images/autofusion.png\n?? docs/brochure/images/blood-administration.png\n?? docs/brochure/images/glucoseth-kit.png\n?? docs/brochure/images/haemofusor.png\n?? docs/brochure/images/irasafety-syringe.png\n?? docs/brochure/images/microfusion.png\n?? docs/brochure/images/oncofusion.png\n?? docs/brochure/images/photofusion.png\n?? docs/brochure/images/polycan-safety.png\n?? docs/brochure/images/polyflex.png\n?? docs/brochure/images/polyflon.png\n?? docs/brochure/images/polysafety.png\n?? docs/brochure/images/polyspike-safety-valve.png\n?? docs/brochure/images/polyspike-snap-fit.png\n?? docs/brochure/images/polyvol.png\n?? docs/brochure/images/polywin-safety.png\n?? docs/brochure/import-manifest.json\n?? docs/brochure/pdf-product-image-review.json\n?? docs/brochure/review/page-01.png\n?? docs/brochure/review/page-01.txt\n?? docs/brochure/review/page-02.png\n?? docs/brochure/review/page-02.txt\n?? docs/brochure/review/page-03.png\n?? docs/brochure/review/page-03.txt\n?? docs/brochure/review/page-04.png\n?? docs/brochure/review/page-04.txt\n?? docs/brochure/review/page-05.png\n?? docs/brochure/review/page-05.txt\n?? docs/brochure/review/page-06.png\n?? docs/brochure/review/page-06.txt\n?? docs/brochure/review/page-07.png\n?? docs/brochure/review/page-07.txt\n?? docs/brochure/review/page-08.png\n?? docs/brochure/review/page-08.txt\n?? docs/brochure/review/page-09.png\n?? docs/brochure/review/page-09.txt\n?? docs/brochure/review/page-10.png\n?? docs/brochure/review/page-10.txt\n?? docs/brochure/review/page-11-tables.png\n?? docs/brochure/review/page-11.png\n?? docs/brochure/review/page-11.txt\n?? docs/brochure/review/page-12.png\n?? docs/brochure/review/page-12.txt\n?? docs/brochure/review/page-13.png\n?? docs/brochure/review/page-13.txt\n?? docs/brochure/review/page-14.png\n?? docs/brochure/review/page-14.txt\n?? docs/brochure/review/page-15.png\n?? docs/brochure/review/page-15.txt\n?? docs/brochure/review/source.json\n?? docs/brochure/reviewed-candidates.json\n?? docs/brochure/staff-mapping-template.csv\n?? docs/pdf-products/EXISTING-PRODUCTS-PROCEDURE.md\n?? docs/pdf-products/INTEGRATION-REPORT.md\n?? docs/pdf-products/NEXT-BATCH-APPROVAL.md\n?? docs/pdf-products/dev-first-batch-dry-run.json\n?? docs/pdf-products/dev-next-batch-dry-run.json\n?? docs/pdf-products/remaining-114-dry-run.json\n?? docs/pdf-products/remaining-114-import-results.json\n?? docs/pdf-products/source-clear-products.csv\n?? docs/pdf-products/verification/browser-uat-results.json\n?? docs/pdf-products/verification/dashboard-failure.png\n?? docs/pdf-products/verification/data-safety.json\n?? docs/pdf-products/verification/files-changed.json\n?? docs/pdf-products/verification/final-complete/browser-uat-results.json\n?? docs/pdf-products/verification/final-complete/mobile-uat.png\n?? docs/pdf-products/verification/final-model-check/browser-uat-results.json\n?? docs/pdf-products/verification/final-model-check/dashboard-failure.png\n?? docs/pdf-products/verification/final-model-check/storefront-failure.png\n?? docs/pdf-products/verification/final/browser-uat-results.json\n?? docs/pdf-products/verification/final/mobile-uat.png\n?? docs/pdf-products/verification/storefront-failure.png\n?? docs/product-images/REPORT.md\n?? docs/product-images/candidates/rapiquick-dengue-igg-igm.webp\n?? docs/product-images/candidates/rapiquick-hbsag-label-review.webp\n?? docs/product-images/image-audit-and-plan.json\n?? docs/product-images/image-update-results.json\n?? docs/product-images/underpads-live-gallery.png\n?? docs/product-images/verification/backend-regression.txt\n?? docs/product-images/verification/change-audit.json\n?? docs/product-ui-cleanup/REPORT.md\n?? docs/product-ui-cleanup/image-candidates/alpha-care-adult-diaper.webp\n?? docs/product-ui-cleanup/image-candidates/alpha-care-underpads-front.webp\n?? docs/product-ui-cleanup/image-candidates/alpha-care-underpads-side.webp\n?? docs/product-ui-cleanup/image-mapping-proposal.json\n?? docs/product-ui-cleanup/verification/browser-uat-results.json\n?? docs/product-ui-cleanup/verification/change-audit.json\n?? docs/product-ui-cleanup/verification/complete/browser-uat-results.json\n?? docs/product-ui-cleanup/verification/complete/dashboard-failure.png\n?? docs/product-ui-cleanup/verification/complete/employee-products-desktop.png\n?? docs/product-ui-cleanup/verification/complete/mobile-uat.png\n?? docs/product-ui-cleanup/verification/complete/storefront-failure.png\n?? docs/product-ui-cleanup/verification/final-complete/browser-uat-results.json\n?? docs/product-ui-cleanup/verification/final-complete/employee-products-desktop.png\n?? docs/product-ui-cleanup/verification/final-complete/employee-products-mobile.png\n?? docs/product-ui-cleanup/verification/final-complete/mobile-uat.png\n?? docs/product-ui-cleanup/verification/final/browser-uat-results.json\n?? docs/product-ui-cleanup/verification/final/dashboard-failure.png\n?? docs/product-ui-cleanup/verification/final/employee-products-desktop.png\n?? docs/product-ui-cleanup/verification/final/employee-products-mobile.png\n?? docs/product-ui-cleanup/verification/final/mobile-live-checks.json\n?? docs/product-ui-cleanup/verification/final/mobile-uat.png\n?? docs/product-ui-cleanup/verification/final/storefront-category-mobile.png\n?? docs/product-ui-cleanup/verification/final/storefront-failure.png\n?? docs/staging/backend.env.example\n?? docs/staging/dashboard.env.example\n?? docs/staging/recovery-verification/browser-uat-results.json\n?? docs/staging/recovery-verification/mobile-uat.png\n?? docs/staging/storefront.env.example\n?? docs/uat/browser-uat-results.json\n?? docs/uat/desktop-product-gallery.png\n?? docs/uat/mobile-product-gallery.png\n?? docs/uat/mobile-uat.png\n?? frontend/src/BrochureReview.tsx\n?? frontend/src/CommunicationRequests.tsx\n?? frontend/src/InquiryDecision.tsx\n?? frontend/src/ProductCatalog.tsx\n?? frontend/src/ProductEditor.tsx\n?? frontend/src/Quotations.tsx\n?? frontend/src/api-url.ts\n?? frontend/src/brochure-mapping.ts\n?? frontend/src/brochure-review.css\n?? frontend/src/inquiry-decision.css\n?? frontend/src/product-catalog.css\n?? frontend/src/product-editor.css\n?? frontend/src/vite-env.d.ts\n?? frontend/tests/brochure-mapping.mjs\n?? frontend/tests/deployment-config.mjs\n?? frontend/vercel.json\n?? storefront-next/app/@modal/(.)products/[slug]/page.tsx\n?? storefront-next/app/@modal/[...catchAll]/page.tsx\n?? storefront-next/app/@modal/default.tsx\n?? storefront-next/app/api/quotations/route.ts\n?? storefront-next/app/api/tracking/route.ts\n?? storefront-next/app/track-order/page.tsx\n?? storefront-next/components/CartProductImage.tsx\n?? storefront-next/components/ProductGallery.tsx\n?? storefront-next/components/ProductModal.tsx\n?? storefront-next/components/TrackOrder.tsx\n?? storefront-next/docs/ORDER_INQUIRIES.md\n?? storefront-next/lib/inquiry-submission.ts\n?? storefront-next/tests/browser-e2e.mjs\n?? storefront-next/tests/catalog-errors.mjs\n?? storefront-next/tests/catalog-pagination.mjs\n?? storefront-next/tests/deployment-config.mjs\n?? storefront-next/tests/gallery-interactions.mjs\n?? storefront-next/tests/image-pipeline.mjs\n?? storefront-next/tests/inquiry-retries.mjs\n?? storefront-next/tests/local-uat.mjs\n?? storefront-next/tests/tracking-proxy.mjs\n?? storefront-next/vercel.json\n",
+    "note": "No index writes, staging, commits, pushes, resets, restores or stashes. Git does not include new untracked files in ordinary diff stats."
+  },
+  "task_changes": {
+    "removed_files": [
+      "legacy-storefront/README.txt",
+      "legacy-storefront/index.html",
+      "legacy-storefront/main.js"
+    ],
+    "moves": [
+      {
+        "from": "DEVELOPMENT-PHASE1-3-README.md",
+        "to": "docs/history/DEVELOPMENT-PHASE1-3-README.md",
+        "sha256": "aa394af6f48e54c82db6295ed6f6c005de58628123dc7360c9f6f5ed88d5a636",
+        "bytes_preserved": true
+      }
+    ],
+    "modified_existing_files": [
+      ".gitignore",
+      ".vscode/settings.json",
+      "README.md",
+      "docs/GITHUB-REVIEW-CHECKLIST.md",
+      "docs/LEGACY-CLEANUP-AUDIT.md"
+    ],
+    "new_files_including_moved_document": [
+      "docs/README.md",
+      "docs/REPOSITORY-CLEANUP-REPORT.md",
+      "docs/history/DEVELOPMENT-PHASE1-3-README.md",
+      "docs/repository-cleanup-verification/browser-uat-results.json",
+      "docs/repository-cleanup-verification/dependency-classification.json",
+      "docs/repository-cleanup-verification/employee-products-desktop.png",
+      "docs/repository-cleanup-verification/employee-products-mobile.png",
+      "docs/repository-cleanup-verification/mobile-uat.png",
+      "docs/repository-cleanup-verification/preservation.json"
+    ],
+    "unrelated_initial_file_hashes_preserved": true,
+    "environment_files_preserved": true,
+    "no_application_source_changes": true,
+    "no_directory_removal": true,
+    "fixture_browser_products_remaining": 0
+  },
+  "tests": {
+    "backend": {
+      "database": "iraseth_test",
+      "passed": 232,
+      "deselected": 1,
+      "seconds": 155.64
+    },
+    "dashboard": {
+      "mapping": "passed",
+      "deployment_configuration": "passed",
+      "typescript_and_production_build": "passed"
+    },
+    "storefront": {
+      "typecheck": "passed",
+      "tests": "passed",
+      "production_build": "passed"
+    },
+    "browser": {
+      "database": "iraseth_test",
+      "passed": 17,
+      "failed": 0,
+      "issues": [],
+      "browser_errors": [],
+      "evidence": "browser-uat-results.json",
+      "external_mail": "In-memory test double only"
+    }
+  },
+  "asset_and_configuration_checks": {
+    "next_nft_traces": 20,
+    "legacy_runtime_dependencies_in_next_traces": 0,
+    "dashboard_built_asset_paths_resolve": true,
+    "next_brand_assets_present": true,
+    "local_dependencies_retained": true,
+    "vscode_json_valid": true,
+    "environment_files_still_ignored": true
+  },
+  "live_preview": {
+    "api_pages": [
+      100,
+      27
+    ],
+    "unique_products": 127,
+    "verified_image_products": 3,
+    "source_image_hashes_preserved": 4,
+    "live_cards_and_modals": "passed",
+    "out_of_stock_price_and_ordering_guard": "passed",
+    "browser_errors": [],
+    "method": "GET only; local preview"
+  }
+}

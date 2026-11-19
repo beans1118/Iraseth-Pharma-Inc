@@ -6,6 +6,7 @@ from uuid import uuid4
 from flask import Blueprint, jsonify, request, g
 from pymongo.errors import DuplicateKeyError
 from extensions import db
+from modules.product_metadata import identity_pending, IDENTITY_REQUIRED
 from utils.security import require_role
 
 bp = Blueprint('invoice_api', __name__, url_prefix='/api/v2/invoices')
@@ -52,6 +53,7 @@ def validate(payload):
     if len(ids)!=len(set(ids)): raise ValueError('Combine repeated products into one line.')
     catalog = {p['id']:p for p in db.products.find({'id':{'$in':ids}})}
     if len(catalog)!=len(ids): raise ValueError('One or more products no longer exist.')
+    if any(identity_pending(p) for p in catalog.values()):raise ValueError(IDENTITY_REQUIRED)
     lines=[]; total=Decimal('0.00')
     for row in raw:
         qty=row.get('qty')

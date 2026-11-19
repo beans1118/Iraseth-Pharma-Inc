@@ -1,0 +1,78 @@
+{
+  "database_image_updates_authorized": false,
+  "source_pdf": "Core Product A5 (2).pdf",
+  "source_page": 3,
+  "source_sha256": "4d1ac212740e739c6b5853231270cce2af22e66529916abc6835910b976a7696",
+  "status": "Pending owner authorization; technical/source association review only",
+  "products": [
+    {
+      "id": "TMP-PDF-4D1AC21274-P03-0DAD68E8ADCD",
+      "name": "Alpha Care Adult Diaper - XL",
+      "images": [
+        {
+          "source": "docs/brochure/images/alpha-care-adult-diaper.png",
+          "source_sha256": "e9ecb2d1a8c4df21f0bcc788056ddb212621be131f377970056c789c22db5b25",
+          "candidate": "docs/product-ui-cleanup/image-candidates/alpha-care-adult-diaper.webp",
+          "candidate_sha256": "4bbc267310088614f562426bfc4e83c140438ea3e7b5683e4f11579731d97e17",
+          "source_bytes": 229353,
+          "bytes": 169442,
+          "width": 562,
+          "height": 465,
+          "has_alpha": false,
+          "encoding": "WebP lossless",
+          "resized": false
+        }
+      ],
+      "primary": "docs/product-ui-cleanup/image-candidates/alpha-care-adult-diaper.webp"
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P03-2D486F10F85E",
+      "name": "Alpha Care Underpads - 60 cm x 90 cm",
+      "images": [
+        {
+          "source": "docs/brochure/images/alpha-care-underpads-front.png",
+          "source_sha256": "10eba8a4639e45ce72f6f8a3b439c8ffd89846e96c9b82a771241bf6d57bb52f",
+          "candidate": "docs/product-ui-cleanup/image-candidates/alpha-care-underpads-front.webp",
+          "candidate_sha256": "f88494cd1ee5a477684912082179e9d44a22358d7ebb78a3efb24b70719cc370",
+          "source_bytes": 346251,
+          "bytes": 69768,
+          "width": 588,
+          "height": 784,
+          "has_alpha": false,
+          "encoding": "WebP quality 95, alpha quality 100",
+          "resized": false
+        },
+        {
+          "source": "docs/brochure/images/alpha-care-underpads-side.png",
+          "source_sha256": "75b0bd0de6e1b4b363d416b3ad14c8c2c59dc63e3ede4038be7ca64fe0359478",
+          "candidate": "docs/product-ui-cleanup/image-candidates/alpha-care-underpads-side.webp",
+          "candidate_sha256": "508ba4381087d545406b51bd8f3b67aab5524dddd3f6a60043596ba83be57229",
+          "source_bytes": 307490,
+          "bytes": 62162,
+          "width": 588,
+          "height": 784,
+          "has_alpha": false,
+          "encoding": "WebP quality 95, alpha quality 100",
+          "resized": false
+        }
+      ],
+      "primary": "docs/product-ui-cleanup/image-candidates/alpha-care-underpads-front.webp"
+    }
+  ],
+  "restrictions": "Image-only update after explicit authorization, preserving descriptions, identifiers, quantities, prices, genuine identity restrictions and all other products/galleries. Packaging text is original source imagery, not new approved medical claims.",
+  "technical_review": {
+    "source_panel": "PDF page 3 and all three extracted PNGs visually compared with candidate WebPs",
+    "association": "Adult diaper packaging explicitly shows XL; underpad front/side packaging shows 60 cm x 90 cm; no variant inferred",
+    "geometry": "Original dimensions and aspect ratio preserved for every candidate; no cropping or resizing",
+    "legibility": "Original packaging labels and sizes remain readable at source dimensions",
+    "database_approval": "Pending owner authorization; no iraseth_dev image writes performed",
+    "ambiguous_or_excluded_source_images": {
+      "oncofusion.png": "Multiple configurations do not identify a confirmed individual variant; retain placeholder",
+      "glucoseth-kit.png": "Product remains source-conflicted and excluded",
+      "polywin-safety.png, polysafety.png, polycan-safety.png": "Family imagery does not identify an approved individual source-clear variant",
+      "polyspike-safety-valve.png, polyspike-snap-fit.png": "Closure pictures do not establish a specific R/B/G stock variant",
+      "irasafety-syringe.png, alphashot.png": "Family/assorted-size images do not identify a specific capacity/needle combination"
+    },
+    "existing_reviewed_images": "Eight currently associated product images/galleries remain unchanged"
+  }
+}

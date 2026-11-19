@@ -1,8 +1,11 @@
+import {resolveApiUrl} from './api-url';
+export const apiUrl=(path:string)=>resolveApiUrl(path,import.meta.env.VITE_API_BASE_URL||'');
 export type Role = 'superadmin' | 'admin' | 'subadmin';
 export type User = { email: string; name: string; role: Role };
-export type Product = {id: string; name: string; category: string; description: string; unit: string; quantity: number; price: number; manufacturer?: string; image?: string; status?: string};
+export type Product = {id: string; name: string; category: string; description: string; unit: string; quantity: number; price: number|null; manufacturer?: string; brand?:string; model?:string; image?: string; images?:string[];key_features?:string[];specifications?:Array<{label:string;value:string}>; sku?:string;identity_status?:'provisional'|'confirmed';status?: string; storefront_visible?: boolean; storefront_price?: number|null};
 export type Batch = {id: string; product_id: string; lot: string; expires_on: string; on_hand: number; reserved: number; condition: string; unverified?: boolean};
-export type Order = {id: string; client: string; email: string; facility: string; status: string; total: number; date: string; lines: Array<{id: string; name: string; qty: number; unit: string; price: number}>};
+export type Order = {id: string; client: string; email: string; facility: string; status: string; total: number|null; date: string; lines: Array<{id: string; name: string; qty: number; unit: string; price: number|null}>};
+export type QuotationInquiry = {id:string;fullName:string;email:string;phone:string;company:string;notes:string;items:Array<{id:string;name:string;category:string;quantity:number;public_price_at_inquiry:number|null}>;status:'New'|'In Review'|'Accepted'|'Declined'|'Responded'|'Closed';order_id?:string;created_at:string;updated_at:string};
 export type InvoiceLine = {id:string;name:string;unit:string;qty:number;price:string;subtotal:string};
 export type Invoice = {id:string;order_id:string|null;client:string;email:string;facility:string;lines:InvoiceLine[];total:string;currency:string;status:'Draft'|'Issued'|'Voided';created_at:string;actor_email:string};
 export type InvoiceTransaction = {id:string;invoice_id:string;event:string;actor_email:string;at:string};
@@ -27,8 +30,8 @@ export async function api<T>(path: string, options: {method?: string; data?: unk
   if (options.authenticated !== false && token()) headers.Authorization = `Bearer ${token()}`;
   if (options.key) headers['Idempotency-Key'] = options.key;
   let response: Response;
-  try {response = await fetch(path, {method: options.method || 'GET', headers, body: options.data === undefined ? undefined : JSON.stringify(options.data), cache: 'no-store'});}
-  catch {throw new ApiError('Cannot connect to Flask. Check the backend server and Vite proxy.', 0);}
+  try {response = await fetch(apiUrl(path), {method: options.method || 'GET', headers, body: options.data === undefined ? undefined : JSON.stringify(options.data), cache: 'no-store'});}
+  catch {throw new ApiError('Cannot connect to Flask. Check the backend URL and allowed frontend origin.', 0);}
   const body = await response.json().catch(() => null);
   if (!response.ok) throw new ApiError((body && typeof body.error === 'string' && body.error) || `Request failed (${response.status}).`, response.status);
   return body as T;
@@ -40,7 +43,9 @@ export const endpoints = {
   me: () => api<User>('/api/auth/me'),
   logout: () => api('/api/auth/logout', {method: 'POST'}),
   products: () => api<Product[]>('/api/products'),
+  updateStorefrontSettings: (id: string, data: {visible: boolean;publicPrice:number|null}) => api<{id:string;visible:boolean;publicPrice:number|null}>(`/api/products/${encodeURIComponent(id)}/storefront`,{method:'PATCH',data}),
   createProduct: (data: Omit<Product, 'status'>) => api<Product>('/api/products', {method: 'POST', data}),
+  updateProduct: (id:string,data:Partial<Product>&{confirm_identity?:boolean;identity_review_note?:string}) => api<Product>(`/api/products/${encodeURIComponent(id)}`,{method:'PUT',data}),
   batches: () => api<{items: Batch[]; total: number}>('/api/v2/inventory/batches?limit=100'),
   summary: () => api<Stock[]>('/api/v2/inventory/summary'),
   movements: () => api<Movement[]>('/api/v2/inventory/movements?limit=100'),
@@ -56,6 +61,10 @@ export const endpoints = {
   inventoryAlerts: (days:30|60|90, threshold:number) => api<InventoryAlerts>(`/api/v2/alerts/inventory?days=${days}&threshold=${threshold}`),
   setInventoryThreshold: (id:string,threshold:number|null) => api<{product_id:string;threshold:number|null}>(`/api/v2/alerts/products/${encodeURIComponent(id)}/threshold`,{method:'PATCH',data:{threshold}}),
   analyticsOverview: (days:7|30|90) => api<AnalyticsOverview>(`/api/v2/analytics/overview?days=${days}`),
+  acceptInquiry: (id:string) => api<{reference:string;status:string;order_id:string}>(`/api/v2/quotations/${encodeURIComponent(id)}/accept`,{method:'POST'}),
+  declineInquiry: (id:string) => api(`/api/v2/quotations/${encodeURIComponent(id)}/decline`,{method:'POST'}),
+  quotations: () => api<QuotationInquiry[]>('/api/v2/quotations'),
+  quotationStatus: (id:string,status:QuotationInquiry['status']) => api<{reference:string;status:string}>(`/api/v2/quotations/${encodeURIComponent(id)}/status`,{method:'PATCH',data:{status}}),
   invoices: () => api<Invoice[]>('/api/v2/invoices'),
   invoiceTransactions: () => api<InvoiceTransaction[]>('/api/v2/invoices/transactions'),
   createInvoice: (data:unknown, key:string) => api<Invoice>('/api/v2/invoices',{method:'POST',data,key}),

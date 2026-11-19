@@ -16,6 +16,7 @@ from extensions import db
 from utils.security import require_role
 from realtime import emit_stock_update, emit_inventory_log
 from routes.products import _serialize
+from modules.product_metadata import identity_pending, IDENTITY_REQUIRED
 
 bp = Blueprint("inventory", __name__, url_prefix="/api/inventory")
 
@@ -87,6 +88,8 @@ def _log_and_apply(product_id: str, delta: int, action: str, note: str):
     amount = abs(delta)
 
     def perform(session):
+        product=db.products.find_one({'id':product_id},session=session)
+        if product and identity_pending(product):return None,(IDENTITY_REQUIRED,409)
         if action == "release":
             updated = db.products.find_one_and_update(
                 {"id": product_id, "quantity": {"$gte": amount}},

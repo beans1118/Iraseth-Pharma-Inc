@@ -1,0 +1,2992 @@
+{
+  "database": "iraseth_dev",
+  "host": "127.0.0.1:27017",
+  "source_pdf": "Core Product A5 (2).pdf",
+  "source_sha256": "4d1ac212740e739c6b5853231270cce2af22e66529916abc6835910b976a7696",
+  "authorization": "Current owner instruction: image-only changes to the 124 existing PDF products, verified matches only; preserve all other data",
+  "dry_run": true,
+  "audit_counts": {
+    "verified update": 3,
+    "correct existing image": 8,
+    "ambiguous": 39,
+    "missing source image": 74
+  },
+  "products_audited": 124,
+  "products_total": 127,
+  "proposed_updates": [
+    {
+      "id": "TMP-PDF-4D1AC21274-P03-0DAD68E8ADCD",
+      "name": "Alpha Care Adult Diaper - XL",
+      "page": 3,
+      "evidence": "Original PDF page 3 packaging explicitly identifies XL or 60 cm x 90 cm. Full source images, unchanged aspect ratio; existing tested compression only.",
+      "files": [
+        {
+          "candidate": "docs/product-ui-cleanup/image-candidates/alpha-care-adult-diaper.webp",
+          "candidate_sha256": "4bbc267310088614f562426bfc4e83c140438ea3e7b5683e4f11579731d97e17",
+          "width": 562,
+          "height": 465,
+          "bytes": 169442,
+          "source": "docs/brochure/images/alpha-care-adult-diaper.png",
+          "source_sha256": "e9ecb2d1a8c4df21f0bcc788056ddb212621be131f377970056c789c22db5b25"
+        }
+      ],
+      "expected_image_state": "55f27d4a84f24a02a05cf86d54f892d2851288723fba5f441d9e065cf0077ddc"
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P03-2D486F10F85E",
+      "name": "Alpha Care Underpads - 60 cm x 90 cm",
+      "page": 3,
+      "evidence": "Original PDF page 3 packaging explicitly identifies XL or 60 cm x 90 cm. Full source images, unchanged aspect ratio; existing tested compression only.",
+      "files": [
+        {
+          "candidate": "docs/product-ui-cleanup/image-candidates/alpha-care-underpads-front.webp",
+          "candidate_sha256": "f88494cd1ee5a477684912082179e9d44a22358d7ebb78a3efb24b70719cc370",
+          "width": 588,
+          "height": 784,
+          "bytes": 69768,
+          "source": "docs/brochure/images/alpha-care-underpads-front.png",
+          "source_sha256": "10eba8a4639e45ce72f6f8a3b439c8ffd89846e96c9b82a771241bf6d57bb52f"
+        },
+        {
+          "candidate": "docs/product-ui-cleanup/image-candidates/alpha-care-underpads-side.webp",
+          "candidate_sha256": "508ba4381087d545406b51bd8f3b67aab5524dddd3f6a60043596ba83be57229",
+          "width": 588,
+          "height": 784,
+          "bytes": 62162,
+          "source": "docs/brochure/images/alpha-care-underpads-side.png",
+          "source_sha256": "75b0bd0de6e1b4b363d416b3ad14c8c2c59dc63e3ede4038be7ca64fe0359478"
+        }
+      ],
+      "expected_image_state": "55f27d4a84f24a02a05cf86d54f892d2851288723fba5f441d9e065cf0077ddc"
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-D9C681D70A9A",
+      "name": "Rapiquick Dengue IgG/IgM Rapid Test Kit",
+      "page": 12,
+      "evidence": "Native-resolution embedded image object 1870; the top-left box label explicitly says Dengue IgG/IgM. Crop excludes the neighbouring kits. No assay/format/clinical specification inferred.",
+      "crop": {
+        "object_index": 1870,
+        "source_width": 1017,
+        "source_height": 574,
+        "left": 230,
+        "top": 24,
+        "width": 294,
+        "height": 176
+      },
+      "files": [
+        {
+          "candidate": "docs/product-images/candidates/rapiquick-dengue-igg-igm.webp",
+          "candidate_sha256": "31bd51ec1caa7f3151e3f3e10883be6139316d7294a328f067d68e7207901e07",
+          "width": 294,
+          "height": 176,
+          "bytes": 47508
+        }
+      ],
+      "expected_image_state": "55f27d4a84f24a02a05cf86d54f892d2851288723fba5f441d9e065cf0077ddc"
+    }
+  ],
+  "audit": [
+    {
+      "candidate_id": "p03-0dad68e8adcd",
+      "id": "TMP-PDF-4D1AC21274-P03-0DAD68E8ADCD",
+      "name": "Alpha Care Adult Diaper - XL",
+      "page": 3,
+      "status": "verified update",
+      "reason": "Original PDF page 3 packaging explicitly identifies XL or 60 cm x 90 cm. Full source images, unchanged aspect ratio; existing tested compression only.",
+      "existing_gallery_count": 0,
+      "action": "replace empty gallery with verified images"
+    },
+    {
+      "candidate_id": "p03-2d486f10f85e",
+      "id": "TMP-PDF-4D1AC21274-P03-2D486F10F85E",
+      "name": "Alpha Care Underpads - 60 cm x 90 cm",
+      "page": 3,
+      "status": "verified update",
+      "reason": "Original PDF page 3 packaging explicitly identifies XL or 60 cm x 90 cm. Full source images, unchanged aspect ratio; existing tested compression only.",
+      "existing_gallery_count": 0,
+      "action": "replace empty gallery with verified images"
+    },
+    {
+      "candidate_id": "p04-e228089cbacf",
+      "id": "TMP-PDF-4D1AC21274-P04-E228089CBACF",
+      "name": "Polyvol",
+      "page": 4,
+      "status": "correct existing image",
+      "reason": "Matches the previously reviewed original source image bytes; preserve entire gallery/order.",
+      "existing_gallery_count": 1,
+      "action": "preserve existing gallery"
+    },
+    {
+      "candidate_id": "p05-694dfd26e1a4",
+      "id": "TMP-PDF-4D1AC21274-P05-694DFD26E1A4",
+      "name": "Autofusion Set",
+      "page": 5,
+      "status": "correct existing image",
+      "reason": "Matches the previously reviewed original source image bytes; preserve entire gallery/order.",
+      "existing_gallery_count": 1,
+      "action": "preserve existing gallery"
+    },
+    {
+      "candidate_id": "p05-741932f4eeff",
+      "id": "TMP-PDF-4D1AC21274-P05-741932F4EEFF",
+      "name": "Autofusion Set - Y Injection Port",
+      "page": 5,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p05-a86a2af43341",
+      "id": "TMP-PDF-4D1AC21274-P05-A86A2AF43341",
+      "name": "Autofusion Set - Back Check Valve",
+      "page": 5,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p05-44c2375ce24d",
+      "id": "TMP-PDF-4D1AC21274-P05-44C2375CE24D",
+      "name": "Microfusion Set",
+      "page": 5,
+      "status": "correct existing image",
+      "reason": "Matches the previously reviewed original source image bytes; preserve entire gallery/order.",
+      "existing_gallery_count": 1,
+      "action": "preserve existing gallery"
+    },
+    {
+      "candidate_id": "p06-cd9e31c95fdc",
+      "id": "TMP-PDF-4D1AC21274-P06-CD9E31C95FDC",
+      "name": "Oncofusion Set",
+      "page": 6,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p06-b26c5146c71f",
+      "id": "TMP-PDF-4D1AC21274-P06-B26C5146C71F",
+      "name": "Oncofusion Set - With Needle",
+      "page": 6,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p06-eee272b904b1",
+      "id": "TMP-PDF-4D1AC21274-P06-EEE272B904B1",
+      "name": "Oncofusion Set - Without Needle",
+      "page": 6,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p06-2541990213ff",
+      "id": "TMP-PDF-4D1AC21274-P06-2541990213FF",
+      "name": "Photofusion Set",
+      "page": 6,
+      "status": "correct existing image",
+      "reason": "Matches the previously reviewed original source image bytes; preserve entire gallery/order.",
+      "existing_gallery_count": 1,
+      "action": "preserve existing gallery"
+    },
+    {
+      "candidate_id": "p07-303ca8b1c11b",
+      "id": "TMP-PDF-4D1AC21274-P07-303CA8B1C11B",
+      "name": "Blood Administration Set",
+      "page": 7,
+      "status": "correct existing image",
+      "reason": "Matches the previously reviewed original source image bytes; preserve entire gallery/order.",
+      "existing_gallery_count": 1,
+      "action": "preserve existing gallery"
+    },
+    {
+      "candidate_id": "p07-d83ec87e5074",
+      "id": "TMP-PDF-4D1AC21274-P07-D83EC87E5074",
+      "name": "Blood Administration Set - Priming Filter",
+      "page": 7,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p07-f2a62b743ba6",
+      "id": "TMP-PDF-4D1AC21274-P07-F2A62B743BA6",
+      "name": "Haemofusor Set",
+      "page": 7,
+      "status": "correct existing image",
+      "reason": "Matches the previously reviewed original source image bytes; preserve entire gallery/order.",
+      "existing_gallery_count": 1,
+      "action": "preserve existing gallery"
+    },
+    {
+      "candidate_id": "p08-b9f2a7d02685",
+      "id": "TMP-PDF-4D1AC21274-P08-B9F2A7D02685",
+      "name": "Polyflex - 22G Blue",
+      "page": 8,
+      "status": "correct existing image",
+      "reason": "Matches the previously reviewed original source image bytes; preserve entire gallery/order.",
+      "existing_gallery_count": 1,
+      "action": "preserve existing gallery"
+    },
+    {
+      "candidate_id": "p09-e2c737e40d05",
+      "id": "TMP-PDF-4D1AC21274-P09-E2C737E40D05",
+      "name": "Polyflon - 20G Pink",
+      "page": 9,
+      "status": "correct existing image",
+      "reason": "Matches the previously reviewed original source image bytes; preserve entire gallery/order.",
+      "existing_gallery_count": 1,
+      "action": "preserve existing gallery"
+    },
+    {
+      "candidate_id": "p10-b0d4f7a891d5",
+      "id": "TMP-PDF-4D1AC21274-P10-B0D4F7A891D5",
+      "name": "Polyspike R - Safety Valve",
+      "page": 10,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p10-0b75ce4f5de7",
+      "id": "TMP-PDF-4D1AC21274-P10-0B75CE4F5DE7",
+      "name": "Polyspike R - Snap-fit Cap",
+      "page": 10,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p10-002d5c84b821",
+      "id": "TMP-PDF-4D1AC21274-P10-002D5C84B821",
+      "name": "Polyspike B - Safety Valve",
+      "page": 10,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p10-0382ee5131a9",
+      "id": "TMP-PDF-4D1AC21274-P10-0382EE5131A9",
+      "name": "Polyspike B - Snap-fit Cap",
+      "page": 10,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p10-ea48639c766f",
+      "id": "TMP-PDF-4D1AC21274-P10-EA48639C766F",
+      "name": "Polyspike G - Safety Valve",
+      "page": 10,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p10-8a2eb16bdfab",
+      "id": "TMP-PDF-4D1AC21274-P10-8A2EB16BDFAB",
+      "name": "Polyspike G - Snap-fit Cap",
+      "page": 10,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p11-316320bdccb7",
+      "id": "TMP-PDF-4D1AC21274-P11-316320BDCCB7",
+      "name": "Irasafety Syringe - 1cc 27G x 1 inch",
+      "page": 11,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p11-169982803d35",
+      "id": "TMP-PDF-4D1AC21274-P11-169982803D35",
+      "name": "Irasafety Syringe - 2cc 25G x 1 inch",
+      "page": 11,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p11-a61e897b07f2",
+      "id": "TMP-PDF-4D1AC21274-P11-A61E897B07F2",
+      "name": "Irasafety Syringe - 3cc 21G x 1 inch",
+      "page": 11,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p11-9ad0adcfbc2d",
+      "id": "TMP-PDF-4D1AC21274-P11-9AD0ADCFBC2D",
+      "name": "Irasafety Syringe - 3cc 23G x 1 inch",
+      "page": 11,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p11-33a1a7f661c9",
+      "id": "TMP-PDF-4D1AC21274-P11-33A1A7F661C9",
+      "name": "Irasafety Syringe - 5cc 21G x 1 inch",
+      "page": 11,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p11-cc35babf24f5",
+      "id": "TMP-PDF-4D1AC21274-P11-CC35BABF24F5",
+      "name": "Irasafety Syringe - 5cc 23G x 1 inch",
+      "page": 11,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p11-ec960503e933",
+      "id": "TMP-PDF-4D1AC21274-P11-EC960503E933",
+      "name": "Irasafety Syringe - 10cc 21G x 1 inch",
+      "page": 11,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p11-f220fc062616",
+      "id": "TMP-PDF-4D1AC21274-P11-F220FC062616",
+      "name": "Irasafety Syringe - 10cc 23G x 1 inch",
+      "page": 11,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p11-8e3e5764e678",
+      "id": "TMP-PDF-4D1AC21274-P11-8E3E5764E678",
+      "name": "Alphashot - 1ml 27G x 1/2 inch",
+      "page": 11,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p11-34b1adab7a76",
+      "id": "TMP-PDF-4D1AC21274-P11-34B1ADAB7A76",
+      "name": "Alphashot - 1ml 26G x 5/8 inch",
+      "page": 11,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p11-f1273f440512",
+      "id": "TMP-PDF-4D1AC21274-P11-F1273F440512",
+      "name": "Alphashot - 1ml 25G x 1 inch",
+      "page": 11,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p11-8aecb02a9c1d",
+      "id": "TMP-PDF-4D1AC21274-P11-8AECB02A9C1D",
+      "name": "Alphashot - 3ml 23G x 1 inch",
+      "page": 11,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p11-855414970b9a",
+      "id": "TMP-PDF-4D1AC21274-P11-855414970B9A",
+      "name": "Alphashot - 3ml 23G x 1 1/4 inch",
+      "page": 11,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p11-03855b200c1c",
+      "id": "TMP-PDF-4D1AC21274-P11-03855B200C1C",
+      "name": "Alphashot - 3ml 22G x 1 1/4 inch",
+      "page": 11,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p11-a3bc8e2215ed",
+      "id": "TMP-PDF-4D1AC21274-P11-A3BC8E2215ED",
+      "name": "Alphashot - 3ml 22G x 1 1/2 inch",
+      "page": 11,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p11-a8c58287e6be",
+      "id": "TMP-PDF-4D1AC21274-P11-A8C58287E6BE",
+      "name": "Alphashot - 3ml 21G x 1 1/4 inch",
+      "page": 11,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p11-f2df959cac53",
+      "id": "TMP-PDF-4D1AC21274-P11-F2DF959CAC53",
+      "name": "Alphashot - 5ml 23G x 1 inch",
+      "page": 11,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p11-ae17bc9d1783",
+      "id": "TMP-PDF-4D1AC21274-P11-AE17BC9D1783",
+      "name": "Alphashot - 5ml 23G x 1 1/4 inch",
+      "page": 11,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p11-5effe5892207",
+      "id": "TMP-PDF-4D1AC21274-P11-5EFFE5892207",
+      "name": "Alphashot - 5ml 22G x 1 1/4 inch",
+      "page": 11,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p11-ef729d65f318",
+      "id": "TMP-PDF-4D1AC21274-P11-EF729D65F318",
+      "name": "Alphashot - 5ml 22G x 1 1/2 inch",
+      "page": 11,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p11-0f3134bab998",
+      "id": "TMP-PDF-4D1AC21274-P11-0F3134BAB998",
+      "name": "Alphashot - 5ml 21G x 1 1/2 inch",
+      "page": 11,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p11-9e1c730fe190",
+      "id": "TMP-PDF-4D1AC21274-P11-9E1C730FE190",
+      "name": "Alphashot - 10ml 22G x 1 1/4 inch",
+      "page": 11,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p11-c4f5b616c907",
+      "id": "TMP-PDF-4D1AC21274-P11-C4F5B616C907",
+      "name": "Alphashot - 10ml 22G x 1 1/2 inch",
+      "page": 11,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p11-72ae79690461",
+      "id": "TMP-PDF-4D1AC21274-P11-72AE79690461",
+      "name": "Alphashot - 10ml 21G x 1 1/2 inch",
+      "page": 11,
+      "status": "ambiguous",
+      "reason": "Only a base/family, assorted size or multiple-configuration picture is present; the exact named option, R/B/G type, capacity or needle gauge/length is not established.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-78f00508cc15",
+      "id": "TMP-PDF-4D1AC21274-P12-78F00508CC15",
+      "name": "Rapiquick Pregnancy Midstream Device (Urine)",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-dd75752eb999",
+      "id": "TMP-PDF-4D1AC21274-P12-DD75752EB999",
+      "name": "Rapiquick Pregnancy Cassette 10mIU/mL (S/P/U)",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-61b224d5ed7a",
+      "id": "TMP-PDF-4D1AC21274-P12-61B224D5ED7A",
+      "name": "Rapiquick Pregnancy Cassette 20mIU/mL (S/P/U)",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-0986e433f19e",
+      "id": "TMP-PDF-4D1AC21274-P12-0986E433F19E",
+      "name": "Rapiquick Pregnancy Cassette 25mIU/mL (S/P/U)",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-fb6a65c9102a",
+      "id": "TMP-PDF-4D1AC21274-P12-FB6A65C9102A",
+      "name": "Rapiquick Pregnancy Strip 10mIU/mL (Urine)",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-f1060515c6d4",
+      "id": "TMP-PDF-4D1AC21274-P12-F1060515C6D4",
+      "name": "Rapiquick Pregnancy Strip 25mIU/mL (Urine)",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-c51c05033f9b",
+      "id": "TMP-PDF-4D1AC21274-P12-C51C05033F9B",
+      "name": "LH Ovulation Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-84047ac942f3",
+      "id": "TMP-PDF-4D1AC21274-P12-84047AC942F3",
+      "name": "FSH Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-05c1d67e4162",
+      "id": "TMP-PDF-4D1AC21274-P12-05C1D67E4162",
+      "name": "Rapiquick Toxo Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-b58c4507d13c",
+      "id": "TMP-PDF-4D1AC21274-P12-B58C4507D13C",
+      "name": "Rapiquick Rubella Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-4e0c106393f8",
+      "id": "TMP-PDF-4D1AC21274-P12-4E0C106393F8",
+      "name": "Rapiquick CMV Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-c6144403ac8b",
+      "id": "TMP-PDF-4D1AC21274-P12-C6144403AC8B",
+      "name": "Rapiquick ToRCH IgG/IgM Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-0cf604472c9c",
+      "id": "TMP-PDF-4D1AC21274-P12-0CF604472C9C",
+      "name": "Rapiquick ToRCH Combo Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-871a0d571db5",
+      "id": "TMP-PDF-4D1AC21274-P12-871A0D571DB5",
+      "name": "Rapiquick Candida Albicans Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-76050e18eb34",
+      "id": "TMP-PDF-4D1AC21274-P12-76050E18EB34",
+      "name": "Rapiquick Neisseria Gonorrhea Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-0befc5219547",
+      "id": "TMP-PDF-4D1AC21274-P12-0BEFC5219547",
+      "name": "Rapiquick Chlamydia & Gonorrhea Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-143afb8b9478",
+      "id": "TMP-PDF-4D1AC21274-P12-143AFB8B9478",
+      "name": "Rapiquick Strep B Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-25c265995140",
+      "id": "TMP-PDF-4D1AC21274-P12-25C265995140",
+      "name": "Adenovirus & Rotavirus & Norovirus Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-fbfcd84339a8",
+      "id": "TMP-PDF-4D1AC21274-P12-FBFCD84339A8",
+      "name": "Rapiquick H.Pylori Antibody Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-e0342804ce14",
+      "id": "TMP-PDF-4D1AC21274-P12-E0342804CE14",
+      "name": "Rapiquick H.Pylori Antigen Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-90e3e4dc2dd2",
+      "id": "TMP-PDF-4D1AC21274-P12-90E3E4DC2DD2",
+      "name": "Rapiquick Zika IgG/IgM Rapid Test",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-9ef3379ac719",
+      "id": "TMP-PDF-4D1AC21274-P12-9EF3379AC719",
+      "name": "Rapiquick Chagas Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-d9c681d70a9a",
+      "id": "TMP-PDF-4D1AC21274-P12-D9C681D70A9A",
+      "name": "Rapiquick Dengue IgG/IgM Rapid Test Kit",
+      "page": 12,
+      "status": "verified update",
+      "reason": "Native-resolution embedded image object 1870; the top-left box label explicitly says Dengue IgG/IgM. Crop excludes the neighbouring kits. No assay/format/clinical specification inferred.",
+      "existing_gallery_count": 0,
+      "action": "replace empty gallery with verified images"
+    },
+    {
+      "candidate_id": "p12-178a3a39d6c4",
+      "id": "TMP-PDF-4D1AC21274-P12-178A3A39D6C4",
+      "name": "Rapiquick Dengue NS1 Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-436149a31150",
+      "id": "TMP-PDF-4D1AC21274-P12-436149A31150",
+      "name": "Rapiquick Dengue Combo Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-018a403e77f5",
+      "id": "TMP-PDF-4D1AC21274-P12-018A403E77F5",
+      "name": "Rapiquick Filariasis Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-b58999a43b89",
+      "id": "TMP-PDF-4D1AC21274-P12-B58999A43B89",
+      "name": "Rapiquick Typhoid Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-767c3dcea09d",
+      "id": "TMP-PDF-4D1AC21274-P12-767C3DCEA09D",
+      "name": "Rapiquick Salmonella typhi antigen Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-ffcb04b2d916",
+      "id": "TMP-PDF-4D1AC21274-P12-FFCB04B2D916",
+      "name": "Rapiquick Salmonella paratyphi antigen Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-0c018ac048a6",
+      "id": "TMP-PDF-4D1AC21274-P12-0C018AC048A6",
+      "name": "Rapiquick Leishmania Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-32bd0985ac6f",
+      "id": "TMP-PDF-4D1AC21274-P12-32BD0985AC6F",
+      "name": "Rapiquick Malaria Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-b70081b362a6",
+      "id": "TMP-PDF-4D1AC21274-P12-B70081B362A6",
+      "name": "Rapiquick Leptospira Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-6f8b82b16290",
+      "id": "TMP-PDF-4D1AC21274-P12-6F8B82B16290",
+      "name": "Rapiquick Hepatitis B (HBsAb) Rapid Test Device",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-71365a3ebd60",
+      "id": "TMP-PDF-4D1AC21274-P12-71365A3EBD60",
+      "name": "Rapiquick Hepatitis B (HBsAg) Rapid Test Cassette",
+      "page": 12,
+      "status": "ambiguous",
+      "reason": "The visible HBsAg box says Rapid Test Device; cassette versus strips is not established. The review crop is not approved for either record.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-93713663ca37",
+      "id": "TMP-PDF-4D1AC21274-P12-93713663CA37",
+      "name": "Rapiquick Hepatitis B (HBsAg) Rapid Test Strips",
+      "page": 12,
+      "status": "ambiguous",
+      "reason": "The visible HBsAg box says Rapid Test Device; cassette versus strips is not established. The review crop is not approved for either record.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-7b3e3e2466bc",
+      "id": "TMP-PDF-4D1AC21274-P12-7B3E3E2466BC",
+      "name": "Rapiquick Hepatitis C (HCV) Rapid Test Cassette",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-14d8e2c6897a",
+      "id": "TMP-PDF-4D1AC21274-P12-14D8E2C6897A",
+      "name": "Rapiquick Hepatitis C (HCV) Rapid Test Strips",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-1a920df9bd2f",
+      "id": "TMP-PDF-4D1AC21274-P12-1A920DF9BD2F",
+      "name": "Strep A Rapid Test",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-c17e193f75d8",
+      "id": "TMP-PDF-4D1AC21274-P12-C17E193F75D8",
+      "name": "Rapiquick Influenza A + B Rapid Test",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-12b525941fe6",
+      "id": "TMP-PDF-4D1AC21274-P12-12B525941FE6",
+      "name": "Respiratory Syncytial Virus Antigen Rapid Test",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-517c197081eb",
+      "id": "TMP-PDF-4D1AC21274-P12-517C197081EB",
+      "name": "RSV and Influenza A + B Rapid Test",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-787638cade8b",
+      "id": "TMP-PDF-4D1AC21274-P12-787638CADE8B",
+      "name": "Rapiquick Measles Virus Rapid Test",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-979e3b9e183d",
+      "id": "TMP-PDF-4D1AC21274-P12-979E3B9E183D",
+      "name": "Rapiquick Tetanus Rapid Test",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-2354466852aa",
+      "id": "TMP-PDF-4D1AC21274-P12-2354466852AA",
+      "name": "Rapiquick Tuberculosis Rapid Test",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-4fbb6228b3f9",
+      "id": "TMP-PDF-4D1AC21274-P12-4FBB6228B3F9",
+      "name": "Rapiquick THC50/MET1000 Drug of Abuse Rapid Test Panel",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-46c3eb98050a",
+      "id": "TMP-PDF-4D1AC21274-P12-46C3EB98050A",
+      "name": "Rapiquick THC50/MET1000 Drug of Abuse Rapid Test Cassette",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-c28a49c72d67",
+      "id": "TMP-PDF-4D1AC21274-P12-C28A49C72D67",
+      "name": "Rapiquick THC50/MET1000/MDMA500 Drug of Abuse Rapid Test Cassette",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-1b5036d5773b",
+      "id": "TMP-PDF-4D1AC21274-P12-1B5036D5773B",
+      "name": "Rapiquick THC50/MET1000/MDMA500/COC300/MOP2000 Drug of Abuse Rapid Test Panel",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-e65d3f50e5cd",
+      "id": "TMP-PDF-4D1AC21274-P12-E65D3F50E5CD",
+      "name": "Rapiquick THC50/MET1000/MDMA500/COC300/MOP2000 Drug of Abuse Rapid Test Cassette",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-45bfa38c52ff",
+      "id": "TMP-PDF-4D1AC21274-P12-45BFA38C52FF",
+      "name": "Rapiquick Alpha Fetoprotein Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-5ab78a25caf1",
+      "id": "TMP-PDF-4D1AC21274-P12-5AB78A25CAF1",
+      "name": "Rapiquick Carcinoembryonic Antigen Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-4c12662da851",
+      "id": "TMP-PDF-4D1AC21274-P12-4C12662DA851",
+      "name": "Rapiquick Prostate Specific Antigen Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-487a06fc943f",
+      "id": "TMP-PDF-4D1AC21274-P12-487A06FC943F",
+      "name": "Rapiquick Fecal Occult Blood Rapid Test Kit",
+      "page": 12,
+      "status": "ambiguous",
+      "reason": "Only a partly occluded FOB label is visible; insufficient complete product/format evidence.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-c8aa11f2e7a7",
+      "id": "TMP-PDF-4D1AC21274-P12-C8AA11F2E7A7",
+      "name": "Rapiquick Transferrin & Hemoglobin and Hemoglobin-Haptoglobin Combo Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-77e9071b342d",
+      "id": "TMP-PDF-4D1AC21274-P12-77E9071B342D",
+      "name": "Rapiquick Hemoglobin and Hemoglobin-Haptoglobin Combo Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-be993c8b1760",
+      "id": "TMP-PDF-4D1AC21274-P12-BE993C8B1760",
+      "name": "Rapiquick Troponin I Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-9ed5a193b584",
+      "id": "TMP-PDF-4D1AC21274-P12-9ED5A193B584",
+      "name": "Rapiquick Troponin T Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-861f47132734",
+      "id": "TMP-PDF-4D1AC21274-P12-861F47132734",
+      "name": "Rapiquick CK-MB Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-75600bbd3cd4",
+      "id": "TMP-PDF-4D1AC21274-P12-75600BBD3CD4",
+      "name": "Rapiquick Myoglobin Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-d7abf14d45a0",
+      "id": "TMP-PDF-4D1AC21274-P12-D7ABF14D45A0",
+      "name": "Myoglobin, CK-MB & Troponin I Combo Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-bdbac9067879",
+      "id": "TMP-PDF-4D1AC21274-P12-BDBAC9067879",
+      "name": "H-FABP, Myoglobin/CK-MB/Troponin I Combo Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-dbd670fecc0f",
+      "id": "TMP-PDF-4D1AC21274-P12-DBD670FECC0F",
+      "name": "Rapiquick NT-proBNP Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-a481a3edb899",
+      "id": "TMP-PDF-4D1AC21274-P12-A481A3EDB899",
+      "name": "Rapiquick D-Dimer Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-2147e1be5a35",
+      "id": "TMP-PDF-4D1AC21274-P12-2147E1BE5A35",
+      "name": "Rapiquick C-reactive Protein Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-2575cd9467fe",
+      "id": "TMP-PDF-4D1AC21274-P12-2575CD9467FE",
+      "name": "Rapiquick Procalcitonin Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-920b3234befc",
+      "id": "TMP-PDF-4D1AC21274-P12-920B3234BEFC",
+      "name": "Rapiquick Ferritin Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-d0f99af8d5dc",
+      "id": "TMP-PDF-4D1AC21274-P12-D0F99AF8D5DC",
+      "name": "Rapiquick SP-10 Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-aee4e29d1604",
+      "id": "TMP-PDF-4D1AC21274-P12-AEE4E29D1604",
+      "name": "Rapiquick Thyroid Stimulating Hormone Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-bd52ca84847b",
+      "id": "TMP-PDF-4D1AC21274-P12-BD52CA84847B",
+      "name": "Rapiquick Vitamin D Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-ce0bcf1cd92f",
+      "id": "TMP-PDF-4D1AC21274-P12-CE0BCF1CD92F",
+      "name": "Rapiquick RPR Screening Test",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-0766d062cd5c",
+      "id": "TMP-PDF-4D1AC21274-P12-0766D062CD5C",
+      "name": "Rapiquick Rheumatoid Factor Rapid Test Kit",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-0f72fabe7882",
+      "id": "TMP-PDF-4D1AC21274-P12-0F72FABE7882",
+      "name": "SARS-COV-2 IgG/IgM Rapid Test",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-97118a438b02",
+      "id": "TMP-PDF-4D1AC21274-P12-97118A438B02",
+      "name": "Hangzhou Alltest COVID-19 Antigen Rapid Test (Specimen: Nasopharyngeal Swab)",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p12-550a4e016666",
+      "id": "TMP-PDF-4D1AC21274-P12-550A4E016666",
+      "name": "VCODE Encode SARS-COV-2 Rapid Test Device (Specimen: Throat Swab and Nasal Swab)",
+      "page": 12,
+      "status": "missing source image",
+      "reason": "Named in the rapid-test list; no individually identifiable photograph of this exact test in the source. Do not reuse the assortment photo.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p15-028c72eca369",
+      "id": "TMP-PDF-4D1AC21274-P15-028C72ECA369",
+      "name": "Video laryngoscope - VL3D",
+      "page": 15,
+      "status": "missing source image",
+      "reason": "PDF lists this exact VL model but contains no model-specific equipment photograph.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p15-9c3b522a3054",
+      "id": "TMP-PDF-4D1AC21274-P15-9C3B522A3054",
+      "name": "Video laryngoscope - VL3R",
+      "page": 15,
+      "status": "missing source image",
+      "reason": "PDF lists this exact VL model but contains no model-specific equipment photograph.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p15-19d0a457ec83",
+      "id": "TMP-PDF-4D1AC21274-P15-19D0A457EC83",
+      "name": "Video laryngoscope - VLDM",
+      "page": 15,
+      "status": "missing source image",
+      "reason": "PDF lists this exact VL model but contains no model-specific equipment photograph.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    },
+    {
+      "candidate_id": "p15-f4eea453ed51",
+      "id": "TMP-PDF-4D1AC21274-P15-F4EEA453ED51",
+      "name": "Video laryngoscope - VLRM",
+      "page": 15,
+      "status": "missing source image",
+      "reason": "PDF lists this exact VL model but contains no model-specific equipment photograph.",
+      "existing_gallery_count": 0,
+      "action": "keep neutral placeholder"
+    }
+  ],
+  "preservation": {
+    "protected_collections": {
+      "backups": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "brochure_imports": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "communication_requests": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "counters": {
+        "count": 1,
+        "sha256": "a415ff2d4ed760b31c79da4246eb8fff27c91416b00fccf12c5e66aebb1ffc27"
+      },
+      "inventory_adjustments": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "inventory_batches": {
+        "count": 3,
+        "sha256": "924f7b978740a7b49442d34609e13a4814929342b626362d37d3d20026c06f4f"
+      },
+      "inventory_logs": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "inventory_operations": {
+        "count": 5,
+        "sha256": "7fe7df660a6a5ed3e5cffc71463b7fce6ed1d013c817bdd8e67e060f67836323"
+      },
+      "invoice_events": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "invoices": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "orders": {
+        "count": 2,
+        "sha256": "758e9a4109a90e53e6900bbc492580406a417b3e437cbec24e272cf148547337"
+      },
+      "quotation_events": {
+        "count": 6,
+        "sha256": "1383fbc5152ba58ac44c437a899db7d340db01b37860169930b66bd085f3f080"
+      },
+      "quotations": {
+        "count": 2,
+        "sha256": "b52abd19379fc7ed1bd63b5b4456850c9930da1e1c4f5bd6e3710173fcaf2611"
+      },
+      "rate_limits": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "sessions": {
+        "count": 6,
+        "sha256": "8fcc2db3dedaf3e3c2e05e8dd4ca96c065e2f64df655cd01b551a4a35b497271"
+      },
+      "stock_movements": {
+        "count": 4,
+        "sha256": "489cd56c80d57bde7861069ee4ec196bb37ea39469cdc50ea709621dfb71c193"
+      },
+      "stock_reservations": {
+        "count": 1,
+        "sha256": "ebe6e720392ed7d86d06089127c01d06deb538bde9b0416e2e8bc758fed7306e"
+      },
+      "support_challenges": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "support_messages": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "support_rate_limits": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "support_sessions": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "support_threads": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "system_metadata": {
+        "count": 1,
+        "sha256": "a6e1e061b838ae4f9a01988cb0da7c4e92a57187aafa6d6ffb29690f8231de4b"
+      },
+      "tracking_challenges": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "users": {
+        "count": 1,
+        "sha256": "407fa55df058306fd415982f452f47450e3fff6505587d930aaedbb227a9bd84"
+      }
+    },
+    "existing_catalog_audits": {
+      "count": 127,
+      "sha256": "07d6b62907c7c68d35a830b7ea59bac415d300dfd1097ae5550fcd0faf1e8faf"
+    },
+    "non_image_product_hashes": {
+      "MED-001": "a9fc622c261537388798d19b18d8a0ce53b287985a84d3fd15f5157b8c5f5f36",
+      "MED-002": "68b0f07af6c7ac054744a049a807ea6643718f4eb9104fec00eb989332efe1f5",
+      "SMP-001": "9a77ce737dd022bb624cc1995e6d72f4bbe893d1dd8574ecdf85074c897fad38",
+      "TMP-PDF-4D1AC21274-P05-44C2375CE24D": "f73723beb97b9daa68e14a771bc43457332cbcffaa5ea30d51fe73a451313bf8",
+      "TMP-PDF-4D1AC21274-P04-E228089CBACF": "2931431e94d266335885222b2c6421a69249e027868334be2813699119145681",
+      "TMP-PDF-4D1AC21274-P06-2541990213FF": "f958df7ec934038b23d6bd61be836de4fe9bd00d1f0c8126004cd6f4ecc09a55",
+      "TMP-PDF-4D1AC21274-P07-303CA8B1C11B": "e229b9c5494391a3078ede58bf593ec226b85f7d9f9664aac83ad1d2fc62a502",
+      "TMP-PDF-4D1AC21274-P07-F2A62B743BA6": "55a92651ba5d8e5a8b50707fc597e53124bcf504151fe76e7822caa01c4732f2",
+      "TMP-PDF-4D1AC21274-P03-0DAD68E8ADCD": "eb28e416d066eda802c7a85724b5a8de8b9aed3f6ace96f605fb72ed3e535832",
+      "TMP-PDF-4D1AC21274-P03-2D486F10F85E": "f00a11bddbedc58721aa36f4e7def350739f28b7e7984690476941eb74944b5a",
+      "TMP-PDF-4D1AC21274-P05-694DFD26E1A4": "a2cd69a0bc4e57dbaae892457eb2575b0d985dd4cbb54e5260d4c7eed366f91c",
+      "TMP-PDF-4D1AC21274-P08-B9F2A7D02685": "076db4548d0684cc77650aa2c6b2d1dd40171da376630d8c1fcf850af4635edd",
+      "TMP-PDF-4D1AC21274-P09-E2C737E40D05": "373e6eadcfea934dca552ba543019aa65f8389113d72e76ad2b723af537fb530",
+      "TMP-PDF-4D1AC21274-P05-741932F4EEFF": "24055d77d40b9f5d22615668310107a2723d00ff5f2e45ca59f8bab0c4c4f44c",
+      "TMP-PDF-4D1AC21274-P05-A86A2AF43341": "12333e43f839106e64cbe20fd4ed87fe61fc797cd407a45ea99003eeebd1740e",
+      "TMP-PDF-4D1AC21274-P06-CD9E31C95FDC": "1c6cf657e0a21b2fe646ecdf841585dfbe5cc687f82d02aa1de7da588b076894",
+      "TMP-PDF-4D1AC21274-P06-B26C5146C71F": "e5be60bcd992bc16e42cdd0a8c25da483c139bf010d61ff7709e34ad19d9399b",
+      "TMP-PDF-4D1AC21274-P06-EEE272B904B1": "ed7760f8cb0d1a588e56b807bc3acc3a8b44cac22c2ecd21dcb97645a240faa5",
+      "TMP-PDF-4D1AC21274-P07-D83EC87E5074": "93a0c6dfd3e5842c770dea838c19c515d6ca676781f890d80e899db96df68aa4",
+      "TMP-PDF-4D1AC21274-P10-B0D4F7A891D5": "6ad6fea125844e2baf8397419f39772bc2b55fb5a8a0e22d2ae883fe30aa8291",
+      "TMP-PDF-4D1AC21274-P10-0B75CE4F5DE7": "906fff4d83c8a72020522fc604180a81581d12325999ffb71b51d63ce563f63b",
+      "TMP-PDF-4D1AC21274-P10-002D5C84B821": "dae6f8f20ea427d67fdd3f9b7d44447e4d2736bf09700267bb997635f3e108e1",
+      "TMP-PDF-4D1AC21274-P10-0382EE5131A9": "cbf2a94628afc1403011d02e8dfeb628a5fbbd05101158e8407ae7415c308a01",
+      "TMP-PDF-4D1AC21274-P10-EA48639C766F": "1e07d2eae077a159c79ec0a8df929bfb4bdb4eccb6576ce5b1f05ab9088a9158",
+      "TMP-PDF-4D1AC21274-P10-8A2EB16BDFAB": "e216878c59cf9c6c3b0980344c68f6d451fb4ccb22a90d0a750596fcbbd2ac1f",
+      "TMP-PDF-4D1AC21274-P11-316320BDCCB7": "e9a8b2dc7fab346e93107865972650f58f5272be9bc5531e0c1e6180ff72c5ac",
+      "TMP-PDF-4D1AC21274-P11-169982803D35": "e728b3dad3384e11765bb2aac8d2c207547477fa73d5786f371935ff2e839dd7",
+      "TMP-PDF-4D1AC21274-P11-A61E897B07F2": "e6f0f63eff22be6ac9a36207b26aa478dce2d698a3125dc4259f9c4999c76e25",
+      "TMP-PDF-4D1AC21274-P11-9AD0ADCFBC2D": "0af8551b6356b3b77b303155067ae913e2323eb93896ccb17957e876b4fab513",
+      "TMP-PDF-4D1AC21274-P11-33A1A7F661C9": "750c2fda14810acf438cff65167535c8d920136012b112edec9f5e0d608b07a3",
+      "TMP-PDF-4D1AC21274-P11-CC35BABF24F5": "0f0ec3827336d9be6871eb36bbeec07df25d587bf5dc4d3b58d38013d42d54af",
+      "TMP-PDF-4D1AC21274-P11-EC960503E933": "0d88e3b3840352f3d788976c62322c529eb39e6e1775bf23bcc1f5748eef640d",
+      "TMP-PDF-4D1AC21274-P11-F220FC062616": "c375f3c6e4ad0ecd00717a7cabead844744b0fb3224b71a8f3c8e0f761de7055",
+      "TMP-PDF-4D1AC21274-P11-8E3E5764E678": "fb1825fe8351066615942e6c2912d48a70ac5ad0d367909de5b668b984b79085",
+      "TMP-PDF-4D1AC21274-P11-34B1ADAB7A76": "88612e14431603c7fb98d84f112e28a4a39c38f116a6aa97f04971d946a2ad2a",
+      "TMP-PDF-4D1AC21274-P11-F1273F440512": "3955ba4fba929112e6a399e81d1097bbcd02e7cb98643cdaa33636baab21ebf7",
+      "TMP-PDF-4D1AC21274-P11-8AECB02A9C1D": "631375c8204466960a630530307cc26355e27c02802461ad9bf82d72f604e076",
+      "TMP-PDF-4D1AC21274-P11-855414970B9A": "e54ba363ca8ab0b2e72087a37f6f1c43bc2808d6658724edd921b668e8626eee",
+      "TMP-PDF-4D1AC21274-P11-03855B200C1C": "17f74edd5c7e4779a4b070eb6df62b3c9a576dd70c0bd2ec0d0ddbe884453219",
+      "TMP-PDF-4D1AC21274-P11-A3BC8E2215ED": "8e48408dbd668a2668d41910a0c3ddb552ad7ad392933d88bdc6ef89014f6e0b",
+      "TMP-PDF-4D1AC21274-P11-A8C58287E6BE": "cdd352dc0b7224879593744fc41bc6a9db2d0aec8825eebfcd6343ec2b77fe6c",
+      "TMP-PDF-4D1AC21274-P11-F2DF959CAC53": "25e7cdc81f0f79061069b4b0d39ce409eb4157922460ad7bc8fc3bf83b890e56",
+      "TMP-PDF-4D1AC21274-P11-AE17BC9D1783": "9e7ed4968bded178c85aa43317d50a92e524f0ba014f30997ece01a696a9b391",
+      "TMP-PDF-4D1AC21274-P11-5EFFE5892207": "179c1733151391bc13cf2865b7d02e9cc4145d122256e79bcc2f1f1a9511d383",
+      "TMP-PDF-4D1AC21274-P11-EF729D65F318": "f5cdd053b2116151838b2cc4a9d3c6c826622c4ab069a72273942a94dd449c24",
+      "TMP-PDF-4D1AC21274-P11-0F3134BAB998": "044b05ad2a6b00e774f70386b23220c72a001d04e01e10d6969ef60eb61b42d4",
+      "TMP-PDF-4D1AC21274-P11-9E1C730FE190": "f9c09902bd76c6924b1cb879f739b03a2324101091db73e21e4bf1752e5f0288",
+      "TMP-PDF-4D1AC21274-P11-C4F5B616C907": "0f994faf157e39ee607a2c4615ffdc04b489508782ee1525f2234c9532acc066",
+      "TMP-PDF-4D1AC21274-P11-72AE79690461": "6a47f58e774bd0409a2ead9eea28ae3e770a48ba8d811f84070865daa34e7457",
+      "TMP-PDF-4D1AC21274-P12-78F00508CC15": "ffe4b080347dbe2b36709ac89272bd830e1c035f5488e7ca84fa7f697c8d63ab",
+      "TMP-PDF-4D1AC21274-P12-DD75752EB999": "270c93cb7cd630d17e69cd235d88788d10b256bd615ee0669baa2a61531a3d44",
+      "TMP-PDF-4D1AC21274-P12-61B224D5ED7A": "1d73661578cd154488689b7613b874f52e7ca12e541285f2bb8782110ca9c8a3",
+      "TMP-PDF-4D1AC21274-P12-0986E433F19E": "9e17c0081005936764032314c1b9302c21cfa461c79823d08cd7efe529fb5d17",
+      "TMP-PDF-4D1AC21274-P12-FB6A65C9102A": "8e2eef27cf36ed7d07e2ad1164eded8e0354745dd3417185ea1832d637fa3d6f",
+      "TMP-PDF-4D1AC21274-P12-F1060515C6D4": "c369975db0f63cf129c12aa4085d1c3603e1d6f3064aedaebc49ce8f7d5b7e69",
+      "TMP-PDF-4D1AC21274-P12-C51C05033F9B": "b4f41d8fe70fabde2abf910f1d83317b23891eba0a03a044e7237936421550e9",
+      "TMP-PDF-4D1AC21274-P12-84047AC942F3": "2de8251b0c9cdaefc8ceec98ec836254263aacfb9684ba022e76f2e9bedfbe9f",
+      "TMP-PDF-4D1AC21274-P12-05C1D67E4162": "0f47ca01948573f0fcae3769a584c6017a7a8abb53be02ddf6b4f94dc8c7e1b6",
+      "TMP-PDF-4D1AC21274-P12-B58C4507D13C": "a66ab58f27387612a8a08f98b04efdc992b5331f189a8f31c2d9385ff69eb633",
+      "TMP-PDF-4D1AC21274-P12-4E0C106393F8": "d429583cad0800aa3c90ab10285658c0be817a8dd1cb0e3ac66381f7e73a6f42",
+      "TMP-PDF-4D1AC21274-P12-C6144403AC8B": "f9b7a36b29594f3fc41c00330c1febcc79c4647df63cecdabb016bbb331a01fc",
+      "TMP-PDF-4D1AC21274-P12-0CF604472C9C": "20fc4bcbc3b04d004976c665162c0e75d1f69bbae64d8527957f7ec9f73af0df",
+      "TMP-PDF-4D1AC21274-P12-871A0D571DB5": "e4fe9ba7dfaf84493dd142fda20db28032875286559b17f75d44ad20076f99eb",
+      "TMP-PDF-4D1AC21274-P12-76050E18EB34": "11ff1792d581544bc106e9bb6a6e6e1c627e2c3d680e1965584a69aa968f8359",
+      "TMP-PDF-4D1AC21274-P12-0BEFC5219547": "a95ee6673c735b94c949320d046a489694a59d5cebd19971494f3c4c33cdba38",
+      "TMP-PDF-4D1AC21274-P12-143AFB8B9478": "7aba0ae264c49d6673d4bb91fec951fc0d61d56277f461d28251224aae52acb1",
+      "TMP-PDF-4D1AC21274-P12-25C265995140": "baad9f0bb2e2154b1210883c2421db70a483dbdcb3ae29fc9b7fab050f55fe28",
+      "TMP-PDF-4D1AC21274-P12-FBFCD84339A8": "9c3f9b53cc6794ed7a3b06d7af4e154d8c8c8647ba1b83e39ac377596007b385",
+      "TMP-PDF-4D1AC21274-P12-E0342804CE14": "a272e7b3983b6e236e0dd04d8c833c701821bceed806c28eeb4722b302fa41a4",
+      "TMP-PDF-4D1AC21274-P12-90E3E4DC2DD2": "0be777956c7c3145ae10068a63c2236d96261bc5017989896ba1ea649a0e43ac",
+      "TMP-PDF-4D1AC21274-P12-9EF3379AC719": "d4fe450ec0f2e7abe864dab69d67e4375a1c2543c2900fe080b4ede59e4bdef9",
+      "TMP-PDF-4D1AC21274-P12-D9C681D70A9A": "25cbffd9b91b5232248681da84d7f6ea32fa1d6812bbee1c39b4c3d07cec21ee",
+      "TMP-PDF-4D1AC21274-P12-178A3A39D6C4": "bae6debb68244edb5e9bc0c015db9123d5b7a737be9d4d5550a2bc0063cc0934",
+      "TMP-PDF-4D1AC21274-P12-436149A31150": "4f452fb33a4a20e809a47b5f408d58dcc3fe7e675d27ba4d78610cc62ad4e6e8",
+      "TMP-PDF-4D1AC21274-P12-018A403E77F5": "0cec44797d2e77d7b0075f77de8ee957e54d7082bddb9da3ce98560f6fe67f20",
+      "TMP-PDF-4D1AC21274-P12-B58999A43B89": "13295214358473b86ac4a73766d9a98d9564485fd4fcbb138051a4c4862732f0",
+      "TMP-PDF-4D1AC21274-P12-767C3DCEA09D": "efda28af1f7491d1b7692937cbae5c78af94eabc17f3652538de967793e3c280",
+      "TMP-PDF-4D1AC21274-P12-FFCB04B2D916": "d84f2a2bc45346650dd358c38433061ff72a5ccdcf5bdc3f304e681a00c292ad",
+      "TMP-PDF-4D1AC21274-P12-0C018AC048A6": "a073e659175804ff38a624618ad4c187345a654bac4f11bb9ffa2ed2732f3367",
+      "TMP-PDF-4D1AC21274-P12-32BD0985AC6F": "d3df5d5389258fef0c7d34a94d9a90361592bedbd6fca9626abd4c23479e6cf4",
+      "TMP-PDF-4D1AC21274-P12-B70081B362A6": "24a9a4e51e4714651a638bb9cb739d0176108b175ac45a3b6061e4a16d72da48",
+      "TMP-PDF-4D1AC21274-P12-6F8B82B16290": "34ba90b31c52db30de69731ef785f45737724bbe468281b8c42d5034d3812579",
+      "TMP-PDF-4D1AC21274-P12-71365A3EBD60": "ca20fa1b2daa97c94e1e042fa7105fb451489c72802f22f13109e505e1294400",
+      "TMP-PDF-4D1AC21274-P12-93713663CA37": "9a36c4e1fa76a43aba6967698470df5f12324f4b89b2b00f852981ae276e1bc0",
+      "TMP-PDF-4D1AC21274-P12-7B3E3E2466BC": "3514cbbe6a460c953d275033d0793b289b83160dfc86b384f0dd929d8e412881",
+      "TMP-PDF-4D1AC21274-P12-14D8E2C6897A": "234e12f09666a0127fff6c4e6b09fb8648f17063a1026b03a1dec9d258b4faa5",
+      "TMP-PDF-4D1AC21274-P12-1A920DF9BD2F": "54eafc21874000f66540f5bae5decb423e147df2e8e96e2bc24485164c6546a5",
+      "TMP-PDF-4D1AC21274-P12-C17E193F75D8": "5eb724b8ebd7f4bae9ea7a73f44c1991d7547900f7e9fb7ab526dd7c08266310",
+      "TMP-PDF-4D1AC21274-P12-12B525941FE6": "401abbc2617d185c380c53e3523babdc8c2c5b6c51e55df2a4407f345470a4ed",
+      "TMP-PDF-4D1AC21274-P12-517C197081EB": "a966c531ec04a46a3dd4ed47640c904a83a53d3db7f6b1a3e6da25913aa0bc32",
+      "TMP-PDF-4D1AC21274-P12-787638CADE8B": "b1eec3fae60a5c2e2e1fb06fb564d94c4a964e7a9c6a28fb190f15d77e3d53cf",
+      "TMP-PDF-4D1AC21274-P12-979E3B9E183D": "28abb42dcb35b920b6b8ff909c9c4ddbf94798aa93f4ac9992f6fb52ceb9df12",
+      "TMP-PDF-4D1AC21274-P12-2354466852AA": "796394341ebb6dac50351f15605fe47edee2b65e35784f371422f3b25bf325fe",
+      "TMP-PDF-4D1AC21274-P12-4FBB6228B3F9": "4ea293012fa0eca397cbc04f83c22540fd349fcf80e4698183e3ea0c17ac84a4",
+      "TMP-PDF-4D1AC21274-P12-46C3EB98050A": "cb8c69f338022daf43e801963eb7cd62286e2c7d50c778d3f743a03b867f4a56",
+      "TMP-PDF-4D1AC21274-P12-C28A49C72D67": "688dfdbbdf11603144372a2c5b528c71bec9e1a02ee32bbc48f296ce64ee523b",
+      "TMP-PDF-4D1AC21274-P12-1B5036D5773B": "9efe74d3538621e827fef61b9fa43da21e4ee1c80b468b757424949c62c5e20a",
+      "TMP-PDF-4D1AC21274-P12-E65D3F50E5CD": "d28b974d70c870ccce0b0500f00c04d1cd9b47255102a71c57ab771673da962e",
+      "TMP-PDF-4D1AC21274-P12-45BFA38C52FF": "bc151fad66b2b4c140a788ab99ab733dad614e1360933f5b34e0eb57990db3a2",
+      "TMP-PDF-4D1AC21274-P12-5AB78A25CAF1": "fe9e45337d9fece445dd149eb380b444021d3b64c0729321238b8ca8595b8206",
+      "TMP-PDF-4D1AC21274-P12-4C12662DA851": "1e6caba5ad1fd55a7c18fe1c71befec6e59da019cd7c36ea90ed216f097df426",
+      "TMP-PDF-4D1AC21274-P12-487A06FC943F": "3bf0b69da377275434893e76e1ab50ad3141fdbbfb9278f1b6798ffddcf48327",
+      "TMP-PDF-4D1AC21274-P12-C8AA11F2E7A7": "44bf674f46bbbcaca09681f524af2c1e0c20bd3d972d2c824300afa69ddc69cc",
+      "TMP-PDF-4D1AC21274-P12-77E9071B342D": "2572b213f49a950e6927d558ddbb8b337a5017c2440ca86fdfe480c598b50772",
+      "TMP-PDF-4D1AC21274-P12-BE993C8B1760": "ba7cedb04b8a527fd8b9af118ee74f868a3b85e3054517fed62e36ed4169020d",
+      "TMP-PDF-4D1AC21274-P12-9ED5A193B584": "4af28bb29014a1aa072e7fdf0a3559e4da724c3c06b228622c622ca33c3a00cd",
+      "TMP-PDF-4D1AC21274-P12-861F47132734": "5dc4ac367488201cb50b95c8515314d8a62da232ded99f502ec04de99d2f8a94",
+      "TMP-PDF-4D1AC21274-P12-75600BBD3CD4": "7d4a4b427ca5758ac9fe11800b21422dc6d8419bc7a68643105441266163896e",
+      "TMP-PDF-4D1AC21274-P12-D7ABF14D45A0": "71f017aa12805d2348d3fe54e9810f0e39e32cd7c39f197fa9bf939d6d3034ff",
+      "TMP-PDF-4D1AC21274-P12-BDBAC9067879": "67cad29fa26205b8c3b46c920b0a6f916b9b83ad171b414961907aacf2efa73c",
+      "TMP-PDF-4D1AC21274-P12-DBD670FECC0F": "de24c15f7b10092abc85e6c1fe47e6fd245d57ffd85f4c56ac50d7f44a617c0c",
+      "TMP-PDF-4D1AC21274-P12-A481A3EDB899": "21df2d3e9c67f20c045904ea1300ef3b6e1d0732ce0fc114f3f7d28fab86e81f",
+      "TMP-PDF-4D1AC21274-P12-2147E1BE5A35": "37d6726288b48a49f144a53c6534575d26b6b786d4a1e31c05c3a1bf32ea9dec",
+      "TMP-PDF-4D1AC21274-P12-2575CD9467FE": "c87871c8d38a10b556dba5adffa3768e70b898a35caba02b7cf0e3d50f9a9a0d",
+      "TMP-PDF-4D1AC21274-P12-920B3234BEFC": "018e12a9ee410fbda624dd5a89a7b0f2dfe130f101e64b6162e96e26c6ab1084",
+      "TMP-PDF-4D1AC21274-P12-D0F99AF8D5DC": "7d84c291c2c09fc3b86dc7b5c4956c3b71b608150973b1961cb4d7eff38b2d97",
+      "TMP-PDF-4D1AC21274-P12-AEE4E29D1604": "ca5b6b8f825ecdf3dc1b5e9a1dfbaa6c0f411c19516b0e794e224e863e14ed9c",
+      "TMP-PDF-4D1AC21274-P12-BD52CA84847B": "0d874aa131068b360a944db60fff94c4c9c6ec5914854e7ab4b33c3a3f5854bb",
+      "TMP-PDF-4D1AC21274-P12-CE0BCF1CD92F": "6b28d81c41854f095408de6ce0074a92620da51ef07837539aceb9e296902262",
+      "TMP-PDF-4D1AC21274-P12-0766D062CD5C": "e6e0e9108811f02c03952f7c486909139ef6ea71599d9cf32612c6be284ec39a",
+      "TMP-PDF-4D1AC21274-P12-0F72FABE7882": "cc012d1a1042bdf7131bb5dc6c0ed9ead0275b46ba9d38bec4919795954d99e4",
+      "TMP-PDF-4D1AC21274-P12-97118A438B02": "df498ffe3dba88453ec6fa66499dc5303e93a9aca0012d2688b2e2ddf816b1b8",
+      "TMP-PDF-4D1AC21274-P12-550A4E016666": "20609f88338463a5d330de084e9ce99664fb966a8517150065035bbcc9fb6fd9",
+      "TMP-PDF-4D1AC21274-P15-028C72ECA369": "ad31e66994e9730c5a5db2d5a6e512320883e5392381bf0bf9f05ca7fdb5f87a",
+      "TMP-PDF-4D1AC21274-P15-9C3B522A3054": "8ffebadc1f7d78d33ec7ff89fd05b34d78e47baf853ef32c971c0165acd9194f",
+      "TMP-PDF-4D1AC21274-P15-19D0A457EC83": "b66a09e960c3c2a0b10370b6bbed7d7bf70905c7199d54d8930ed9b372c2c66b",
+      "TMP-PDF-4D1AC21274-P15-F4EEA453ED51": "888c599c438f106d12b7bad75fc6c3bf89381246e9249f422e50b7aaa74fc049"
+    },
+    "unchanged_product_hashes": {
+      "MED-001": "a9fc622c261537388798d19b18d8a0ce53b287985a84d3fd15f5157b8c5f5f36",
+      "MED-002": "63cc030f420cff25fcdac89a6703af0ad62d63fa12e4643969044a437e8354b4",
+      "SMP-001": "d0dd9028c558f85fa9d78f7ca59be5a46eabda33f2012745fe8e2252133b13f0",
+      "TMP-PDF-4D1AC21274-P05-44C2375CE24D": "593d243004f6a0b66fbdac46bdc86f99350d4ed85cd197d4d62f305aac2bdc7c",
+      "TMP-PDF-4D1AC21274-P04-E228089CBACF": "0848a292932b9f050f36ef8d5b99a1fcc0085f8748c9164854dd94669cd4d73a",
+      "TMP-PDF-4D1AC21274-P06-2541990213FF": "01e3cac8e25ed55e7f5eceb8af11d4eb06d09fd30d8b04ce2f90561c4249a865",
+      "TMP-PDF-4D1AC21274-P07-303CA8B1C11B": "f7cb5a84c5060d89045a26a0e1f0504b3c61fb99e140cdf5431f33edc3487dfe",
+      "TMP-PDF-4D1AC21274-P07-F2A62B743BA6": "ff847c6412aca2e9449dcba614a1cc21e433e47de9494ab63052a902ebeae213",
+      "TMP-PDF-4D1AC21274-P05-694DFD26E1A4": "3f70d72cba1f1e6360ebaad68e2e237b7d6f10f443941bd118f1b113a738bb27",
+      "TMP-PDF-4D1AC21274-P08-B9F2A7D02685": "dff33a4b2bb9cefb7e865b74d4a59d4c1ca248ff00061b507a2f630751b11847",
+      "TMP-PDF-4D1AC21274-P09-E2C737E40D05": "34392c071c5289f243e0f28413ca1f74514f94daf1f5d38f1b88b84347ba2a2f",
+      "TMP-PDF-4D1AC21274-P05-741932F4EEFF": "34fd21cf9ce65a9f7b19fbc59adbc7609ffad2e674f6bf51c4d6d32bf6215cea",
+      "TMP-PDF-4D1AC21274-P05-A86A2AF43341": "72f5a0b551063f7887ae675db0f3fbf8d2098dedb35080f284d223570c675f58",
+      "TMP-PDF-4D1AC21274-P06-CD9E31C95FDC": "b5aaa452a01b5bab787e4f59296223bffb583f65589999f96a9b235ca36fc31a",
+      "TMP-PDF-4D1AC21274-P06-B26C5146C71F": "b4c84a3afca4ea948258a988d97508727150f7f87dd6fd9f4a92ae47aaddcca1",
+      "TMP-PDF-4D1AC21274-P06-EEE272B904B1": "25a0ed8f6c8b55d50a1f70f54d0dfa7480db4dd3508e44f3ada2fc2317dd3f5c",
+      "TMP-PDF-4D1AC21274-P07-D83EC87E5074": "c86d23e7b347acb47e69955155d5cac4ccc65e4cf7a3094c3b28b27a66647327",
+      "TMP-PDF-4D1AC21274-P10-B0D4F7A891D5": "cfadbc7d9c0482b0ec3a215303b6fb71f4384d366651b25a7347a3caba8712da",
+      "TMP-PDF-4D1AC21274-P10-0B75CE4F5DE7": "161d9b72a42e5364875731e8c8801e0164197125defc3df4a5693dbfc1092f9b",
+      "TMP-PDF-4D1AC21274-P10-002D5C84B821": "61d770416b958e2be0711237add6366a2cde00e329d0a135047fb64cc9281e08",
+      "TMP-PDF-4D1AC21274-P10-0382EE5131A9": "9acc9a38745f0e5c2ece6969d5d95e9a951885c3a749b807d95cbfc4152b622a",
+      "TMP-PDF-4D1AC21274-P10-EA48639C766F": "248bf925bde291db95f25910ea6c40bd3eef25d967ec8154496574a3795b3c01",
+      "TMP-PDF-4D1AC21274-P10-8A2EB16BDFAB": "babb615faa0a9ccde97b49e314973b7abc3eb694b16f3957a38cc699c2f60120",
+      "TMP-PDF-4D1AC21274-P11-316320BDCCB7": "48df496a1d4c7816f268b787080603f36ba7ff80efa34abb5e5e6999cdee9827",
+      "TMP-PDF-4D1AC21274-P11-169982803D35": "e16eda0fe5b58e6ba32e0e34ee6b6ded7a1745c18817f3d3f569768544e86efa",
+      "TMP-PDF-4D1AC21274-P11-A61E897B07F2": "b523a47e59e6730da2e7cea04b7140c85f38dbac1fd9fba7f67a0e2ec135acf4",
+      "TMP-PDF-4D1AC21274-P11-9AD0ADCFBC2D": "bd2203be4f26bfb257262b7c255ae78b89e1dc0508948f7f6e100ba5e5b4451c",
+      "TMP-PDF-4D1AC21274-P11-33A1A7F661C9": "941b91485d1116fc1e524052cdaa54ddb8aa11ac2483c64052849bca5b51106d",
+      "TMP-PDF-4D1AC21274-P11-CC35BABF24F5": "3a19affeaa602eddffb1a297c9a51a2b7e283feb570e1d09e9bf7cef8dc331bc",
+      "TMP-PDF-4D1AC21274-P11-EC960503E933": "9f3b367d7d1cf9008895845f11700bb97418d6d4fcef46d017744067c9cb23f1",
+      "TMP-PDF-4D1AC21274-P11-F220FC062616": "2e44fd1f84ac47a0351efc7d2c90c2d7d00ec90519e42a73272d676b921bea16",
+      "TMP-PDF-4D1AC21274-P11-8E3E5764E678": "201ff81557e992a8280661b7f24634cda5e43ac24e037315af85242c27b24c02",
+      "TMP-PDF-4D1AC21274-P11-34B1ADAB7A76": "724e96426a61353d538281bb2b0fd7aefc514481780aa29d22ba5565a481e96f",
+      "TMP-PDF-4D1AC21274-P11-F1273F440512": "6e5cb491267a254021d16a124eec853f1cb8e041cbfa48d41bc0c7c6160fe8cc",
+      "TMP-PDF-4D1AC21274-P11-8AECB02A9C1D": "b27cbf1445f2b374476bec7b3c5b56095c265f49300d6a9de7a18d502abd9fe6",
+      "TMP-PDF-4D1AC21274-P11-855414970B9A": "dbbed484eed6cc719776c9ec6612a1491acab1b376d3c62165e428e9223e8a45",
+      "TMP-PDF-4D1AC21274-P11-03855B200C1C": "83d12930b88a4ca7f5b5e093556ce9773cc95195f6afde0d8baedb49ad053a04",
+      "TMP-PDF-4D1AC21274-P11-A3BC8E2215ED": "7f244e9b1c09f8b1517f82ec965dcdf20f9541ea3641949b53e47c83c5f22106",
+      "TMP-PDF-4D1AC21274-P11-A8C58287E6BE": "ed0f826de79995ef35d39592b99588a9ff0352beed2c5a6d69a299ed1fb74abc",
+      "TMP-PDF-4D1AC21274-P11-F2DF959CAC53": "0056e253aebdb81707f4fec69009afb3964af907ffdf15fe19e6d191e288fa67",
+      "TMP-PDF-4D1AC21274-P11-AE17BC9D1783": "de7e453768f2843b275ec13fb141a534738226033263bb4aef6115deb170ff6d",
+      "TMP-PDF-4D1AC21274-P11-5EFFE5892207": "a6753fb885e49f26e93f67cacf099c1646cc8768860538a20b8506edf2bfe4ee",
+      "TMP-PDF-4D1AC21274-P11-EF729D65F318": "aa7a008c2da37e5ec62d3260ffdabd517f2025072b68b342fd770eeb0b93df5e",
+      "TMP-PDF-4D1AC21274-P11-0F3134BAB998": "a149167f20f5e5a2ca77e52c4139fd801fcbc88b214df8d0c6385262151eef8a",
+      "TMP-PDF-4D1AC21274-P11-9E1C730FE190": "fcb2ce35d137930eaf89a680ebca10de91002b0fc5e626a9293b420237f43b73",
+      "TMP-PDF-4D1AC21274-P11-C4F5B616C907": "723f864337d38fb4fd94b1fc100fe03f0e1bff9a0aa08a439627da6becaea550",
+      "TMP-PDF-4D1AC21274-P11-72AE79690461": "96d89b6cb2066becfdbab74391b0072029353b5a6abcf6419ebb6e18a9c84424",
+      "TMP-PDF-4D1AC21274-P12-78F00508CC15": "92306ce1b5b5ee4e624de85122a2bc9eb0b3dc1e26c40824249c6a8e84ae823a",
+      "TMP-PDF-4D1AC21274-P12-DD75752EB999": "d0dd0cd12a2820177250333022e4b645d05d32e50a278c896e782593271d03d2",
+      "TMP-PDF-4D1AC21274-P12-61B224D5ED7A": "f4d6a3b2b13f00d9742ce5b33bb09dcece553420fbae119999f8ca591beee28f",
+      "TMP-PDF-4D1AC21274-P12-0986E433F19E": "fdce36dc6d53c812cff32b5227add31a36041d5e35e6f36f913a9c8ab736c635",
+      "TMP-PDF-4D1AC21274-P12-FB6A65C9102A": "04910146c958e6ef55d6fc3c607dfda138dec5e511625cd78ad1abde3050e3b6",
+      "TMP-PDF-4D1AC21274-P12-F1060515C6D4": "a4836562ec8242149ad702e8c5116f1ca7cd7d4312e967002d6b48b817b46da9",
+      "TMP-PDF-4D1AC21274-P12-C51C05033F9B": "fc50a1969ba8fca930050d21809946e57630c1b60d659822fbb7ddc3b0ff4b95",
+      "TMP-PDF-4D1AC21274-P12-84047AC942F3": "13a0b2952805bb8cf178978e5aeae8a1ed503cedb1b6ccbefab500ca38b0e450",
+      "TMP-PDF-4D1AC21274-P12-05C1D67E4162": "e9052712d5a46ee5bf943ec3155e6642d0eab40d5d5fef9e52b6cbbbbbe8ee05",
+      "TMP-PDF-4D1AC21274-P12-B58C4507D13C": "6d2536fddfc39ac275f5aa0e9fee385c17600e85b8f8944c660634ca084f102a",
+      "TMP-PDF-4D1AC21274-P12-4E0C106393F8": "3ba0520a076f1bff7a89ac1ab9d0914640126d93fbf7b0833440cc6ab8f66f22",
+      "TMP-PDF-4D1AC21274-P12-C6144403AC8B": "abb16985810771053734c80e636dd567713719771dd2c1fd23e7077130eb0e10",
+      "TMP-PDF-4D1AC21274-P12-0CF604472C9C": "1087167484a04ff5561f9ab7a414fc2eed06f1b84beec5e9b2ab56f29e9c457e",
+      "TMP-PDF-4D1AC21274-P12-871A0D571DB5": "615c4c90fe026aaa8a5cff00585ddaacc689a383cc8ec9f32a61944ccc9a385f",
+      "TMP-PDF-4D1AC21274-P12-76050E18EB34": "78b588db2852ddcd842ed1eaa04da4ff9336bf99811a517e8afa9cfa5e390c18",
+      "TMP-PDF-4D1AC21274-P12-0BEFC5219547": "de7e420017b149df26743d1971f8af9134b73fdc4d8b821520ca911975591c27",
+      "TMP-PDF-4D1AC21274-P12-143AFB8B9478": "cf9f190655559658ec674b0332ec47c0bfea4b612815e73a140cd401c9994351",
+      "TMP-PDF-4D1AC21274-P12-25C265995140": "313adadb603755fb60d9df4b8dffd82eee0f4ee93054d9c841c4bff64b22ad05",
+      "TMP-PDF-4D1AC21274-P12-FBFCD84339A8": "7252eb7a4ed1f0340b8a5088a4110f8af4275bc16bd8b0abb4c145019fb4ecbc",
+      "TMP-PDF-4D1AC21274-P12-E0342804CE14": "951c09daadf6dd298e96a508516e08980a94117888fb3b8ec484a462b44cfdfd",
+      "TMP-PDF-4D1AC21274-P12-90E3E4DC2DD2": "b456896659659466b3862059bc1b5cc3dad2cb61009a5669e71dd558beee0bac",
+      "TMP-PDF-4D1AC21274-P12-9EF3379AC719": "d083d27840ae85ab1dc68721a5235de19c67b979a2e2b813b43c74c17009362b",
+      "TMP-PDF-4D1AC21274-P12-178A3A39D6C4": "8f544db7ca44c765b2e4ca4f0e0fc7080bed4e9fcca86cfd7307c36f16fc5007",
+      "TMP-PDF-4D1AC21274-P12-436149A31150": "a3e4afcefc709503474a888282e44f7c19cc935a04151f09a79249aa486580ea",
+      "TMP-PDF-4D1AC21274-P12-018A403E77F5": "3409af7de167fc22b075a0f917ee97561f305eea758901aacf92f58230429334",
+      "TMP-PDF-4D1AC21274-P12-B58999A43B89": "54d368d2e001396985857a934af82ac8988ec4b9d0f0c11f0bc35ad58fea61c7",
+      "TMP-PDF-4D1AC21274-P12-767C3DCEA09D": "86f07fcbf963fe769e11e530df9e3b22578c1c77f3938f03c6ffd91678c07740",
+      "TMP-PDF-4D1AC21274-P12-FFCB04B2D916": "e59686adae71b9ef9d0f21379a2b96dd571a08965887c5def12b7e641c6fe0df",
+      "TMP-PDF-4D1AC21274-P12-0C018AC048A6": "752564cfaca7eebd8d2bffdb4c4e3a7a2c9d82da83f8e19477a8a5226e52499a",
+      "TMP-PDF-4D1AC21274-P12-32BD0985AC6F": "77facc3c6d30ceac563079c63448afdfd71d7f8209b2b4355af4d05c56534030",
+      "TMP-PDF-4D1AC21274-P12-B70081B362A6": "f41875dd5caa5a28379d8cfeac5ba7e12a25160bfd79b2e748791dc718491502",
+      "TMP-PDF-4D1AC21274-P12-6F8B82B16290": "286da2afd39789fa24483478080962f259ec21d9000e585164346e9748837a6a",
+      "TMP-PDF-4D1AC21274-P12-71365A3EBD60": "5645ecad6ace0a52cf684761efa9fa5a2be27cf8feb45f1f8a522d3dc79592ff",
+      "TMP-PDF-4D1AC21274-P12-93713663CA37": "0f387090060daced7b9ccddd747e52a089cfbf4f320097918c6b87ee867b331b",
+      "TMP-PDF-4D1AC21274-P12-7B3E3E2466BC": "12b18ea66a3535c34128e81557d9402c01df0620ad6f90c95aabe0afbd805e20",
+      "TMP-PDF-4D1AC21274-P12-14D8E2C6897A": "4c30d245721a989a4050eabf8c0644dc6d3e61456dd58fb3496f146753999bdc",
+      "TMP-PDF-4D1AC21274-P12-1A920DF9BD2F": "d4d409955ae95662e523d8a89015fc6c3ea830e6f9f9c2e31df5ade2e7b44cc8",
+      "TMP-PDF-4D1AC21274-P12-C17E193F75D8": "eb98d6dd98fb1b0341a37841d8fd0dc270f6162070ea380f63c7d1801b13e031",
+      "TMP-PDF-4D1AC21274-P12-12B525941FE6": "be6ca12705fc9a38fc0f7a523fa654940d127883871fe88ec60d05855f5fdba4",
+      "TMP-PDF-4D1AC21274-P12-517C197081EB": "b2f8389926ff8e4b8e7266e97df007f8f15e8a91ba81e79791647881c539aa81",
+      "TMP-PDF-4D1AC21274-P12-787638CADE8B": "a8c5a139eadd42a9256bd57a96a19913aed58966721153b57bd6bba20b9c5b5a",
+      "TMP-PDF-4D1AC21274-P12-979E3B9E183D": "a21393f8fe729fb9bc617aeff7e53947061ea999c4233b970cd61a77f88aa780",
+      "TMP-PDF-4D1AC21274-P12-2354466852AA": "078437a2d13d4d1c163fc43d371c6ce099c2c546258efeb1e7d82ac4fec58a13",
+      "TMP-PDF-4D1AC21274-P12-4FBB6228B3F9": "bf0e609174246df3906d1c3dfa22ecbe03e62e1233a18190e0caa33a9d36403f",
+      "TMP-PDF-4D1AC21274-P12-46C3EB98050A": "6cd17085af1dc04bb990574bac229f99148d7515af8ad08c296d16acc33a1433",
+      "TMP-PDF-4D1AC21274-P12-C28A49C72D67": "02a7d677eaf1bc5f2e255d12eb6604d7a8e4c3ca156010268cd9e60bc91687bf",
+      "TMP-PDF-4D1AC21274-P12-1B5036D5773B": "c59a1c4f58af9b8fa975896d96a0dd8488683b20f8e0ae807c77e5cbed3f184b",
+      "TMP-PDF-4D1AC21274-P12-E65D3F50E5CD": "fda30f08699605a59c8a97588ad359270280a77613185a61b419842f380c3077",
+      "TMP-PDF-4D1AC21274-P12-45BFA38C52FF": "a40a65c35035a49d81c65c31709bbd61dce3752671924fc32fb84a4a2f489106",
+      "TMP-PDF-4D1AC21274-P12-5AB78A25CAF1": "5242c58b6e915f19584ae2443cc2d17f0b4533c3a39ba258668a133cdd1d5878",
+      "TMP-PDF-4D1AC21274-P12-4C12662DA851": "f854c70e1ed4bbc6e118dae675a2009e5999ebde67129cbbe5404321b5e182f2",
+      "TMP-PDF-4D1AC21274-P12-487A06FC943F": "73d856704f9f8f142133100022469b277500ec35961d83b2ee671990892a2004",
+      "TMP-PDF-4D1AC21274-P12-C8AA11F2E7A7": "06404922059320586c2a3f6bcdd0d388a0b64bcab55fa53fe40faddd9b7afcd6",
+      "TMP-PDF-4D1AC21274-P12-77E9071B342D": "d1197af138731df24891d3ba105755f466de35c799115632a2b7e6d8cdc82501",
+      "TMP-PDF-4D1AC21274-P12-BE993C8B1760": "5270eed8c213c4c328ef5090834491683a5cc02c6e0a7d0712dd142f12bff515",
+      "TMP-PDF-4D1AC21274-P12-9ED5A193B584": "a184afd24c5b5821ac76a285786e8ebd5fe06c0cf4e44fa81e88d4ae2586ca9a",
+      "TMP-PDF-4D1AC21274-P12-861F47132734": "b2c08e5bd4fabdc1c04f2b592844e30bdddf3b5f05edd536cd250867f0c4302e",
+      "TMP-PDF-4D1AC21274-P12-75600BBD3CD4": "b135308405dcd8332b04b301315e266e691a348d70bab469457540d362158f9a",
+      "TMP-PDF-4D1AC21274-P12-D7ABF14D45A0": "6d7daf357f1e0ddbe818c9879b86e70f5a4b9adf382fdad651ef60e14679a330",
+      "TMP-PDF-4D1AC21274-P12-BDBAC9067879": "b2b9f6cecb18b8b2717d1a270a8f73540fc9b9cee23a5be57ed7fe97c25b4f1f",
+      "TMP-PDF-4D1AC21274-P12-DBD670FECC0F": "866c5f8951c35c5de5d4576c8d82d33db78fefde9f39b79348a55784d8cb81e0",
+      "TMP-PDF-4D1AC21274-P12-A481A3EDB899": "38cbf08f5ccd68fb3a976ba740be1071bfb0701aaa00caa716ed9157b55a4b9b",
+      "TMP-PDF-4D1AC21274-P12-2147E1BE5A35": "e6c3ae46a5d510d08f638b19a070fb90465fc760e2d7a8b53c6c79bb617caaa1",
+      "TMP-PDF-4D1AC21274-P12-2575CD9467FE": "a1ba4b6c687b97536459d33d4b294db6478df949280b43e2b082372d94016ce7",
+      "TMP-PDF-4D1AC21274-P12-920B3234BEFC": "7e7778dcbb8188d43cb22087ccdf97deaee3b3d69c95c3f7e9abadc45931b070",
+      "TMP-PDF-4D1AC21274-P12-D0F99AF8D5DC": "8bb5028f5b968a2fee8046a9e67e86ec674e44d475c9dc44501c187334bc81d2",
+      "TMP-PDF-4D1AC21274-P12-AEE4E29D1604": "5b89130ccca94c3888d768c376ece236abbe2acf0b731aad770dae8e52d14206",
+      "TMP-PDF-4D1AC21274-P12-BD52CA84847B": "6c96eab1341442aa0b2ae7959614ed6ccc868aefb3f91c40c90e04500ce9ee49",
+      "TMP-PDF-4D1AC21274-P12-CE0BCF1CD92F": "043388719314a790982b1573a427ccfaa3dcc74e4512ff887ce054822ce8fc16",
+      "TMP-PDF-4D1AC21274-P12-0766D062CD5C": "ae8b67e9edd45dc2382c323f277c7ca22c596bca24172a67be6ce33a079113ad",
+      "TMP-PDF-4D1AC21274-P12-0F72FABE7882": "9b6804377f0310c5d20b4d9ad57ca5a27207aabdaf5b19237376bef7719ceb94",
+      "TMP-PDF-4D1AC21274-P12-97118A438B02": "ea84fc922645d6954cdffddc2382640bb8f7fc5f93f68325674d8d57f1aabd46",
+      "TMP-PDF-4D1AC21274-P12-550A4E016666": "29e35c73c842b3b2d5f84361b6b82c7656feee1672a563f27b59964777b22b1c",
+      "TMP-PDF-4D1AC21274-P15-028C72ECA369": "ef5c50e3793d2bea49c9afa43f6598ac82a38ad297fbfd8750493028b33995d0",
+      "TMP-PDF-4D1AC21274-P15-9C3B522A3054": "04f5523e6298a5f0d73afd5627e24cb398ea3f9870f8c6d0bb602c23fdfdf2a0",
+      "TMP-PDF-4D1AC21274-P15-19D0A457EC83": "2ec1f298f02e463120d53061f7433bae962ca7d74966e45971358e22fcbc8311",
+      "TMP-PDF-4D1AC21274-P15-F4EEA453ED51": "52b184ff29769f76e2aa0d6114e0a576951f8b285a933735aadad1c1dbae39f2"
+    },
+    "index_definitions": {
+      "backups": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "created_at_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "created_at",
+                1
+              ]
+            ]
+          }
+        ]
+      ],
+      "brochure_imports": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "key_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "key",
+                1
+              ]
+            ],
+            "unique": true
+          }
+        ]
+      ],
+      "catalog_events": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "id_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "id",
+                1
+              ]
+            ],
+            "unique": true
+          }
+        ],
+        [
+          "product_id_1_at_-1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "product_id",
+                1
+              ],
+              [
+                "at",
+                -1
+              ]
+            ]
+          }
+        ]
+      ],
+      "communication_requests": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "id_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "id",
+                1
+              ]
+            ],
+            "unique": true
+          }
+        ],
+        [
+          "challenge_id_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "challenge_id",
+                1
+              ]
+            ],
+            "unique": true
+          }
+        ],
+        [
+          "status_1_created_at_-1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "status",
+                1
+              ],
+              [
+                "created_at",
+                -1
+              ]
+            ]
+          }
+        ]
+      ],
+      "counters": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ]
+      ],
+      "inventory_adjustments": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "id_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "id",
+                1
+              ]
+            ],
+            "unique": true
+          }
+        ],
+        [
+          "status_1_requested_at_-1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "status",
+                1
+              ],
+              [
+                "requested_at",
+                -1
+              ]
+            ]
+          }
+        ]
+      ],
+      "inventory_batches": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "id_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "id",
+                1
+              ]
+            ],
+            "unique": true
+          }
+        ],
+        [
+          "product_id_1_lot_1_expires_on_1_condition_1_unverified_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "product_id",
+                1
+              ],
+              [
+                "lot",
+                1
+              ],
+              [
+                "expires_on",
+                1
+              ],
+              [
+                "condition",
+                1
+              ],
+              [
+                "unverified",
+                1
+              ]
+            ],
+            "unique": true
+          }
+        ],
+        [
+          "product_id_1_condition_1_expires_on_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "product_id",
+                1
+              ],
+              [
+                "condition",
+                1
+              ],
+              [
+                "expires_on",
+                1
+              ]
+            ]
+          }
+        ]
+      ],
+      "inventory_logs": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "product_id_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "product_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "at_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "at",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "actor_email_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "actor_email",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "month_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "month",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "product_id_1_at_-1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "product_id",
+                1
+              ],
+              [
+                "at",
+                -1
+              ]
+            ]
+          }
+        ],
+        [
+          "action_1_at_-1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "action",
+                1
+              ],
+              [
+                "at",
+                -1
+              ]
+            ]
+          }
+        ],
+        [
+          "uniq_monthly_opening_per_product",
+          {
+            "v": 2,
+            "key": [
+              [
+                "month",
+                1
+              ],
+              [
+                "product_id",
+                1
+              ]
+            ],
+            "unique": true,
+            "partialFilterExpression": {
+              "action": "monthly_opening"
+            }
+          }
+        ]
+      ],
+      "inventory_operations": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "key_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "key",
+                1
+              ]
+            ],
+            "unique": true
+          }
+        ]
+      ],
+      "invoice_events": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "id_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "id",
+                1
+              ]
+            ],
+            "unique": true
+          }
+        ],
+        [
+          "invoice_id_1_at_-1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "invoice_id",
+                1
+              ],
+              [
+                "at",
+                -1
+              ]
+            ]
+          }
+        ]
+      ],
+      "invoices": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "id_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "id",
+                1
+              ]
+            ],
+            "unique": true
+          }
+        ],
+        [
+          "actor_email_1_idempotency_key_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "actor_email",
+                1
+              ],
+              [
+                "idempotency_key",
+                1
+              ]
+            ],
+            "unique": true
+          }
+        ],
+        [
+          "created_at_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "created_at",
+                1
+              ]
+            ]
+          }
+        ]
+      ],
+      "orders": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "id_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "id",
+                1
+              ]
+            ],
+            "unique": true
+          }
+        ],
+        [
+          "status_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "status",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "email_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "email",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "status_1_date_-1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "status",
+                1
+              ],
+              [
+                "date",
+                -1
+              ]
+            ]
+          }
+        ],
+        [
+          "source_inquiry_id_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "source_inquiry_id",
+                1
+              ]
+            ],
+            "unique": true,
+            "partialFilterExpression": {
+              "source_inquiry_id": {
+                "$type": "string"
+              }
+            }
+          }
+        ]
+      ],
+      "products": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "id_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "id",
+                1
+              ]
+            ],
+            "unique": true
+          }
+        ],
+        [
+          "category_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "category",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "storefront_visible_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "storefront_visible",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "_brochure_identity_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_brochure_identity",
+                1
+              ]
+            ],
+            "unique": true,
+            "partialFilterExpression": {
+              "_brochure_identity": {
+                "$type": "string"
+              }
+            }
+          }
+        ],
+        [
+          "_sku_key_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_sku_key",
+                1
+              ]
+            ],
+            "unique": true,
+            "partialFilterExpression": {
+              "_sku_key": {
+                "$type": "string"
+              }
+            }
+          }
+        ]
+      ],
+      "quotation_events": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "id_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "id",
+                1
+              ]
+            ],
+            "unique": true
+          }
+        ],
+        [
+          "reference_1_at_-1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "reference",
+                1
+              ],
+              [
+                "at",
+                -1
+              ]
+            ]
+          }
+        ]
+      ],
+      "quotations": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "id_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "id",
+                1
+              ]
+            ],
+            "unique": true
+          }
+        ],
+        [
+          "idempotency_key_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "idempotency_key",
+                1
+              ]
+            ],
+            "unique": true
+          }
+        ],
+        [
+          "created_at_-1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "created_at",
+                -1
+              ]
+            ]
+          }
+        ]
+      ],
+      "rate_limits": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "expires_at_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "expires_at",
+                1
+              ]
+            ],
+            "expireAfterSeconds": 0
+          }
+        ]
+      ],
+      "sessions": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "jti_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "jti",
+                1
+              ]
+            ],
+            "unique": true
+          }
+        ],
+        [
+          "user_email_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "user_email",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "login_at_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "login_at",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "user_email_1_login_at_-1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "user_email",
+                1
+              ],
+              [
+                "login_at",
+                -1
+              ]
+            ]
+          }
+        ],
+        [
+          "role_1_login_at_-1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "role",
+                1
+              ],
+              [
+                "login_at",
+                -1
+              ]
+            ]
+          }
+        ]
+      ],
+      "stock_movements": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "id_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "id",
+                1
+              ]
+            ],
+            "unique": true
+          }
+        ],
+        [
+          "product_id_1_at_-1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "product_id",
+                1
+              ],
+              [
+                "at",
+                -1
+              ]
+            ]
+          }
+        ]
+      ],
+      "stock_reservations": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "id_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "id",
+                1
+              ]
+            ],
+            "unique": true
+          }
+        ],
+        [
+          "order_id_1_status_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "order_id",
+                1
+              ],
+              [
+                "status",
+                1
+              ]
+            ]
+          }
+        ]
+      ],
+      "support_challenges": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "id_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "id",
+                1
+              ]
+            ],
+            "unique": true
+          }
+        ],
+        [
+          "expires_at_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "expires_at",
+                1
+              ]
+            ],
+            "expireAfterSeconds": 0
+          }
+        ],
+        [
+          "order_id_1_email_1_expires_at_-1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "order_id",
+                1
+              ],
+              [
+                "email",
+                1
+              ],
+              [
+                "expires_at",
+                -1
+              ]
+            ]
+          }
+        ]
+      ],
+      "support_messages": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "id_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "id",
+                1
+              ]
+            ],
+            "unique": true
+          }
+        ],
+        [
+          "order_id_1_at_-1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "order_id",
+                1
+              ],
+              [
+                "at",
+                -1
+              ]
+            ]
+          }
+        ]
+      ],
+      "support_rate_limits": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "expires_at_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "expires_at",
+                1
+              ]
+            ],
+            "expireAfterSeconds": 0
+          }
+        ]
+      ],
+      "support_sessions": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "token_hash_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "token_hash",
+                1
+              ]
+            ],
+            "unique": true
+          }
+        ],
+        [
+          "expires_at_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "expires_at",
+                1
+              ]
+            ],
+            "expireAfterSeconds": 0
+          }
+        ]
+      ],
+      "support_threads": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "order_id_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "order_id",
+                1
+              ]
+            ],
+            "unique": true
+          }
+        ],
+        [
+          "updated_at_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "updated_at",
+                1
+              ]
+            ]
+          }
+        ]
+      ],
+      "system_metadata": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ]
+      ],
+      "tracking_challenges": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "id_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "id",
+                1
+              ]
+            ],
+            "unique": true
+          }
+        ],
+        [
+          "expires_at_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "expires_at",
+                1
+              ]
+            ],
+            "expireAfterSeconds": 0
+          }
+        ]
+      ],
+      "users": [
+        [
+          "_id_",
+          {
+            "v": 2,
+            "key": [
+              [
+                "_id",
+                1
+              ]
+            ]
+          }
+        ],
+        [
+          "email_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "email",
+                1
+              ]
+            ],
+            "unique": true
+          }
+        ],
+        [
+          "role_1",
+          {
+            "v": 2,
+            "key": [
+              [
+                "role",
+                1
+              ]
+            ]
+          }
+        ]
+      ]
+    },
+    "staging_sha256": "903f8f349a45b816998b7c085f0b3c16cdb38e0339bfaf779d72f309cf0edf2d"
+  },
+  "skipped_review_assets": [
+    {
+      "path": "docs/product-images/candidates/rapiquick-hbsag-label-review.webp",
+      "reason": "Review only; no unique cassette/strip match. Never apply to either product."
+    }
+  ]
+}

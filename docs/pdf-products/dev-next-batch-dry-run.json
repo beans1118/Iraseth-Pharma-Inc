@@ -1,0 +1,232 @@
+{
+  "database": "iraseth_dev",
+  "source_sha256": "4d1ac212740e739c6b5853231270cce2af22e66529916abc6835910b976a7696",
+  "manifest_hash": "2738afd5a4b8f5d652abcb879e4ee20347611b03f4a1664af496770fde29c238",
+  "image_review_hash": "067a61a27828f810768c8d766cbcda6f1546de214b92036c9b396cb1541dde5a",
+  "candidate_ids": [
+    "p03-0dad68e8adcd",
+    "p03-2d486f10f85e",
+    "p05-694dfd26e1a4",
+    "p08-b9f2a7d02685",
+    "p09-e2c737e40d05"
+  ],
+  "catalog_identity_hash": "3146d3a307d668f4864c88c717716b6b38cd278c0fff58ac8d7e478340c4a9d0",
+  "duplicate_reviews": {},
+  "selection_hash": "576e51d6ee821ddf61dd58de952fba03b23fc350ec7e21872958d842a2c5ee96",
+  "document_hash": "f7c3e7e9de1597a5372d737167ad3e502e4e50a9782a6ff3da060753e5e7e5f1",
+  "already_existing_ids": [],
+  "products": [
+    {
+      "id": "TMP-PDF-4D1AC21274-P03-0DAD68E8ADCD",
+      "name": "Alpha Care Adult Diaper - XL",
+      "category": "Adult Care",
+      "unit": "PENDING UNIT CONFIRMATION",
+      "sku": null,
+      "identity_status": "provisional",
+      "source_page": 3,
+      "brand": "Alpha Care",
+      "manufacturer": "",
+      "model": "",
+      "description": "Adult diaper.",
+      "key_features": [
+        "Comfortable soft non-woven fabric",
+        "Large and portable"
+      ],
+      "specifications": [
+        {
+          "label": "Size shown",
+          "value": "XL"
+        },
+        {
+          "label": "Packaging shown",
+          "value": "10 pieces"
+        }
+      ],
+      "image_count": 0,
+      "quantity": 0,
+      "price": null,
+      "publicPrice": null,
+      "inStock": false
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P03-2D486F10F85E",
+      "name": "Alpha Care Underpads - 60 cm x 90 cm",
+      "category": "Adult Care",
+      "unit": "PENDING UNIT CONFIRMATION",
+      "sku": null,
+      "identity_status": "provisional",
+      "source_page": 3,
+      "brand": "Alpha Care",
+      "manufacturer": "",
+      "model": "",
+      "description": "Bed-protection underpads.",
+      "key_features": [
+        "Advanced bed protection",
+        "Super absorbent fluff fill layers",
+        "Multipurpose support",
+        "Avoid messy puddles or irritations"
+      ],
+      "specifications": [
+        {
+          "label": "Dimensions shown",
+          "value": "60 cm x 90 cm"
+        },
+        {
+          "label": "Packaging shown",
+          "value": "10 pieces"
+        }
+      ],
+      "image_count": 0,
+      "quantity": 0,
+      "price": null,
+      "publicPrice": null,
+      "inStock": false
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P05-694DFD26E1A4",
+      "name": "Autofusion Set",
+      "category": "Infusion and Transfusion",
+      "unit": "PENDING UNIT CONFIRMATION",
+      "sku": null,
+      "identity_status": "provisional",
+      "source_page": 5,
+      "brand": "POLYMED",
+      "manufacturer": "",
+      "model": "",
+      "description": "IV infusion set with auto air stop and priming filter.",
+      "key_features": [
+        "Auto Air Stop filter prevents air entering the line when the IV bottle is empty",
+        "Maintains constant fluid level",
+        "Priming filter fills the line automatically and maintains a closed system",
+        "Reduces IV-fluid spillage and wastage",
+        "Clear spike compatible with IV bottles",
+        "Grip ring in drip chamber",
+        "PVC-free flexible drip chamber",
+        "DEHP-free tubing"
+      ],
+      "specifications": [
+        {
+          "label": "Drop rate",
+          "value": "20 drops/ml"
+        },
+        {
+          "label": "Infusion compatibility",
+          "value": "Gravity feed and pressure infusions up to 2 bars"
+        },
+        {
+          "label": "Standard tube length",
+          "value": "180 cm"
+        }
+      ],
+      "image_count": 1,
+      "quantity": 0,
+      "price": null,
+      "publicPrice": null,
+      "inStock": false
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P08-B9F2A7D02685",
+      "name": "Polyflex - 22G Blue",
+      "category": "IV Cannulas",
+      "unit": "PENDING UNIT CONFIRMATION",
+      "sku": null,
+      "identity_status": "provisional",
+      "source_page": 8,
+      "brand": "POLYMED",
+      "manufacturer": "",
+      "model": "",
+      "description": "IV cannula with port, snap-fit cap and perforated wings.",
+      "key_features": [
+        "Tapered kink-resistant radiopaque catheter",
+        "Rounded needle-hub grip for support during insertion",
+        "Transparent flashback chamber",
+        "Injection port with non-return silicone valve",
+        "Flexible wings for secure fixation"
+      ],
+      "specifications": [
+        {
+          "label": "Standard catheter",
+          "value": "FEP"
+        },
+        {
+          "label": "Gauge",
+          "value": "22G"
+        },
+        {
+          "label": "Colour",
+          "value": "Blue"
+        },
+        {
+          "label": "Catheter diameter",
+          "value": "0.9 mm"
+        },
+        {
+          "label": "Catheter length",
+          "value": "25 mm"
+        },
+        {
+          "label": "Flow rate",
+          "value": "36 ml/min"
+        }
+      ],
+      "image_count": 1,
+      "quantity": 0,
+      "price": null,
+      "publicPrice": null,
+      "inStock": false
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P09-E2C737E40D05",
+      "name": "Polyflon - 20G Pink",
+      "category": "IV Cannulas",
+      "unit": "PENDING UNIT CONFIRMATION",
+      "sku": null,
+      "identity_status": "provisional",
+      "source_page": 9,
+      "brand": "POLYMED",
+      "manufacturer": "",
+      "model": "",
+      "description": "IV cannula with port and wings with FEP catheter.",
+      "key_features": [
+        "Tapered kink-resistant radiopaque catheter",
+        "Rounded needle-hub grip for support during insertion",
+        "Transparent flashback chamber",
+        "Injection port with non-return silicone valve",
+        "Flexible wings for secure fixation",
+        "Luer lock"
+      ],
+      "specifications": [
+        {
+          "label": "Standard catheter",
+          "value": "FEP"
+        },
+        {
+          "label": "Gauge",
+          "value": "20G"
+        },
+        {
+          "label": "Colour",
+          "value": "Pink"
+        },
+        {
+          "label": "Catheter diameter",
+          "value": "1.1 mm"
+        },
+        {
+          "label": "Catheter length",
+          "value": "32 mm"
+        },
+        {
+          "label": "Flow rate",
+          "value": "56 ml/min"
+        }
+      ],
+      "image_count": 1,
+      "quantity": 0,
+      "price": null,
+      "publicPrice": null,
+      "inStock": false
+    }
+  ],
+  "message": "Existing products collection only. No database writes or indexes in this dry run; no stock/batches or approved SKU/unit/price."
+}

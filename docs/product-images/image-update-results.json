@@ -1,0 +1,135 @@
+{
+  "database": "iraseth_dev",
+  "source_sha256": "4d1ac212740e739c6b5853231270cce2af22e66529916abc6835910b976a7696",
+  "completed_at": "2026-11-16T08:12:35.817526+00:00",
+  "status": "complete",
+  "products_total": 127,
+  "pdf_products_audited": 124,
+  "updated_count": 3,
+  "images_added": 4,
+  "unchanged_correct_galleries": 8,
+  "skipped_ambiguous": 39,
+  "skipped_missing": 74,
+  "failed_updates": 0,
+  "results": [
+    {
+      "id": "TMP-PDF-4D1AC21274-P03-0DAD68E8ADCD",
+      "name": "Alpha Care Adult Diaper - XL",
+      "changed": true,
+      "image_count": 1,
+      "audit_event_id": "7ee4d6450d5e463795b3271fa3806b7f",
+      "files": [
+        "docs/product-ui-cleanup/image-candidates/alpha-care-adult-diaper.webp"
+      ]
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P03-2D486F10F85E",
+      "name": "Alpha Care Underpads - 60 cm x 90 cm",
+      "changed": true,
+      "image_count": 2,
+      "audit_event_id": "164b7b392b894d9db09753d0ba128967",
+      "files": [
+        "docs/product-ui-cleanup/image-candidates/alpha-care-underpads-front.webp",
+        "docs/product-ui-cleanup/image-candidates/alpha-care-underpads-side.webp"
+      ]
+    },
+    {
+      "id": "TMP-PDF-4D1AC21274-P12-D9C681D70A9A",
+      "name": "Rapiquick Dengue IgG/IgM Rapid Test Kit",
+      "changed": true,
+      "image_count": 1,
+      "audit_event_id": "8ad61c44feab4044a0415473c8ea1afa",
+      "files": [
+        "docs/product-images/candidates/rapiquick-dengue-igg-igm.webp"
+      ]
+    }
+  ],
+  "preservation": {
+    "all_127_non_image_product_documents_unchanged": true,
+    "other_124_product_documents_and_galleries_unchanged": true,
+    "stock_orders_invoices_and_other_collections_unchanged": true,
+    "historical_audits_unchanged": true,
+    "image_update_audits_added": 3,
+    "all_index_definitions_unchanged": true,
+    "idempotent_retry_changes": 0,
+    "idempotent_retry_audits": 0
+  },
+  "note": "Historical brochure_source image-review fields describe original import decisions and were preserved. Current image approval/source evidence is in the new catalog_events image audit entries. Only product image/images fields changed.",
+  "browser_verification": {
+    "status": "passed",
+    "requests": "GET only against local development",
+    "api_pages": [
+      100,
+      27
+    ],
+    "ui_pages": [
+      24,
+      24,
+      24,
+      24,
+      24,
+      7
+    ],
+    "catalog_count": 127,
+    "unique_product_ids": true,
+    "updated_galleries": [
+      {
+        "id": "TMP-PDF-4D1AC21274-P03-0DAD68E8ADCD",
+        "name": "Alpha Care Adult Diaper - XL",
+        "images": 1,
+        "card_modal_gallery_and_shared_url": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P03-2D486F10F85E",
+        "name": "Alpha Care Underpads - 60 cm x 90 cm",
+        "images": 2,
+        "card_modal_gallery_and_shared_url": "passed"
+      },
+      {
+        "id": "TMP-PDF-4D1AC21274-P12-D9C681D70A9A",
+        "name": "Rapiquick Dengue IgG/IgM Rapid Test Kit",
+        "images": 1,
+        "card_modal_gallery_and_shared_url": "passed"
+      }
+    ],
+    "existing_eight_galleries_preserved": true,
+    "out_of_stock_price_upon_request_and_ordering_restrictions": "passed",
+    "gallery_arrows_keyboard_and_thumbnails": "passed",
+    "browser_errors": [],
+    "employee_components": {
+      "status": "passed",
+      "products": 3,
+      "checks": [
+        "employee thumbnails",
+        "details gallery including second underpads view",
+        "product editor previews and order"
+      ],
+      "mode": "Actual Vite components rendered with GET-only live public product data; authenticated network calls intercepted; no login or writes",
+      "browser_errors": []
+    }
+  },
+  "testing": {
+    "backend": {
+      "passed": 232,
+      "deselected": 1,
+      "database": "iraseth_test"
+    },
+    "dashboard_typecheck_and_build": "passed",
+    "next_typecheck_tests_and_build": "passed"
+  },
+  "final_verification": {
+    "products_total": 127,
+    "pdf_products": 124,
+    "pdf_products_with_verified_images": 11,
+    "pdf_placeholders": 113,
+    "non_image_fields_unchanged_for_all_products": true,
+    "other_124_complete_products_unchanged": true,
+    "protected_collections_unchanged": true,
+    "historical_audits_unchanged": true,
+    "image_audits_added": 3,
+    "indexes_unchanged": true,
+    "git_staging_unchanged": true,
+    "test_pdf_fixtures_remaining": 0,
+    "whitespace_check": "passed"
+  }
+}

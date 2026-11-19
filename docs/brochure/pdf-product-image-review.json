@@ -1,0 +1,76 @@
+{
+  "source_sha256": "4d1ac212740e739c6b5853231270cce2af22e66529916abc6835910b976a7696",
+  "reviewed_on": "2026-11-16",
+  "scope": "Technical comparison of extracted images against original PDF panels for this product-integration request; not SKU, selling-unit or clinical-claim approval.",
+  "include_images_for": {
+    "p04-e228089cbacf": {
+      "name": "Polyvol",
+      "page": 4,
+      "paths": [
+        "images/polyvol.png"
+      ],
+      "evidence": "Visually compared with the named product panel and its extracted image; source association is clear. No variant inferred."
+    },
+    "p05-694dfd26e1a4": {
+      "name": "Autofusion Set",
+      "page": 5,
+      "paths": [
+        "images/autofusion.png"
+      ],
+      "evidence": "Visually compared with the named product panel and its extracted image; source association is clear. No variant inferred."
+    },
+    "p05-44c2375ce24d": {
+      "name": "Microfusion Set",
+      "page": 5,
+      "paths": [
+        "images/microfusion.png"
+      ],
+      "evidence": "Visually compared with the named product panel and its extracted image; source association is clear. No variant inferred."
+    },
+    "p06-2541990213ff": {
+      "name": "Photofusion Set",
+      "page": 6,
+      "paths": [
+        "images/photofusion.png"
+      ],
+      "evidence": "Visually compared with the named product panel and its extracted image; source association is clear. No variant inferred."
+    },
+    "p07-303ca8b1c11b": {
+      "name": "Blood Administration Set",
+      "page": 7,
+      "paths": [
+        "images/blood-administration.png"
+      ],
+      "evidence": "Visually compared with the named product panel and its extracted image; source association is clear. No variant inferred."
+    },
+    "p07-f2a62b743ba6": {
+      "name": "Haemofusor Set",
+      "page": 7,
+      "paths": [
+        "images/haemofusor.png"
+      ],
+      "evidence": "Visually compared with the named product panel and its extracted image; source association is clear. No variant inferred."
+    },
+    "p08-b9f2a7d02685": {
+      "name": "Polyflex - 22G Blue",
+      "page": 8,
+      "paths": [
+        "images/polyflex.png"
+      ],
+      "evidence": "Visually compared with the named product panel and its extracted image; source association is clear. No variant inferred."
+    },
+    "p09-e2c737e40d05": {
+      "name": "Polyflon - 20G Pink",
+      "page": 9,
+      "paths": [
+        "images/polyflon.png"
+      ],
+      "evidence": "Visually compared with the named product panel and its extracted image; source association is clear. No variant inferred."
+    }
+  },
+  "omissions": {
+    "Alpha Care Adult Diaper - XL": "Source PNG exceeds 200000 decoded bytes; retain existing upload controls.",
+    "Alpha Care Underpads - 60 cm x 90 cm": "Both source PNGs exceed 200000 decoded bytes.",
+    "Oncofusion Set": "Source image depicts multiple configurations; omit rather than represent one confirmed stock variant."
+  }
+}

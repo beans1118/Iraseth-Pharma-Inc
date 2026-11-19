@@ -1,157 +1,36 @@
-# Iraseth Pharma — Backend (Flask + MongoDB + Socket.IO)
+# Iraseth Pharma API
 
-A REST + real-time API powering the storefront and the role-based backend
-console: live inventory tracking, purchase orders, and a full audit trail
-(who logged in/out and every stock change), gated by three roles.
+Flask, MongoDB and Socket.IO backend for the employee dashboard and Next.js storefront. Current startup and deployment instructions are in [the staging plan](../docs/STAGING-DEPLOYMENT-PLAN.md); historical backend design is in [docs/history](../docs/history/DEVELOPMENT-PHASE1-3-README.md).
 
-## Roles
+## Local setup
 
-| Role | Can do |
-|---|---|
-| **Superadmin** | Everything: create/edit/delete products, add/deduct stock, manage staff accounts & roles, view every log (sessions + inventory), run backups. |
-| **Admin** | View-only: inventory levels, orders, clients, and **all logs** (who logged in/out, when, how long, and every stock add/deduct). Cannot change stock, orders, or accounts. |
-| **Sub-admin** | Add/deduct stock (release + supply), update purchase order status, view clients. Cannot see logs, manage products, or manage accounts. |
+Use Python 3.12 and a local MongoDB replica set `rs0`. From `backend/`, create/activate a virtual environment and install `requirements.txt`. Create `.env` from the example only if absent, then configure the intended local target and a unique JWT secret. Preserve existing environment files and inventory. `python app.py` starts the local API; `GET /api/health` and `GET /api/ready` check liveness and readiness.
 
-## What it does
+**Do not run `seed.py` on an existing database.** It deletes/replaces products. It is retained as historical tooling, not a staging or test setup command. No startup/build command imports products or copies development data. Do not bootstrap users, migrate inventory or create a readiness marker without separate authorization for the exact database. Use the staging plan's guarded initializer for a separately authorized, empty `iraseth_staging` target.
 
-- **Inventory** (`/api/inventory`) — the real-time tracking system itself.
-  `GET` lists current stock; `POST /<id>/release` deducts (a product went
-  out) and `POST /<id>/supply` adds (restock). Every change is written to
-  `inventory_logs` (who, role, product, qty, before→after, note, timestamp)
-  and pushed live over Socket.IO to every connected dashboard.
-- **Products** (`/api/products`) — the catalog itself (name, description,
-  category, unit, reorder level, price). Only Superadmin can create/edit/
-  delete a product. Quantity is never edited here — only through
-  `/api/inventory`, so every stock change is always logged.
-- **Orders** (`/api/orders`) — anyone can submit an order (checkout, no
-  login). Prices are recalculated server-side, never trusted from the
-  browser. Marking an order **Fulfilled** automatically releases stock for
-  every line item and logs it against that order.
-- **Auth** (`/api/auth`) — login/logout write to `sessions`: `login_at`,
-  `logout_at`, `duration_seconds`, `role`, IP, user agent. This *is* the
-  "who logged in/out, when, for how long, as what role" log.
-- **Logs** (`/api/logs`) — Superadmin + Admin only. `/sessions` = login
-  activity, `/inventory` = every stock add/deduct.
-- **Users** (`/api/users`) — Superadmin only. Create staff accounts, change
-  roles, remove accounts.
-- **Backup** (`/api/backup`) — Superadmin only. `POST /run` snapshots
-  products, orders, users (no password hashes), sessions, and inventory
-  logs to a timestamped JSON file under `backend/backups/`.
+## Isolated regression tests
 
-## 1. Prerequisites
+From an activated backend virtual environment:
 
-- Python 3.10+
-- A MongoDB database — local `mongod`, or a free
-  [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register) cluster.
-
-## 2. Setup
-
-```bash
-cd backend
-python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
-pip install -r requirements.txt
-
-cp .env.example .env
-# now edit .env:
-#   - MONGO_URI: your local or Atlas connection string
-#   - JWT_SECRET: a long random string
-#     (generate one with: python -c "import secrets; print(secrets.token_hex(32))")
-#   - SEED_SUPERADMIN_*/SEED_ADMIN_*/SEED_SUBADMIN_*: the three real logins
-#     you want to start with — change every password before going live
-#   - CORS_ORIGINS: the address your frontend is served from
+```powershell
+python -m pip install -r requirements-dev.txt
+# Only when .env.test does not already exist:
+if (-not (Test-Path -LiteralPath .env.test)) { Copy-Item -LiteralPath .env.test.example -Destination .env.test }
+python -m pytest tests -q -p no:cacheprovider
 ```
 
-## 3. Load starting data
+The test configuration locks writes to `mongodb://127.0.0.1:27017/?replicaSet=rs0`, database `iraseth_test`, before importing Flask. It refuses another target and cleans disposable fixtures. The example JWT key is test-only, not a real credential or deployment setting. PDF integration tests simulate identities only inside this isolated database; they do not approve genuine live SKU/unit values. For offline PDF reconstruction, install optional `requirements-brochure.txt` separately. Browser UAT and the current test evidence are linked from [the verification checklist](../docs/GITHUB-REVIEW-CHECKLIST.md).
 
-```bash
-python seed.py
-```
+## Current API and safeguards
 
-This inserts 30 empty placeholder products (name/description blank, quantity
-0 — fill in the real catalog through the Superadmin console once it's ready)
-and creates the three seed accounts if they don't already exist. It never
-touches existing orders, sessions, or inventory logs, so it's safe to re-run.
+- Public `/api/public/products` returns an allowlisted live catalog. Public inquiry submission and reference tracking use their dedicated endpoints; anonymous clients do not use the private product API.
+- Authenticated `/api/products` serves the existing product collection and metadata/gallery editor. Image-only updates validate decoded images and append transactional audit events. No gallery filesystem upload directory is required: image data URLs persist in MongoDB.
+- Operational inventory uses batch APIs when batch mode is enabled. Receiving, releases, expiry-aware reservations and fulfillment preserve transaction/audit safeguards; legacy quantity routes are blocked in batch mode.
+- Public inquiries are reviewed into one Pending official order. Approval/reservation, fulfillment and explicitly priced invoices retain existing permissions and stock rules.
+- Provisional PDF identities remain blocked from stock/order/invoice operations until authorized staff confirm genuine SKU and selling unit. Metadata/image edits do not supply stock or public prices.
+- Board Admin is read-only. Superadmin and Sub-admin access remains subject to route permissions, identity gates and workflow validation. Users, private stock, session records and costs are not exposed by the public catalog.
+- Verified customer communication requires real SMTP in staging. Automated UAT uses an in-memory mail double and does not establish external delivery.
 
-## 4. Run it
+## Deployment snapshot
 
-```bash
-python app.py
-```
-
-This starts the API **and** the Socket.IO real-time layer together (via
-`socketio.run`, not a plain `app.run`) at `http://localhost:5000/api`.
-
-```bash
-curl http://localhost:5000/api/health
-```
-
-## 5. Point the frontend at it
-
-In `js/config.js` (site root, one level up from `backend/`):
-
-```js
-const API_BASE = "http://localhost:5000/api";
-```
-
-`SOCKET_BASE` is derived from this automatically. Then open `index.html`
-and `admin.html` through a local server (not `file://`).
-
-## API reference
-
-| Method | Route | Role | Purpose |
-|---|---|---|---|
-| GET | `/api/health` | none | Liveness check |
-| POST | `/api/auth/login` | none | `{email, password}` → `{token, user}` |
-| POST | `/api/auth/logout` | any | Closes the session log (logout_at + duration) |
-| GET | `/api/auth/me` | any | Current user profile |
-| GET | `/api/products?category=&q=` | none | List/search catalog |
-| POST / PUT / DELETE | `/api/products[/<id>]` | superadmin | Manage the catalog (not quantity) |
-| GET | `/api/inventory` | any | Live stock levels |
-| GET | `/api/inventory/activity?product=&action=` | any | Released/supplied feed — open to all roles, unlike `/api/logs/inventory` |
-| POST | `/api/inventory/<id>/release` | superadmin, subadmin | Deduct stock (logged) |
-| POST | `/api/inventory/<id>/supply` | superadmin, subadmin | Add stock (logged) |
-| POST | `/api/orders` | none | Submit an order (checkout) |
-| GET | `/api/orders?status=&q=` | any | List/search orders |
-| GET | `/api/orders/clients-summary` | any | Purchase totals by facility |
-| PATCH | `/api/orders/<id>` | superadmin, subadmin | Update status/note (Fulfilled deducts stock) |
-| GET | `/api/logs/sessions?role=&user=` | superadmin, admin | Login/logout audit trail |
-| GET | `/api/logs/inventory?action=&product=` | superadmin, admin | Stock change audit trail |
-| GET / POST / PATCH / DELETE | `/api/users[/<email>]` | superadmin | Manage staff accounts & roles |
-| POST | `/api/backup/run` | superadmin | Snapshot everything to JSON |
-| GET | `/api/backup` | superadmin | List past backups |
-| GET | `/api/backup/<file>/download` | superadmin | Download a backup file |
-
-All protected routes expect `Authorization: Bearer <token>` from
-`/api/auth/login`.
-
-## Real-time (Socket.IO)
-
-Connect to `SOCKET_BASE` and `emit("join", {room: "inventory"})` (any role)
-and/or `emit("join", {room: "logs"})` (superadmin/admin) to receive:
-
-- `stock:update` — a product's new quantity/status
-- `log:inventory` — a new add/release log entry
-- `log:session` — a new login/logout log entry
-
-## Notes on email
-
-`utils/email.py` uses plain `smtplib`. Leave `SMTP_HOST` blank in `.env` to
-skip sending during development — order creation/status updates still work,
-they just log instead of sending.
-
-## Backups
-
-Backups are triggered manually (`POST /api/backup/run`) or on a schedule you
-set up yourself (a cron job or scheduled task hitting that endpoint, e.g.
-daily at 2am). Files land in `backend/backups/` — back that folder up
-off-server too (e.g. sync it to cloud storage) so a server failure can't
-take the backups with it.
-
-## Deploying
-
-Plain Flask app (`app.py` exposes `app`) with Socket.IO attached, so it runs
-behind gunicorn with the `eventlet` or `gevent` worker class (needed for
-WebSockets), e.g.: `gunicorn --worker-class eventlet -w 1 app:app`. Set real
-environment variables (not `.env`) in production, and restrict
-`CORS_ORIGINS` to your real frontend domain.
+Render builds from the repository root with `pip install -r backend/requirements.txt` and starts `gunicorn --config backend/gunicorn.conf.py app:app`. Keep `docs/brochure/` available to protected review/import tooling. Use Atlas staging-only credentials and `iraseth_staging` only after separately authorized provisioning. Real environments, secrets, dependencies, database exports and generated builds are ignored. Git contains source/media, not any of the 127 local product records or their uploaded galleries.

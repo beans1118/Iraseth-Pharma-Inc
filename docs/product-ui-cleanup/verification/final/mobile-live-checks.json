@@ -1,0 +1,7 @@
+{
+  "employee_mobile": "passed; table scrolls within viewport, 25 rows, details fit, Admin view-only",
+  "live_catalog_count": 127,
+  "category_dropdown": "matches all API categories",
+  "mobile_storefront": "passed",
+  "database_changes": "test fixtures only; development requests GET only"
+}

@@ -1,0 +1,158 @@
+{
+  "database": "iraseth_dev",
+  "checked_collections": 18,
+  "checked_index_sets": 4,
+  "dev_data_unchanged": true,
+  "dev_indexes_unchanged": true,
+  "git_staging_unchanged": true,
+  "staging_sha256": "903f8f349a45b816998b7c085f0b3c16cdb38e0339bfaf779d72f309cf0edf2d",
+  "before": {
+    "products": {
+      "count": 3,
+      "sha256": "0562afb095a3a645fdb06f52099bdb75e95e65f2df24dbc0b7b3ecc99cd70116"
+    },
+    "inventory_batches": {
+      "count": 3,
+      "sha256": "924f7b978740a7b49442d34609e13a4814929342b626362d37d3d20026c06f4f"
+    },
+    "stock_reservations": {
+      "count": 1,
+      "sha256": "ebe6e720392ed7d86d06089127c01d06deb538bde9b0416e2e8bc758fed7306e"
+    },
+    "stock_movements": {
+      "count": 4,
+      "sha256": "489cd56c80d57bde7861069ee4ec196bb37ea39469cdc50ea709621dfb71c193"
+    },
+    "inventory_logs": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "inventory_operations": {
+      "count": 5,
+      "sha256": "7fe7df660a6a5ed3e5cffc71463b7fce6ed1d013c817bdd8e67e060f67836323"
+    },
+    "inventory_adjustments": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "orders": {
+      "count": 2,
+      "sha256": "758e9a4109a90e53e6900bbc492580406a417b3e437cbec24e272cf148547337"
+    },
+    "quotations": {
+      "count": 2,
+      "sha256": "b52abd19379fc7ed1bd63b5b4456850c9930da1e1c4f5bd6e3710173fcaf2611"
+    },
+    "quotation_events": {
+      "count": 6,
+      "sha256": "1383fbc5152ba58ac44c437a899db7d340db01b37860169930b66bd085f3f080"
+    },
+    "invoices": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "invoice_events": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "catalog_events": {
+      "count": 3,
+      "sha256": "b39b4c2387f055ec36ae7fa56e711d932613afce2126738a626ae78fe34f813e"
+    },
+    "brochure_imports": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "support_messages": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "support_threads": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "communication_requests": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "system_metadata": {
+      "count": 1,
+      "sha256": "a6e1e061b838ae4f9a01988cb0da7c4e92a57187aafa6d6ffb29690f8231de4b"
+    }
+  },
+  "after": {
+    "products": {
+      "count": 3,
+      "sha256": "0562afb095a3a645fdb06f52099bdb75e95e65f2df24dbc0b7b3ecc99cd70116"
+    },
+    "inventory_batches": {
+      "count": 3,
+      "sha256": "924f7b978740a7b49442d34609e13a4814929342b626362d37d3d20026c06f4f"
+    },
+    "stock_reservations": {
+      "count": 1,
+      "sha256": "ebe6e720392ed7d86d06089127c01d06deb538bde9b0416e2e8bc758fed7306e"
+    },
+    "stock_movements": {
+      "count": 4,
+      "sha256": "489cd56c80d57bde7861069ee4ec196bb37ea39469cdc50ea709621dfb71c193"
+    },
+    "inventory_logs": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "inventory_operations": {
+      "count": 5,
+      "sha256": "7fe7df660a6a5ed3e5cffc71463b7fce6ed1d013c817bdd8e67e060f67836323"
+    },
+    "inventory_adjustments": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "orders": {
+      "count": 2,
+      "sha256": "758e9a4109a90e53e6900bbc492580406a417b3e437cbec24e272cf148547337"
+    },
+    "quotations": {
+      "count": 2,
+      "sha256": "b52abd19379fc7ed1bd63b5b4456850c9930da1e1c4f5bd6e3710173fcaf2611"
+    },
+    "quotation_events": {
+      "count": 6,
+      "sha256": "1383fbc5152ba58ac44c437a899db7d340db01b37860169930b66bd085f3f080"
+    },
+    "invoices": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "invoice_events": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "catalog_events": {
+      "count": 3,
+      "sha256": "b39b4c2387f055ec36ae7fa56e711d932613afce2126738a626ae78fe34f813e"
+    },
+    "brochure_imports": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "support_messages": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "support_threads": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "communication_requests": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "system_metadata": {
+      "count": 1,
+      "sha256": "a6e1e061b838ae4f9a01988cb0da7c4e92a57187aafa6d6ffb29690f8231de4b"
+    }
+  },
+  "files_deleted": []
+}

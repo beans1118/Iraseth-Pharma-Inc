@@ -1,0 +1,18 @@
+{
+  "database": "iraseth_test",
+  "brochure_imports_performed": true,
+  "pdf_products_created_in_test": true,
+  "mail_delivery": "Isolated in-memory test double only; no external email",
+  "dashboard_api_origins": [
+    "http://127.0.0.1:5011"
+  ],
+  "checks": [
+    {
+      "name": "Product create/edit, real multi-image upload and zero-stock metadata safety",
+      "status": "failed",
+      "error": "locator.fill: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('Documented model (optional)', { exact: true })\u001b[22m\n"
+    }
+  ],
+  "issues": [],
+  "browserErrors": []
+}

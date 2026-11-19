@@ -19,6 +19,16 @@ db = _client[Config.MONGO_DB_NAME]
 
 def ensure_indexes():
     """Call once on startup. Safe to call repeatedly."""
+    db.tracking_challenges.create_index('id', unique=True)
+    db.tracking_challenges.create_index('expires_at', expireAfterSeconds=0)
+    db.communication_requests.create_index('id', unique=True)
+    db.communication_requests.create_index('challenge_id', unique=True)
+    db.communication_requests.create_index([('status', 1), ('created_at', -1)])
+    db.brochure_imports.create_index('key', unique=True)
+    db.products.create_index('_brochure_identity', unique=True,
+        partialFilterExpression={'_brochure_identity': {'$type': 'string'}})
+    db.products.create_index('_sku_key', unique=True,
+        partialFilterExpression={'_sku_key': {'$type': 'string'}})
     db.invoices.create_index("id", unique=True)
     db.invoices.create_index([("actor_email", 1), ("idempotency_key", 1)], unique=True)
     db.invoices.create_index("created_at")
@@ -47,10 +57,23 @@ def ensure_indexes():
     db.stock_reservations.create_index([('order_id', 1), ('status', 1)])
     db.inventory_adjustments.create_index('id', unique=True)
     db.inventory_adjustments.create_index([('status', 1), ('requested_at', -1)])
+    db.quotations.create_index("id", unique=True)
+    db.quotations.create_index("idempotency_key", unique=True)
+    db.quotations.create_index([("created_at", -1)])
+    db.quotation_events.create_index("id", unique=True)
+    db.quotation_events.create_index([("reference", 1), ("at", -1)])
     db.products.create_index("id", unique=True)
     db.products.create_index("category")
+    # Each storefront price / publication edit has its own audit event.
+    db.catalog_events.create_index("id", unique=True)
+    db.catalog_events.create_index([("product_id", ASCENDING), ("at", DESCENDING)])
+    db.products.create_index("storefront_visible")
+    db.catalog_events.create_index("id", unique=True)
+    db.catalog_events.create_index([("product_id", 1), ("at", -1)])
 
     db.orders.create_index("id", unique=True)
+    db.orders.create_index("source_inquiry_id", unique=True,
+        partialFilterExpression={"source_inquiry_id": {"$type": "string"}})
     db.orders.create_index("status")
     db.orders.create_index("email")
     db.orders.create_index([("status", ASCENDING), ("date", DESCENDING)])
