@@ -111,10 +111,14 @@ def main():
             raise ValueError('Applying requires explicit --confirm-database, --actor and --reviewed-report. Current task does not authorize development writes.')
         if args.report and args.report.exists():raise ValueError('Report already exists; choose a new filename to preserve review evidence.')
         from dotenv import dotenv_values
-        settings=dotenv_values(BACKEND/('.env.test' if args.database=='iraseth_test' else '.env'))
+        if args.database=='iraseth_test':
+            from utils.test_configuration import local_test_settings
+            settings,test_uri,_=local_test_settings(BACKEND)
+        else:
+            settings=dotenv_values(BACKEND/'.env')
         if settings.get('MONGO_DB_NAME')!=args.database:raise ValueError('Configured target does not match the requested database; no environment switch is allowed.')
         validate_local_target(args.database,settings.get('MONGO_URI',''))
-        if args.database=='iraseth_test' and (settings.get('APP_ENV')!='testing' or settings.get('MONGO_URI')!='mongodb://127.0.0.1:27017/?replicaSet=rs0'):
+        if args.database=='iraseth_test' and (settings.get('APP_ENV')!='testing' or settings.get('MONGO_URI')!=test_uri):
             raise ValueError('Refusing unsafe test configuration.')
         for key,value in settings.items():
             if value is not None:os.environ[key]=value

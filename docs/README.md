@@ -4,6 +4,7 @@ Use these documents as the current entry points. Earlier reports retain their or
 
 | Task | Current document |
 | --- | --- |
+| Install, configure, seed, run and test the local Flask/dashboard/storefront system | [DEVELOPER-SETUP.md](../DEVELOPER-SETUP.md) and [setup verification](LOCAL-SETUP-REPORT.md) |
 | Prepare isolated staging, API origins, Atlas, SMTP, health checks and deployment order | [STAGING-DEPLOYMENT-PLAN.md](STAGING-DEPLOYMENT-PLAN.md) and [environment templates](staging/) |
 | Review source and run verification before GitHub | [GITHUB-REVIEW-CHECKLIST.md](GITHUB-REVIEW-CHECKLIST.md) |
 | Reviewed local release snapshot, exclusions, security scope and latest full-suite results | [LOCAL-COMMIT-REVIEW.md](LOCAL-COMMIT-REVIEW.md) |

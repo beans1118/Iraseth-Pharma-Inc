@@ -1,5 +1,7 @@
 # Employee dashboard
 
+Company installation, database initialization and isolated testing: [DEVELOPER-SETUP.md](../DEVELOPER-SETUP.md). Default local database: `iraseth`; both clients use the configured Flask API.
+
 React, TypeScript and Vite dashboard backed by the existing Flask API. Products, metadata/gallery editing, inventory, inquiry decisions, orders, invoices, verified communications and staff permissions use the current API; this application has no database credentials.
 
 The custom visual styling is TailAdmin-inspired; this repository does not contain or claim a licensed TailAdmin template. Sign-in tokens remain in `sessionStorage`, and Flask permissions remain authoritative.

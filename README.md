@@ -11,6 +11,8 @@ The current system uses a Flask/MongoDB API, a React employee dashboard and a Ne
 
 ## Local development
 
+For a fresh clone, follow [the company developer setup](DEVELOPER-SETUP.md). It installs dependencies and safely reconstructs the 124 approved brochure products in the default local `iraseth` database, with explicit local overrides supported. Git does not transfer MongoDB records; the 3 original products cannot be reconstructed from committed placeholders. Setup has a database dry run and never overwrites existing data.
+
 Use Python 3.12, Node.js 24 and local MongoDB with replica set `rs0`. Keep existing environment files private; example files document settings. See each application's README and [the documentation index](docs/README.md).
 
 From `backend/`, with its virtual environment activated:
@@ -37,7 +39,7 @@ The dashboard's default Vite port is 5173 and Next.js uses 3000. Review configur
 
 ## Verification and data safety
 
-Automated record-changing tests must use isolated local `iraseth_test`. The backend test configuration refuses other targets. Do not seed, migrate or import into `iraseth_dev` as a test setup. Product creation does not add stock: receiving uses batches, and provisional PDF identities block stock operations until genuine SKU and unit confirmation.
+Automated record-changing tests use `iraseth_test` on a separate disposable MongoDB instance. Follow the developer guide and set `IRASETH_TEST_MONGO_PORT=27028`; the backend verifies the actual test endpoint. Do not seed, migrate or import into `iraseth_dev` as a test setup. Product creation does not add stock: receiving uses batches, and provisional PDF identities block stock operations until genuine SKU and unit confirmation.
 
 Run the [current verification procedure](docs/GITHUB-REVIEW-CHECKLIST.md). Latest cleanup results and exact retained legacy dependencies are in [the repository cleanup report](docs/REPOSITORY-CLEANUP-REPORT.md). Build checks do not establish external SMTP delivery or cloud readiness by themselves.
 

@@ -40,7 +40,7 @@ class Config:
 
     # MongoDB
     MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")
-    MONGO_DB_NAME = os.getenv("MONGO_DB_NAME", "iraseth_pharma")
+    MONGO_DB_NAME = os.getenv("MONGO_DB_NAME", "iraseth")
     MONGO_MAX_POOL_SIZE = _int(os.getenv("MONGO_MAX_POOL_SIZE"), 50, 1)
     MONGO_MIN_POOL_SIZE = _int(os.getenv("MONGO_MIN_POOL_SIZE"), 0, 0)
     MONGO_SERVER_SELECTION_TIMEOUT_MS = _int(

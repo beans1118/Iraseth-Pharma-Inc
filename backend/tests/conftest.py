@@ -6,18 +6,10 @@ import uuid
 from pathlib import Path
 
 import pytest
-from dotenv import dotenv_values
+from utils.test_configuration import local_test_settings
 
 BACKEND = Path(__file__).resolve().parents[1]
-ENV = BACKEND / ".env.test"
-SAFE_URI = "mongodb://127.0.0.1:27017/?replicaSet=rs0"
-
-if not ENV.is_file():
-    raise RuntimeError("Missing backend/.env.test")
-settings = dotenv_values(ENV)
-for key, expected in {"APP_ENV": "testing", "MONGO_DB_NAME": "iraseth_test", "MONGO_URI": SAFE_URI}.items():
-    if settings.get(key) != expected:
-        raise RuntimeError(f"Unsafe test setting {key}: must match approved test configuration")
+settings, SAFE_URI, SAFE_PORT = local_test_settings(BACKEND)
 
 for key, value in settings.items():
     if value is not None:
@@ -36,7 +28,7 @@ def assert_safe_database():
     assert os.environ["APP_ENV"] == "testing"
     assert db.name == "iraseth_test"
     # Verify the actual MongoClient endpoint too, not just .env contents.
-    assert db.client.address == ("127.0.0.1", 27017)
+    assert db.client.address == ("127.0.0.1", SAFE_PORT)
 
 
 @pytest.fixture

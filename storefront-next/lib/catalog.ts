@@ -17,12 +17,12 @@ export type PublicProduct = {
   inStock: boolean;
   publishedAt?: string;
 };
-export type CatalogResult = { products: PublicProduct[]; connected: boolean; message?: string };
+export type CatalogResult = { products: PublicProduct[]; connected: boolean; message?: string; failure?: 'configuration' | 'connection' | 'http' | 'response' };
 export async function getPublicProduct(slug: string): Promise<{product: PublicProduct|null; connected: boolean}> {
   const base = process.env.CATALOG_API_BASE_URL || process.env.NEXT_PUBLIC_CATALOG_API_BASE;
   if (!base) return {product:null, connected:false};
   try {
-    const response = await fetch(`${base.replace(/\/$/, '')}/api/public/products/${encodeURIComponent(slug)}`, {cache:'no-store'});
+    const response = await fetch(`${base.replace(/\/$/, '')}/api/public/products/${encodeURIComponent(slug)}`, {cache:'no-store', signal:AbortSignal.timeout(8000)});
     if (response.status === 404) return {product:null, connected:true};
     if (!response.ok) throw new Error(`Catalog API returned ${response.status}`);
     const product: PublicProduct = await response.json();
@@ -41,13 +41,16 @@ export async function getPublicProduct(slug: string): Promise<{product: PublicPr
  */
 export async function getPublicProducts(): Promise<CatalogResult> {
   const base = process.env.CATALOG_API_BASE_URL || process.env.NEXT_PUBLIC_CATALOG_API_BASE;
-  if (!base) return {products: [],connected:false,message:'The live product catalog has not yet been connected.'};
+  if (!base) return {products: [],connected:false,failure:'configuration',message:'The live product catalog has not yet been connected. Configure the catalog API origin and restart the storefront.'};
+  let failure: CatalogResult['failure'] = 'connection';
   try {
     const products: PublicProduct[] = [];
     const seen = new Set<string>();
     for (let page = 1; page <= 10000; page++) {
-    const response = await fetch(`${base.replace(/\/$/, '')}/api/public/products?page=${page}&limit=100`, {cache:'no-store'});
-    if (!response.ok) throw new Error(`Catalog API returned ${response.status}`);
+    failure = 'connection';
+    const response = await fetch(`${base.replace(/\/$/, '')}/api/public/products?page=${page}&limit=100`, {cache:'no-store', signal:AbortSignal.timeout(8000)});
+    if (!response.ok) {failure = 'http'; throw new Error(`Catalog API returned ${response.status}`);}
+    failure = 'response';
     const body: unknown = await response.json();
     if (!body || typeof body !== 'object') throw new Error('Invalid catalog response');
     const record = body as Record<string, unknown>;
@@ -60,7 +63,7 @@ export async function getPublicProducts(): Promise<CatalogResult> {
     });
     if (rows.length !== raw.length) throw new Error('Invalid catalog product');
     for (const product of rows) if (!seen.has(product.id)) {products.push(product); seen.add(product.id);}
-    if (record.hasMore !== true) return {products,connected:true};
+    if (record.hasMore !== true) return {products,connected:true,...(!products.length?{message:'The catalog service is connected, but no products are published yet.'}:{})};
     if (!rows.length) throw new Error('Catalog pagination made no progress');
     }
     throw new Error('Catalog pagination limit exceeded');
@@ -69,7 +72,12 @@ export async function getPublicProducts(): Promise<CatalogResult> {
     unstable_rethrow(error);
     // Server-side diagnostics: never expose upstream error details to visitors.
     console.error('[public catalog] Unable to load products:', error);
-    return {products: [], connected:false, message:'The product catalog is temporarily unavailable. Please contact our team for product inquiries.'};
+    const message = failure === 'connection'
+      ? 'The storefront could not connect to the catalog service. Please try again shortly or contact our team.'
+      : failure === 'http'
+      ? 'The catalog service returned an error while loading products. Please try again shortly or contact our team.'
+      : 'The catalog service returned an unexpected response. Please contact our team for product inquiries.';
+    return {products: [], connected:false, failure, message};
   }
 }
 export function formatPrice(value: number | null) {

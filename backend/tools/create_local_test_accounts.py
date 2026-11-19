@@ -2,6 +2,7 @@
 
 Run from backend/: python tools/create_local_test_accounts.py
 Requires the existing project's .env and MongoDB single-node replica set rs0.
+Supports the default iraseth and explicit local sandbox targets.
 Refuses to operate on any database already containing a user; use Team & Access then.
 """
 from __future__ import annotations
@@ -22,8 +23,11 @@ ROLES = (("superadmin", "Superadmin"), ("admin", "Board Admin (view only)"), ("s
 def ensure_local_target(config):
     if config.APP_ENV != "development":
         raise ValueError("APP_ENV must be development. This tool is only for local testing.")
-    if config.MONGO_DB_NAME not in ("iraseth_dev", "iraseth_uat"):
-        raise ValueError("Use a separate local iraseth_dev or iraseth_uat database.")
+    if config.MONGO_DB_NAME == 'iraseth' or config.MONGO_DB_NAME.startswith('iraseth_local_'):
+        from tools.setup_local_catalog import validate_target
+        validate_target(config.MONGO_DB_NAME, config.MONGO_URI)
+    elif config.MONGO_DB_NAME not in ("iraseth_dev", "iraseth_uat"):
+        raise ValueError("Use the default local iraseth or an explicit approved local sandbox target.")
     uri = config.MONGO_URI
     if not uri.startswith("mongodb://") or "," in uri.split("/", 3)[2]:
         raise ValueError("Only a single local mongodb:// host is permitted.")
